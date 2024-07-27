@@ -1,16 +1,11 @@
 {
-  "name": "fish-bubble-design",
+  "name": "fish-remix",
   "version": "0.0.0-dev.1",
-  "description": "A Component Library for Vue 3",
+  "description": "A Component Library for React",
   "keywords": [
-    "fish-bubble-design",
-    "fish-bubble",
-    "yupao-design",
-    "component library",
+    "fish-remix",
     "ui framework",
-    "ui",
-    "vue",
-    "vue3.0"
+    "ui"
   ],
   "license": "MIT",
   "main": "lib/index.js",
@@ -23,9 +18,6 @@
       "import": "./es/index.mjs",
       "require": "./lib/index.js",
       "types": "./es/index.d.ts"
-    },
-    "./global": {
-      "types": "./global.d.ts"
     },
     "./shared": {
       "types": "./es/shared/index.d.ts",
@@ -46,20 +38,21 @@
     "*.scss"
   ],
   "peerDependencies": {
-    "vue": "^3.4.0"
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@types/lodash": "^4.14.182",
     "@types/lodash-es": "^4.17.6",
-    "@fish-bubble/icons": "^1.0.4",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "lodash-unified": "^1.0.2"
   },
   "devDependencies": {
     "@types/node": "*",
-    "vue": "3.4.0"
+    "react-dom": "18.3.1",
+    "react": "18.3.1"
   },
   "browserslist": [
     "> 1%",

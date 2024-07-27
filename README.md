@@ -19,7 +19,7 @@
   <br>
 </p>
 
-<p align="center">fish-bubble-design - 一个 Vue 3 组件库</p>
+<p align="center">fish-bubble-design - 一个 React 组件库</p>
 
 ### 安装
 

@@ -6,13 +6,13 @@
 import { resolve } from "path";
 
 // UI library name
-export const UINAME = "fish-bubble-design";
+export const UINAME = "fish-remix";
 
 // UI工程packages包前缀
-export const PKG_PREFIX = "@fish-bubble-design";
+export const PKG_PREFIX = "@fish-remix";
 
 // UI BRAND name
-export const PKG_BRAND_NAME = "FishBubbleDesign";
+export const PKG_BRAND_NAME = "FishRemix";
 
 // 工程目录的入口
 export const projRoot = resolve(__dirname, "..", "..");
@@ -27,10 +27,10 @@ export const buildRoot = resolve(projRoot, "build");
 export const buildOutput = resolve(projRoot, "dist");
 
 /** 打包时， 构建ui库输出的目录 */
-export const epOutput = resolve(buildOutput, "fish-bubble-design");
+export const epOutput = resolve(buildOutput, "fish-remix");
 
 /** UI库packages 工程目录 */
-export const libraryRoot = resolve(pkgsRoot, "fish-bubble-design");
+export const libraryRoot = resolve(pkgsRoot, "fish-remix");
 
 /** UI库packages 工程目录的package.json文件 */
 export const libraryPackage = resolve(libraryRoot, "package.json");
