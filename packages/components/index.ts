@@ -3,4 +3,5 @@
  * @Description: Modify here please
  */
 // components
-export * from "./button";
+export { default as Button } from "./button";
+export type { IButtonProps } from "./button";

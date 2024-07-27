@@ -2,15 +2,13 @@
   "private": true,
   "scripts": {
     "build": "pnpm run -C ./build start",
-    "create-global-dts": "ts-node ./scripts/create-global-d.ts",
     "update:version": "tsx ./scripts/update-version.ts",
     "clean-node_modules": "rimraf -rf node_modules",
     "lint": "eslint \"{packages,build,scripts,docs}/**/*.{ts,tsx,js,md}\"",
     "prepare": "husky install"
   },
   "workspaces": [
-    "packages/*",
-    "docs"
+    "packages/*"
   ],
   "peerDependencies": {
     "react": ">=16.9.0",
@@ -26,6 +24,8 @@
     "@typescript-eslint/parser": "^6.10.0",
     "@types/lodash": "^4.14.182",
     "@types/node": "^20.4.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "eslint": "^8.47.0",
     "eslint-plugin-jsonc": "^2.3.0",
     "eslint-plugin-markdown": "^3.0.0",

@@ -4,6 +4,6 @@
  */
 import "../../_styles/base.scss";
 
-import "../../_internal/wave/style";
+// import "../../_internal/wave/style";
 
 import "./index.scss";

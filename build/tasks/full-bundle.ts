@@ -7,9 +7,7 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 import { rollup } from "rollup";
 import commonjs from "@rollup/plugin-commonjs";
 
-import vue from "@vitejs/plugin-vue";
-import vueJsx from "@vitejs/plugin-vue-jsx";
-import VueMacros from "unplugin-vue-macros/rollup";
+import babel from "@rollup/plugin-babel";
 
 import esbuild, { minify as minifyPlugin } from "rollup-plugin-esbuild";
 import { parallel } from "gulp";
@@ -28,28 +26,27 @@ function formatBundleFilename(name: string, minify: boolean, ext: string) {
 
 async function buildFullEntry(minify: boolean) {
   const plugins = [
-    VueMacros({
-      setupComponent: false,
-      setupSFC: false,
-      plugins: {
-        vue: vue({
-          isProduction: true
-        }),
-        vueJsx: vueJsx()
-      }
-    }),
     nodeResolve({
-      extensions: [".mjs", ".js", ".json", ".ts"]
+      extensions: [".js", ".jsx", ".ts", ".tsx"]
     }),
     commonjs(),
+    babel({
+      babelHelpers: "bundled",
+      exclude: "node_modules/**",
+      presets: [
+        [
+          "@babel/preset-react",
+          {
+            runtime: "automatic" // Use the new JSX conversion
+          }
+        ]
+      ]
+    }),
     // Not too much introduction: https://github.com/egoist/rollup-plugin-esbuild
     esbuild({
       exclude: [],
       sourceMap: minify,
       target: "es2018",
-      loaders: {
-        ".vue": "ts"
-      },
       define: {
         "process.env.NODE_ENV": JSON.stringify("production")
       },
@@ -82,7 +79,7 @@ async function buildFullEntry(minify: boolean) {
       exports: "named",
       name: PKG_BRAND_NAME,
       globals: {
-        vue: "Vue"
+        react: "React"
       },
       sourcemap: minify,
       banner

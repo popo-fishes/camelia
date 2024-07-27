@@ -101,13 +101,13 @@ export default series(
 
   parallel(
     runTask("buildModules"),
-    runTask("buildFullBundle"),
-    withTaskName("buildThemeChalk", () => run("pnpm run -C ./build-theme start"))
+    runTask("buildFullBundle")
+    // withTaskName("buildThemeChalk", () => run("pnpm run -C ./build-theme start"))
   ),
-  parallel(withTaskName("copyTypesDefinitions", copyTypesDefinitions)),
-  parallel(withTaskName("createGlobalDts", () => run("pnpm -w run create-global-dts"))),
-  parallel(withTaskName("copyFiles", copyFiles)),
-  parallel(withTaskName("createCssJsFile", createCssJsFile)),
+  // parallel(withTaskName("copyTypesDefinitions", copyTypesDefinitions)),
+
+  // parallel(withTaskName("copyFiles", copyFiles)),
+  // parallel(withTaskName("createCssJsFile", createCssJsFile)),
   parallel(async () => {
     for (let i = 0, len = 3; i < len; i++) {
       consola.log(chalk.cyan(`.....`));

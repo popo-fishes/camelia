@@ -7,27 +7,27 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.org/package/fish-bubble-design">
+  <a href="https://www.npmjs.org/package/fish-remix">
     <img src="https://img.shields.io/npm/v/fish-bubble-design.svg" />
   </a>
-  <a href="https://github.com/u-fish-bubble/fish-bubble-design">
+  <a href="https://github.com/u-fish-bubble/fish-remix">
     <img src="https://img.shields.io/badge/node-%20%3E%3D%2018-47c219" />
   </a>
-  <a href="https://npmcharts.com/compare/fish-bubble-design?minimal=true">
+  <a href="https://npmcharts.com/compare/fish-remix?minimal=true">
     <img src="https://img.shields.io/npm/dm/umy-ui.svg" />
   </a>
   <br>
 </p>
 
-<p align="center">fish-bubble-design - 一个 React 组件库</p>
+<p align="center">fish-remix - 一个 React 组件库</p>
 
 ### 安装
 
 ```shell
  # NPM
-$ npm install fish-bubble-design
+$ npm install fish-remix
 # Yarn
-$ yarn add fish-bubble-design
+$ yarn add fish-remix
 # pnpm
-$ pnpm install fish-bubble-design
+$ pnpm install fish-remix
 ```

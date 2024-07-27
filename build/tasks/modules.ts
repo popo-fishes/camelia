@@ -2,27 +2,22 @@
  * @Date: 2023-12-29 21:26:54
  * @Description: Modify here please
  */
-import { resolve } from "path";
 import glob from "fast-glob";
 import type { OutputOptions } from "rollup";
 import { rollup } from "rollup";
-
-import dts from "vite-plugin-dts";
-import pluginVue from "@vitejs/plugin-vue";
-import pluginVueJsx from "@vitejs/plugin-vue-jsx";
-import VueMacros from "unplugin-vue-macros/rollup";
-import { nodeResolve } from "@rollup/plugin-node-resolve";
+import babel from "@rollup/plugin-babel";
+import nodeResolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import esbuild from "rollup-plugin-esbuild";
 import { terser } from "rollup-plugin-terser";
 
 import { excludeFiles, buildConfigEntries } from "../utils";
-import { generateExternal, writeBundles, writeTsTypesPath, writeTsTypesContent } from "../core";
-import { buildOutput, libraryRoot, pkgsRoot, projRoot } from "../core/constants";
+import { generateExternal, writeBundles } from "../core";
+import { libraryRoot, pkgsRoot } from "../core/constants";
 
 export const buildModules = async () => {
   const input = excludeFiles(
-    await glob("**/*.{js,ts,vue}", {
+    await glob("**/*.{ts,tsx}", {
       cwd: pkgsRoot,
       absolute: true,
       onlyFiles: true
@@ -31,31 +26,28 @@ export const buildModules = async () => {
   const bundle = await rollup({
     input,
     plugins: [
-      VueMacros({
-        setupComponent: false,
-        setupSFC: false,
-        plugins: {
-          vue: pluginVue({
-            isProduction: true
-          }),
-          vueJsx: pluginVueJsx()
-        }
-      }),
       // a summary plugin using node parsing algorithm to locate modules, used for nodes_ Using third-party modules in modules
       nodeResolve({
         // specify the extension of the file that the plugin will operate on
-        extensions: [".mjs", ".js", ".json", ".ts"]
+        extensions: [".js", ".jsx", ".ts", ".tsx"]
+      }),
+      babel({
+        babelHelpers: "bundled",
+        exclude: "node_modules/**",
+        presets: [
+          [
+            "@babel/preset-react",
+            {
+              runtime: "automatic" // Use the new JSX conversion
+            }
+          ]
+        ]
       }),
       // https://github.com/rollup/rollup-plugin-commonjs
       commonjs(),
       esbuild({
-        // map compressed or converted code back to the original source code
         sourceMap: true,
-        target: "es2018",
-        // add additional loaders
-        loaders: {
-          ".vue": "ts"
-        }
+        target: "es2018"
       }),
       terser({
         // compress: {
@@ -65,23 +57,6 @@ export const buildModules = async () => {
         output: {
           beautify: true, // Beautify output
           comments: false // Delete all comments
-        }
-      }),
-      dts({
-        entryRoot: pkgsRoot,
-        outDir: resolve(buildOutput, "types"),
-        tsconfigPath: resolve(projRoot, "tsconfig.json"),
-        cleanVueFileName: true,
-        // Now there is no need for alias conversion, we will all use relative paths
-        // aliasesExclude: Object.keys(getPackageSpacesMap())
-        beforeWriteFile: (filePath, content) => {
-          // transform
-          const paths = writeTsTypesPath(filePath);
-          const code = writeTsTypesContent(content, filePath);
-          return {
-            filePath: paths,
-            content: code
-          };
         }
       })
     ],

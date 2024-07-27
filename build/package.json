@@ -1,5 +1,5 @@
 {
-  "name": "@fish-bubble-design/build",
+  "name": "@fish-remix/build",
   "version": "0.0.5",
   "description": "",
   "main": "index.js",
@@ -13,9 +13,10 @@
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
     "@types/gulp": "^4.0.9",
-    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-react": "^7.24.7",
     "@babel/preset-typescript": "^7.16.7",
     "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^11.1.6",
     "chalk": "^5.0.1",
