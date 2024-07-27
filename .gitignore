@@ -1,0 +1,19 @@
+# Editor directories and files
+.idea
+
+# Package Manager
+node_modules
+.pnpm-debug.log*
+
+# System
+.DS_Store
+
+# Bundle
+dist
+./.vitepress/fish-bubble-docs/**
+
+./*.yaml
+
+yarn-error.log
+yarn-lock.log
+yarn.lock

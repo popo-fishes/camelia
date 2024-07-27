@@ -1,0 +1,387 @@
+@use "../../_styles/core/mixins" as *;
+@use "../../_styles/common/var" as *;
+@use "../../_styles/core/css-var" as *;
+@use "../../_styles/core/function" as *;
+
+@include b(button) {
+  @include set-component-css-var("button", $button);
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// 次要类型
+@mixin button-plain($type) {
+  $button-color-types: (
+    "": (
+      "text-color": (
+        "color",
+        $type
+      ),
+      "bg-color": (
+        "color",
+        $type,
+        "light-8"
+      ),
+      "border-color": (
+        "color",
+        $type,
+        "light-8"
+      )
+    ),
+    "hover": (
+      "text-color": (
+        "color",
+        $type
+      ),
+      "bg-color": (
+        "color",
+        $type,
+        "light-7"
+      ),
+      "border-color": (
+        "color",
+        $type,
+        "light-7"
+      )
+    ),
+    "active": (
+      "text-color": (
+        "color",
+        $type
+      ),
+      "bg-color": (
+        "color",
+        $type,
+        "light-6"
+      ),
+      "border-color": (
+        "color",
+        $type,
+        "light-6"
+      )
+    )
+  );
+
+  @each $type, $typeMap in $button-color-types {
+    @each $typeColor, $list in $typeMap {
+      #{getCssVarName('button', $type, $typeColor)}: var(#{joinVarName($list)});
+    }
+  }
+
+  &.is-disabled {
+    &,
+    &:hover {
+      color: getCssVar("color", $type, "light-5");
+      background-color: getCssVar("color", $type, "light-8");
+      border-color: getCssVar("color", $type, "light-8");
+    }
+  }
+}
+
+// 鬼透明 -- ghost类型
+@mixin button-ghost($type) {
+  $button-color-types: (
+    "": (
+      "text-color": (
+        "color",
+        $type
+      ),
+      "border-color": (
+        "color",
+        $type
+      )
+    ),
+    "hover": (
+      "text-color": (
+        "color",
+        $type
+      ),
+      "border-color": (
+        "color",
+        $type
+      )
+    ),
+    "active": (
+      "text-color": (
+        "color",
+        $type,
+        "dark-2"
+      ),
+      "border-color": (
+        "color",
+        $type,
+        "dark-2"
+      )
+    )
+  );
+
+  @each $type, $typeMap in $button-color-types {
+    // 背景透明
+    #{getCssVarName('button', $type, 'bg-color')}: transparent;
+    @each $typeColor, $list in $typeMap {
+      #{getCssVarName('button', $type, $typeColor)}: var(#{joinVarName($list)});
+    }
+  }
+
+  &.is-disabled {
+    &,
+    &:hover {
+      color: getCssVar("color", $type, "light-5");
+      background-color: getCssVar("color", $type, "light-8");
+      border-color: getCssVar("color", $type, "light-8");
+    }
+  }
+}
+
+// 按钮类型
+@mixin button-variant($type) {
+  $button-color-types: (
+    "": (
+      // 波纹色修改
+      "ripple-color": ("color", $type),
+      // 基本色修改
+      "text-color": ("color", "white"),
+      "bg-color": ("color", $type),
+      "border-color": ("color", $type)
+    ),
+    "hover": (
+      "text-color": (
+        "color",
+        "white"
+      ),
+      "bg-color": (
+        "color",
+        $type,
+        "light-3"
+      ),
+      "border-color": (
+        "color",
+        $type,
+        "light-3"
+      )
+    ),
+    "active": (
+      "bg-color": (
+        "color",
+        $type,
+        "dark-2"
+      ),
+      "border-color": (
+        "color",
+        $type,
+        "dark-2"
+      )
+    ),
+    "disabled": (
+      "text-color": (
+        "color",
+        "white"
+      ),
+      "bg-color": (
+        "color",
+        $type,
+        "light-5"
+      ),
+      "border-color": (
+        "color",
+        $type,
+        "light-5"
+      )
+    )
+  );
+
+  @each $type, $typeMap in $button-color-types {
+    @each $typeColor, $list in $typeMap {
+      #{getCssVarName('button', $type, $typeColor)}: var(#{joinVarName($list)});
+    }
+  }
+
+  &.is-plain {
+    @include button-plain($type);
+  }
+
+  // 透明效果时
+  &.is-ghost {
+    @include button-ghost($type);
+  }
+}
+
+@include b(button) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  position: relative;
+  cursor: pointer;
+  color: getCssVar("button", "text-color");
+  box-sizing: border-box;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  user-select: none;
+  height: getCssVar("component-size");
+  padding: 0px 16px;
+  transition: 0.2s;
+  background-color: getCssVar("button", "bg-color");
+  border-width: 1px;
+  border-style: solid;
+  border-color: getCssVar("button", "border-color");
+  border-radius: 6px;
+
+  // 控制交互样式
+  &:hover {
+    color: getCssVar("button", "hover", "text-color");
+    border-color: getCssVar("button", "hover", "border-color");
+    background-color: getCssVar("button", "hover", "bg-color");
+  }
+
+  &:active {
+    color: getCssVar("button", "active", "text-color");
+    border-color: getCssVar("button", "active", "border-color");
+    background-color: getCssVar("button", "active", "bg-color");
+  }
+
+  > .btn-text {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  > .icon-loading {
+    color: #fff;
+    height: 20px;
+    width: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    animation: rotating 1s infinite linear;
+  }
+
+  & [class*="icon-loading"] + span {
+    margin-left: 6px;
+  }
+
+  & + & {
+    margin-left: 8px;
+  }
+
+  // 禁用时
+  @include when(disabled) {
+    &,
+    &:hover {
+      color: getCssVar("button", "disabled", "text-color");
+      cursor: not-allowed;
+      background-color: getCssVar("button", "disabled", "bg-color");
+      border-color: getCssVar("button", "disabled", "border-color");
+    }
+  }
+
+  @include when(loading) {
+    position: relative;
+    pointer-events: none;
+    &::before {
+      z-index: 1;
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      border-radius: inherit;
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  // 按钮透明时
+  @include when(ghost) {
+    #{getCssVarName("button", "text-color")}: rgba(0, 0, 0, 0.65);
+    #{getCssVarName("button", "bg-color")}: transparent;
+    #{getCssVarName("button", "border-color")}: getCssVar("color-info", "light-7");
+
+    #{getCssVarName("button", "hover", "text-color")}: getCssVar("color-primary");
+    #{getCssVarName("button", "hover", "bg-color")}: transparent;
+    #{getCssVarName("button", "hover", "border-color")}: getCssVar("color-primary");
+
+    #{getCssVarName("button", "active", "text-color")}: getCssVar("color-primary", "dark-2");
+    #{getCssVarName("button", "active", "bg-color")}: transparent;
+    #{getCssVarName("button", "active", "border-color")}: getCssVar("color-primary", "dark-2");
+  }
+
+  // 朴素按钮
+  @include when(plain) {
+    #{getCssVarName("button", "text-color")}: rgba(0, 0, 0, 0.65);
+    #{getCssVarName("button", "bg-color")}: getCssVar("color-white");
+    #{getCssVarName("button", "border-color")}: getCssVar("color-info", "light-7");
+
+    #{getCssVarName("button", "hover", "text-color")}: getCssVar("color-primary");
+    #{getCssVarName("button", "hover", "bg-color")}: getCssVar("color-white");
+    #{getCssVarName("button", "hover", "border-color")}: getCssVar("color-primary");
+
+    #{getCssVarName("button", "active", "text-color")}: getCssVar("color-primary", "dark-2");
+    #{getCssVarName("button", "active", "bg-color")}: getCssVar("color-white");
+    #{getCssVarName("button", "active", "border-color")}: getCssVar("color-primary", "dark-2");
+
+    // 禁用时
+    &.is-disabled {
+      &,
+      &:hover {
+        color: getCssVar("color-info", "light-5");
+        cursor: not-allowed;
+        background-color: getCssVar("color-white");
+        border-color: getCssVar("color-info", "light-7");
+      }
+    }
+  }
+
+  @include m(large) {
+    border-radius: 8px;
+    height: getCssVar("component-size", "large");
+    padding: 0px 24px;
+  }
+  @include m(small) {
+    border-radius: 4px;
+    height: getCssVar("component-size", "small");
+    padding: 0px 12px;
+  }
+
+  // 输出type类型的按钮样式
+  @each $type in (primary, success, warning, danger) {
+    @include m($type) {
+      @include button-variant($type);
+    }
+  }
+  // 波浪效果
+  @include b(base-wave) {
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1), cubic-bezier(0, 0, 0.2, 1);
+
+    @keyframes button-wave-spread {
+      from {
+        box-shadow: 0 0 0.5px 0 getCssVar("button", "ripple-color");
+      }
+      to {
+        box-shadow: 0 0 0.5px 5px getCssVar("button", "ripple-color");
+      }
+    }
+    @keyframes button-wave-opacity {
+      from {
+        opacity: 0.6;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+    @include when(active) {
+      animation-name: button-wave-spread, button-wave-opacity;
+    }
+  }
+}

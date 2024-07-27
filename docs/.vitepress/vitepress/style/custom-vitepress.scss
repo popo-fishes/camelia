@@ -1,0 +1,116 @@
+// 修改头部
+.VPNav {
+  .title {
+    border: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 204px !important;
+  }
+  .logo {
+    height: 60px !important;
+    width: 204px !important;
+  }
+  .appearance + .social-links::before {
+    display: none;
+  }
+  .content-body {
+    background-color: transparent !important;
+  }
+  background-color: hsl(0 0% 100% /0.6);
+  backdrop-filter: saturate(50%) blur(8px);
+}
+.dark .VPNav {
+  background-color: hsla(0, 1%, 13%, 0.637);
+}
+
+.VPNavBar.has-sidebar .divider {
+  padding-left: 0 !important;
+}
+.VPNavBarMenuLink.active {
+  color: var(--brand-color) !important;
+  border-bottom: 1px solid var(--brand-color);
+}
+.VPNavBarMenuLink {
+  :hover {
+    color: var(--brand-color) !important;
+  }
+}
+
+// 修改左侧
+.dark .VPSidebar {
+  background-color: var(--vp-sidebar-bg-color) !important;
+}
+.dark .VPSidebarItem .VPLink .text {
+  color: #cfd3dc !important;
+}
+.VPSidebar {
+  background-color: #fff !important;
+  padding-top: 0px !important;
+  top: var(--vp-nav-height) !important;
+  .curtain {
+    background-color: transparent !important;
+    width: 100%;
+    margin: 0 !important;
+    display: none;
+  }
+  .group {
+    padding: 0 !important;
+  }
+  .group + .group {
+    padding-top: 24px !important;
+    border-top: none !important;
+  }
+}
+
+.VPSidebarItem {
+  padding-bottom: 0 !important;
+  h2 {
+    padding: 0 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px !important;
+    line-height: 24px;
+  }
+  .VPLink {
+    padding: 10px 16px !important;
+    .text {
+      padding: 0 !important;
+      line-height: 20px !important;
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      color: var(--text-color-light) !important;
+      transition: color 0.5s !important;
+    }
+    &:hover .text {
+      color: var(--brand-color) !important;
+    }
+  }
+}
+// 选中时
+.VPSidebarItem.is-active {
+  .VPLink {
+    background-color: var(--link-active-bg-color) !important;
+    border-radius: 8px !important;
+    .text {
+      font-weight: 500 !important;
+      color: var(--brand-color) !important;
+      transition: color 0.25s !important;
+    }
+  }
+}
+
+// 内容区 右侧
+.VPContent {
+  .aside-content {
+    .outline-marker {
+      background-color: var(--brand-color);
+    }
+    .outline-link.active {
+      color: var(--brand-color);
+    }
+  }
+}
+
+.VPContent .VPDoc.has-aside .content-container {
+  max-width: 780px;
+}

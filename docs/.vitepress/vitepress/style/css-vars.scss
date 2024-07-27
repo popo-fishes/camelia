@@ -1,0 +1,95 @@
+@use "./mixins" as *;
+
+// css variables
+:root {
+  // layouts
+  --vp-screen-max-width: 1200px;
+  --vp-layout-max-width: 1500px !important;
+  --vp-c-brand: var(--fb-color-primary);
+  --vp-c-brand-1: var(--fb-color-primary);
+  --vp-c-brand-light: var(--fb-color-primary-light-3);
+  --vp-c-brand-lighter: var(--fb-color-primary-light-5);
+  --vp-c-brand-lightest: : var(--fb-color-primary-light-7);
+  --vp-c-brand-dark: : var(--fb-color-primary-dark-2);
+  --vp-c-brand-darker: var(--fb-color-primary);
+  --vp-custom-block-tip-code-bg: var(--vp-code-block-bg);
+  --vp-code-color: var(--fb-color-primary-light-3);
+  --vp-code-bg: #f5f7fa;
+  --vp-c-text-1: #606266;
+  --vp-code-block-bg: #f5f7fa;
+  // colors
+  --text-color: var(--fb-text-color-primary);
+  --text-color-light: var(--fb-text-color-regular);
+  --text-color-lighter: var(--fb-text-color-secondary);
+
+  --brand-color: var(--fb-color-primary);
+  --brand-color-light: var(--fb-color-primary-light-1);
+  --bg-brand-color: var(--fb-color-primary-light-9);
+
+  --bg-color: #ffffff;
+  --bg-color-rgb: 255, 255, 255;
+  --bg-color-soft: #fafafa;
+  --bg-color-mute: #f2f2f2;
+  --border-color: #dcdfe6;
+  --border-color-light: #e4e7ed;
+
+  --font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "\5fae\8f6f\96c5\9ed1", Arial, sans-serif;
+  --font-family-mono: "JetBrains Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+
+  // info
+  --success-color: var(--fb-color-success);
+  --warning-color: var(--fb-color-warning);
+  --danger-color: var(--fb-color-danger);
+
+  // header vars
+  --header-height: 55px;
+  --nav-height: 55px; // alias of --header-height
+
+  /* Screen Size */
+  --vp-screen-max-width: 1362px;
+
+  @include respond-to("xxl") {
+    --vp-sidebar-width-small: 234px;
+  }
+
+  @include respond-to("max") {
+    --vp-screen-max-width: 1482px;
+    --vp-sidebar-width-small: 290px;
+  }
+
+  // sidebar
+  --vp-sidebar-width-mobile: 320px;
+  --vp-sidebar-width-small: 266px;
+
+  --sidebar-width-sm: 16rem;
+  --sidebar-width-xs: 20rem;
+  --content-min-width: 16rem;
+  --content-max-width: 48rem;
+
+  --nav-z-index: 11;
+  --sub-nav-z-index: 11;
+  --sidebar-z-index: 40;
+  --overlay-z-index: 30;
+  // --dropdown-z-index: 22;
+
+  // code block vars
+  --code-line-height: 1.4;
+  --code-font-size: 14px;
+  --code-bg-color: #f5f7fa;
+  --code-text-color: var(--text-color);
+  --code-font-family: var(--font-family-mono);
+
+  // link
+  --link-active-bg-color: rgba(64, 158, 255, 0.1);
+}
+
+.dark {
+  --bg-color-rgb: 0, 0, 0;
+  --bg-color-soft: #242424;
+  --bg-color-mute: #2c2c2c;
+  --vp-code-block-bg: #141414;
+  --vp-code-bg: #262727;
+  --vp-code-color: #e5eaf3;
+  --border-color: #4c4d4f;
+  --vp-c-text-1: rgba(255, 255, 245, 0.86);
+}

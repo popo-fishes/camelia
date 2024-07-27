@@ -1,0 +1,34 @@
+// CSS3 var
+@use "common/var" as *;
+@use "core/css-var" as *;
+
+//为了获得更好的性能，如果您真的
+//不需要，因为这可能会引入渲染的重新计算开销。
+// https://lisilinhart.info/posts/css-variables-performance/
+
+// 把变量转换为root css var
+
+// common
+:root {
+  @include set-css-var-value("color-white", $color-white);
+  @include set-css-var-value("color-black", $color-black);
+  // --fb-border-radius-#{$type}
+  @include set-component-css-var("border-radius", $border-radius);
+  // --fb-font-size-#{$type}
+  @include set-component-css-var("font-size", $font-size);
+  // --fb-text-color-#{$type}
+  @include set-component-css-var("text-color", $text-color);
+
+  // 全局组件的高度，比如input类型的
+  @include set-component-css-var("component-size", $common-component-size);
+}
+
+// for light
+:root {
+  // --fb-color-#{$type}
+  // --fb-color-#{$type}-light-{$i}
+  // 设置css主题颜色和辅助色
+  @each $type in $types {
+    @include set-css-color-type($colors, $type);
+  }
+}

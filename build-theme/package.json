@@ -1,0 +1,21 @@
+{
+  "name": "@fish-bubble-design/build-theme",
+  "version": "0.0.5",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "gulp --require @esbuild-kit/cjs-loader",
+    "clean": "rimraf dist"
+  },
+  "devDependencies": {
+    "@types/gulp-sass": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "@types/sass": "1.45.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "sass": "1.69.7"
+  }
+}

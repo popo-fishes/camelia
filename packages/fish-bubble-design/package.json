@@ -1,0 +1,69 @@
+{
+  "name": "fish-bubble-design",
+  "version": "0.0.0-dev.1",
+  "description": "A Component Library for Vue 3",
+  "keywords": [
+    "fish-bubble-design",
+    "fish-bubble",
+    "yupao-design",
+    "component library",
+    "ui framework",
+    "ui",
+    "vue",
+    "vue3.0"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.mjs",
+  "types": "es/index.d.ts",
+  "unpkg": "dist/index.full.js",
+  "jsdelivr": "dist/index.full.js",
+  "exports": {
+    ".": {
+      "import": "./es/index.mjs",
+      "require": "./lib/index.js",
+      "types": "./es/index.d.ts"
+    },
+    "./global": {
+      "types": "./global.d.ts"
+    },
+    "./shared": {
+      "types": "./es/shared/index.d.ts",
+      "import": "./es/shared/index.mjs",
+      "require": "./lib/shared/index.js"
+    },
+    "./*": "./*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": [
+    "dist/*",
+    "es/**/_styles/*",
+    "lib/**/_styles/*",
+    "es/components/*/style/*",
+    "lib/components/*/style/*",
+    "*.scss"
+  ],
+  "peerDependencies": {
+    "vue": "^3.4.0"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@types/lodash": "^4.14.182",
+    "@types/lodash-es": "^4.17.6",
+    "@fish-bubble/icons": "^1.0.4",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "lodash-unified": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "vue": "3.4.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "not ie 11",
+    "not op_mini all"
+  ]
+}

@@ -1,0 +1,286 @@
+/* Component chalk variables */
+
+// https://sass-lang.com/documentation/modules/map/
+@use "sass:math";
+@use "sass:map";
+
+@use "../core/function.scss" as *;
+
+// 主题配置器 （这里全是变量）
+
+// types
+$types: primary, success, warning, danger, info;
+
+// Color
+$colors: () !default;
+$colors: map.deep-merge(
+  (
+    "white": #ffffff,
+    "black": #000000,
+    "primary": (
+      "base": #0092ff
+    ),
+    "success": (
+      "base": #06b578
+    ),
+    "warning": (
+      "base": #e6a23c
+    ),
+    "danger": (
+      "base": #f56c6c
+    ),
+    "info": (
+      "base": #909399
+    )
+  ),
+  $colors
+);
+
+$color-white: map.get($colors, "white") !default;
+$color-black: map.get($colors, "black") !default;
+$color-primary: map.get($colors, "primary", "base") !default;
+$color-success: map.get($colors, "success", "base") !default;
+$color-warning: map.get($colors, "warning", "base") !default;
+$color-danger: map.get($colors, "danger", "base") !default;
+$color-info: map.get($colors, "info", "base") !default;
+
+// https://sass-lang.com/documentation/values/maps#immutability
+// mix colors with white/black to generate light/dark level
+@mixin set-color-mix-level($type, $number, $mode: "light", $mix-color: $color-white) {
+  $colors: map.deep-merge(
+    (
+      $type: (
+        "#{$mode}-#{$number}": mix($mix-color, map.get($colors, $type, "base"), math.percentage(math.div($number, 10)))
+      )
+    ),
+    $colors
+  ) !global;
+}
+
+// $colors.primary.light-i
+// --fb-color-primary-light-i
+// --fb-color-primary-light-3: #4db3ff;
+// --fb-color-primary-light-5: #80c9ff;
+// --fb-color-primary-light-7: #b3deff;
+// --fb-color-primary-light-8: #cce9ff;
+// --fb-color-primary-light-9: #e6f4ff;
+@each $type in $types {
+  @for $i from 1 through 9 {
+    @include set-color-mix-level($type, $i, "light", $color-white);
+  }
+}
+
+// --fb-color-primary-dark-2
+@each $type in $types {
+  @include set-color-mix-level($type, 2, "dark", $color-black);
+}
+
+// 全局组件的高度，比如input类型的
+$common-component-size: () !default;
+$common-component-size: map.merge(
+  (
+    "large": 48px,
+    "default": 40px,
+    "small": 32px
+  ),
+  $common-component-size
+);
+
+// 字体
+$font-size: () !default;
+$font-size: map.merge(
+  (
+    "large": 18px,
+    "medium": 16px,
+    "base": 14px,
+    "small": 13px,
+    "extra-small": 12px
+  ),
+  $font-size
+);
+// 普通文本颜色
+$text-color: () !default;
+$text-color: map.merge(
+  (
+    // 主要的
+    "primary": #303133,
+    // 常规的
+    "regular": #606266,
+    // 次要的
+    "secondary": #909399,
+    // 占位符颜色
+    "placeholder": #a8abb2,
+    // disabled
+    "disabled": #c0c4cc
+  ),
+  $text-color
+);
+// 圆角
+$border-radius: () !default;
+$border-radius: map.merge(
+  (
+    "base": 4px,
+    "small": 3px,
+    "large": 8px,
+    "circle": 100%
+  ),
+  $border-radius
+);
+
+// Button
+$button: () !default;
+$button: map.merge(
+  (
+    // 点击时的波纹色
+    "ripple-color": getCssVar("color-primary"),
+    // 底色
+    "text-color": getCssVar("color-primary"),
+    "bg-color": getCssVar("color-white"),
+    "border-color": getCssVar("color-primary"),
+    // hover时
+    "hover-text-color": getCssVar("color-white"),
+    "hover-bg-color": getCssVar("color-primary"),
+    "hover-border-color": getCssVar("color-primary"),
+    // 点击时
+    "active-text-color": getCssVar("color-white"),
+    "active-bg-color": getCssVar("color-primary", "dark-2"),
+    "active-border-color": getCssVar("color-primary", "dark-2"),
+    // 禁用时
+    "disabled-text-color": getCssVar("color-primary", "light-7"),
+    "disabled-bg-color": getCssVar("color-white"),
+    "disabled-border-color": getCssVar("color-primary", "light-9")
+  ),
+  $button
+);
+
+// Checkbox
+$checkbox: () !default;
+$checkbox: map.merge(
+  (
+    // 点击时的波纹色
+    "ripple-color": getCssVar("color-primary"),
+    // checkbox宽高
+    "input-height": 16px,
+    "input-width": 16px,
+    // 状态状态的文字颜色
+    "text-color": getCssVar("text-color-regular"),
+    // 圆角
+    "border-radius": getCssVar("border-radius-base"),
+    // 正常状态的背景色
+    "bg-color": getCssVar("color-white"),
+    // 正常状态边框
+    "input-border": 1px solid getCssVar("color-info", "light-5"),
+    // 禁用时的边框颜色
+    "disabled-border-color": getCssVar("color-info", "light-5"),
+    // 禁止状态下的背景色
+    "disabled-input-fill": getCssVar("color-info", "light-8"),
+    // 禁止状态下选中时的icon 色
+    "disabled-checked-icon-color": #a8a2b2,
+    // 选中状态下边框色
+    "checked-input-border-color": getCssVar("color-primary"),
+    // 选中状态下背景色
+    "checked-bg-color": getCssVar("color-primary"),
+    // 选中状态下icon 色
+    "checked-icon-color": getCssVar("color-white"),
+    // 获取焦点边框色
+    "input-border-color-hover": getCssVar("color-primary")
+  ),
+  $checkbox
+);
+
+// Input
+$input: () !default;
+$input: map.merge(
+  (
+    // 点击时的波纹色
+    "ripple-color": transparentColor($color-primary, 0.2),
+    // 输入框背景色
+    "bg-color": getCssVar("color-white"),
+    // 输入框的宽度
+    "width": 100%,
+    // 文本的颜色
+    "text-color": getCssVar("text-color-regular"),
+    // 边框色
+    "border-color": getCssVar("color-info", "light-6"),
+    // hover的边框色
+    "hover-border-color": getCssVar("color-primary"),
+    // 聚焦的边框色
+    "focus-border-color": getCssVar("color-primary"),
+    // 禁止时的背景
+    "disabled-bg-color": getCssVar("color-info", "light-9"),
+    // 输入框的圆角
+    "border-radius": getCssVar("border-radius-base"),
+    // 占位符颜色
+    "placeholder-color": getCssVar("text-color-placeholder"),
+    // 清除按钮颜色
+    "clear-icon-color": rgba(0, 0, 0, 0.25)
+  ),
+  $input
+);
+
+// popper
+// Pay attention to the difference between 'popper' and 'popover'
+$popper: () !default;
+$popper: map.merge(
+  (
+    "border-radius": var(#{getCssVarName("popover-border-radius")}, 4px)
+  ),
+  $popper
+);
+
+// select
+$select: () !default;
+$select: map.merge(
+  (
+    // 点击时的波纹色
+    "ripple-color": transparentColor($color-primary, 0.2),
+    // select背景色
+    "bg-color": getCssVar("color-white"),
+    // 边框色
+    "border-color": getCssVar("color-info", "light-6"),
+    // hover的边框色
+    "hover-border-color": getCssVar("color-primary"),
+    // 聚焦的边框色
+    "focus-border-color": getCssVar("color-primary"),
+    // 禁止时的背景
+    "disabled-bg-color": getCssVar("color-info", "light-9"),
+    // 输入框的圆角
+    "border-radius": getCssVar("border-radius-base"),
+    // 清除按钮颜色
+    "clear-icon-color": rgba(0, 0, 0, 0.25)
+  ),
+  $select
+);
+
+$select-dropdown: () !default;
+$select-dropdown: map.merge(
+  (
+    "max-height": 240px,
+    "border-radius": getCssVar("border-radius-small"),
+    "bg-color": getCssVar("color-white"),
+    "border-color": getCssVar("color-white"),
+    // item的高度
+    "item-height": 36px,
+    // item获取焦点的字体颜色
+    "item-hover-color": getCssVar("color-primary"),
+    // item获取焦点背景色
+    "item-hover-bgcolor": #f5f6fa,
+    // 选中时的字体颜色
+    "selected-text-color": getCssVar("color-primary"),
+    // 禁止状态下的文本颜色
+    "item-disabled-text-color": getCssVar("text-color-disabled")
+  ),
+  $select-dropdown
+);
+
+// Tag
+$tag: () !default;
+$tag: map.merge(
+  (
+    // 字体大小
+    "font-size": 12px,
+    "border-radius": 4px,
+    "border-radius-rounded": 9999px
+  ),
+  $tag
+);

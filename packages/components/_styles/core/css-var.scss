@@ -1,0 +1,37 @@
+@use "sass:map";
+@use "function" as *;
+
+// 设置css var值，因为我们需要将值转换为字符串
+// @include set-css-var-value(('color', 'primary'), red);；
+// 返回 --fb-color-primary: red;
+@mixin set-css-var-value($name, $value) {
+  #{joinVarName($name)}: #{$value};
+}
+
+// @include set-css-var-type('color', 'primary', $map);
+// --fb-color-primary: #{map.get($map, 'primary')};
+@mixin set-css-var-type($name, $type, $variables) {
+  #{getCssVarName($name, $type)}: #{map.get($variables, $type)};
+}
+
+// set all css var for component by map
+@mixin set-component-css-var($name, $variables) {
+  @each $attribute, $value in $variables {
+    @if $attribute == "default" {
+      #{getCssVarName($name)}: #{$value};
+    } @else {
+      #{getCssVarName($name, $attribute)}: #{$value};
+    }
+  }
+}
+
+// 设置css主题颜色和辅助色
+@mixin set-css-color-type($colors, $type) {
+  @include set-css-var-value(("color", $type), map.get($colors, $type, "base"));
+  // 辅助色
+  @each $i in (3, 5, 6, 7, 8, 9) {
+    @include set-css-var-value(("color", $type, "light", $i), map.get($colors, $type, "light-#{$i}"));
+  }
+  // 辅助色
+  @include set-css-var-value(("color", $type, "dark-2"), map.get($colors, $type, "dark-2"));
+}

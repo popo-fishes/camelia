@@ -1,0 +1,54 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "pnpm run -C ./build start",
+    "create-global-dts": "ts-node ./scripts/create-global-d.ts",
+    "update:version": "tsx ./scripts/update-version.ts",
+    "clean-node_modules": "rimraf -rf node_modules",
+    "lint": "eslint \"{packages,build,scripts,docs}/**/*.{ts,tsx,js,vue,md}\"",
+    "prepare": "husky install"
+  },
+  "workspaces": [
+    "packages/*",
+    "docs"
+  ],
+  "peerDependencies": {
+    "vue": "^3.4.0"
+  },
+  "dependencies": {
+    "@fish-bubble-design/components": "workspace:*",
+    "@fish-bubble-design/core": "workspace:*",
+    "@fish-bubble-design/hooks": "workspace:*",
+    "@fish-bubble-design/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@esbuild-kit/cjs-loader": "^2.2.1",
+    "@pnpm/types": "^8.4.0",
+    "@vue/eslint-config-typescript": "^12.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "@types/lodash": "^4.14.182",
+    "@types/node": "^20.4.10",
+    "eslint": "^8.47.0",
+    "eslint-plugin-jsonc": "^2.3.0",
+    "eslint-plugin-markdown": "^3.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-vue": "^9.18.1",
+    "lint-staged": "^15.1.0",
+    "lodash": "^4.17.21",
+    "husky": "^8.0.3",
+    "prettier": "^3.1.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "tsx": "^3.6.0",
+    "typescript": "^5.1.6",
+    "vue": "3.4.0"
+  },
+  "engines": {
+    "node": ">= 18"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx,md}": "eslint --fix"
+  }
+}
