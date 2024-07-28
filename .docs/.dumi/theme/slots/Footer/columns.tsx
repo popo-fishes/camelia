@@ -1,3 +1,7 @@
+/*
+ * @Date: 2024-07-28 21:01:55
+ * @Description: Modify here please
+ */
 import { FooterColumn } from 'rc-footer/es/column';
 
 interface GetColumnParams {
@@ -11,7 +15,6 @@ export const getColumns = () => {
         title: 'MyBatis Dynamic SQL',
         url: 'https://mybatis.org/mybatis-dynamic-sql/docs/introduction.html',
         openExternal: true,
-
       },
       {
         title: 'MyBatis Generator',
@@ -28,7 +31,6 @@ export const getColumns = () => {
         url: 'https://junit.org/junit5/',
         openExternal: true,
       },
-     
     ],
   };
   const community: FooterColumn = {
@@ -45,7 +47,6 @@ export const getColumns = () => {
         url: 'https://www.emqx.com/zh',
         openExternal: true,
       },
-    
     ],
   };
 
@@ -74,8 +75,7 @@ export const getColumns = () => {
         url: 'https://aifarm-iot.redhtc.com/',
         openExternal: true,
       },
-
     ],
   };
-  return [resources, community, help];
+  return [];
 };

@@ -1,0 +1,29 @@
+// https://d.umijs.org/guide/project-structure#%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F
+
+// 隐藏第一个节点（首页）
+.site-tabs-nav-wrap .site-tabs-nav-list .site-tabs-tab:first-child {
+  display: none !important;
+}
+.site-tabs-nav::before {
+  border-bottom: none !important;
+}
+.site-tabs-nav .site-tabs-nav-operations {
+  display: none !important;
+}
+
+.site-tabs .site-tabs-tab.site-tabs-tab-active .site-tabs-tab-btn {
+  color: #0092ff !important;
+}
+.site-tabs-tab-btn {
+  font-size: 16px !important;
+}
+
+// 修改左侧菜单栏样式
+.site-ar97vv > dl > dd > a {
+  font-size: 14px !important;
+  color: #606266 !important;
+}
+.site-ar97vv > dl > dd > a.active {
+  color: #0092ff !important;
+  font-weight: 500 !important;
+}

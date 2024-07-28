@@ -1,3 +1,7 @@
+/*
+ * @Date: 2024-07-28 21:01:55
+ * @Description: Modify here please
+ */
 import { Footer } from 'dumi-theme-antd-style';
 import React from 'react';
 import { getColumns } from './columns';
@@ -10,7 +14,8 @@ export default () => {
         {' '}
         Open-source Apach2 Licensed | Copyright © 2024 | littlefish{' '}
       </a>
-      <br /> Made with ❤ by <br /> 小鱼儿和开源社区
+      <br />
+      fish-bubble开源社区
     </>
   );
   return <Footer bottom={bootom} columns={columns} />;
