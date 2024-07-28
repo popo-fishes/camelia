@@ -23,6 +23,14 @@
 
 <p align="center">React UI library，Implement functionality with the simplest code</p>
 
+## ✨ 特征
+
+- 🌈 为web应用程序设计的企业级UI
+- 📦 一组开箱即用的高质量React组件。
+- 🛡 用TypeScript编写，具有可预测的静态类型。
+- ⚙️ 众多的精致小工具，宛如开发过程中的得力助手
+- 🎨 基于主题定制.
+
 ## 支持环境
 
 - 支持现代浏览器.
@@ -31,13 +39,11 @@
 
 - 支持Electron桌面应用.
 
-## 兼容性
-
 | ![Chrome](https://cdn.jsdelivr.net/npm/@browser-logos/chrome/chrome_32x32.png) Chrome | ![IE](https://cdn.jsdelivr.net/npm/@browser-logos/edge/edge_32x32.png) Edge | ![Firefox](https://cdn.jsdelivr.net/npm/@browser-logos/firefox/firefox_32x32.png) Firefox | ![Safari](https://cdn.jsdelivr.net/npm/@browser-logos/safari/safari_32x32.png) Safari |
 | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | Chrome ≥ 85                                                                           | Edge ≥ 85                                                                   | Firefox ≥ 79                                                                              | Safari ≥ 14.1                                                                         |
 
-## Install
+## 📦 Install
 
 ```bash
 npm install fish-remix
