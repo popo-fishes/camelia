@@ -6,7 +6,7 @@
   <img width="300px" height="250px" src="https://cdn.yupaowang.com/yupao_pc/images/pl/fb-logo-max.png">
 </p>
 
-<h1>Fish Remix</h1>
+<h1 align="center">Fish Remix</h1>
 
 <p align="center">
   <a href="https://www.npmjs.org/package/fish-remix">
@@ -33,8 +33,6 @@
 
 ## 兼容性
 
-fish-bubble-design 使用了Vue3.4.x版本， 由于 Vue 3 不再支持 IE11，fish-bubble-design 也不再支持 IE 浏览器。
-
 | ![Chrome](https://cdn.jsdelivr.net/npm/@browser-logos/chrome/chrome_32x32.png) Chrome | ![IE](https://cdn.jsdelivr.net/npm/@browser-logos/edge/edge_32x32.png) Edge | ![Firefox](https://cdn.jsdelivr.net/npm/@browser-logos/firefox/firefox_32x32.png) Firefox | ![Safari](https://cdn.jsdelivr.net/npm/@browser-logos/safari/safari_32x32.png) Safari |
 | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | Chrome ≥ 85                                                                           | Edge ≥ 85                                                                   | Firefox ≥ 79                                                                              | Safari ≥ 14.1                                                                         |
@@ -56,12 +54,11 @@ pnpm add fish-remix
 ## 🔨 Usage
 
 ```tsx
-import { Button, DatePicker } from "antd";
+import { Button } from "fish-remix";
 
 export default () => (
   <>
-    <Button type="primary">PRESS ME</Button>
-    <DatePicker placeholder="select date" />
+    <Button type="primary">Click Me</Button>
   </>
 );
 ```
