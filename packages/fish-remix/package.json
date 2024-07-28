@@ -45,6 +45,7 @@
     "@popperjs/core": "^2.11.8",
     "@types/lodash": "^4.14.182",
     "@types/lodash-es": "^4.17.6",
+    "fish-icons": "1.0.1",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "lodash-unified": "^1.0.2",
@@ -55,8 +56,9 @@
     "react": "18.3.1"
   },
   "browserslist": [
-    "> 1%",
-    "not ie 11",
-    "not op_mini all"
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead"
   ]
 }

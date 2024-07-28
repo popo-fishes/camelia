@@ -236,6 +236,9 @@ importers:
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
+      fish-icons:
+        specifier: 1.0.1
+        version: 1.0.1(react-dom@18.3.1)(react@18.3.1)
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -3755,6 +3758,16 @@ packages:
       object.pick: 1.3.0
       parse-filepath: 1.0.2
     dev: true
+
+  /fish-icons@1.0.1(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-NN577W5LnJJS9a+ybvC50r4nQWUdeup7PJm09Fojc3GJV+1sCnFcSYxtZ2sudPLtMMpEW8Vhe7AcRmDMuBRn/Q==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    dev: false
 
   /flagged-respawn@1.0.1:
     resolution: {integrity: sha512-lNaHNVymajmk0OJMBn8fVUAU1BtDeKIqKoVhk4xAALB57aALg6b4W0MfJ/cUE0g9YBXy5XhSlPIpYIJ7HaY/3Q==}

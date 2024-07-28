@@ -2,50 +2,27 @@
  * @Date: 2024-05-14 11:15:12
  * @Description: Modify here please
  */
+import { createFromIconfont } from "fish-icons";
 import { version, Button } from "../../packages/fish-remix";
 import "./App.css";
+
+const IconFont = createFromIconfont({
+  scriptUrl: "//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
+});
 
 function App() {
   console.log("fish version---------", version);
   return (
     <>
-      <div>
-        <Button>default</Button>
-        <Button type="primary">Primary</Button>
-        <Button type="success">Success</Button>
-        <Button type="warning">Warning</Button>
-        <Button type="danger">Danger</Button>
-      </div>
-      <div>
-        <Button plain>default</Button>
-        <Button type="primary" plain>
-          Primary
-        </Button>
-        <Button type="success" plain>
-          Success
-        </Button>
-        <Button type="warning" plain>
-          Warning
-        </Button>
-        <Button type="danger" plain>
-          Danger
-        </Button>
-      </div>
-      <div>
-        <Button ghost>default</Button>
-        <Button type="primary" ghost>
-          Primary
-        </Button>
-        <Button type="success" ghost>
-          Success
-        </Button>
-        <Button type="warning" ghost>
-          Warning
-        </Button>
-        <Button type="danger" ghost>
-          Danger
-        </Button>
-      </div>
+      <Button type="primary" size="large" icon={<IconFont type="icon-tuichu" />}>
+        Primary
+      </Button>
+      <Button type="warning" loading>
+        Warning
+      </Button>
+      <Button type="success" size="small">
+        Success
+      </Button>
     </>
   );
 }

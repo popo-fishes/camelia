@@ -4,6 +4,8 @@
  */
 import React, { useContext, createRef, useRef, useMemo } from "react";
 import classNames from "classnames";
+import { Loading } from "fish-icons";
+
 import { ConfigContext } from "../config-provider";
 import { composeRef } from "@fish-remix/core";
 import { useNamespace } from "@fish-remix/hooks";
@@ -68,7 +70,7 @@ const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, IButtonPr
     (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
   };
 
-  //const iconNode = loading ? <Loading class="icon-loading" /> : <>{icon}</>;
+  const iconNode = loading ? <Loading className="icon-loading" /> : <>{icon}</>;
 
   return (
     <button
@@ -80,7 +82,7 @@ const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, IButtonPr
       disabled={disabled}
       ref={buttonRef as any}
     >
-      {/* {iconNode} */}
+      {iconNode}
       <span className="text">{children}</span>
       {/* 波浪 */}
       {isWave && <BaseWave ref={waveElRef} />}
