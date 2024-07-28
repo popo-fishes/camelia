@@ -7,7 +7,7 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "start": "gulp --require @esbuild-kit/cjs-loader",
+    "start": "gulp --gulpfile index.ts --require @esbuild-kit/cjs-loader",
     "clean": "rimraf dist"
   },
   "devDependencies": {

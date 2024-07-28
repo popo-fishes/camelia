@@ -7,8 +7,8 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "start": "gulp --require @esbuild-kit/cjs-loader",
-    "build:typed": "tsc --rootDir ../packages --declaration --emitDeclarationOnly --noEmit false --outDir ../dist/types",
+    "start": "gulp --gulpfile index.ts --require @esbuild-kit/cjs-loader",
+    "build:typed": "tsc --rootDir ../packages --declaration --emitDeclarationOnly --noEmit false --outDir ../dist/types && tsc-alias -p ../tsconfig.json --outDir ../dist/types",
     "clean": "rimraf ../dist"
   },
   "devDependencies": {
