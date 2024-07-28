@@ -3,4 +3,5 @@
  * @Description: Modify here please
  */
 export * from "./pkg";
+export * from "./util";
 export * from "./build-info";

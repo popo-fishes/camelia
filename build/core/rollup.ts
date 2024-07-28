@@ -3,22 +3,8 @@
  * @Description: Modify here please
  */
 import { getPackageDependencies } from "../utils";
-import { libraryPackage, PKG_PREFIX, UINAME } from ".";
-
+import { libraryPackage } from ".";
 import type { OutputOptions, RollupBuild } from "rollup";
-
-// 工程packages目录下的文件
-const directorys = ["components", "core", "hooks", "shared"];
-
-export const getPackageSpacesMap = () => {
-  const packageSpacesEnum: Record<string, string> = {};
-
-  directorys.forEach((item) => {
-    packageSpacesEnum[`${PKG_PREFIX}/${item}`] = `${UINAME}/es/${item}`;
-  });
-
-  return packageSpacesEnum;
-};
 
 /** 生成打包 包外部 */
 export const generateExternal = async (options: { full: boolean }) => {

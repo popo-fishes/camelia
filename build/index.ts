@@ -7,14 +7,14 @@ import consola from "consola";
 import chalk from "chalk";
 
 import { copyFile, mkdir } from "fs/promises";
-import { readFileSync, writeFile } from "fs";
+import { readFileSync, writeFile, rmdirSync } from "fs";
 import { copy } from "fs-extra";
 import { parallel, series } from "gulp";
 import type { TaskFunction } from "gulp";
 
 import { withTaskName, run, runTask } from "./core";
 import { buildOutput, epOutput, libraryPackage, projRoot } from "./core/constants";
-import { buildConfig } from "./utils";
+import { buildConfig, moveFilesFromFolderToParent } from "./utils";
 import type { Module } from "./utils";
 import glob from "fast-glob";
 
@@ -25,6 +25,30 @@ const copyFiles = () =>
     copyFile(libraryPackage, path.join(epOutput, "package.json")),
     copyFile(path.resolve(projRoot, "README.md"), path.resolve(epOutput, "README.md"))
   ]);
+
+const modifyInletTypedPath: TaskFunction = (cb) => {
+  // Copy the file of dist/types/fish-remix to the same level as dist/types
+  const folderPath = path.resolve(buildOutput, "types", "fish-remix");
+  moveFilesFromFolderToParent(folderPath, () => {
+    try {
+      rmdirSync(folderPath, { recursive: true });
+
+      const inletPath = path.resolve(buildOutput, "types", "index.d.ts");
+      // 修改文件路径
+      const code = readFileSync(inletPath, "utf-8");
+      const content = code.replace(/\.\.\/(components|hooks|shared|core)/g, "./$1");
+      writeFile(inletPath, content, (error) => {
+        if (error) {
+          console.error("写文件时出现错误：", error);
+        }
+        cb();
+      });
+    } catch (err) {
+      console.error(`Error deleting folder: ${err}`);
+      cb();
+    }
+  });
+};
 
 const copyTypesDefinitions: TaskFunction = (cb) => {
   const typesPath = path.resolve(buildOutput, "types");
@@ -103,14 +127,17 @@ export default series(
     runTask("buildFullBundle"),
     withTaskName("buildThemeChalk", () => run("pnpm run -C ./build-theme start"))
   ),
-  parallel(withTaskName("createTyped", () => run("pnpm run -C ./build build:typed"))),
+  series(
+    withTaskName("createTyped", () => run("pnpm run -C ./build build:typed")),
+    withTaskName("modifyInletTypedPath", modifyInletTypedPath)
+  ),
 
-  parallel(withTaskName("copyFiles", copyFiles)),
+  parallel(withTaskName("copyFiles", copyFiles), withTaskName("copyTypesDefinitions", copyTypesDefinitions)),
   parallel(withTaskName("createCssJsFile", createCssJsFile)),
 
   parallel(async () => {
-    for (let i = 0, len = 3; i < len; i++) {
-      consola.log(chalk.cyan(`.....`));
+    for (let i = 0, len = 8; i < len; i++) {
+      consola.log(chalk.cyan(`...............`));
     }
     consola.success(chalk.green("---------------Packaging completed--------------"));
   })
