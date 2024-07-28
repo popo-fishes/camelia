@@ -21,7 +21,7 @@
   <br>
 </p>
 
-<p align="center">fish-remix - 一个 React 组件库</p>
+<p align="center">React UI library，Implement functionality with the simplest code</p>
 
 ## 支持环境
 
