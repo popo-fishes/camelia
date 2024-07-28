@@ -34,14 +34,7 @@ export const buildModules = async () => {
       babel({
         babelHelpers: "bundled",
         exclude: "node_modules/**",
-        presets: [
-          [
-            "@babel/preset-react",
-            {
-              runtime: "automatic" // Use the new JSX conversion
-            }
-          ]
-        ]
+        presets: ["@babel/preset-react"]
       }),
       // https://github.com/rollup/rollup-plugin-commonjs
       commonjs(),
@@ -82,13 +75,6 @@ export const buildModules = async () => {
         sourcemap: true,
         // very important
         entryFileNames: (chunkInfo) => {
-          const isFileVue = chunkInfo.name?.endsWith(".vue");
-          if (isFileVue && chunkInfo.name) {
-            const paths = chunkInfo.name.split("/");
-            const lastFileName = paths.pop() as string;
-            const name = lastFileName.split(".")[0];
-            return `${paths.join("/")}/${name}.${config.ext}`;
-          }
           return `[name].${config.ext}`;
         }
       };

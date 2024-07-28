@@ -33,14 +33,7 @@ async function buildFullEntry(minify: boolean) {
     babel({
       babelHelpers: "bundled",
       exclude: "node_modules/**",
-      presets: [
-        [
-          "@babel/preset-react",
-          {
-            runtime: "automatic" // Use the new JSX conversion
-          }
-        ]
-      ]
+      presets: ["@babel/preset-react"]
     }),
     // Not too much introduction: https://github.com/egoist/rollup-plugin-esbuild
     esbuild({

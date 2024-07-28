@@ -1,0 +1,7 @@
+{
+  "name": "@fish-remix/core",
+  "version": "0.0.5",
+  "private": true,
+  "license": "MIT",
+  "main": "index.ts"
+}

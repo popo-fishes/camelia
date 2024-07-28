@@ -11,6 +11,9 @@ importers:
       '@fish-remix/components':
         specifier: workspace:*
         version: link:packages/components
+      '@fish-remix/core':
+        specifier: workspace:*
+        version: link:packages/core
     devDependencies:
       '@esbuild-kit/cjs-loader':
         specifier: ^2.2.1
@@ -165,6 +168,8 @@ importers:
 
   packages/components: {}
 
+  packages/core: {}
+
   packages/fish-remix:
     dependencies:
       '@popperjs/core':
@@ -186,9 +191,6 @@ importers:
         specifier: ^1.0.2
         version: 1.0.3(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
     devDependencies:
-      '@types/node':
-        specifier: '*'
-        version: 20.14.12
       react:
         specifier: 18.3.1
         version: 18.3.1

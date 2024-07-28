@@ -23,8 +23,7 @@ export * from "./tasks";
 const copyFiles = () =>
   Promise.all([
     copyFile(libraryPackage, path.join(epOutput, "package.json")),
-    copyFile(path.resolve(projRoot, "README.md"), path.resolve(epOutput, "README.md")),
-    copyFile(path.resolve(projRoot, "global.d.ts"), path.resolve(epOutput, "global.d.ts"))
+    copyFile(path.resolve(projRoot, "README.md"), path.resolve(epOutput, "README.md"))
   ]);
 
 const copyTypesDefinitions: TaskFunction = (cb) => {
@@ -104,9 +103,9 @@ export default series(
     runTask("buildFullBundle")
     // withTaskName("buildThemeChalk", () => run("pnpm run -C ./build-theme start"))
   ),
-  // parallel(withTaskName("copyTypesDefinitions", copyTypesDefinitions)),
+  parallel(withTaskName("clean", () => run("pnpm run -C ./build build:typed"))),
 
-  // parallel(withTaskName("copyFiles", copyFiles)),
+  parallel(withTaskName("copyFiles", copyFiles)),
   // parallel(withTaskName("createCssJsFile", createCssJsFile)),
   parallel(async () => {
     for (let i = 0, len = 3; i < len; i++) {

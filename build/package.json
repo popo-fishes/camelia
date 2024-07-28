@@ -8,6 +8,7 @@
   "license": "ISC",
   "scripts": {
     "start": "gulp --require @esbuild-kit/cjs-loader",
+    "build:typed": "tsc --rootDir ../packages --declaration --emitDeclarationOnly --noEmit false --outDir ../dist/types",
     "clean": "rimraf ../dist"
   },
   "devDependencies": {

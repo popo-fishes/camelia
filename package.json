@@ -15,7 +15,8 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@fish-remix/components": "workspace:*"
+    "@fish-remix/components": "workspace:*",
+    "@fish-remix/core": "workspace:*"
   },
   "devDependencies": {
     "@esbuild-kit/cjs-loader": "^2.2.1",
