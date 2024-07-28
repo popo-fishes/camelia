@@ -3,9 +3,15 @@
  * @Description: Modify here please
  */
 import type { ComponentSize } from "@fish-remix/core";
-export interface IButtonProps {
-  /** 按钮节点元素 */
-  tag?: string;
+
+export type ButtonHTMLType = "submit" | "button" | "reset";
+
+type MergedHTMLAttributes = Omit<
+  React.HTMLAttributes<HTMLElement> & React.ButtonHTMLAttributes<HTMLElement> & React.AnchorHTMLAttributes<HTMLElement>,
+  "type"
+>;
+
+export interface IButtonProps extends MergedHTMLAttributes {
   /** 按钮类型 */
   type?: "" | "primary" | "success" | "warning" | "danger" | "default";
   /** 幽灵属性，使按钮背景透明 */
@@ -20,6 +26,14 @@ export interface IButtonProps {
   disabled?: boolean;
   /** 是否加载中, 不建议在非type为primary情况下使用，因为背景颜色冲突看不出效果； 你还可以插槽自定义 loading图标 */
   loading?: boolean;
+  /** 按钮前面的图标 */
+  icon?: React.ReactNode;
+  /** 内容 */
+  children?: React.ReactNode;
+  /** 设置 button 原生的 type 值，可选值请参考 HTML 标准 */
+  htmlType?: ButtonHTMLType;
+  /** 自定义className */
+  className?: string;
   /** 是否需要波浪效果 */
-  wave?: boolean;
+  isWave?: boolean;
 }
