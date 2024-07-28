@@ -106,7 +106,8 @@ export default series(
   parallel(withTaskName("createTyped", () => run("pnpm run -C ./build build:typed"))),
 
   parallel(withTaskName("copyFiles", copyFiles)),
-  // parallel(withTaskName("createCssJsFile", createCssJsFile)),
+  parallel(withTaskName("createCssJsFile", createCssJsFile)),
+
   parallel(async () => {
     for (let i = 0, len = 3; i < len; i++) {
       consola.log(chalk.cyan(`.....`));
