@@ -38,11 +38,11 @@ const excludeFiles = async () => {
         const newPath = filePath.replace(/\\/g, "/");
 
         let isDeleted = false;
-        // 排除
+        // exclude
         isDeleted = ["node_modules"].some((exclude) => newPath.includes(exclude));
 
         if (newPath.includes("/_styles/")) {
-          // 排除
+          // exclude
           const regex = /.*_styles\/(?!common\/|core\/).*\.css$/;
           // Not handled  _styles/**/*.css
 
@@ -215,7 +215,9 @@ const build = series(
   withTaskName("createOutput", () => mkdir(path.resolve(epOutput, "dist"), { recursive: true })),
   // create theme-chalk
   parallel(withTaskName("buildThemeChalk", buildThemeChalk)),
+  // Filter files
   parallel(withTaskName("excludeFiles", excludeFiles)),
+  // copy Origin Scss Files
   parallel(withTaskName("copyOriginScssFiles", copyOriginScssFiles)),
   // Copy temporary style package to formal package
   parallel(withTaskName("copyCssDir", copyCssDir)),
@@ -224,7 +226,8 @@ const build = series(
     withTaskName("createTotalScssTheme", createTotalScssTheme),
     withTaskName("createTotalCssTheme", createTotalCssTheme),
     withTaskName("createCommonVarTheme", createCommonVarTheme)
-  )
+  ),
+  withTaskName("clean", () => run("pnpm run -C ./build-theme clean"))
 );
 
 export default build;

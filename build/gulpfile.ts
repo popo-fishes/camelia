@@ -100,10 +100,10 @@ export default series(
 
   parallel(
     runTask("buildModules"),
-    runTask("buildFullBundle")
-    // withTaskName("buildThemeChalk", () => run("pnpm run -C ./build-theme start"))
+    runTask("buildFullBundle"),
+    withTaskName("buildThemeChalk", () => run("pnpm run -C ./build-theme start"))
   ),
-  parallel(withTaskName("clean", () => run("pnpm run -C ./build build:typed"))),
+  parallel(withTaskName("createTyped", () => run("pnpm run -C ./build build:typed"))),
 
   parallel(withTaskName("copyFiles", copyFiles)),
   // parallel(withTaskName("createCssJsFile", createCssJsFile)),
