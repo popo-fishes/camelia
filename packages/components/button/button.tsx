@@ -81,7 +81,7 @@ const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, IButtonPr
       ref={buttonRef as any}
     >
       {/* {iconNode} */}
-      {children}
+      <span className="text">{children}</span>
       {/* 波浪 */}
       {isWave && <BaseWave ref={waveElRef} />}
     </button>

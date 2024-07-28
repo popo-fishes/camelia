@@ -19,7 +19,7 @@ let animationTimerId: number | null = null;
 const Wave = React.forwardRef<WaveRef, WaveProps>((_, ref) => {
   const { getPrefixCls } = useContext(ConfigContext);
 
-  const ns = useNamespace("button", getPrefixCls());
+  const ns = useNamespace("base-wave", getPrefixCls());
 
   const selfRef = useRef<HTMLDivElement | null>(null);
   // 主动控制模式
@@ -31,12 +31,13 @@ const Wave = React.forwardRef<WaveRef, WaveProps>((_, ref) => {
       setActive(false);
       animationTimerId = null;
     }
-    void selfRef.current?.offsetHeight;
-    setActive(true);
-    animationTimerId = window.setTimeout(() => {
-      setActive(false);
-      animationTimerId = null;
-    }, 1000);
+    requestAnimationFrame(() => {
+      setActive(true);
+      animationTimerId = window.setTimeout(() => {
+        setActive(false);
+        animationTimerId = null;
+      }, 1000);
+    });
   };
 
   useImperativeHandle(ref, () => ({
