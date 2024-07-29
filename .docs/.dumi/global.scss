@@ -1,5 +1,19 @@
 // https://d.umijs.org/guide/project-structure#%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F
 
+// 修改整体页面样式
+.site-149wa23 {
+  background-color: #fff !important;
+}
+.site-bgbx00 {
+  box-shadow: none !important;
+}
+.site-ar97vv,
+.site-20y8zi {
+  top: 90px !important;
+  max-height: calc(100vh - 90px) !important;
+}
+
+// 修改顶部导航栏 样式
 // 隐藏第一个节点（首页）
 .site-tabs-nav-wrap .site-tabs-nav-list .site-tabs-tab:first-child {
   display: none !important;
@@ -9,6 +23,9 @@
 }
 .site-tabs-nav .site-tabs-nav-operations {
   display: none !important;
+}
+.site-tabs .site-tabs-ink-bar {
+  background: #0092ff !important;
 }
 
 .site-tabs .site-tabs-tab.site-tabs-tab-active .site-tabs-tab-btn {
@@ -26,4 +43,23 @@
 .site-ar97vv > dl > dd > a.active {
   color: #0092ff !important;
   font-weight: 500 !important;
+}
+
+// 修改右侧菜单样式
+.site-anchor-wrapper
+  .site-anchor
+  .site-anchor-link-active
+  > .site-anchor-link-title {
+  color: #0092ff !important;
+}
+.site-anchor .site-anchor-ink {
+  background-color: #0092ff !important;
+}
+.site-anchor-link-title:hover {
+  color: #0092ff !important;
+}
+
+// 修改markdown 表格样式
+.site-bgbx00 .markdown td {
+  text-align: center !important;
 }

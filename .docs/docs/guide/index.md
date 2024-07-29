@@ -50,8 +50,6 @@ $ pnpm i fish-remix
 <head>
   <!-- Import style -->
   <link rel="stylesheet" href="//unpkg.com/fish-remix/dist/index.css" />
-  <!-- Import Vue 3 -->
-  <script src="//unpkg.com/vue@3"></script>
   <!-- Import component library -->
   <script src="//unpkg.com/fish-remix"></script>
 </head>

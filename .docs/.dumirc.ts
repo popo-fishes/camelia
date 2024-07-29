@@ -15,7 +15,7 @@ export default defineConfig({
       github: 'https://github.com/u-fish-bubble/fish-remix',
     },
     hero: {
-      actions: [{ text: '🚀🚀 开始吧 →', link: '/daily' }],
+      actions: [{ text: '🚀🚀 开始吧 →', link: '/guide' }],
 
       features: [
         {
