@@ -3,10 +3,15 @@
  * @Description: Modify here please
  */
 import { defineConfig } from 'dumi';
+import path from 'path';
 
 export default defineConfig({
   outputPath: 'docs-dist',
   favicons: ['/images/logo.svg'],
+  alias: {
+    'fish-remix': path.join('../', 'packages/fish-remix/index.ts'),
+    'fish-remix/shared': path.join('../', 'packages/shared/index.ts'),
+  },
 
   themeConfig: {
     name: 'Fish Remix',
@@ -53,6 +58,10 @@ export default defineConfig({
       {
         title: '组件',
         link: '/development',
+      },
+      {
+        title: '组件2',
+        link: '/libraries/button',
       },
       {
         title: '扩展',

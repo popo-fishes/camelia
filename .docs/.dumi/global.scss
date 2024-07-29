@@ -1,7 +1,10 @@
 // https://d.umijs.org/guide/project-structure#%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F
+@forward "../style/index.scss";
+@forward "../style/common.scss";
 
 // 修改整体页面样式
-.site-149wa23 {
+.site-149wa23,
+.site-1qh9pb2 {
   background-color: #fff !important;
 }
 .site-bgbx00 {
@@ -11,6 +14,11 @@
 .site-20y8zi {
   top: 90px !important;
   max-height: calc(100vh - 90px) !important;
+}
+
+.site-149wa23 .site-u4eos9,
+.site-1qh9pb2 .site-u4eos9 {
+  background-color: #fff !important;
 }
 
 // 修改顶部导航栏 样式
@@ -44,12 +52,19 @@
   color: #0092ff !important;
   font-weight: 500 !important;
 }
+.site-ar97vv > dl > dt {
+  color: #606266 !important;
+  margin-bottom: 12px !important;
+  font-weight: 700 !important;
+}
+// 暗夜模式下
+.site-20y8zi > dl > dt {
+  margin-bottom: 12px !important;
+  font-weight: 700 !important;
+}
 
 // 修改右侧菜单样式
-.site-anchor-wrapper
-  .site-anchor
-  .site-anchor-link-active
-  > .site-anchor-link-title {
+.site-anchor-wrapper .site-anchor .site-anchor-link-active > .site-anchor-link-title {
   color: #0092ff !important;
 }
 .site-anchor .site-anchor-ink {
@@ -62,4 +77,17 @@
 // 修改markdown 表格样式
 .site-bgbx00 .markdown td {
   text-align: center !important;
+}
+.site-1drp4ad {
+  margin: 0 !important;
+}
+.site-bgbx00 {
+  padding: 0 !important;
+  background-color: transparent !important;
+}
+.css-131xuf9 {
+  align-items: flex-start !important;
+}
+.dumi-default-previewer-demo {
+  padding: 24px !important;
 }

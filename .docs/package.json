@@ -11,6 +11,7 @@
   "scripts": {
     "build": "father build",
     "build:watch": "father dev",
+    "create-fb-scss": "tsx ./create-fb-scss.ts",
     "dev": "dumi dev",
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",
