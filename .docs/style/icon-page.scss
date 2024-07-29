@@ -1,0 +1,53 @@
+.site-t2vb78 .icon-item {
+  :hover {
+    background-color: #2b2b2c;
+  }
+}
+.demo-icon {
+  &-item {
+    margin-top: 24px;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  &-title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+  }
+  &-list {
+    overflow: hidden;
+    list-style: none;
+    padding: 0 !important;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    .icon-item {
+      text-align: center;
+      height: 90px;
+      font-size: 13px;
+      margin-top: 0 !important;
+      &:hover {
+        background-color: #f2f6fc;
+        .fb-icon {
+          color: var(--brand-color-light);
+        }
+        color: var(--brand-color-light);
+      }
+
+      .demo-svg-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        cursor: pointer;
+
+        .icon-name {
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+}

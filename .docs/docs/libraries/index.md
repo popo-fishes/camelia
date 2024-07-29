@@ -1,7 +1,6 @@
 ---
 order: 1
 group:
-  path: /libraries/button
   title: 基础组件
   order: 1
 ---
@@ -14,7 +13,7 @@ group:
 
 使用 `type`、`plain`、 和 `ghost` 来定义按钮的样式。
 
-<code src="@/button/basic.tsx">基础用法</code>
+<code src="@/button/basic.tsx"></code>
 
 ## 禁用状态
 
