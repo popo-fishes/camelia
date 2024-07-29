@@ -1,0 +1,123 @@
+// https://d.umijs.org/guide/project-structure#%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F
+
+// 引入组件库样式
+@forward "../style/index.scss";
+
+// 引入文档页面组件的样式
+@forward "../style/common.scss";
+
+/**
+ 以下是：
+ 修改，覆盖样式
+
+ 以下是：
+ 修改，覆盖样式
+
+*/
+
+// 修改整体页面样式
+.site-149wa23,
+.site-1qh9pb2 {
+  background-color: #fff !important;
+}
+.site-bgbx00 {
+  box-shadow: none !important;
+}
+
+.site-1drp4ad {
+  margin: 0 !important;
+}
+.site-bgbx00,
+.site-z95k7h {
+  padding: 0 !important;
+  background-color: transparent !important;
+}
+
+.site-ar97vv,
+.site-20y8zi {
+  top: 90px !important;
+  max-height: calc(100vh - 90px) !important;
+}
+
+.site-149wa23 .site-u4eos9,
+.site-1qh9pb2 .site-u4eos9 {
+  background-color: #fff !important;
+}
+
+// 修改顶部导航栏 样式
+// 隐藏第一个节点（首页）
+.site-tabs-nav-wrap .site-tabs-nav-list .site-tabs-tab:first-child {
+  display: none !important;
+}
+.site-tabs-nav::before {
+  border-bottom: none !important;
+}
+.site-tabs-nav .site-tabs-nav-operations {
+  display: none !important;
+}
+.site-tabs .site-tabs-ink-bar {
+  background: #0092ff !important;
+}
+
+.site-tabs .site-tabs-tab.site-tabs-tab-active .site-tabs-tab-btn {
+  color: #0092ff !important;
+}
+.site-tabs-tab-btn {
+  font-size: 16px !important;
+}
+
+// 修改左侧菜单栏样式
+.site-ar97vv > dl > dd > a {
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  color: #606266 !important;
+}
+.site-ar97vv > dl > dd > a.active {
+  color: #0092ff !important;
+  font-weight: 500 !important;
+}
+.site-ar97vv > dl > dt {
+  color: #606266 !important;
+  margin-bottom: 12px !important;
+  font-weight: 700 !important;
+}
+// 暗夜模式下
+.site-20y8zi > dl > dt {
+  margin-bottom: 12px !important;
+  font-weight: 700 !important;
+}
+// 去掉菜单的分割线
+.site-ar97vv > dl + dl,
+.site-20y8zi > dl + dl {
+  margin-top: 0 !important;
+  border-top: none !important;
+}
+
+// 修改右侧菜单样式
+.site-anchor-wrapper .site-anchor .site-anchor-link-active > .site-anchor-link-title {
+  color: #0092ff !important;
+}
+.site-anchor .site-anchor-ink {
+  background-color: #0092ff !important;
+}
+.site-anchor-link-title:hover {
+  color: #0092ff !important;
+}
+
+// 修改markdown 表格样式
+.site-bgbx00 .markdown td {
+  text-align: center !important;
+}
+.css-131xuf9 {
+  align-items: flex-start !important;
+}
+.dumi-default-previewer-demo {
+  padding: 24px !important;
+}
+// 影藏code标签的默认提示
+.dumi-default-previewer-desc {
+  display: none !important;
+}
+.site-bgbx00 .markdown td:nth-child(3) {
+  color: #c41d7f !important;
+}

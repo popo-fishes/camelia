@@ -17,6 +17,7 @@
   "dependencies": {
     "@fish-remix/components": "workspace:*",
     "@fish-remix/core": "workspace:*",
+    "@fish-remix/hooks": "workspace:*",
     "@fish-remix/shared": "workspace:*"
   },
   "devDependencies": {
