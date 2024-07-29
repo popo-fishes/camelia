@@ -39,7 +39,7 @@ const createFbScssTheme = async () => {
     const relativePath = path.relative(__dirname, item);
     const newPath = relativePath.replace(/\\/g, "/");
 
-    scssTotalCode = scssTotalCode + ` @use "${newPath}" as *;\n`;
+    scssTotalCode = scssTotalCode + ` @use "../${newPath}" as *;\n`;
   });
 
   // Write an overall entry scss

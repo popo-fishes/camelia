@@ -4,4 +4,6 @@
  */
 export * from "./event-emmiter";
 export * from "./use-memo";
+export * from "./use-timeout";
+export * from "./use-resize-observer";
 export * from "./utils";
