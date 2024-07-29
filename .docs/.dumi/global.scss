@@ -10,6 +10,16 @@
 .site-bgbx00 {
   box-shadow: none !important;
 }
+
+.site-1drp4ad {
+  margin: 0 !important;
+}
+.site-bgbx00,
+.site-z95k7h {
+  padding: 0 !important;
+  background-color: transparent !important;
+}
+
 .site-ar97vv,
 .site-20y8zi {
   top: 90px !important;
@@ -78,16 +88,18 @@
 .site-bgbx00 .markdown td {
   text-align: center !important;
 }
-.site-1drp4ad {
-  margin: 0 !important;
-}
-.site-bgbx00 {
-  padding: 0 !important;
-  background-color: transparent !important;
-}
+
 .css-131xuf9 {
   align-items: flex-start !important;
 }
 .dumi-default-previewer-demo {
   padding: 24px !important;
+}
+// 影藏code标签的默认提示
+.dumi-default-previewer-desc {
+  display: none !important;
+}
+
+.site-bgbx00 .markdown td:nth-child(3) {
+  color: #c41d7f !important;
 }

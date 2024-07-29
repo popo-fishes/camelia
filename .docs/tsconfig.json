@@ -8,8 +8,7 @@
     "baseUrl": "./",
     "paths": {
       "@@/*": [".dumi/tmp/*"],
-      "fish-remix-docs": ["src"],
-      "fish-remix-docs/*": ["src/*", "*"],
+      "@/*": ["src/*", "*"],
       "fish-remix": ["../packages/fish-remix"],
       "fish-remix/shared": ["../packages/shared"]
     }
