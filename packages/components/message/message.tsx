@@ -97,8 +97,10 @@ const Message = React.forwardRef<MessageRef, IMessageProps>((props, ref) => {
     close
   }));
 
+  console.log(height);
+
   return (
-    <CSSTransition in={visible} timeout={300} classNames="ani-message-fade" appear={false} onExited={onClose}>
+    <CSSTransition in={visible} timeout={300} classNames="message-animation" appear onExited={onClose}>
       <div style={customStyle} className={ns.b()} ref={messageRef}>
         {icon}
         {isHtml ? (

@@ -13,11 +13,7 @@ group:
 
 ```jsx
 import React from "react";
-import { Message } from "fish-remix";
+import { message } from "fish-remix";
 
-export default () => (
-  <>
-    <Message message="大大大的" />
-  </>
-);
+export default () => <>{/* <Message message="大大大的" /> */}</>;
 ```
