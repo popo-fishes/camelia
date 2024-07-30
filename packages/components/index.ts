@@ -9,4 +9,6 @@ export type { IButtonProps } from "./button";
 export { default as ConfigProvider } from "./config-provider";
 export type { ConfigProviderProps } from "./config-provider";
 
-export { Message } from "./message";
+// Plugin
+export { message } from "./message";
+export type { IMessageProps } from "./message";

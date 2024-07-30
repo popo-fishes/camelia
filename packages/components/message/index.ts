@@ -1,10 +1,9 @@
 /*
- * @Date: 2024-01-05 21:44:16
+ * @Date: 2024-07-29 17:07:30
  * @Description: Modify here please
  */
+import message from "./method";
 
-import Message from "./message";
-
-export { Message };
+export { message };
 
 export * from "./type";

@@ -1,4 +1,4 @@
-import type { MutableRefObject } from "react";
+import { MutableRefObject } from "react";
 
 export type MessageRef = {
   bottom: number;
@@ -12,6 +12,7 @@ export interface MessageHandler {
 export type MessageContext = {
   id: string;
   handler: MessageHandler;
+  ref: MutableRefObject<MessageRef>;
 };
 
 export interface IMessageProps {
@@ -35,6 +36,22 @@ export interface IMessageProps {
   offset?: number;
   /** 关闭时将触发onClose事件 */
   onClose?: () => void;
-  /** 退出之后触发 */
-  /** */
+}
+
+export type MessageOptions = Partial<
+  Omit<IMessageProps, "id"> & {
+    // 设置 message 的根元素，默认为 document.body
+    appendTo?: HTMLElement | string;
+  }
+>;
+
+export type MessageTypedOptions = Omit<MessageOptions, "type">;
+export type MessageTypedFn = (options?: MessageTypedOptions | MessageOptions["message"]) => MessageHandler;
+
+export interface Message {
+  success: MessageTypedFn;
+  warning: MessageTypedFn;
+  info: MessageTypedFn;
+  error: MessageTypedFn;
+  closeAll(): void;
 }

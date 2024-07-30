@@ -21,7 +21,9 @@ export const getInstance = (id: string) => {
 // 获取上一个msg的top位置
 export const getLastOffset = (id: string): number => {
   const { prev } = getInstance(id);
-  console.log(prev);
   if (!prev) return 0;
-  return 1;
+  if (prev.ref.current?.bottom) {
+    return prev.ref.current?.bottom;
+  }
+  return 0;
 };
