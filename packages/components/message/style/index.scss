@@ -26,7 +26,9 @@
     border: 1px solid #e9edf3;
     background: #fff;
     box-shadow: 0px 16px 24px 0px rgba(41, 80, 155, 0.1);
+    pointer-events: all;
   }
+
   @include e(content) {
     flex: 1;
     overflow: hidden;
@@ -39,6 +41,9 @@
     color: rgba(0, 0, 0, 0.65);
     font-size: 18px;
     cursor: pointer;
+    height: 18px;
+    line-height: 18px;
+    display: block;
   }
 }
 

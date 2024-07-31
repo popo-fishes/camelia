@@ -29,8 +29,6 @@ export interface IMessageProps {
   showClose?: boolean;
   /** 自定义图标组件，覆盖`type` */
   icon?: React.ReactNode;
-  /** 层级 */
-  zIndex?: number;
   /** 距离窗口顶部的偏移量 */
   offset?: number;
   /** 关闭时将触发onClose事件 */

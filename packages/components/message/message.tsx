@@ -80,8 +80,8 @@ const Message = React.forwardRef<MessageRef, IMessageProps>((props, ref) => {
             <p className={ns.e("content")}>{message}</p>
           )}
           {showClose && (
-            <span onClick={close}>
-              <CircleClose className="icon-close" />
+            <span onClick={close} className="icon-close">
+              <CircleClose />
             </span>
           )}
         </div>
