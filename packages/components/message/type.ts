@@ -1,7 +1,6 @@
 import { MutableRefObject } from "react";
 
 export type MessageRef = {
-  bottom: number;
   close: () => void;
 };
 
@@ -38,12 +37,7 @@ export interface IMessageProps {
   onClose?: () => void;
 }
 
-export type MessageOptions = Partial<
-  Omit<IMessageProps, "id"> & {
-    // 设置 message 的根元素，默认为 document.body
-    appendTo?: HTMLElement | string;
-  }
->;
+export type MessageOptions = Partial<Omit<IMessageProps, "id">>;
 
 export type MessageTypedOptions = Omit<MessageOptions, "type">;
 export type MessageTypedFn = (options?: MessageTypedOptions | MessageOptions["message"]) => MessageHandler;
