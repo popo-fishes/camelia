@@ -118,7 +118,7 @@ export default () => {
 | duration  | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                             | 3000   |
 | isHtml    | 是否将 message 属性作为 HTML 片段处理        | boolean                            | false  |
 | showClose | 是否显示关闭按钮                             | boolean                            | false  |
-| icon      | 自定义图标组件                               | Component/ string                  | —      |
+| icon      | 自定义图标组件                               | ReactNode                          | —      |
 | offset    | 距离窗口顶部的偏移量                         | number                             | 20     |
 
 ### Message defineExpose
