@@ -23,6 +23,8 @@ const messageMax = 10;
 
 let wrapId = null;
 
+let timer = null;
+
 const ContainerWrapper: React.FC = () => {
   const { getPrefixCls } = useContext(ConfigContext);
   const { currentZIndex } = useZIndex();
@@ -65,6 +67,7 @@ const createMessage = ({
       requestAnimationFrame(() => {
         root.unmount();
         container?.remove();
+        clearTimeout(timer);
       });
     }
   };
@@ -76,8 +79,20 @@ const createMessage = ({
   // 渲染节点
   root.render(msg);
 
-  // 挂在节点
-  (appendTo as any).appendChild(container);
+  // 获取节点DOM
+  let __appendTo = document.querySelector<HTMLElement>(`#${wrapId}`);
+  if (__appendTo) {
+    // 挂在节点
+    (__appendTo as any)?.appendChild(container);
+  } else {
+    // 第一次挂载节点需要延迟下。因为ContainerWrapper包裹器还在创建
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      __appendTo = document.querySelector<HTMLElement>(`#${wrapId}`);
+      // 挂在节点
+      (__appendTo as any)?.appendChild(container);
+    });
+  }
 
   const handler: MessageHandler = {
     // 把关闭方法暴露出去，让外面可以主动关闭msg
@@ -95,20 +110,6 @@ const createMessage = ({
 
   // 返回当前消息实例
   return instance;
-};
-
-// 处理参数
-const handleOptions = (params?: MessageTypedOptions) => {
-  const _opt = { ...params } as MessageTypedOptions & {
-    // 设置 message 的根元素
-    appendTo?: string;
-  };
-
-  // 获取节点DOM
-  let appendTo = document.querySelector<HTMLElement>(_opt.appendTo);
-
-  _opt.appendTo = appendTo as any;
-  return _opt;
 };
 
 const message = (options: MessageOptions) => {
@@ -153,16 +154,12 @@ msgtypes.forEach((type: (typeof msgtypes)[number]) => {
         const wrapper = createElement(ContainerWrapper);
         // 渲染节点
         root.render(wrapper);
-        setTimeout(() => {
-          document.body.appendChild(__container?.firstElementChild);
-          // 获取参数配置
-          const normalized = handleOptions({ ...params, appendTo: `#${wrapId}` });
-          return message({ ...normalized, type });
-        });
+        document.body.appendChild(__container);
+        // 获取参数配置
+        return message({ ...params, type });
       } else {
         // 获取参数配置
-        const normalized = handleOptions({ ...params, appendTo: `#${wrapId}` });
-        return message({ ...normalized, type });
+        return message({ ...params, type });
       }
     } else {
       return { close: () => undefined };

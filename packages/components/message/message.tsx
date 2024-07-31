@@ -12,7 +12,7 @@ import { useNamespace } from "@fish-remix/hooks";
 import type { MessageRef, IMessageProps } from "./type";
 
 const Message = React.forwardRef<MessageRef, IMessageProps>((props, ref) => {
-  const { showClose = false, message, isHtml = false, id = "", duration = 0, offset = 20, onClose } = props;
+  const { showClose = false, message, isHtml = false, id = "", duration = 3000, offset = 20, onClose } = props;
 
   const messageRef = useRef<HTMLDivElement>(null);
 
@@ -71,7 +71,7 @@ const Message = React.forwardRef<MessageRef, IMessageProps>((props, ref) => {
 
   return (
     <div className={ns.e("notice-wrapper")} id={id}>
-      <CSSTransition in={visible} timeout={300} classNames="message-animation" appear onExited={onClose}>
+      <CSSTransition in={visible} timeout={300} classNames="message-animation" onExited={onClose}>
         <div style={customStyle} className={ns.e("notice")} ref={messageRef}>
           {icon}
           {isHtml ? (

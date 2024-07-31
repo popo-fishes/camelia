@@ -9,7 +9,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-variant: tabular-nums;
   list-style: none;
   pointer-events: none;
   @include e(notice-wrapper) {
@@ -18,7 +17,6 @@
 
   @include e(notice) {
     max-width: 640px;
-    min-width: 200px;
     display: inline-flex;
     align-items: center;
     padding: 10px 16px;
@@ -54,8 +52,8 @@
   opacity: 1;
   transform: translate(0);
   transition:
-    transform 200ms ease-out,
-    opacity 200ms ease-in-out;
+    opacity 0.3s,
+    transform 0.3s;
 }
 
 .message-animation-exit {
@@ -66,6 +64,6 @@
   opacity: 0;
   transform: translateY(-100%);
   transition:
-    transform 300ms linear 100ms,
-    opacity 200ms ease-in-out;
+    opacity 0.3s,
+    transform 0.3s;
 }

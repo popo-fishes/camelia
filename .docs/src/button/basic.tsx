@@ -1,14 +1,10 @@
-import { Button, message } from "fish-remix";
+import { Button } from "fish-remix";
 import React from "react";
 
 const App: React.FC = () => {
-  const aa = () => {
-    message.info("hhaha");
-  };
   return (
     <>
-      <button onClick={aa}>点我</button>
-      {/* <div className="mb-4">
+      <div className="mb-4">
         <Button>default</Button>
         <Button type="primary">Primary</Button>
         <Button type="success">Success</Button>
@@ -44,7 +40,7 @@ const App: React.FC = () => {
         <Button type="danger" ghost>
           Danger
         </Button>
-      </div> */}
+      </div>
     </>
   );
 };
