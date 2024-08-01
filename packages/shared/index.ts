@@ -5,5 +5,7 @@
 export * from "./event-emmiter";
 export * from "./use-memo";
 export * from "./use-timeout";
+export * from "./use-debounce";
+export * from "./use-throttle";
 export * from "./use-resize-observer";
 export * from "./utils";

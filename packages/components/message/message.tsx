@@ -3,7 +3,7 @@
  * @Description: Modify here please
  */
 import React, { useContext, useRef, useState, useImperativeHandle, useEffect, useMemo } from "react";
-import { useTimeoutFn } from "@fish-remix/shared";
+import { useTimeout } from "@fish-remix/shared";
 import { CircleClose, WarningFilled, CircleCheckFilled, CircleCloseFilled } from "fish-icons";
 import { CSSTransition } from "react-transition-group";
 import { ConfigContext } from "../config-provider";

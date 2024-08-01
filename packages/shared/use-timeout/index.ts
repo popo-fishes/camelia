@@ -30,7 +30,7 @@ interface Stoppable<StartFnArgs extends any[] = any[]> {
  * @param interval 时间
  * @param options
  */
-export function useTimeoutFn<CallbackFn extends AnyFn>(
+export function useTimeout<CallbackFn extends AnyFn>(
   cb: CallbackFn,
   interval: number,
   options: UseTimeoutFnOptions = {}
