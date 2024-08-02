@@ -40,7 +40,7 @@ const Message = React.forwardRef<MessageRef, IMessageProps>((props, ref) => {
   }, [props.icon, props.type]);
 
   // 时间到了就关闭
-  const { start } = useTimeoutFn(
+  const { start } = useTimeout(
     () => {
       close();
     },

@@ -2,8 +2,9 @@
  * @Date: 2023-11-23 15:23:53
  * @Description: setTimeout包装器
  */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import type { AnyFn, Fn } from "../utils";
+import { useUnmount } from "../use-unmount";
 import { isClient } from "../utils";
 
 interface UseTimeoutFnOptions {
@@ -69,11 +70,9 @@ export function useTimeout<CallbackFn extends AnyFn>(
     if (isClient) start();
   }
 
-  useEffect(() => {
-    return () => {
-      stop();
-    };
-  }, []);
+  useUnmount(() => {
+    stop?.();
+  });
 
   return {
     isPending: isPending,

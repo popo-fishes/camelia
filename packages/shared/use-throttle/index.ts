@@ -2,7 +2,7 @@
  * @Date: 2023-12-02 11:52:03
  * @Description: 节流
  */
-import { useEffect } from "react";
+import { useUnmount } from "../use-unmount";
 import { AnyFn } from "../utils";
 
 /**
@@ -41,9 +41,9 @@ export function useThrottle<T extends AnyFn>(fn: T, options?: { wait?: number; l
     }
   };
 
-  useEffect(() => {
-    return () => clear();
-  }, []);
+  useUnmount(() => {
+    clear?.();
+  });
 
   return throttledFn;
 }

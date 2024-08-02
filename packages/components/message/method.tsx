@@ -67,7 +67,7 @@ const createMessage = ({
       requestAnimationFrame(() => {
         root.unmount();
         container?.remove();
-        clearTimeout(timer);
+        cancelAnimationFrame(timer);
       });
     }
   };
@@ -86,8 +86,8 @@ const createMessage = ({
     (__appendTo as any)?.appendChild(container);
   } else {
     // 第一次挂载节点需要延迟下。因为ContainerWrapper包裹器还在创建
-    clearTimeout(timer);
-    timer = setTimeout(() => {
+    cancelAnimationFrame(timer);
+    timer = requestAnimationFrame(() => {
       __appendTo = document.querySelector<HTMLElement>(`#${wrapId}`);
       // 挂在节点
       (__appendTo as any)?.appendChild(container);
