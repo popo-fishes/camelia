@@ -1,0 +1,153 @@
+@use "sass:map";
+
+@use "../../_styles/core/mixins" as *;
+@use "../../_styles/common/var" as *;
+@use "../../_styles/core/css-var" as *;
+@use "../../_styles/core/function" as *;
+@use "../../_styles/core/config" as *;
+
+$tag-height: () !default;
+$tag-height: map.merge(
+  (
+    "large": 28px,
+    "default": 24px,
+    "small": 22px
+  ),
+  $tag-height
+);
+
+$tag-padding: () !default;
+$tag-padding: map.merge(
+  (
+    "large": 12px,
+    "default": 10px,
+    "small": 8px
+  ),
+  $tag-padding
+);
+
+$tag-icon-span-gap: () !default;
+$tag-icon-span-gap: map.merge(
+  (
+    "large": 8px,
+    "default": 6px,
+    "small": 4px
+  ),
+  $tag-icon-span-gap
+);
+
+$tag-border-width: 1px;
+
+@include b(tag) {
+  @include set-component-css-var("tag", $tag);
+}
+
+@function returnVarList($var, $type: "primary") {
+  $list: ();
+  @if $var != false {
+    $list: ("color", $type, $var);
+  }
+  @return $list;
+}
+
+@mixin genTheme($backgroundColorWeight, $borderColorWeight, $hoverColorWeight) {
+  #{getCssVarName('tag', "bg-color")}: var(#{joinVarName(returnVarList($backgroundColorWeight))});
+  #{getCssVarName('tag', "border-color")}: var(#{joinVarName(returnVarList($borderColorWeight))});
+  #{getCssVarName('tag', "close-hover-color")}: var(#{joinVarName(returnVarList($hoverColorWeight))});
+
+  @each $type in $types {
+    &.#{bem("tag", "", $type)} {
+      #{getCssVarName('tag', "bg-color")}: var(#{joinVarName(returnVarList($backgroundColorWeight, $type))});
+      #{getCssVarName('tag', "border-color")}: var(#{joinVarName(returnVarList($borderColorWeight, $type))});
+      #{getCssVarName('tag', "close-hover-color")}: var(#{joinVarName(returnVarList($hoverColorWeight, $type))});
+    }
+  }
+}
+
+@include b(tag) {
+  @include genTheme("light-9", "light-8", "");
+  #{getCssVarName('tag', "text-color")}: var(#{joinVarName(("color", "primary"))});
+
+  @each $type in $types {
+    &.#{bem("tag", "", $type)} {
+      #{getCssVarName('tag', "text-color")}: var(#{joinVarName(("color", $type))});
+    }
+  }
+
+  background-color: getCssVar("tag-bg-color");
+  border-color: getCssVar("tag-border-color");
+  color: getCssVar("tag-text-color");
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: map.get($tag-height, "default");
+  padding: 0 map.get($tag-padding, "default") - $tag-border-width;
+  font-size: getCssVar("tag-font-size");
+  border-width: $tag-border-width;
+  border-style: solid;
+  border-radius: getCssVar("tag-border-radius");
+  box-sizing: border-box;
+  white-space: nowrap;
+
+  @include when(round) {
+    border-radius: getCssVar("tag", "border-radius-rounded");
+  }
+
+  @include when(color) {
+    color: #fff;
+    border: none;
+  }
+
+  .#{$namespace}-tag__close {
+    flex-shrink: 0;
+    color: getCssVar("tag", "text-color");
+    border-radius: 50%;
+    cursor: pointer;
+
+    font-size: 12px;
+    height: 14px;
+    width: 14px;
+    margin-left: map.get($tag-icon-span-gap, "default");
+    text-align: center;
+    &:hover {
+      color: getCssVar("color-white");
+      background-color: getCssVar("tag-close-hover-color");
+    }
+  }
+
+  &.is-closable {
+    padding-right: map.get($tag-icon-span-gap, "default") - $tag-border-width;
+  }
+
+  @each $size in (large, small) {
+    @include m($size) {
+      padding: 0 map.get($tag-padding, $size) - $tag-border-width;
+      height: map.get($tag-height, $size);
+      .#{$namespace}-tag__close {
+        margin-left: map.get($tag-icon-span-gap, $size);
+      }
+      &.is-closable {
+        padding-right: map.get($tag-icon-span-gap, $size) - $tag-border-width;
+      }
+    }
+  }
+
+  @include m(dark) {
+    @include genTheme("", "", "light-3");
+    #{getCssVarName('tag', "text-color")}: var(#{joinVarName(("color", "white"))});
+    @each $type in $types {
+      &.#{bem("tag", "", $type)} {
+        #{getCssVarName('tag', "text-color")}: var(#{joinVarName(("color", "white"))});
+      }
+    }
+  }
+
+  @include m(plain) {
+    @each $type in $types {
+      &.#{bem("tag", "", $type)} {
+        #{getCssVarName('tag', "bg-color")}: var(#{joinVarName(("color", "white"))});
+      }
+    }
+    #{getCssVarName('tag', "bg-color")}: var(#{joinVarName(("color", "white"))});
+  }
+}

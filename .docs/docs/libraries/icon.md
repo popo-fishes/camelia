@@ -81,7 +81,7 @@ const App: React.FC = () => (
 
 ## 自定义图标
 
-利用 `Icon` 组件封装一个可复用的自定义图标。可以通过插槽传入一个 svg 组件来渲染最终的图标，以满足特定的需
+利用 `Icon` 组件封装一个可复用的自定义图标。可以通过 children 传入一个 svg 组件来渲染最终的图标，以满足特定的需
 
 ```ts
 import Icon from "fish-icons";

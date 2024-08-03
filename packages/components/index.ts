@@ -6,9 +6,15 @@
 export { default as Button } from "./button";
 export type { IButtonProps } from "./button";
 
+export { default as Image } from "./image";
+export type { ImageProps } from "./image";
+
+export { default as Tag } from "./tag";
+export type { ITagProps } from "./tag";
+
 export { default as ConfigProvider } from "./config-provider";
 export type { ConfigProviderProps } from "./config-provider";
 
 // Plugin
-export { message } from "./message";
+export { default as message } from "./message";
 export type { IMessageProps } from "./message";

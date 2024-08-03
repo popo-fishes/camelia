@@ -2,9 +2,9 @@
  * @Date: 2024-08-03 08:17:36
  * @Description: Modify here please
  */
-import { Button } from "fish-remix";
-import { useSubmit } from "fish-remix-shared";
+import { Button, Tag } from "fish-remix";
 import React from "react";
+import { PaperAirplane, CameraFilled } from "fish-icons";
 
 const App: React.FC = () => {
   return (

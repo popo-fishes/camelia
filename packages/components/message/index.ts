@@ -4,6 +4,6 @@
  */
 import message from "./method";
 
-export { message };
-
 export * from "./type";
+
+export default message;

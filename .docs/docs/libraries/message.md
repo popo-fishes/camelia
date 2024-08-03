@@ -2,7 +2,7 @@
 order: 1
 group:
   title: 反馈
-  order: 2
+  order: 3
 ---
 
 # Message 消息提示
@@ -121,7 +121,7 @@ export default () => {
 | icon      | 自定义图标组件                               | ReactNode                          | —      |
 | offset    | 距离窗口顶部的偏移量                         | number                             | 20     |
 
-### Message defineExpose
+### Message Methods
 
 | 名称     | 说明         | 类型                      |
 | -------- | ------------ | ------------------------- |
