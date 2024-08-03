@@ -2,15 +2,29 @@
  * @Date: 2024-08-03 08:17:36
  * @Description: Modify here please
  */
-import { Button, Tag } from "fish-remix";
-import React from "react";
-import { PaperAirplane, CameraFilled } from "fish-icons";
+import { Button, Dialog } from "fish-remix";
+import React, { useState } from "react";
 
 const App: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
+      <Dialog open={isModalOpen} onClose={handleCancel}></Dialog>
       <div className="mb-4">
-        <Button>default</Button>
+        <Button onClick={showModal}>default</Button>
         <Button type="primary">Primary</Button>
         <Button type="success">Success</Button>
         <Button type="warning">Warning</Button>

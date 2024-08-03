@@ -15,6 +15,9 @@ export type { ITagProps } from "./tag";
 export { default as ConfigProvider } from "./config-provider";
 export type { ConfigProviderProps } from "./config-provider";
 
+export { default as Dialog } from "./dialog";
+export type { IDialogProps } from "./dialog";
+
 // Plugin
 export { default as message } from "./message";
 export type { IMessageProps } from "./message";
