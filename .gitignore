@@ -17,3 +17,8 @@ dist
 yarn-error.log
 yarn-lock.log
 yarn.lock
+
+.docs/.dumi/tmp
+.docs/.dumi/tmp-test
+.docs/.dumi/tmp-production
+.docs/docs-dist

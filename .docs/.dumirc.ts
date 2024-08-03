@@ -60,7 +60,7 @@ export default defineConfig({
       },
       {
         title: "扩展",
-        link: "/functions"
+        link: "/extend"
       }
     ]
   }
