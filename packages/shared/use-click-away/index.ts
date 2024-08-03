@@ -12,7 +12,7 @@ type DocumentEventKey = keyof DocumentEventMap;
 const useEffectWithTarget = createEffectWithTarget(useEffect);
 
 // 管理目标元素外点击事件的 Hook。
-export default function useClickAway<T extends Event = Event>(
+export function useClickAway<T extends Event = Event>(
   /** 操作者 */
   onClickAway: (e: T) => void,
   /** 目标dom */

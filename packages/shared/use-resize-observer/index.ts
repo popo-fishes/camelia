@@ -58,7 +58,7 @@ export function useResizeObserver(target: MutableRefObject<any>, callback: Resiz
     }
 
     return () => {
-      cleanup();
+      stop();
     };
   }, [target]);
 

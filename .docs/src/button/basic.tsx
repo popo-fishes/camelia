@@ -3,7 +3,7 @@
  * @Description: Modify here please
  */
 import { Button } from "fish-remix";
-import { getTreePaths } from "fish-remix/shared";
+import { useSubmit } from "fish-remix-shared";
 import React from "react";
 
 const App: React.FC = () => {

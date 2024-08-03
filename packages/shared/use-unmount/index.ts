@@ -7,7 +7,7 @@ import { isFunction } from "../utils";
 
 export const useUnmount = (fn: () => void) => {
   if (!isFunction(fn)) {
-    console.error(`useUnmount expected parameter is a function, got ${typeof fn}`);
+    console.error(`参数“fn”应该是一个函数`);
   }
 
   // 最新的

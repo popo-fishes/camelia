@@ -2,26 +2,41 @@
  * @Date: 2023-12-02 11:52:03
  * @Description: 防抖
  */
-import { AnyFn } from "../utils";
-import { useTimeout } from "../use-timeout";
+import debounce from "lodash/debounce";
+import { useMemo, useRef } from "react";
+import { useUnmount } from "../use-unmount";
+import { isFunction } from "../utils";
 
-/**
- * @param fn 执行主函数
- * @param options: wait 防抖时间
- *
- */
-export const useDebounce = (fn: AnyFn, options: { wait: number }) => {
-  // 你可以主动停止
-  const { stop, start } = useTimeout(fn, options.wait, { immediate: false });
+type noop = (...args: any[]) => any;
 
-  const run = (...args) => {
-    stop();
+export function useDebounce<T extends noop>(fn: T, options?: { wait?: number; leading?: boolean }) {
+  if (!isFunction(fn)) {
+    console.error(`参数“fn”应该是一个函数`);
+  }
 
-    start(...args);
-  };
+  const fnRef = useRef(fn);
+  fnRef.current = fn;
+
+  const wait = options?.wait ?? 1000;
+
+  const debounced = useMemo(
+    () =>
+      debounce(
+        (...args: Parameters<T>): ReturnType<T> => {
+          return fnRef.current(...args);
+        },
+        wait,
+        options
+      ),
+    []
+  );
+
+  useUnmount(() => {
+    debounced.cancel();
+  });
 
   return {
-    stop,
-    run
+    run: debounced,
+    cancel: debounced.cancel
   };
-};
+}

@@ -7,7 +7,7 @@ import { isFunction } from "../utils";
 
 export const useMount = (fn: () => void) => {
   if (!isFunction(fn)) {
-    console.error(`useMount: parameter \`fn\` expected to be a function, but got "${typeof fn}".`);
+    console.error(`参数“fn”应该是一个函数`);
   }
   useEffect(() => {
     fn?.();

@@ -10,7 +10,7 @@
       "@@/*": [".dumi/tmp/*"],
       "@/*": ["src/*", "*"],
       "fish-remix": ["../packages/fish-remix"],
-      "fish-remix/shared": ["../packages/shared"]
+      "fish-remix-shared": ["../packages/shared"]
     }
   },
   "include": [".dumirc.ts", "src/**/*"]
