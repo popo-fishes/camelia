@@ -8,14 +8,7 @@ import { ConfigContext } from "../config-provider";
 import { useNamespace, useZIndex } from "@fish-remix/hooks";
 import { isClient } from "@fish-remix/shared";
 import MessageConstructor from "./message";
-import type {
-  MessageContext,
-  MessageHandler,
-  MessageOptions,
-  Message,
-  MessageTypedOptions,
-  IMessageProps
-} from "./type";
+import type { MessageContext, MessageHandler, MessageOptions, Message } from "./type";
 import { instances } from "./instance";
 
 let seed = 1;
@@ -37,13 +30,7 @@ const ContainerWrapper: React.FC = () => {
   return <div className={ns.b()} style={customStyle} id={id}></div>;
 };
 
-const createMessage = ({
-  appendTo,
-  ...options
-}: MessageOptions & {
-  // 设置 message 的根元素
-  appendTo?: string;
-}): MessageContext => {
+const createMessage = (options: MessageOptions): MessageContext => {
   const id = `message_id_${seed++}`;
   // 消息关闭时执行
   const userOnClose = options.onClose;

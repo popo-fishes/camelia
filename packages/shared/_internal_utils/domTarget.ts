@@ -3,7 +3,7 @@
  * @Description: Modify here please
  */
 import type { MutableRefObject } from "react";
-import { isClient, isFunction } from ".";
+import { isClient, isFunction } from "../utils";
 
 type TargetValue<T> = T | undefined | null;
 

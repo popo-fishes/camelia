@@ -9,4 +9,5 @@ export const defaultWindow = /* #__PURE__ */ isClient ? window : undefined;
 export const defaultDocument = /* #__PURE__ */ isClient ? window.document : undefined;
 
 // 无活动
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 export const NOOP = () => {};

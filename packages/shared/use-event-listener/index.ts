@@ -2,65 +2,63 @@
  * @Date: 2023-12-02 15:16:40
  * @Description: 轻松使用事件监听器
  */
-import { useUnmount } from "../use-unmount";
-import { Fn, isObject, defaultWindow, NOOP } from "../utils";
-import { getTargetElement } from "../utils/domTarget";
-import type { BasicTarget } from "../utils/domTarget";
-import { useEffect } from "react";
+import { defaultWindow } from "../utils";
+import type { AnyFn } from "../utils";
+import { getTargetElement } from "../_internal_utils/domTarget";
+import type { BasicTarget } from "../_internal_utils/domTarget";
+
+import { createEffectWithTarget } from "../_internal_utils/createEffectWithTarget";
+import { useEffect, useRef } from "react";
+
+const useEffectWithTarget = createEffectWithTarget(useEffect);
 
 export type Target = BasicTarget<HTMLElement | Element | Window | Document>;
-export function useEventListener(...args: any[]): Fn {
-  let target: Target;
-  let event: string;
-  let listener: Function;
-  let options: AddEventListenerOptions | undefined;
 
-  if (typeof args[0] === "string" && args[0]) {
-    [event, listener, options] = args;
-    target = defaultWindow;
-  } else {
-    [target, event, listener, options] = args;
-  }
+type Options<T extends Target = Target> = {
+  target?: T;
+  capture?: boolean;
+  once?: boolean;
+  passive?: boolean;
+  /** 是否开启监听 */
+  enable?: boolean;
+};
 
-  // 不存在目标, 直接返回
-  if (!target) return NOOP;
+export function useEventListener(eventName: string, handler: AnyFn, options: Options): void;
 
-  const targetElement = getTargetElement(target);
+export function useEventListener(eventName: string, handler: AnyFn, options: Options = {}) {
+  const { enable = true } = options;
 
-  const cleanups: Function[] = [];
+  const handlerRef = useRef(handler);
+  handlerRef.current = handler;
 
-  // 清除注册
-  const cleanup = () => {
-    cleanups.forEach((fn) => fn());
-    cleanups.length = 0;
-  };
+  useEffectWithTarget(
+    () => {
+      if (!enable) {
+        return;
+      }
 
-  // 移除事件
-  const register = (el: any, event: string, listener: any, options: any) => {
-    el.addEventListener(event, listener, options);
-    return () => el.removeEventListener(event, listener, options);
-  };
+      const targetElement = getTargetElement(options.target, defaultWindow);
+      if (!targetElement?.addEventListener) {
+        return;
+      }
 
-  useEffect(() => {
-    if (!targetElement) return;
-    // 创建选项的克隆，以避免在删除时对其进行反应性更改
-    const optionsClone = isObject(options) ? { ...(options as object) } : options;
-    cleanups.push(register(targetElement, event, listener, optionsClone));
+      const eventListener = (event: Event) => {
+        return handlerRef.current(event);
+      };
 
-    return () => {
-      stop?.();
-    };
-  }, [targetElement, options]);
+      targetElement.addEventListener(eventName, eventListener, {
+        capture: options.capture,
+        once: options.once,
+        passive: options.passive
+      });
 
-  // 手动停止
-  const stop = () => {
-    cleanup();
-  };
-
-  // 当相关的 effect 作用域停止时会调用这个回调函数。
-  useUnmount(() => {
-    stop?.();
-  });
-
-  return stop;
+      return () => {
+        targetElement.removeEventListener(eventName, eventListener, {
+          capture: options.capture
+        });
+      };
+    },
+    [eventName, options.capture, options.once, options.passive, enable],
+    options.target
+  );
 }

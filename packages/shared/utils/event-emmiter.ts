@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-this-alias */
 /*
  * @Date: 2024-03-14 15:46:52
  * @Description: 发布/订阅
@@ -14,7 +15,7 @@ export class eventEmmiter {
     this.subscribes = new Map();
   }
 
-  addEvent(type: string, callback: Function, once: boolean = false) {
+  addEvent(type: string, callback: Function, once = false) {
     const sub = this.subscribes.get(type) || [];
     sub.push({ fn: callback, once });
     this.subscribes.set(type, sub);

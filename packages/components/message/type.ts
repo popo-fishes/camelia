@@ -1,3 +1,7 @@
+/*
+ * @Date: 2024-08-03 08:17:44
+ * @Description: Modify here please
+ */
 import { MutableRefObject } from "react";
 
 export type MessageRef = {
@@ -38,7 +42,7 @@ export interface IMessageProps {
 export type MessageOptions = Partial<Omit<IMessageProps, "id">>;
 
 export type MessageTypedOptions = Omit<MessageOptions, "type">;
-export type MessageTypedFn = (options?: MessageTypedOptions | MessageOptions["message"]) => MessageHandler;
+export type MessageTypedFn = (options: MessageTypedOptions | MessageOptions["message"]) => MessageHandler;
 
 export interface Message {
   success: MessageTypedFn;

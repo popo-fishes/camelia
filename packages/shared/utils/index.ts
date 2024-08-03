@@ -14,3 +14,5 @@ export * from "./util";
 export * from "./tree";
 
 export * from "./string";
+
+export * from "./event-emmiter";
