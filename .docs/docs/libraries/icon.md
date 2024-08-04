@@ -56,7 +56,7 @@ import { Close as CloseIcon, Thumb } from "fish-icons/dist/index.mjs";
 export default () => (
   <>
     <CloseIcon size="20px" color="red" />
-    <Thumb size={20} color="#000" style="margin-left: 8px;" />
+    <Thumb size={20} color="#000" style={{ marginLeft: "8px" }} />
   </>
 );
 ```

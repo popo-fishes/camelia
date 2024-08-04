@@ -65,6 +65,11 @@ const Message = React.forwardRef<MessageRef, IMessageProps>((props, ref) => {
     setVisible(false);
   }
 
+  const onIconClose = (e: any) => {
+    e?.stopPropagation();
+    close();
+  };
+
   useImperativeHandle(ref, () => ({
     close
   }));
@@ -79,11 +84,7 @@ const Message = React.forwardRef<MessageRef, IMessageProps>((props, ref) => {
           ) : (
             <p className={ns.e("content")}>{message}</p>
           )}
-          {showClose && (
-            <span onClick={close} className="icon-close">
-              <CircleClose />
-            </span>
-          )}
+          {showClose && <CircleClose onClick={onIconClose as any} className="icon-close" />}
         </div>
       </CSSTransition>
     </div>

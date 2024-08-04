@@ -72,9 +72,7 @@ const Tag: React.FC<ITagProps> = (props) => {
       {icon}
       <span className={ns.e("content")}>{children}</span>
       <Visible visible={closable}>
-        <span className={ns.e("close")} onClick={handleClose}>
-          <Close />
-        </span>
+        <Close className={ns.e("close")} onClick={handleClose as any} />
       </Visible>
     </span>
   );

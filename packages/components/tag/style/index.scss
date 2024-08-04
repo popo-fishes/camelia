@@ -108,7 +108,7 @@ $tag-border-width: 1px;
     height: 14px;
     width: 14px;
     margin-left: map.get($tag-icon-span-gap, "default");
-    text-align: center;
+    justify-content: center;
     &:hover {
       color: getCssVar("color-white");
       background-color: getCssVar("tag-close-hover-color");

@@ -204,11 +204,11 @@ import { PaperAirplane, CameraFilled } from "fish-icons/dist/index.mjs";
 export default () => {
   return (
     <div style={{ display: "flex" }} className="mb-4">
-      <Tag color="#55acee" className="mr-4" icon={<PaperAirplane />}>
-        <span style={{ marginLeft: "8px" }}>Twitter</span>
+      <Tag color="#55acee" className="mr-4" icon={<PaperAirplane style={{ marginRight: "8px" }} />}>
+        Twitter
       </Tag>
-      <Tag color="#3b5999" className="mr-4" icon={<CameraFilled />}>
-        <span style={{ marginLeft: "8px" }}>Facebook</span>
+      <Tag color="#3b5999" className="mr-4" icon={<CameraFilled style={{ marginRight: "8px" }} />}>
+        Facebook
       </Tag>
       <Tag className="mr-4 customTagColor">customTagColor</Tag>
       <Tag className="mr-4 customTagColor2">customTagColor</Tag>
