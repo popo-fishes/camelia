@@ -33,3 +33,7 @@ export const getScrollBarWidth = (): number => {
 
   return scrollBarWidth;
 };
+
+export function canUseDom() {
+  return !!(typeof window !== "undefined" && window.document && window.document.createElement);
+}

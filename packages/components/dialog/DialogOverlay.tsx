@@ -13,14 +13,14 @@ import { useSameTarget } from "./composables/use-same-target";
 import type { IOverlayProps, IDialogProps } from "./type";
 
 const DialogOverlay: React.FC<IOverlayProps & { alignCenter?: IDialogProps["alignCenter"] }> = (props) => {
-  const { modal, zIndex, overlayClass, children, alignCenter, style } = props;
+  const { mask, zIndex, overlayClass, children, alignCenter, style } = props;
   const { getPrefixCls } = useContext(ConfigContext);
 
   const ns = useNamespace("dialog", getPrefixCls());
 
   // 蒙层点击事件
   const onModalClick = (e) => {
-    props.onClick?.();
+    props.onClick?.(e);
   };
 
   // 点击事件
@@ -37,7 +37,7 @@ const DialogOverlay: React.FC<IOverlayProps & { alignCenter?: IDialogProps["alig
 
   return (
     <>
-      <Visible visible={modal}>
+      <Visible visible={mask}>
         <div className={classNames(overlayClass, ns.e("overlay"))} style={{ zIndex, ...style }}>
           <div
             className={classNames(ns.e("overlay-dialog"))}
@@ -50,7 +50,7 @@ const DialogOverlay: React.FC<IOverlayProps & { alignCenter?: IDialogProps["alig
           </div>
         </div>
       </Visible>
-      <Visible visible={!modal}>
+      <Visible visible={!mask}>
         <div
           className={classNames(overlayClass || "")}
           style={{ zIndex, position: "fixed", top: "0px", right: "0px", bottom: "0px", left: "0px", ...style }}
