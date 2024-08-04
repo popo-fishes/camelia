@@ -24,7 +24,7 @@ export interface IButtonProps extends MergedHTMLAttributes {
   width?: string | number;
   /** 是否禁用 */
   disabled?: boolean;
-  /** 是否加载中, 不建议在非type为primary情况下使用，因为背景颜色冲突看不出效果； 你还可以插槽自定义 loading图标 */
+  /** 是否加载中, 不建议在非type为primary情况下使用，因为背景颜色冲突看不出效果； */
   loading?: boolean;
   /** 按钮前面的图标 */
   icon?: React.ReactNode;

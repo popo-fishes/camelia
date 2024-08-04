@@ -41,6 +41,9 @@ module.exports = {
     "@typescript-eslint/explicit-module-boundary-types": "off", // 允许不显式指定导出函数的返回类型
     "@typescript-eslint/no-explicit-any": "off", // 允许使用 any 类型
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "off",
+    "no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": ["off"]
   },
   plugins: ["react-refresh"],

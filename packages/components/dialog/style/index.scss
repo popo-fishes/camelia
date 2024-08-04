@@ -1,0 +1,179 @@
+@use "../../_styles/core/mixins" as *;
+@use "../../_styles/core/function" as *;
+@use "../../_styles/core/config" as *;
+
+@include b(dialog) {
+  position: relative;
+  margin: 15vh auto 50px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow:
+    0px 12px 32px 4px rgba(0, 0, 0, 0.04),
+    0px 8px 20px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  width: 50%;
+
+  // 垂直居中
+  @include when(align-center) {
+    margin: auto;
+  }
+  // 锁屏body滚动
+  @at-root {
+    .#{$namespace}-dialog-parent--hidden {
+      overflow: hidden;
+    }
+  }
+
+  .closeIconbtn {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    .fish-icon {
+      color: #909399;
+      font-size: 20px;
+    }
+    &:hover {
+      .fish-icon {
+        color: getCssVar("color-primary");
+      }
+    }
+  }
+
+  @include e(header) {
+    min-height: 30px;
+    padding: 12px 20px;
+    .title {
+      font-size: 18px;
+      color: #303133;
+      margin: 0;
+    }
+  }
+  @include e(body) {
+    padding: 12px 20px;
+  }
+  @include e(footer) {
+    padding: 12px 20px;
+  }
+
+  // 蒙层
+  @include e(overlay) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+  }
+  @include e(overlay-dialog) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+  }
+}
+
+// 弹窗动画相关
+.dialog-fade-enter-active {
+  animation: modal-fade-in 0.3s;
+  .#{$namespace}-dialog__overlay-dialog {
+    animation: dialog-fade-in 0.3s;
+  }
+}
+
+.dialog-fade-exit-active {
+  animation: modal-fade-out 0.3s;
+  .#{$namespace}-dialog__overlay-dialog {
+    animation: dialog-fade-out 0.3s;
+  }
+}
+
+// 效果1
+@keyframes dialog-fade-in {
+  0% {
+    -webkit-transform: scale3d(0, 0, 0);
+    transform: scale3d(0.5, 0.5, 0.5);
+    opacity: 0;
+  }
+  50% {
+    -webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+    animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 1;
+  }
+}
+@keyframes dialog-fade-out {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 1;
+  }
+  50% {
+    -webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+    animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+  }
+  100% {
+    -webkit-transform: scale3d(0, 0, 0);
+    transform: scale3d(0.5, 0.5, 0.5);
+    opacity: 0;
+  }
+}
+
+// 效果2
+// @keyframes dialog-fade-in {
+//   0% {
+//     transform: translate3d(0, -20px, 0);
+//     opacity: 0;
+//   }
+//   100% {
+//     transform: translate3d(0, 0, 0);
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes dialog-fade-out {
+//   0% {
+//     transform: translate3d(0, 0, 0);
+//     opacity: 1;
+//   }
+//   100% {
+//     transform: translate3d(0, -20px, 0);
+//     opacity: 0;
+//   }
+// }
+
+@keyframes modal-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

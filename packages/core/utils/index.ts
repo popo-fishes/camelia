@@ -3,3 +3,5 @@
  * @Description: Modify here please
  */
 export * from "./ref";
+export * from "./dom";
+export * from "./style";

@@ -56,7 +56,7 @@ import { Close as CloseIcon, Thumb } from "fish-icons/dist/index.mjs";
 export default () => (
   <>
     <CloseIcon size="20px" color="red" />
-    <Thumb size={20} color="#000" style="margin-left: 8px;" />
+    <Thumb size={20} color="#000" style={{ marginLeft: "8px" }} />
   </>
 );
 ```
@@ -81,7 +81,7 @@ const App: React.FC = () => (
 
 ## 自定义图标
 
-利用 `Icon` 组件封装一个可复用的自定义图标。可以通过插槽传入一个 svg 组件来渲染最终的图标，以满足特定的需
+利用 `Icon` 组件封装一个可复用的自定义图标。可以通过 children 传入一个 svg 组件来渲染最终的图标，以满足特定的需
 
 ```ts
 import Icon from "fish-icons";

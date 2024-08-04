@@ -6,5 +6,21 @@
 export { default as Button } from "./button";
 export type { IButtonProps } from "./button";
 
-export { default as ConfigProvider } from './config-provider';
-export type { ConfigProviderProps } from './config-provider';
+export { default as Image } from "./image";
+export type { ImageProps } from "./image";
+
+export { default as Tag } from "./tag";
+export type { ITagProps } from "./tag";
+
+export { default as ConfigProvider } from "./config-provider";
+export type { ConfigProviderProps } from "./config-provider";
+
+export { default as Dialog } from "./dialog";
+export type { IDialogProps } from "./dialog";
+
+// Plugin
+export { default as message } from "./message";
+export type { IMessageProps } from "./message";
+
+export { default as Prompt, prompt } from "./prompt";
+export type { IPromptProps } from "./prompt";

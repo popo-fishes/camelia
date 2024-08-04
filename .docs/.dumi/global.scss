@@ -1,10 +1,7 @@
 // https://d.umijs.org/guide/project-structure#%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F
 
-// 引入组件库样式
+// 引入文档项目的样式
 @forward "../style/index.scss";
-
-// 引入文档页面组件的样式
-@forward "../style/common.scss";
 
 /**
  以下是：
@@ -118,6 +115,7 @@
 .dumi-default-previewer-desc {
   display: none !important;
 }
+// 表格的第三列全部改变字体颜色
 .site-bgbx00 .markdown td:nth-child(3) {
   color: #c41d7f !important;
 }

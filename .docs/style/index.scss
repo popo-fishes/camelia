@@ -1,4 +1,8 @@
-// 这是自动生成的文件，不需要改动
- @use "../packages/components/_styles/base.scss" as *;
- @use "../packages/components/button/style/index.scss" as *;
- @use "../packages/components/_internal/wave/style/index.scss" as *;
+// 引入组件库样式
+@forward "../style/components.scss";
+
+// 引入文档页面组件的样式
+@forward "../style/common.scss";
+
+// 引入页面样式
+@import "./icon-page.scss";
