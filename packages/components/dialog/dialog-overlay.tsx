@@ -12,7 +12,15 @@ import { useSameTarget } from "./composables/use-same-target";
 
 import type { IOverlayProps, IDialogProps } from "./type";
 
-const DialogOverlay: React.FC<IOverlayProps & { alignCenter?: IDialogProps["alignCenter"] }> = (props) => {
+type RepeatOverlayProps = IOverlayProps & { alignCenter?: IDialogProps["alignCenter"] } & {
+  style?: React.CSSProperties;
+  /** 内容 */
+  children?: React.ReactNode;
+  /** 蒙层点击 */
+  onClick?: (e: React.SyntheticEvent) => void;
+};
+
+const DialogOverlay: React.FC<RepeatOverlayProps> = (props) => {
   const { mask, zIndex, overlayClass, children, alignCenter, style } = props;
   const { getPrefixCls } = useContext(ConfigContext);
 

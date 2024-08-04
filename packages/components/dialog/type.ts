@@ -11,13 +11,8 @@ export type IOverlayProps = {
   zIndex?: number;
   /** 遮罩的语义化结构className */
   overlayClass?: string;
-  style?: React.CSSProperties;
   /** 点击蒙层是否可以关闭 */
   closeOnClickMask?: boolean;
-  /** 内容 */
-  children?: React.ReactNode;
-  /** 蒙层点击 */
-  onClick?: (e: React.SyntheticEvent) => void;
 };
 
 /** 弹窗Dialog盒子相关 */
@@ -32,7 +27,7 @@ export interface IDialogProps extends IOverlayProps, IDialogContentProps {
   alignCenter?: boolean;
   /** 是否在 Dialog 出现时将 body 滚动锁定 */
   lockScroll?: boolean;
-  /** 弹窗内容部分，语义化结构className */
+  /** 弹窗body内容部分，语义化结构className */
   className?: string;
   /** 关闭时销毁节点 */
   destroyOnClose?: boolean;

@@ -43,7 +43,7 @@ const createFbScssTheme = async () => {
   });
 
   // Write an overall entry scss
-  const scssTotalPath = path.resolve(__dirname, "style", "index.scss");
+  const scssTotalPath = path.resolve(__dirname, "style", "components.scss");
 
   try {
     writeFileSync(scssTotalPath, scssTotalCode);

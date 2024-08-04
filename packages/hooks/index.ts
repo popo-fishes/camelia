@@ -4,4 +4,3 @@
  */
 export * from "./use-namespace";
 export * from "./use-z-index";
-export * from "./use-lockscreen";

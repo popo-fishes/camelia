@@ -14,6 +14,7 @@ export * from "./use-timeout";
 export * from "./use-memo";
 export * from "./use-mount";
 export * from "./use-unmount";
+export * from "./use-lockscreen";
 
 // 工具
 export * from "./utils";

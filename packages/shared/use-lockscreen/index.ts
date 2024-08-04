@@ -1,11 +1,10 @@
-/* eslint-disable no-console */
 /*
  * @Date: 2023-12-28 09:16:35
- * @Description: Modify here please
+ * @Description: 勾选监控参考值以锁定或解锁屏幕
  */
 import { useEffect } from "react";
-import { useUnmount } from "@fish-remix/shared";
-import { isClient } from "@fish-remix/shared/utils";
+import { useUnmount } from "../use-unmount";
+import { isClient } from "../utils";
 import { addClass, getScrollBarWidth, hasClass, getStyle, removeClass } from "@fish-remix/core/utils";
 
 let scrollBarWidth = 0;

@@ -1,10 +1,7 @@
 // https://d.umijs.org/guide/project-structure#%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F
 
-// 引入组件库样式
+// 引入文档项目的样式
 @forward "../style/index.scss";
-
-// 引入文档页面组件的样式
-@forward "../style/common.scss";
 
 /**
  以下是：

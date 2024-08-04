@@ -21,6 +21,7 @@ const Dialog: React.FC<IDialogProps> = (props) => {
     alignCenter = false,
     closeOnClickMask = true,
     showClose = true,
+    zIndex,
     overlayClass,
     title,
     className,
@@ -42,7 +43,7 @@ const Dialog: React.FC<IDialogProps> = (props) => {
 
   const { currentZIndex } = useZIndex();
 
-  // dialog样式
+  // dialog Style
   const dialogStyle = useMemo<React.CSSProperties>(() => {
     const style: React.CSSProperties = {};
     if (top) {
@@ -96,7 +97,7 @@ const Dialog: React.FC<IDialogProps> = (props) => {
       <DialogOverlay
         mask={mask}
         overlayClass={overlayClass}
-        zIndex={currentZIndex}
+        zIndex={zIndex || currentZIndex}
         style={{ display: animatedVisible ? "block" : "none" }}
         alignCenter={alignCenter}
         onClick={onMaskClick}
