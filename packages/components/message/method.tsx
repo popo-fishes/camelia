@@ -82,9 +82,7 @@ const createMessage = (options: MessageOptions): MessageContext => {
   }
 
   const handler: MessageHandler = {
-    // 把关闭方法暴露出去，让外面可以主动关闭msg
     close: () => {
-      // 主动关闭msg组件, 通过vm实例得到组件里面暴露的方法
       ref.current?.close();
     }
   };

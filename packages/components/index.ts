@@ -21,3 +21,6 @@ export type { IDialogProps } from "./dialog";
 // Plugin
 export { default as message } from "./message";
 export type { IMessageProps } from "./message";
+
+export { default as Prompt, prompt } from "./prompt";
+export type { IPromptProps } from "./prompt";

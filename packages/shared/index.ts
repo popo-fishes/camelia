@@ -2,6 +2,7 @@
  * @Date: 2023-12-04 09:10:38
  * @Description: Modify here please
  */
+/** @name hooks */
 export * from "./use-click-away";
 export * from "./use-event-listener";
 export * from "./use-resize-observer";
@@ -16,5 +17,5 @@ export * from "./use-mount";
 export * from "./use-unmount";
 export * from "./use-lockscreen";
 
-// 工具
+/** @name 工具 */
 export * from "./utils";

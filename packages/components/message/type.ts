@@ -2,7 +2,7 @@
  * @Date: 2024-08-03 08:17:44
  * @Description: Modify here please
  */
-import { MutableRefObject } from "react";
+import type { MutableRefObject } from "react";
 
 export type MessageRef = {
   close: () => void;

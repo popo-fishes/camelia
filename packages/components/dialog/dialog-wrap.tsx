@@ -5,7 +5,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ConfigContext } from "../config-provider";
 import { useNamespace } from "@fish-remix/hooks";
-import { IDialogProps } from "./type";
+import type { IDialogProps } from "./type";
 import Portal from "../_internal/portal";
 import Dialog from "./dialog";
 

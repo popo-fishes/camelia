@@ -9,7 +9,7 @@ import { ConfigContext } from "../config-provider";
 import { useNamespace, useZIndex } from "@fish-remix/hooks";
 import { Close as CloseIcon } from "fish-icons";
 import Visible from "../_internal/visible";
-import { IDialogProps } from "./type";
+import type { IDialogProps } from "./type";
 import DialogOverlay from "./dialog-overlay";
 
 const Dialog: React.FC<IDialogProps> = (props) => {
@@ -47,7 +47,7 @@ const Dialog: React.FC<IDialogProps> = (props) => {
   const dialogStyle = useMemo<React.CSSProperties>(() => {
     const style: React.CSSProperties = {};
     if (top) {
-      style[`margin-top`] = top;
+      style[`marginTop`] = top;
     }
     if (width) {
       style[`width`] = typeof width == "string" ? width : `${width}px`;
