@@ -2,34 +2,38 @@
  * @Date: 2024-08-03 22:09:25
  * @Description: Modify here please
  */
-import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import classNames from "classnames";
 import { CSSTransition } from "react-transition-group";
 import { ConfigContext } from "../config-provider";
 import { useNamespace, useZIndex } from "@fish-remix/hooks";
-import { Close } from "fish-icons";
+import { Close as CloseIcon } from "fish-icons";
 import Visible from "../_internal/visible";
 import { IDialogProps } from "./type";
-import DialogOverlay from "./DialogOverlay";
+import DialogOverlay from "./dialog-overlay";
 
 const Dialog: React.FC<IDialogProps> = (props) => {
   const {
     top,
+    width,
     open,
-    children,
     mask = true,
     alignCenter = false,
     closeOnClickMask = true,
     showClose = true,
-    lockScroll = true,
-    destroyOnClose = true,
     overlayClass,
+    title,
     className,
-    width,
+    // 内容区
+    header,
+    children,
+    footer,
+    // 事件
     onClose,
     afterClose,
     beforeClose
   } = props;
+
   const { getPrefixCls } = useContext(ConfigContext);
 
   const ns = useNamespace("dialog", getPrefixCls());
@@ -37,8 +41,6 @@ const Dialog: React.FC<IDialogProps> = (props) => {
   const [animatedVisible, setAnimatedVisible] = useState<boolean>(false);
 
   const { currentZIndex } = useZIndex();
-
-  const timeoutRef = useRef<number>();
 
   // dialog样式
   const dialogStyle = useMemo<React.CSSProperties>(() => {
@@ -76,6 +78,7 @@ const Dialog: React.FC<IDialogProps> = (props) => {
 
   // 弹窗元素已从 DOM 中移除时调用
   const onExited = () => {
+    // 等待动画结束才才改变状态
     setAnimatedVisible(false);
     if (animatedVisible) {
       afterClose?.();
@@ -86,17 +89,7 @@ const Dialog: React.FC<IDialogProps> = (props) => {
     if (open) {
       setAnimatedVisible(true);
     }
-    // timeoutRef.current = requestAnimationFrame(() => {
-    //   setAnimatedVisible(open);
-    // });
   }, [open]);
-
-  useEffect(
-    () => () => {
-      clearTimeout(timeoutRef.current);
-    },
-    []
-  );
 
   return (
     <CSSTransition in={open && animatedVisible} timeout={300} classNames="dialog-fade" onExited={onExited}>
@@ -113,7 +106,20 @@ const Dialog: React.FC<IDialogProps> = (props) => {
           role="dialog"
           className={classNames([ns.b(), ns.is("align-center", alignCenter), className])}
         >
-          1<br />1<br />1 1<br />1<br />1 1<br />1<br />1 1<br />1<br />1
+          {/* 弹窗关闭按钮 */}
+          <Visible visible={showClose}>
+            <button className="closeIconbtn" onClick={onHandleClose}>
+              <CloseIcon />
+            </button>
+          </Visible>
+          {/* 头部 */}
+          <header className={ns.e("header")}>{header || <p className="title">{title}</p>}</header>
+          {/* 内容 */}
+          <div className={ns.e("body")}>{children || "内容区，请使用插槽添加内容"}</div>
+          {/* 底部 */}
+          <Visible visible={footer}>
+            <footer className={ns.e("footer")}>{footer}</footer>
+          </Visible>
         </div>
       </DialogOverlay>
     </CSSTransition>

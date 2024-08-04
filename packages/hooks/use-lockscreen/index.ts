@@ -3,7 +3,7 @@
  * @Date: 2023-12-28 09:16:35
  * @Description: Modify here please
  */
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useUnmount } from "@fish-remix/shared";
 import { isClient } from "@fish-remix/shared/utils";
 import { addClass, getScrollBarWidth, hasClass, getStyle, removeClass } from "@fish-remix/core/utils";
@@ -13,14 +13,15 @@ let withoutHiddenClass = false;
 // 记录下body原始的宽度
 let bodyWidth = "0";
 
+let timer = null;
+
 /**
  * 勾选监控参考值以锁定或解锁屏幕
- * @param trigger {Ref<boolean>}
+ * @param trigger boolean
  */
 export const useLockscreen = (trigger: boolean, hiddenCls: string) => {
-  const isInitial = useRef(true);
   const cleanup = () => {
-    setTimeout(() => {
+    timer = setTimeout(() => {
       removeClass(document?.body, hiddenCls);
       // 还原样式
       if (withoutHiddenClass && document) {
@@ -30,16 +31,12 @@ export const useLockscreen = (trigger: boolean, hiddenCls: string) => {
   };
 
   useEffect(() => {
-    if (isInitial.current) {
-      isInitial.current = false;
-      return;
-    }
-
-    if (!isClient || hasClass(document.body, hiddenCls)) {
+    if (!isClient || (hasClass(document.body, hiddenCls) && trigger)) {
       return;
     }
 
     if (!trigger) {
+      clearTimeout(timer);
       cleanup();
       return;
     }
@@ -62,6 +59,7 @@ export const useLockscreen = (trigger: boolean, hiddenCls: string) => {
   }, [trigger]);
 
   useUnmount(() => {
+    clearTimeout(timer);
     cleanup();
   });
 };

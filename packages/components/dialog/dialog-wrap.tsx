@@ -10,7 +10,7 @@ import Portal from "../_internal/portal";
 import Dialog from "./dialog";
 
 const DialogWrap: React.FC<IDialogProps> = (props) => {
-  const { open, getContainer, destroyOnClose = true, afterClose } = props;
+  const { open, getContainer, destroyOnClose = false, afterClose, lockScroll = true } = props;
   const { getPrefixCls } = useContext(ConfigContext);
 
   const [animatedVisible, setAnimatedVisible] = useState<boolean>(open);
@@ -32,7 +32,7 @@ const DialogWrap: React.FC<IDialogProps> = (props) => {
     <Portal
       open={open || animatedVisible}
       getContainer={getContainer}
-      autoLock={open || animatedVisible}
+      autoLock={lockScroll && (open || animatedVisible)}
       autoDestroy={false}
       bodyHiddenClass={ns.b("parent--hidden")}
     >
@@ -40,6 +40,7 @@ const DialogWrap: React.FC<IDialogProps> = (props) => {
         {...props}
         afterClose={() => {
           afterClose?.();
+          // 等待动画结束才才改变状态
           setAnimatedVisible(false);
         }}
       />

@@ -2,29 +2,14 @@
  * @Date: 2024-08-03 08:17:36
  * @Description: Modify here please
  */
-import { Button, Dialog } from "fish-remix";
-import React, { useState } from "react";
+import { Button } from "fish-remix";
+import React from "react";
 
 const App: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-
   return (
     <>
-      <Dialog open={isModalOpen} onClose={handleCancel}></Dialog>
       <div className="mb-4">
-        <Button onClick={showModal}>default</Button>
+        <Button>default</Button>
         <Button type="primary">Primary</Button>
         <Button type="success">Success</Button>
         <Button type="warning">Warning</Button>

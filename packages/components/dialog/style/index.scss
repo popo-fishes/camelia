@@ -36,12 +36,12 @@
     border: none;
     outline: none;
     cursor: pointer;
-    .fb-icon {
+    .fish-icon {
       color: #909399;
       font-size: 20px;
     }
     &:hover {
-      .fb-icon {
+      .fish-icon {
         color: getCssVar("color-primary");
       }
     }

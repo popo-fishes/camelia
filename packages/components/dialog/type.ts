@@ -34,9 +34,7 @@ export interface IDialogProps extends IOverlayProps, IDialogContentProps {
   lockScroll?: boolean;
   /** 弹窗内容部分，语义化结构className */
   className?: string;
-  /** 内容 */
-  children?: React.ReactNode;
-  /** 关闭时卸载节点 */
+  /** 关闭时销毁节点 */
   destroyOnClose?: boolean;
   /** 默认给弹窗挂到哪个地方 */
   getContainer?: () => HTMLElement;
@@ -54,4 +52,10 @@ export type IDialogContentProps = {
   showClose?: boolean;
   /** 弹窗标题 */
   title?: string;
+  /** body内容 */
+  children?: React.ReactNode;
+  /** 头部内容 */
+  header?: React.ReactNode;
+  /** 底部内容 */
+  footer?: React.ReactNode;
 };
