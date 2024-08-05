@@ -2,12 +2,16 @@
  * @Date: 2024-08-03 08:17:36
  * @Description: Modify here please
  */
-import { Button } from "fish-remix";
-import React from "react";
+import { Button, Input } from "fish-remix";
+import React, { useState } from "react";
 
 const App: React.FC = () => {
+  const [value, setValue] = useState("hahahh");
   return (
     <>
+      <div className="mb-4">
+        <Input value={value} placeholder="基本的 input" autoFocus clearable onChange={(v) => setValue(v)} />
+      </div>
       <div className="mb-4">
         <Button>default</Button>
         <Button type="primary">Primary</Button>

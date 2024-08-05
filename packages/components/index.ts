@@ -6,6 +6,9 @@
 export { default as Button } from "./button";
 export type { IButtonProps } from "./button";
 
+export { default as Input } from "./input";
+export type { InputProps, InputRef } from "./input";
+
 export { default as Image } from "./image";
 export type { ImageProps } from "./image";
 
