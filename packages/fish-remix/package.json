@@ -37,6 +37,10 @@
     "lib/components/*/style/*",
     "*.scss"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/u-fish-bubble/fish-remix"
+  },
   "peerDependencies": {
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
