@@ -38,6 +38,7 @@ const createMessage = (options: MessageOptions): MessageContext => {
   const container = document.createElement("div");
   // 绑定ref
   const ref: MessageContext["ref"] = React.createRef();
+
   // 给msg组件的参数
   const props = {
     ...options,
@@ -50,34 +51,31 @@ const createMessage = (options: MessageOptions): MessageContext => {
       const idx = instances.indexOf(instance);
       if (idx === -1) return;
       instances.splice(idx, 1);
-
-      requestAnimationFrame(() => {
-        root.unmount();
-        container?.remove();
-        cancelAnimationFrame(timer);
-      });
+      // 卸载操作
+      root.unmount();
+      container?.remove();
+      cancelAnimationFrame(timer);
     }
   };
 
   const root = createRoot(container);
-
   // 创建节点
   const msg = createElement(MessageConstructor, { ...props, ref } as any);
-  // 渲染节点
-  root.render(msg);
 
   // 获取节点DOM
   let __appendTo = document.querySelector<HTMLElement>(`#${wrapId}`);
   if (__appendTo) {
     // 挂在节点
     (__appendTo as any)?.appendChild(container);
+    // 渲染节点
+    root.render(msg);
   } else {
-    // 第一次挂载节点需要延迟下。因为ContainerWrapper包裹器还在创建
-    cancelAnimationFrame(timer);
     timer = requestAnimationFrame(() => {
       __appendTo = document.querySelector<HTMLElement>(`#${wrapId}`);
       // 挂在节点
       (__appendTo as any)?.appendChild(container);
+      // 渲染节点
+      root.render(msg);
     });
   }
 

@@ -70,13 +70,19 @@ const Message = React.forwardRef<MessageRef, IMessageProps>((props, ref) => {
     close();
   };
 
+  const onExited = () => {
+    requestAnimationFrame(() => {
+      onClose?.();
+    });
+  };
+
   useImperativeHandle(ref, () => ({
     close
   }));
 
   return (
     <div className={ns.e("notice-wrapper")} id={id}>
-      <CSSTransition in={visible} timeout={300} classNames="message-animation" onExited={onClose}>
+      <CSSTransition in={visible} timeout={260} classNames="message-animation" onExited={onExited}>
         <div style={customStyle} className={ns.e("notice")} ref={messageRef}>
           {icon}
           {isHtml ? (

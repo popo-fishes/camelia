@@ -93,7 +93,7 @@ const Dialog: React.FC<IDialogProps> = (props) => {
   }, [open]);
 
   return (
-    <CSSTransition in={open && animatedVisible} timeout={300} classNames="dialog-fade" onExited={onExited}>
+    <CSSTransition in={open && animatedVisible} timeout={260} classNames="dialog-fade" onExited={onExited}>
       <DialogOverlay
         mask={mask}
         overlayClass={overlayClass}
