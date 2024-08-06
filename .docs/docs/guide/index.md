@@ -5,10 +5,25 @@ order: 1
 
 # Fish Remix
 
-致力于以精简的代码实现功能，追求代码的简洁性和效率，提升用户体验。<br/>
+致力于以精简的代码实现功能，追求代码的简洁性，提升用户体验。<br/>
 开箱即用的高质量 React 组件。
 
-## 🖥 支持环境
+## 对比 antd
+
+1. 首先，antd 无疑是非常优秀的，表现极佳。只是因为它要满足诸多个性化的需求，所以它的包实际上是很庞大的。与此相反，Fish Remix 是很小巧的。
+2. Fish Remix 致力于以精简的代码实现组件，如果您的项目喜欢体积小的包，或者说觉得 Fish Remix 适合您的项目，您不妨可以试用下。
+3. 打个比方 我想使用的只是一个简单输入框组件，当你使用 Fish Remix 你只会得到一个简单的 Input, 而 antd 会有额外的个性化需求代码在里面。
+
+<div>
+  <p>这是antd的某个按钮大小</p>
+  <img src="/images/ant.png" style="width: 500px; height: 300px"/>
+</div>
+<div>
+  <p>这是Fish Remix的按钮大小</p>
+  <img src="/images/fish.png" style="width: 500px; height: 300px"/>
+</div>
+
+## 支持环境
 
 - 支持现代浏览器.
 
