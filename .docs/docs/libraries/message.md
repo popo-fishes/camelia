@@ -2,7 +2,7 @@
 order: 1
 group:
   title: 反馈
-  order: 3
+  order: 4
 ---
 
 # Message 消息提示

@@ -199,7 +199,7 @@ $input: map.merge(
     // 输入框的宽度
     "width": 100%,
     // 文本的颜色
-    "text-color": getCssVar("text-color-regular"),
+    "text-color": rgba(0, 0, 0, 0.88),
     // 边框色
     "border-color": getCssVar("color-info", "light-6"),
     // hover的边框色

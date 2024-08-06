@@ -6,11 +6,11 @@ import InternalInput from "./input";
 import TextArea from "./text-area";
 export * from "./type";
 
-type CompoundedComponent = typeof InternalInput & {
+type CommixComponent = typeof InternalInput & {
   TextArea: typeof TextArea;
 };
 
-const Input = InternalInput as CompoundedComponent;
+const Input = InternalInput as CommixComponent;
 
 Input.TextArea = TextArea;
 

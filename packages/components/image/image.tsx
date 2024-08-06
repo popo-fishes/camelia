@@ -98,9 +98,7 @@ const Image: React.FC<ImageProps> = (props) => {
   });
 
   // 点击预览
-  const clickHandler = () => {
-    console.log(111);
-  };
+  const clickHandler = () => {};
 
   const handleError = (event) => {
     setHasLoadError(true);

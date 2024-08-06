@@ -2,7 +2,7 @@
 order: 1
 group:
   title: 数据展示
-  order: 2
+  order: 3
 ---
 
 <style>

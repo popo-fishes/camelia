@@ -2,7 +2,7 @@
 order: 3
 group:
   title: 反馈
-  order: 3
+  order: 4
 ---
 
 # Prompt 消息弹框

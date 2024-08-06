@@ -33,6 +33,7 @@ const Input = React.forwardRef<InputRef, InputProps>((props, ref) => {
     inputStyle,
     maxLength,
     onChange,
+    onPressEnter,
     onClear
   } = props;
 
@@ -46,6 +47,7 @@ const Input = React.forwardRef<InputRef, InputProps>((props, ref) => {
 
   const [hovering, setGovering] = useState<boolean>(false);
   const isComposing = useRef<boolean>(false);
+  const keyLockRef = useRef(false);
 
   // 初始值
   const nativeInputValue = useMemo(() => (isNil(value) ? "" : String(value)), [value]);
@@ -83,6 +85,9 @@ const Input = React.forwardRef<InputRef, InputProps>((props, ref) => {
 
     if (isIncomingValueValid) {
       onChange?.(value || "");
+    } else {
+      await nextTick();
+      setNativeInputValue();
     }
   };
 
@@ -116,6 +121,19 @@ const Input = React.forwardRef<InputRef, InputProps>((props, ref) => {
   const handleReset = () => {
     inputRef.current.value = "";
     onChange?.("");
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (onPressEnter && e.key === "Enter" && !keyLockRef.current) {
+      keyLockRef.current = true;
+      onPressEnter(e);
+    }
+  };
+
+  const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      keyLockRef.current = false;
+    }
   };
 
   useEffect(() => {
@@ -158,6 +176,8 @@ const Input = React.forwardRef<InputRef, InputProps>((props, ref) => {
         onCompositionStart={() => (isComposing.current = true)}
         onCompositionEnd={handleCompositionEnd}
         onInput={handleInput}
+        onKeyDown={handleKeyDown}
+        onKeyUp={handleKeyUp}
         onFocus={handleFocus}
         onBlur={handleBlur}
       />

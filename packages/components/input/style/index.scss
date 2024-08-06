@@ -61,6 +61,7 @@
     color: getCssVar("input-text-color");
     font-size: inherit;
     font-weight: 400;
+    font-family: getCssVar("font-family");
     flex-grow: 1;
     height: getCssVar("input-inner-height");
     line-height: getCssVar("input-inner-height");
@@ -132,6 +133,7 @@
     height: 52px;
     color: getCssVar("input-text-color");
     font-size: inherit;
+    font-family: getCssVar("font-family");
     background-color: getCssVar("input-bg-color");
     border: 1px solid getCssVar("input-border-color");
     transition: border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);

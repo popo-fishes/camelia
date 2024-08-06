@@ -11,22 +11,22 @@ import { nextTick } from "@fish-remix/core";
 
 import { ConfigContext } from "../config-provider";
 import BaseWave from "../_internal/wave";
-import type { InputProps, InputRef } from "./type";
+import type { ITextAreaProps, ITextAreaRef } from "./type";
 
-const TextArea = React.forwardRef<InputRef, InputProps>((props, ref) => {
+const TextArea = React.forwardRef<ITextAreaRef, ITextAreaProps>((props, ref) => {
   const {
     placeholder = "请输入",
     wave = true,
     value,
     disabled,
-    size,
     className,
     autoFocus,
     style,
     readOnly,
     inputStyle,
     maxLength,
-    onChange
+    onChange,
+    onPressEnter
   } = props;
 
   const { getPrefixCls } = useContext(ConfigContext);
@@ -38,6 +38,7 @@ const TextArea = React.forwardRef<InputRef, InputProps>((props, ref) => {
   const { wrapperRef, isFocused, handleFocus, handleBlur } = useFocusController(textareaRef);
 
   const isComposing = useRef<boolean>(false);
+  const keyLockRef = useRef(false);
 
   // 初始值
   const nativeInputValue = useMemo(() => (isNil(value) ? "" : String(value)), [value]);
@@ -45,7 +46,7 @@ const TextArea = React.forwardRef<InputRef, InputProps>((props, ref) => {
   // 外层class
   const wrapperKls = useMemo(() => {
     return [nsTextarea.b(), nsTextarea.is("focus", isFocused), className];
-  }, [size, isFocused, className, disabled]);
+  }, [isFocused, className]);
 
   // 校验当前的输入是否合法
   const allowInput = (value: string): boolean => {
@@ -72,6 +73,9 @@ const TextArea = React.forwardRef<InputRef, InputProps>((props, ref) => {
 
     if (isIncomingValueValid) {
       onChange?.(value || "");
+    } else {
+      await nextTick();
+      setNativeInputValue();
     }
   };
 
@@ -90,6 +94,19 @@ const TextArea = React.forwardRef<InputRef, InputProps>((props, ref) => {
     if (isComposing) {
       isComposing.current = false;
       handleInput(event);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (onPressEnter && e.key === "Enter" && !keyLockRef.current) {
+      keyLockRef.current = true;
+      onPressEnter(e);
+    }
+  };
+
+  const handleKeyUp = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter") {
+      keyLockRef.current = false;
     }
   };
 
@@ -124,6 +141,8 @@ const TextArea = React.forwardRef<InputRef, InputProps>((props, ref) => {
         onCompositionStart={() => (isComposing.current = true)}
         onCompositionEnd={handleCompositionEnd}
         onInput={handleInput}
+        onKeyDown={handleKeyDown}
+        onKeyUp={handleKeyUp}
         onFocus={handleFocus}
         onBlur={handleBlur}
       />
