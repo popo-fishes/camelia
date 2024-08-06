@@ -11,13 +11,13 @@ interface UseFocusControllerOptions {
    * return true to cancel blur
    * @param event React.FocusEvent<HTMLInputElement>
    */
-  beforeBlur?: (event: React.FocusEvent<HTMLInputElement>) => boolean | undefined;
+  beforeBlur?: (event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => boolean | undefined;
   afterBlur?: () => void;
 }
 
 interface EventProps {
-  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onFocus?: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
 export function useFocusController<T extends HTMLElement>(
@@ -28,14 +28,14 @@ export function useFocusController<T extends HTMLElement>(
   const wrapperRef = useRef<HTMLDivElement>();
   const [isFocused, setFocused] = useState<boolean>(false);
 
-  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+  const handleFocus = (event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     if (isFocused) return;
     setFocused(true);
     onFocus?.(event);
     afterFocus?.();
   };
 
-  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const cancelBlur = isFunction(beforeBlur) ? beforeBlur(event) : false;
 
     if (cancelBlur || (event.relatedTarget && wrapperRef.current?.contains(event.relatedTarget as Node))) return;

@@ -32,6 +32,9 @@ const prompt = (options?: IPromptProps) => {
       // 暴露关闭事件给外面。
       onCancel?.(e);
     },
+    afterClose: () => {
+      root.unmount();
+    },
     open: true
   };
 

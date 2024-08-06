@@ -82,7 +82,9 @@ const Dialog: React.FC<IDialogProps> = (props) => {
     // 等待动画结束才才改变状态
     setAnimatedVisible(false);
     if (animatedVisible) {
-      afterClose?.();
+      requestAnimationFrame(() => {
+        afterClose?.();
+      });
     }
   };
 

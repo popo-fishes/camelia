@@ -5,8 +5,8 @@
 // 延迟一部分操作到下一个时间片再执行
 export function nextTick() {
   return new Promise<void>((resolve, reject) => {
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       resolve();
-    }, 1000 / 30);
+    });
   });
 }

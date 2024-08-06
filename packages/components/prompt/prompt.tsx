@@ -28,6 +28,7 @@ const Prompt = React.forwardRef<PromptRef, IPromptProps>((props, ref) => {
     children,
     footer,
     onCancel,
+    afterClose,
     onOk
   } = props;
   const { getPrefixCls } = useContext(ConfigContext);
@@ -78,6 +79,7 @@ const Prompt = React.forwardRef<PromptRef, IPromptProps>((props, ref) => {
       destroyOnClose
       showClose={showClose}
       onClose={onClose}
+      afterClose={afterClose}
       width={width}
       top="25vh"
       className={ns.b()}

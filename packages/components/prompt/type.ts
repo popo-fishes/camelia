@@ -32,4 +32,6 @@ export interface IPromptProps {
   onCancel?: (e: { type: "notBtn" | "cancel" }) => void;
   /** 点击了确定按钮 */
   onOk?: () => void;
+  /** 完全关闭后的回调 */
+  afterClose?: () => any;
 }
