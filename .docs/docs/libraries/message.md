@@ -2,7 +2,7 @@
 order: 1
 group:
   title: 反馈
-  order: 3
+  order: 4
 ---
 
 # Message 消息提示
@@ -15,7 +15,7 @@ group:
 
 ```jsx
 import React from "react";
-import { message, Button } from "fish-remix";
+import { message, Button } from "camelia";
 
 export default () => {
   const open1 = () => {
@@ -60,7 +60,7 @@ Message 拥有可控的 duration， 默认的关闭时间为 3000 毫秒，当�
 
 ```jsx
 import React from "react";
-import { message, Button } from "fish-remix";
+import { message, Button } from "camelia";
 
 export default () => {
   const open2 = () => {
@@ -87,7 +87,7 @@ export default () => {
 
 ```jsx
 import React from "react";
-import { message, Button } from "fish-remix";
+import { message, Button } from "camelia";
 
 export default () => {
   const open2 = () => {

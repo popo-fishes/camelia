@@ -2,7 +2,7 @@
 order: 3
 group:
   title: 反馈
-  order: 3
+  order: 4
 ---
 
 # Prompt 消息弹框
@@ -26,7 +26,7 @@ group:
 
 ```jsx
 import React from "react";
-import { prompt, Button } from "fish-remix";
+import { prompt, Button } from "camelia";
 
 export default () => {
   const open2 = () => {
@@ -59,7 +59,7 @@ export default () => {
 
 ```jsx
 import React, { useState } from "react";
-import { Prompt, Button } from "fish-remix";
+import { Prompt, Button } from "camelia";
 
 export default () => {
   const [visible, setVisible] = useState(false);

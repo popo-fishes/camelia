@@ -1,8 +1,8 @@
 // 引入组件库样式
 @forward "../style/components.scss";
 
-// 引入文档页面组件的样式
+// 引入页面公共的样式
 @forward "../style/common.scss";
 
-// 引入页面样式
-@import "./icon-page.scss";
+// 引入页面组件的样式
+@import "./page.scss";

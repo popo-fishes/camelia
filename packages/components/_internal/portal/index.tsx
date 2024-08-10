@@ -4,9 +4,9 @@
  */
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { canUseDom } from "@fish-remix/core";
-import { useLockscreen } from "@fish-remix/shared";
-import { isClient } from "@fish-remix/shared";
+import { canUseDom } from "@camelia/core";
+import { useLockscreen } from "@camelia/shared";
+import { isClient } from "@camelia/shared";
 
 export type ContainerType = Element | DocumentFragment;
 

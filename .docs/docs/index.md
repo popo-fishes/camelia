@@ -1,5 +1,5 @@
 ---
 hero:
-  title: Fish-<b>Remix</b>
+  title: <b>Camelia</b>
   description: React UI library，Implement functionality with the simplest code
 ---

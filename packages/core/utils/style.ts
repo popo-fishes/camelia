@@ -2,7 +2,7 @@
  * @Date: 2023-12-28 09:26:59
  * @Description: Modify here please
  */
-import { isObject, isClient } from "@fish-remix/shared/utils";
+import { isObject, isClient } from "@camelia/shared/utils";
 import type { CSSProperties } from "react";
 
 export const classNameToArray = (cls = "") => cls.split(" ").filter((item) => !!item.trim());

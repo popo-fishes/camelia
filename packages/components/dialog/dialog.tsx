@@ -6,7 +6,7 @@ import React, { useContext, useEffect, useMemo, useState } from "react";
 import classNames from "classnames";
 import { CSSTransition } from "react-transition-group";
 import { ConfigContext } from "../config-provider";
-import { useNamespace, useZIndex } from "@fish-remix/hooks";
+import { useNamespace, useZIndex } from "@camelia/core/hooks";
 import { Close as CloseIcon } from "fish-icons";
 import Visible from "../_internal/visible";
 import type { IDialogProps } from "./type";
@@ -82,7 +82,9 @@ const Dialog: React.FC<IDialogProps> = (props) => {
     // 等待动画结束才才改变状态
     setAnimatedVisible(false);
     if (animatedVisible) {
-      afterClose?.();
+      requestAnimationFrame(() => {
+        afterClose?.();
+      });
     }
   };
 
@@ -93,7 +95,7 @@ const Dialog: React.FC<IDialogProps> = (props) => {
   }, [open]);
 
   return (
-    <CSSTransition in={open && animatedVisible} timeout={300} classNames="dialog-fade" onExited={onExited}>
+    <CSSTransition in={open && animatedVisible} timeout={260} classNames="dialog-fade" onExited={onExited}>
       <DialogOverlay
         mask={mask}
         overlayClass={overlayClass}

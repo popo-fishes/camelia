@@ -11,7 +11,7 @@ group:
 我们内置了很多基础类型判断, 你可以如下使用：
 
 ```ts
-import { isEmpty } from "fish-remix/shared";
+import { isEmpty } from "camelia/shared";
 const tel = "";
 if (isEmpty(tel)) {
   return "请输入手机号";
@@ -43,7 +43,7 @@ export declare const NOOP: () => void;
 ## type 类型
 
 ```ts
-import type { AnyFn } from "fish-remix/shared";
+import type { AnyFn } from "camelia/shared";
 const fn: AnyFn = (v) => {};
 ```
 

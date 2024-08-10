@@ -1,11 +1,16 @@
 {
-  "name": "fish-remix",
+  "name": "camelia",
   "version": "0.0.0-dev.1",
   "description": "A Component Library for React",
+  "author": "fish-bubble",
   "keywords": [
-    "fish-remix",
+    "camelia ui",
+    "camelia-ui",
+    "camellia",
+    "camellia-ui",
     "ui framework",
-    "ui"
+    "ui",
+    "react ui"
   ],
   "license": "MIT",
   "main": "lib/index.js",
@@ -37,6 +42,10 @@
     "lib/components/*/style/*",
     "*.scss"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/u-fish-bubble/camellia"
+  },
   "peerDependencies": {
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"

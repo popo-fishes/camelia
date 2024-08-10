@@ -3,11 +3,11 @@
  * @Description: Modify here please
  */
 import React, { useContext, useRef, useState, useImperativeHandle, useEffect, useMemo } from "react";
-import { useTimeout } from "@fish-remix/shared";
+import { useTimeout } from "@camelia/shared";
 import { CircleClose, WarningFilled, CircleCheckFilled, CircleCloseFilled } from "fish-icons";
 import { CSSTransition } from "react-transition-group";
 import { ConfigContext } from "../config-provider";
-import { useNamespace } from "@fish-remix/hooks";
+import { useNamespace } from "@camelia/core/hooks";
 
 import type { MessageRef, IMessageProps } from "./type";
 
@@ -70,13 +70,19 @@ const Message = React.forwardRef<MessageRef, IMessageProps>((props, ref) => {
     close();
   };
 
+  const onExited = () => {
+    requestAnimationFrame(() => {
+      onClose?.();
+    });
+  };
+
   useImperativeHandle(ref, () => ({
     close
   }));
 
   return (
     <div className={ns.e("notice-wrapper")} id={id}>
-      <CSSTransition in={visible} timeout={300} classNames="message-animation" onExited={onClose}>
+      <CSSTransition in={visible} timeout={260} classNames="message-animation" onExited={onExited}>
         <div style={customStyle} className={ns.e("notice")} ref={messageRef}>
           {icon}
           {isHtml ? (

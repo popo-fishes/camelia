@@ -12,6 +12,13 @@
 
 */
 
+// 首页标题不可以复制
+.site-182hoah b {
+  user-select: none;
+}
+.site-14fkerq {
+  backdrop-filter: blur(13px) !important;
+}
 // 修改整体页面样式
 .site-149wa23,
 .site-1qh9pb2 {
@@ -73,6 +80,9 @@
   color: #0092ff !important;
   font-weight: 500 !important;
 }
+.site-ar97vv > dl > dd > a.active:hover {
+  background: #e1f0ff !important;
+}
 .site-ar97vv > dl > dt {
   color: #606266 !important;
   margin-bottom: 12px !important;
@@ -118,4 +128,8 @@
 // 表格的第三列全部改变字体颜色
 .site-bgbx00 .markdown td:nth-child(3) {
   color: #c41d7f !important;
+}
+
+.markdown > :not([data-code-type="highlighter"]) code {
+  color: #0092ff !important;
 }

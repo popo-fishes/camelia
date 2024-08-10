@@ -7,8 +7,8 @@ import classNames from "classnames";
 import { Loading } from "fish-icons";
 
 import { ConfigContext } from "../config-provider";
-import { composeRef } from "@fish-remix/core";
-import { useNamespace } from "@fish-remix/hooks";
+import { composeRef } from "@camelia/core";
+import { useNamespace } from "@camelia/core/hooks";
 
 import BaseWave, { type WaveRef } from "../_internal/wave";
 

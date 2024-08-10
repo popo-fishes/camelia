@@ -5,6 +5,6 @@
 
 import { version } from "./version";
 
-export * from "@fish-remix/components";
+export * from "@camelia/components";
 
 export { version };

@@ -6,7 +6,6 @@ const objectToString = Object.prototype.toString;
 const toTypeString = (value) => objectToString.call(value);
 export const toRawType = (value) => {
   // extract "RawType" from strings like "[object RawType]"
-  // console.log(toTypeString(value));
   return toTypeString(value).slice(8, -1);
 };
 
@@ -28,7 +27,8 @@ export const isUndefined = (val: any): val is undefined => val === undefined;
 export const isBoolean = (val: any): val is boolean => typeof val === "boolean";
 export const isNumber = (val: any): val is number => typeof val === "number";
 
-export const isEmpty = (val: unknown) => (!val && val !== 0) || (isArray(val) && val.length === 0) || (isObject(val) && !Object.keys(val).length);
+export const isEmpty = (val: unknown) =>
+  (!val && val !== 0) || (isArray(val) && val.length === 0) || (isObject(val) && !Object.keys(val).length);
 
 export const isElement = (e: unknown): e is Element => {
   if (typeof Element === "undefined") return false;
@@ -44,6 +44,7 @@ function getIsIOS() {
   return (
     isClient &&
     window?.navigator?.userAgent &&
-    (/iP(ad|hone|od)/.test(window.navigator.userAgent) || (window?.navigator?.maxTouchPoints > 2 && /iPad|Macintosh/.test(window?.navigator.userAgent)))
+    (/iP(ad|hone|od)/.test(window.navigator.userAgent) ||
+      (window?.navigator?.maxTouchPoints > 2 && /iPad|Macintosh/.test(window?.navigator.userAgent)))
   );
 }

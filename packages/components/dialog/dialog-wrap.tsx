@@ -4,13 +4,13 @@
  */
 import React, { useContext, useEffect, useState } from "react";
 import { ConfigContext } from "../config-provider";
-import { useNamespace } from "@fish-remix/hooks";
+import { useNamespace } from "@camelia/core/hooks";
 import type { IDialogProps } from "./type";
 import Portal from "../_internal/portal";
 import Dialog from "./dialog";
 
 const DialogWrap: React.FC<IDialogProps> = (props) => {
-  const { open, getContainer, destroyOnClose = false, afterClose, lockScroll = true } = props;
+  const { open, getContainer, destroyOnClose = true, afterClose, lockScroll = true } = props;
   const { getPrefixCls } = useContext(ConfigContext);
 
   const [animatedVisible, setAnimatedVisible] = useState<boolean>(open);

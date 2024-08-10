@@ -2,7 +2,7 @@
 order: 2
 group:
   title: 数据展示
-  order: 2
+  order: 3
 ---
 
 <style>
@@ -33,7 +33,7 @@ group:
 
 ```jsx
 import React from "react";
-import { Tag } from "fish-remix";
+import { Tag } from "camelia";
 
 export default () => {
   return (
@@ -78,7 +78,7 @@ export default () => {
 
 ```jsx
 import React, { useState } from "react";
-import { Tag } from "fish-remix";
+import { Tag } from "camelia";
 
 export default () => {
   const [tags, setTags] = useState([
@@ -113,7 +113,7 @@ Tag 组件提供了三个不同的风格：dark、light 和 plain
 
 ```jsx
 import React, { useState } from "react";
-import { Tag } from "fish-remix";
+import { Tag } from "camelia";
 
 export default () => {
   return (
@@ -195,7 +195,7 @@ export default () => {
 
 ```jsx
 import React, { useState } from "react";
-import { Tag } from "fish-remix";
+import { Tag } from "camelia";
 // 这是因为dumi文档找不到module
 import { PaperAirplane, CameraFilled } from "fish-icons/dist/index.mjs";
 // 你应该这样写

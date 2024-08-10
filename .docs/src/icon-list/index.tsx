@@ -5,7 +5,7 @@
 
 import React from "react";
 import IconData from "./icons.json";
-import * as Icons from "fish-icons/dist/index.mjs";
+import * as Icons from "fish-icons";
 
 const datas: any = [];
 const iconMap = new Map(Object.entries(Icons));

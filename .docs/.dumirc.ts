@@ -6,17 +6,18 @@ import { defineConfig } from "dumi";
 import path from "path";
 export default defineConfig({
   outputPath: "docs-dist",
-  favicons: ["/fb-logo.ico"],
+  favicons: ["/logo.ico"],
+
   alias: {
-    "fish-remix": path.join("../", "packages/fish-remix/index.ts"),
-    "fish-remix-shared": path.join("../", "packages/shared/index.ts")
+    "camelia/shared": path.join("../", "packages/shared/index.ts"),
+    camelia: path.join("../", "packages/camelia/index.ts")
   },
 
   themeConfig: {
-    name: "Fish Remix",
-    logo: "/images/logo.svg",
+    name: "Camelia",
+    logo: "/logo.png",
     socialLinks: {
-      github: "https://github.com/u-fish-bubble/fish-remix"
+      github: "https://github.com/u-fish-bubble/camellia"
     },
     hero: {
       actions: [{ text: "🚀🚀 开始吧 →", link: "/guide" }],
@@ -28,7 +29,7 @@ export default defineConfig({
           row: 5,
           title: "文档",
           description:
-            "我们全面覆盖了 fish-remix 的各个方面，为开发者提供明确的方向指导和深入的设计理念，旨在启发您的洞见，让您的开发之路如马踏平川般顺畅。"
+            "我们全面覆盖了 Camelia 的各个方面，为开发者提供明确的方向指导和深入的设计理念，旨在启发您的洞见，让您的开发之路如马踏平川般顺畅。"
         },
         {
           image: "🛩",

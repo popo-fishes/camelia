@@ -3,20 +3,20 @@
  * @Description: Modify here please
 -->
 <p align="center">
-  <img width="300px" height="250px" src="https://cdn.yupaowang.com/yupao_pc/images/pl/fb-logo-max.png">
+  <img width="200px" height="200px" src="http://43.136.119.145:82/logo.png">
 </p>
 
-<h1 align="center">Fish Remix</h1>
+<h1 align="center">Camelia</h1>
 
 <p align="center">
-  <a href="https://www.npmjs.org/package/fish-remix">
-    <img src="https://img.shields.io/npm/v/fish-bubble-design.svg" />
+  <a href="https://www.npmjs.org/package/camelia">
+    <img src="https://img.shields.io/npm/v/camelia.svg" />
   </a>
-  <a href="https://github.com/u-fish-bubble/fish-remix">
+  <a href="https://github.com/u-fish-bubble/camelia">
     <img src="https://img.shields.io/badge/node-%20%3E%3D%2018-47c219" />
   </a>
-  <a href="https://npmcharts.com/compare/fish-remix?minimal=true">
-    <img src="https://img.shields.io/npm/dm/umy-ui.svg" />
+  <a href="https://npmcharts.com/compare/camelia?minimal=true">
+    <img src="https://img.shields.io/npm/dm/camelia.svg" />
   </a>
   <br>
 </p>
@@ -46,21 +46,21 @@
 ## 📦 安装
 
 ```bash
-npm install fish-remix
+npm install camelia
 ```
 
 ```bash
-yarn add fish-remix
+yarn add camelia
 ```
 
 ```bash
-pnpm add fish-remix
+pnpm add camelia
 ```
 
 ## 🔨 使用
 
 ```tsx
-import { Button } from "fish-remix";
+import { Button } from "camelia";
 
 export default () => (
   <>

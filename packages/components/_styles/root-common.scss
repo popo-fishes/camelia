@@ -1,15 +1,19 @@
 // CSS3 var
 @use "common/var" as *;
 @use "core/css-var" as *;
+@use "./core/config" as *;
 
-//为了获得更好的性能，如果您真的
-//不需要，因为这可能会引入渲染的重新计算开销。
+//为了获得更好的性能，如果您真的需要，请不要动态更改根变量 因为这可能会为渲染带来重新计算的开销。
 // https://lisilinhart.info/posts/css-variables-performance/
 
 // 把变量转换为root css var
 
 // common
 :root {
+  // 字体
+  --#{$namespace}-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  // 颜色
   @include set-css-var-value("color-white", $color-white);
   @include set-css-var-value("color-black", $color-black);
   // --fb-border-radius-#{$type}

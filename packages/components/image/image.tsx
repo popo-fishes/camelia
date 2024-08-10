@@ -5,8 +5,8 @@
 import React, { useContext, useMemo, useState, useRef } from "react";
 import classNames from "classnames";
 import { ConfigContext } from "../config-provider";
-import { useNamespace } from "@fish-remix/hooks";
-import { useMount, useUnmount } from "@fish-remix/shared";
+import { useNamespace } from "@camelia/core/hooks";
+import { useMount, useUnmount } from "@camelia/shared";
 import { Picture, CanSee } from "fish-icons";
 
 import Visible from "../_internal/visible";
@@ -98,9 +98,7 @@ const Image: React.FC<ImageProps> = (props) => {
   });
 
   // 点击预览
-  const clickHandler = () => {
-    console.log(111);
-  };
+  const clickHandler = () => {};
 
   const handleError = (event) => {
     setHasLoadError(true);

@@ -2,7 +2,7 @@
 order: 1
 group:
   title: 数据展示
-  order: 2
+  order: 3
 ---
 
 <style>
@@ -33,7 +33,7 @@ group:
 
 ```jsx
 import React from "react";
-import { Image } from "fish-remix";
+import { Image } from "camelia";
 
 export default () => {
   return (
@@ -51,7 +51,7 @@ export default () => {
 
 ```jsx
 import React from "react";
-import { Image } from "fish-remix";
+import { Image } from "camelia";
 
 export default () => {
   const urls = ["/images/img1.jpg", "/images/img2.webp", "/images/img3.webp", "/images/img4.webp"];
@@ -71,7 +71,7 @@ preview 开启预览，为 false 时禁用
 
 ```jsx
 import React from "react";
-import { Image } from "fish-remix";
+import { Image } from "camelia";
 
 export default () => {
   return (

@@ -15,10 +15,9 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@fish-remix/components": "workspace:*",
-    "@fish-remix/core": "workspace:*",
-    "@fish-remix/hooks": "workspace:*",
-    "@fish-remix/shared": "workspace:*"
+    "@camelia/components": "workspace:*",
+    "@camelia/core": "workspace:*",
+    "@camelia/shared": "workspace:*"
   },
   "devDependencies": {
     "@esbuild-kit/cjs-loader": "^2.2.1",

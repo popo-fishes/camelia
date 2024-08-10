@@ -14,9 +14,8 @@ group:
 
 ```jsx
 import { useState } from "react";
-import { Button } from "fish-remix";
-// 这是文档别名路径, 你应该 from "fish-remix/shared";
-import { useThrottle } from "fish-remix-shared";
+import { Button } from "camelia";
+import { useThrottle } from "camelia/shared";
 
 export default () => {
   const [updated, setUpdated] = useState(0);

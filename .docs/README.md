@@ -3,6 +3,6 @@
  * @Description: Modify here please
 -->
 
-# fish-remix-docs
+# camella-docs
 
 [A react library developed with dumi](https://d.umijs.org/guide)

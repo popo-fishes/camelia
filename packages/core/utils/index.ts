@@ -5,3 +5,4 @@
 export * from "./ref";
 export * from "./dom";
 export * from "./style";
+export * from "./util";

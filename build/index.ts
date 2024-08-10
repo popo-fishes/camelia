@@ -13,7 +13,7 @@ import { parallel, series } from "gulp";
 import type { TaskFunction } from "gulp";
 
 import { withTaskName, run, runTask } from "./core";
-import { buildOutput, epOutput, libraryPackage, projRoot } from "./core/constants";
+import { buildOutput, epOutput, libraryPackage, projRoot, UINAME } from "./core/constants";
 import { buildConfig, moveFilesFromFolderToParent } from "./utils";
 import type { Module } from "./utils";
 import glob from "fast-glob";
@@ -27,8 +27,8 @@ const copyFiles = () =>
   ]);
 
 const modifyInletTypedPath: TaskFunction = (cb) => {
-  // Copy the file of dist/types/fish-remix to the same level as dist/types
-  const folderPath = path.resolve(buildOutput, "types", "fish-remix");
+  // Copy the file of dist/types/camelia to the same level as dist/types
+  const folderPath = path.resolve(buildOutput, "types", UINAME);
   moveFilesFromFolderToParent(folderPath, () => {
     try {
       rmdirSync(folderPath, { recursive: true });

@@ -138,7 +138,7 @@ const createTotalScssTheme = async () => {
 
   let scssTotalCode = "";
   components.forEach((item) => {
-    // item =>  'D:\\fish-remix\\packages\\components\\button\\style\\index.scss',
+    // item =>  'XXXXXX packages\\components\\button\\style\\index.scss',
     const paths = item.split("\\components\\");
     const currentDir = path.resolve(epOutput, "dist");
     const targetFilePath = path.join(buildConfig.cjs.output.path, "components", paths[1]);

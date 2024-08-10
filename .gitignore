@@ -10,7 +10,7 @@ node_modules
 
 # Bundle
 dist
-./.vitepress/fish-remix-docs/**
+./.vitepress/camelia-docs/**
 
 ./*.yaml
 

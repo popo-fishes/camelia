@@ -4,10 +4,10 @@
  */
 import React, { useContext, useEffect, useState, useImperativeHandle } from "react";
 import { ConfigContext } from "../config-provider";
-import { useNamespace } from "@fish-remix/hooks";
-import Dialog from "@fish-remix/components/dialog";
-import Button from "@fish-remix/components/button";
-import Visible from "@fish-remix/components/_internal/visible";
+import { useNamespace } from "@camelia/core/hooks";
+import Dialog from "@camelia/components/dialog";
+import Button from "@camelia/components/button";
+import Visible from "@camelia/components/_internal/visible";
 import { Chat } from "fish-icons";
 
 import type { IPromptProps, PromptRef } from "./type";
@@ -28,6 +28,7 @@ const Prompt = React.forwardRef<PromptRef, IPromptProps>((props, ref) => {
     children,
     footer,
     onCancel,
+    afterClose,
     onOk
   } = props;
   const { getPrefixCls } = useContext(ConfigContext);
@@ -78,6 +79,7 @@ const Prompt = React.forwardRef<PromptRef, IPromptProps>((props, ref) => {
       destroyOnClose
       showClose={showClose}
       onClose={onClose}
+      afterClose={afterClose}
       width={width}
       top="25vh"
       className={ns.b()}

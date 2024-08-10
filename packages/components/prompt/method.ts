@@ -5,7 +5,7 @@
 import React, { createElement } from "react";
 import { createRoot } from "react-dom/client";
 import type { MutableRefObject } from "react";
-import { isClient } from "@fish-remix/shared/utils";
+import { isClient } from "@camelia/shared/utils";
 import type { IPromptProps, PromptRef } from "./type";
 import promptConstructor from "./prompt";
 
@@ -31,6 +31,9 @@ const prompt = (options?: IPromptProps) => {
     onCancel: (e) => {
       // 暴露关闭事件给外面。
       onCancel?.(e);
+    },
+    afterClose: () => {
+      root.unmount();
     },
     open: true
   };
