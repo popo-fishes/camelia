@@ -32,7 +32,7 @@ order: 1
 
 # Camelia
 
-<p class="intro-decs">Camelia 正确的写法是: <span>Camellia( 发音为 /kəˈmiːliə/ )</span>, 但感觉长度不好记，改为了Camelia，意思和发音都类似。</p>
+<p class="intro-decs">Camelia 正确的写法是: <span>Camellia( 发音为 /kəˈmiːliə/ )</span>, 但感觉太长且不好记，改为了Camelia，意思和发音都类似。</p>
 
 <div class="intro-title">Camelia的意思是山茶花，象征与寓意：</div>
 
