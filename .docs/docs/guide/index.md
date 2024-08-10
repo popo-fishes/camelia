@@ -1,27 +1,32 @@
 ---
-title: Fish Magic
+title: Camllia
 order: 1
 ---
 
-# Fish Magic
+# Camllia
 
-“magic”有魔法的意思，魔法鱼象征着充满神奇和惊喜的 UI 体验。
+“Camllia” 山茶花， 象征与寓意：
+
+<p>高贵与优雅: 山茶花的美丽与高雅使其成为高贵与优雅的象征，常被用来装饰宫廷和豪门宅第，展现出其高贵的气质和优雅的风范。</p>
+<p>谦逊与低调: 山茶花不张扬、不高调，默默地绽放着自己的美丽</p>
+<p>坚韧不拔: 山茶花的花期相对较长，即使在寒冷的冬季也能傲然绽放，展现出其坚韧不拔的精神。</p>
+
 致力于以精简的代码实现功能，追求代码的简洁性，提升用户体验。<br/>
 开箱即用的高质量 React 组件。
 
 ## 对比 antd
 
-1. 首先，antd 无疑是非常优秀的，表现极佳。只是因为它要满足诸多个性化的需求，所以它的包实际上是很庞大的。与此相反，Fish Magic 是很小巧的。
-2. Fish Magic 致力于以精简的代码实现组件，如果您的项目喜欢体积小的包，或者说觉得 Fish Magic 适合您的项目，您不妨可以试用下。
-3. 打个比方 我想使用的只是一个简单输入框组件，当你使用 Fish Magic 你只会得到一个简单的 Input, 而 antd 会有额外的个性化需求代码在里面。
+1. 首先，antd 无疑是非常优秀的，表现极佳。只是因为它要满足诸多个性化的需求，所以它的包实际上是很庞大的。与此相反，Camllia 是很小巧的。
+2. Camllia 致力于以精简的代码实现组件，如果您的项目喜欢体积小的包，或者说觉得 Camllia 适合您的项目，您不妨可以试用下。
+3. 打个比方 我想使用的只是一个简单输入框组件，当你使用 Camllia 你只会得到一个简单的 Input, 而 antd 会有额外的个性化需求代码在里面。
 
 <div>
   <p>这是antd的某个按钮大小</p>
   <img src="/images/ant.png" style="width: 500px; height: 300px"/>
 </div>
 <div>
-  <p>这是Fish Magic的按钮大小</p>
-  <img src="/images/fish.png" style="width: 500px; height: 300px"/>
+  <p>这是Camllia的按钮大小</p>
+  <img src="/images/camllia.png" style="width: 500px; height: 300px"/>
 </div>
 
 ## 支持环境
@@ -38,25 +43,25 @@ order: 1
 
 ## 使用包管理器
 
-**我们建议您使用包管理器 (npm, [yarn](https://classic.yarnpkg.com/lang/en/), [pnpm](https://pnpm.io/)) 安装 fish-remix**,
+**我们建议您使用包管理器 (npm, [yarn](https://classic.yarnpkg.com/lang/en/), [pnpm](https://pnpm.io/)) 安装 camllia**,
 然后您就可以使用打包工具, 例如 [vite](https://vitejs.dev) 或者 [webpack](https://webpack.js.org/).
 
 ```shell
 # NPM
-$ npm fish-remix --save
+$ npm camllia --save
 
 # Yarn
-$ yarn add fish-remix
+$ yarn add camllia
 
 # pnpm
-$ pnpm i fish-remix
+$ pnpm i camllia
 ```
 
 如果您的网络环境不好，建议使用相关镜像服务 [cnpm](https://github.com/cnpm/cnpm) 或 [alibaba](https://registry.npmmirror.com/) 镜像.
 
 ## 使用 CDN
 
-直接通过浏览器的 HTML 标签导入 fish-remix，然后就可以使用全局变量 fish-remix。
+直接通过浏览器的 HTML 标签导入 camllia，然后就可以使用全局变量 camllia。
 
 根据不同的 CDN 提供商有不同的引入方式， 我们在这里以 unpkg 举例。 你也可以使用其它的 CDN 供应商
 
@@ -65,9 +70,9 @@ $ pnpm i fish-remix
 ```html
 <head>
   <!-- Import style -->
-  <link rel="stylesheet" href="//unpkg.com/fish-remix/dist/index.css" />
+  <link rel="stylesheet" href="//unpkg.com/camllia/dist/index.css" />
   <!-- Import component library -->
-  <script src="//unpkg.com/fish-remix"></script>
+  <script src="//unpkg.com/camllia"></script>
 </head>
 ```
 

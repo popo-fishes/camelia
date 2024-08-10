@@ -14,9 +14,9 @@ group:
 
 ```jsx
 import { useState } from "react";
-import { Button } from "fish-remix";
-// 这是文档别名路径, 你应该 from "fish-remix/shared";
-import { useThrottle } from "fish-remix-shared";
+import { Button } from "camllia";
+// 这是文档别名路径, 你应该 from "camllia/shared";
+import { useThrottle } from "camllia-shared";
 
 export default () => {
   const [updated, setUpdated] = useState(0);

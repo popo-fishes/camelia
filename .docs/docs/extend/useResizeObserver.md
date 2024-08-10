@@ -16,9 +16,9 @@ group:
 
 ```jsx
 import { useState, useRef } from "react";
-import { Button } from "fish-remix";
-// 这是文档别名路径, 你应该 from "fish-remix/shared";
-import { useResizeObserver } from "fish-remix-shared";
+import { Button } from "camllia";
+// 这是文档别名路径, 你应该 from "camllia/shared";
+import { useResizeObserver } from "camllia-shared";
 
 export default () => {
   const [value, setValue] = useState(0);

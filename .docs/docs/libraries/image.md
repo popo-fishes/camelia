@@ -33,7 +33,7 @@ group:
 
 ```jsx
 import React from "react";
-import { Image } from "fish-remix";
+import { Image } from "camllia";
 
 export default () => {
   return (
@@ -51,7 +51,7 @@ export default () => {
 
 ```jsx
 import React from "react";
-import { Image } from "fish-remix";
+import { Image } from "camllia";
 
 export default () => {
   const urls = ["/images/img1.jpg", "/images/img2.webp", "/images/img3.webp", "/images/img4.webp"];
@@ -71,7 +71,7 @@ preview 开启预览，为 false 时禁用
 
 ```jsx
 import React from "react";
-import { Image } from "fish-remix";
+import { Image } from "camllia";
 
 export default () => {
   return (

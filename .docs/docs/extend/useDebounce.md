@@ -16,9 +16,9 @@ group:
 
 ```jsx
 import { useState } from "react";
-import { Button } from "fish-remix";
-// 这是文档别名路径, 你应该 from "fish-remix/shared";
-import { useDebounce } from "fish-remix-shared";
+import { Button } from "camllia";
+// 这是文档别名路径, 你应该 from "camllia/shared";
+import { useDebounce } from "camllia-shared";
 
 export default () => {
   const [value, setValue] = useState(0);

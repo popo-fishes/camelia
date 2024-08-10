@@ -9,8 +9,8 @@
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "@/*": ["src/*", "*"],
-      "fish-remix": ["../packages/fish-remix"],
-      "fish-remix-shared": ["../packages/shared"]
+      "camllia": ["../packages/camllia"],
+      "camllia-shared": ["../packages/shared"]
     }
   },
   "include": [".dumirc.ts", "src/**/*"]

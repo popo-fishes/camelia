@@ -4,7 +4,7 @@
  */
 import React, { useContext, useRef, useState, useImperativeHandle } from "react";
 import { ConfigContext } from "../../config-provider";
-import { useNamespace } from "@fish-remix/hooks";
+import { useNamespace } from "@camllia/hooks";
 import classNames from "classnames";
 
 export interface WaveRef {

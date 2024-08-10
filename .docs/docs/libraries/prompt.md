@@ -26,7 +26,7 @@ group:
 
 ```jsx
 import React from "react";
-import { prompt, Button } from "fish-remix";
+import { prompt, Button } from "camllia";
 
 export default () => {
   const open2 = () => {
@@ -59,7 +59,7 @@ export default () => {
 
 ```jsx
 import React, { useState } from "react";
-import { Prompt, Button } from "fish-remix";
+import { Prompt, Button } from "camllia";
 
 export default () => {
   const [visible, setVisible] = useState(false);

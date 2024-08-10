@@ -22,7 +22,7 @@ Dialog 弹出一个对话框
 
 ```jsx
 import React, { useState } from "react";
-import { Dialog, Button } from "fish-remix";
+import { Dialog, Button } from "camllia";
 
 export default () => {
   const [visible, setVisible] = useState(false);
@@ -78,7 +78,7 @@ export default () => {
 
 ```jsx
 import React, { useState } from "react";
-import { Dialog, Button } from "fish-remix";
+import { Dialog, Button } from "camllia";
 
 export default () => {
   const [visible, setVisible] = useState(false);

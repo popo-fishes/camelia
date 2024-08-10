@@ -16,7 +16,7 @@ cd ..
 
 dir
 
-cd ./dist/fish-remix
+cd ./dist/camllia
 
 npm login
 

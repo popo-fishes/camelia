@@ -6,7 +6,7 @@ import React, { useContext, useEffect, useMemo, useState } from "react";
 import classNames from "classnames";
 import { CSSTransition } from "react-transition-group";
 import { ConfigContext } from "../config-provider";
-import { useNamespace, useZIndex } from "@fish-remix/hooks";
+import { useNamespace, useZIndex } from "@camllia/hooks";
 import { Close as CloseIcon } from "fish-icons";
 import Visible from "../_internal/visible";
 import type { IDialogProps } from "./type";

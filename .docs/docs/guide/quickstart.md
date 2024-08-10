@@ -4,18 +4,18 @@ order: 2
 
 # 快速开始
 
-安装部分请移到上一节`Fish Reamix`
+安装部分请移到上一节`Camllia`
 :::warning
 在开始之前，推荐先学习 React，并正确安装和配置了 Node.js v16 或以上。官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 React 全家桶的正确开发方式。如果你刚开始学习前端或者 React，将 UI 框架作为你的第一步可能不是最好的主意。
 :::
 
 ## 使用组件
 
-直接用下面的代码替换 index.js 的内容，用 React 的方式直接使用 Fish Reamix 组件。
+直接用下面的代码替换 index.js 的内容，用 React 的方式直接使用 Camllia 组件。
 
 ```jsx {5} | pure
 // main.ts
-import { Button } from 'fish-remix';
+import { Button } from "camllia";
 
 export default () => (
   <>
@@ -26,7 +26,7 @@ export default () => (
 
 ## 按需加载
 
-<Badge>Fish Reamix</Badge> 默认支持基于 ES modules 的 tree shaking，直接引入 import { Button } from 'fish-remix'; 就会有按需加载的效果。
+<Badge>Camllia</Badge> 默认支持基于 ES modules 的 tree shaking，直接引入 import { Button } from 'camllia'; 就会有按需加载的效果。
 
 ## 自行构建
 

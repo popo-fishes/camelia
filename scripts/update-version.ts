@@ -24,7 +24,7 @@ async function main() {
     // 修改版本号
     packageJson.version = v;
 
-    consola.log(chalk.cyan(`.....Updating package.json for fish-remix`));
+    consola.log(chalk.cyan(`.....Updating package.json for camllia`));
 
     const modifyCode = JSON.stringify(packageJson, null, 2);
     writeFile(paths, modifyCode, (error) => {
@@ -35,7 +35,7 @@ async function main() {
       for (let i = 0, len = 3; i < len; i++) {
         consola.log(chalk.cyan(`.....`));
       }
-      consola.success(chalk.cyan(`...fish-remix, Build completed`));
+      consola.success(chalk.cyan(`...camllia, Build completed`));
     });
   } catch (err: any) {
     consola.error(err);

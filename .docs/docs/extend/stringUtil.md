@@ -9,7 +9,7 @@ group:
 ## 字符串操作
 
 ```ts
-import { trim, trimL, trimR } from "fish-remix/shared";
+import { trim, trimL, trimR } from "camllia/shared";
 // 清除两边所有的空格
 const str = trim(" -trimtrim- ");
 // 清除左边所有的空格

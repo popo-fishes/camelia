@@ -2,7 +2,7 @@
  * @Date: 2024-01-06 10:42:26
  * @Description: Modify here please
  */
-import type { ComponentSize } from "@fish-remix/core";
+import type { ComponentSize } from "@camllia/core";
 
 export type ButtonHTMLType = "submit" | "button" | "reset";
 

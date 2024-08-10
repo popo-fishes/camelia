@@ -6,16 +6,16 @@
   <img width="300px" height="250px" src="https://cdn.yupaowang.com/yupao_pc/images/pl/fb-logo-max.png">
 </p>
 
-<h1 align="center">Fish Remix</h1>
+<h1 align="center">Camllia</h1>
 
 <p align="center">
-  <a href="https://www.npmjs.org/package/fish-remix">
+  <a href="https://www.npmjs.org/package/camllia">
     <img src="https://img.shields.io/npm/v/fish-bubble-design.svg" />
   </a>
-  <a href="https://github.com/u-fish-bubble/fish-remix">
+  <a href="https://github.com/u-fish-bubble/camllia">
     <img src="https://img.shields.io/badge/node-%20%3E%3D%2018-47c219" />
   </a>
-  <a href="https://npmcharts.com/compare/fish-remix?minimal=true">
+  <a href="https://npmcharts.com/compare/camllia?minimal=true">
     <img src="https://img.shields.io/npm/dm/umy-ui.svg" />
   </a>
   <br>
@@ -46,21 +46,21 @@
 ## 📦 安装
 
 ```bash
-npm install fish-remix
+npm install camllia
 ```
 
 ```bash
-yarn add fish-remix
+yarn add camllia
 ```
 
 ```bash
-pnpm add fish-remix
+pnpm add camllia
 ```
 
 ## 🔨 使用
 
 ```tsx
-import { Button } from "fish-remix";
+import { Button } from "camllia";
 
 export default () => (
   <>

@@ -3,7 +3,7 @@
  * @Description: Modify here please
  */
 import type { CSSProperties, ReactNode } from "react";
-import type { ComponentSize } from "@fish-remix/core";
+import type { ComponentSize } from "@camllia/core";
 
 export interface InputProps {
   /** 输入内容 */

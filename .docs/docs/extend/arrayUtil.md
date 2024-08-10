@@ -33,7 +33,7 @@ optionKeys:
 #### 例子
 
 ```typescript
-import { getTreePaths } from "fish-remix/shared";
+import { getTreePaths } from "camllia/shared";
 
 const data = [
   {
@@ -87,7 +87,7 @@ optionKeys:
 #### 例子
 
 ```typescript
-import { getTreeByRow } from "fish-remix/shared";
+import { getTreeByRow } from "camllia/shared";
 
 const data = [
   {

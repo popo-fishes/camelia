@@ -4,10 +4,10 @@
  */
 import React, { useContext, useEffect, useState, useImperativeHandle } from "react";
 import { ConfigContext } from "../config-provider";
-import { useNamespace } from "@fish-remix/hooks";
-import Dialog from "@fish-remix/components/dialog";
-import Button from "@fish-remix/components/button";
-import Visible from "@fish-remix/components/_internal/visible";
+import { useNamespace } from "@camllia/hooks";
+import Dialog from "@camllia/components/dialog";
+import Button from "@camllia/components/button";
+import Visible from "@camllia/components/_internal/visible";
 import { Chat } from "fish-icons";
 
 import type { IPromptProps, PromptRef } from "./type";
