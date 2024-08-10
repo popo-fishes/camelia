@@ -1,22 +1,39 @@
-<!--
- * @Date: 2024-08-10 17:50:08
- * @Description: Modify here please
--->
 ---
 title: Camellia
 order: 1
 ---
 
+<style>
+  .intro-text {
+   margin: 0 !important;
+   display: flex;
+ }
+ .intro-text span {
+    display: block;
+    flex-shrink: 0;
+　  text-align: right;
+    text-align-last: justify;
+    width: 80px;
+  padding-right: 5px;
+ }
+ .intro-title {
+   margin: 10px 0 !important;
+   color: rgba(42, 46, 54, 0.88);
+   font-weight: bold;
+ }
+</style>
+
 # Camellia
 
-“Camellia” 山茶花， 象征与寓意：
+<div class="intro-title">“Camellia”的意思是山茶花 ， 象征与寓意：</div>
 
-<p>高贵与优雅: 山茶花的美丽与高雅使其成为高贵与优雅的象征，常被用来装饰宫廷和豪门宅第，展现出其高贵的气质和优雅的风范。</p>
-<p>谦逊与低调: 山茶花不张扬、不高调，默默地绽放着自己的美丽</p>
-<p>坚韧不拔: 山茶花的花期相对较长，即使在寒冷的冬季也能傲然绽放，展现出其坚韧不拔的精神。</p>
+<p class="intro-text"><span>高贵与优雅:</span>美丽与高雅使其成为高贵与优雅的象征，展现出其高贵的气质和优雅的风范。</p>
+<p class="intro-text"><span>谦逊与低调:</span>不张扬、不高调，默默地绽放着自己的美丽</p>
+<p class="intro-text"><span>坚韧不拔:</span>即使在寒冷的冬季也能傲然绽放，展现出其坚韧不拔的精神。</p>
 
-致力于以精简的代码实现功能，追求代码的简洁性，提升用户体验。<br/>
-开箱即用的高质量 React 组件。
+<div  class="intro-title">我们的目标：</div>
+<p class="intro-text">1. 致力于以精简的代码实现功能，追求代码的简洁性，提升用户体验。</p>
+<p class="intro-text">2. 开箱即用的高质量 React 组件。</p>
 
 ## 对比 antd
 

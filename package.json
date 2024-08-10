@@ -17,7 +17,6 @@
   "dependencies": {
     "@camellia/components": "workspace:*",
     "@camellia/core": "workspace:*",
-    "@camellia/hooks": "workspace:*",
     "@camellia/shared": "workspace:*"
   },
   "devDependencies": {

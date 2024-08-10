@@ -2,6 +2,7 @@
   "name": "camellia",
   "version": "0.0.0-dev.1",
   "description": "A Component Library for React",
+  "author": "fish-bubble",
   "keywords": [
     "camellia ui",
     "camellia-ui",

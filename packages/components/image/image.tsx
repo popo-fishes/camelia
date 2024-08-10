@@ -5,7 +5,7 @@
 import React, { useContext, useMemo, useState, useRef } from "react";
 import classNames from "classnames";
 import { ConfigContext } from "../config-provider";
-import { useNamespace } from "@camellia/hooks";
+import { useNamespace } from "@camellia/core/hooks";
 import { useMount, useUnmount } from "@camellia/shared";
 import { Picture, CanSee } from "fish-icons";
 

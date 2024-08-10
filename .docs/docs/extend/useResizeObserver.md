@@ -17,8 +17,7 @@ group:
 ```jsx
 import { useState, useRef } from "react";
 import { Button } from "camellia";
-// 这是文档别名路径, 你应该 from "camellia/shared";
-import { useResizeObserver } from "camellia-shared";
+import { useResizeObserver } from "camellia/shared";
 
 export default () => {
   const [value, setValue] = useState(0);

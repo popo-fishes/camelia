@@ -7,14 +7,15 @@ import path from "path";
 export default defineConfig({
   outputPath: "docs-dist",
   favicons: ["/logo.ico"],
+
   alias: {
-    camellia: path.join("../", "packages/camellia/index.ts"),
-    "camellia-shared": path.join("../", "packages/shared/index.ts")
+    "camellia/shared": path.join("../", "packages/shared/index.ts"),
+    camellia: path.join("../", "packages/camellia/index.ts")
   },
 
   themeConfig: {
     name: "Camellia",
-    logo: "/images/logo.svg",
+    logo: "/logo.png",
     socialLinks: {
       github: "https://github.com/u-fish-bubble/camellia"
     },

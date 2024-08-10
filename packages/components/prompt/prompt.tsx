@@ -4,7 +4,7 @@
  */
 import React, { useContext, useEffect, useState, useImperativeHandle } from "react";
 import { ConfigContext } from "../config-provider";
-import { useNamespace } from "@camellia/hooks";
+import { useNamespace } from "@camellia/core/hooks";
 import Dialog from "@camellia/components/dialog";
 import Button from "@camellia/components/button";
 import Visible from "@camellia/components/_internal/visible";

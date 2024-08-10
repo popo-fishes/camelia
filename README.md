@@ -3,7 +3,7 @@
  * @Description: Modify here please
 -->
 <p align="center">
-  <img width="300px" height="250px" src="https://cdn.yupaowang.com/yupao_pc/images/pl/fb-logo-max.png">
+  <img width="200px" height="200px" src="http://43.136.119.145:82/logo.png">
 </p>
 
 <h1 align="center">Camellia</h1>

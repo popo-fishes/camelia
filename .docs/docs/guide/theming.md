@@ -5,11 +5,11 @@ order: 3
 
 ## 更换主题色
 
-`camellia`设计规范和技术上支持灵活的样式定制，以满足业务和品牌上多样化的视觉需求，包括但不限于全局样式（主色、圆角、边框）和指定组件的视觉定制
+`Camellia`设计规范和技术上支持灵活的样式定制，以满足业务和品牌上多样化的视觉需求，包括但不限于全局样式（主色、圆角、边框）和指定组件的视觉定制
 
 ### 通过 SCSS 变量
 
-`camellia`使用 SCSS 编写而成。 你可以在 camellia/dist/common-var.scss 文件中查找 SCSS 变量。
+`Camellia`使用 SCSS 编写而成。 你可以在 camellia/dist/common-var.scss 文件中查找 SCSS 变量。
 
 #### 然后覆盖它
 

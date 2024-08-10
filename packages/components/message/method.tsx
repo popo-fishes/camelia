@@ -5,7 +5,7 @@
 import React, { createElement, useContext } from "react";
 import { createRoot } from "react-dom/client";
 import { ConfigContext } from "../config-provider";
-import { useNamespace, useZIndex } from "@camellia/hooks";
+import { useNamespace, useZIndex } from "@camellia/core/hooks";
 import { isClient } from "@camellia/shared";
 import MessageConstructor from "./message";
 import type { MessageContext, MessageHandler, MessageOptions, Message } from "./type";

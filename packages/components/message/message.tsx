@@ -7,7 +7,7 @@ import { useTimeout } from "@camellia/shared";
 import { CircleClose, WarningFilled, CircleCheckFilled, CircleCloseFilled } from "fish-icons";
 import { CSSTransition } from "react-transition-group";
 import { ConfigContext } from "../config-provider";
-import { useNamespace } from "@camellia/hooks";
+import { useNamespace } from "@camellia/core/hooks";
 
 import type { MessageRef, IMessageProps } from "./type";
 

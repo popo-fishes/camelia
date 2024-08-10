@@ -5,7 +5,7 @@
 import React, { useContext, useRef, useMemo, useEffect, useImperativeHandle } from "react";
 import classNames from "classnames";
 
-import { useNamespace, useFocusController } from "@camellia/hooks";
+import { useNamespace, useFocusController } from "@camellia/core/hooks";
 import { isNil } from "@camellia/shared/utils";
 import { nextTick } from "@camellia/core";
 

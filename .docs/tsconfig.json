@@ -10,7 +10,7 @@
       "@@/*": [".dumi/tmp/*"],
       "@/*": ["src/*", "*"],
       "camellia": ["../packages/camellia"],
-      "camellia-shared": ["../packages/shared"]
+      "camellia/shared": ["../packages/shared"]
     }
   },
   "include": [".dumirc.ts", "src/**/*"]

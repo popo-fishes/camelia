@@ -4,7 +4,7 @@
  */
 import React, { useContext, useEffect, useState } from "react";
 import { ConfigContext } from "../config-provider";
-import { useNamespace } from "@camellia/hooks";
+import { useNamespace } from "@camellia/core/hooks";
 import type { IDialogProps } from "./type";
 import Portal from "../_internal/portal";
 import Dialog from "./dialog";

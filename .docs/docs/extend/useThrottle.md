@@ -15,8 +15,7 @@ group:
 ```jsx
 import { useState } from "react";
 import { Button } from "camellia";
-// 这是文档别名路径, 你应该 from "camellia/shared";
-import { useThrottle } from "camellia-shared";
+import { useThrottle } from "camellia/shared";
 
 export default () => {
   const [updated, setUpdated] = useState(0);
