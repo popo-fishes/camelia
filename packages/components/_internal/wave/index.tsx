@@ -4,7 +4,7 @@
  */
 import React, { useContext, useRef, useState, useImperativeHandle } from "react";
 import { ConfigContext } from "../../config-provider";
-import { useNamespace } from "@camllia/hooks";
+import { useNamespace } from "@camellia/hooks";
 import classNames from "classnames";
 
 export interface WaveRef {

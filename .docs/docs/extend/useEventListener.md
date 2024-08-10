@@ -16,9 +16,9 @@ group:
 
 ```jsx
 import { useState, useRef } from "react";
-import { Button } from "camllia";
-// 这是文档别名路径, 你应该 from "camllia/shared";
-import { useEventListener } from "camllia-shared";
+import { Button } from "camellia";
+// 这是文档别名路径, 你应该 from "camellia/shared";
+import { useEventListener } from "camellia-shared";
 
 export default () => {
   const [value, setValue] = useState(0);

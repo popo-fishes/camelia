@@ -5,9 +5,9 @@
 import React, { useContext, useRef, useMemo, useEffect, useImperativeHandle } from "react";
 import classNames from "classnames";
 
-import { useNamespace, useFocusController } from "@camllia/hooks";
-import { isNil } from "@camllia/shared/utils";
-import { nextTick } from "@camllia/core";
+import { useNamespace, useFocusController } from "@camellia/hooks";
+import { isNil } from "@camellia/shared/utils";
+import { nextTick } from "@camellia/core";
 
 import { ConfigContext } from "../config-provider";
 import BaseWave from "../_internal/wave";

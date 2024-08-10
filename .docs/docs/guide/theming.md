@@ -5,21 +5,21 @@ order: 3
 
 ## 更换主题色
 
-`Camllia`设计规范和技术上支持灵活的样式定制，以满足业务和品牌上多样化的视觉需求，包括但不限于全局样式（主色、圆角、边框）和指定组件的视觉定制
+`camellia`设计规范和技术上支持灵活的样式定制，以满足业务和品牌上多样化的视觉需求，包括但不限于全局样式（主色、圆角、边框）和指定组件的视觉定制
 
 ### 通过 SCSS 变量
 
-`Camllia`使用 SCSS 编写而成。 你可以在 camllia/dist/common-var.scss 文件中查找 SCSS 变量。
+`camellia`使用 SCSS 编写而成。 你可以在 camellia/dist/common-var.scss 文件中查找 SCSS 变量。
 
 #### 然后覆盖它
 
 ```typescript
 /**
- *  如果你的项目也使用了 SCSS，可以直接修改 Camllia 的样式变量。
+ *  如果你的项目也使用了 SCSS，可以直接修改 camellia 的样式变量。
  *  新建一个样式文件，例如 styles/common.scss
   */
 
-@use 'camllia/dist/common-var.scss' with (
+@use 'camellia/dist/common-var.scss' with (
   // 这样主题色就被更改啦，
   $colors: (
     'primary': (
@@ -27,7 +27,7 @@ order: 3
     ),
   ),
 );
-// 然后在你的项目入口文件中，导入这个样式文件以替换 camllia 内置的 CSS
+// 然后在你的项目入口文件中，导入这个样式文件以替换 camellia 内置的 CSS
 ```
 
 ### 通过 CSS 变量

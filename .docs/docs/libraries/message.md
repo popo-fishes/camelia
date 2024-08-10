@@ -15,7 +15,7 @@ group:
 
 ```jsx
 import React from "react";
-import { message, Button } from "camllia";
+import { message, Button } from "camellia";
 
 export default () => {
   const open1 = () => {
@@ -60,7 +60,7 @@ Message 拥有可控的 duration， 默认的关闭时间为 3000 毫秒，当�
 
 ```jsx
 import React from "react";
-import { message, Button } from "camllia";
+import { message, Button } from "camellia";
 
 export default () => {
   const open2 = () => {
@@ -87,7 +87,7 @@ export default () => {
 
 ```jsx
 import React from "react";
-import { message, Button } from "camllia";
+import { message, Button } from "camellia";
 
 export default () => {
   const open2 = () => {

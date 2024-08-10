@@ -6,17 +6,17 @@ import { defineConfig } from "dumi";
 import path from "path";
 export default defineConfig({
   outputPath: "docs-dist",
-  favicons: ["/fb-logo.ico"],
+  favicons: ["/logo.ico"],
   alias: {
-    camllia: path.join("../", "packages/camllia/index.ts"),
-    "camllia-shared": path.join("../", "packages/shared/index.ts")
+    camellia: path.join("../", "packages/camellia/index.ts"),
+    "camellia-shared": path.join("../", "packages/shared/index.ts")
   },
 
   themeConfig: {
-    name: "Camllia",
+    name: "Camellia",
     logo: "/images/logo.svg",
     socialLinks: {
-      github: "https://github.com/u-fish-bubble/camllia"
+      github: "https://github.com/u-fish-bubble/camellia"
     },
     hero: {
       actions: [{ text: "🚀🚀 开始吧 →", link: "/guide" }],
@@ -28,7 +28,7 @@ export default defineConfig({
           row: 5,
           title: "文档",
           description:
-            "我们全面覆盖了 Camllia 的各个方面，为开发者提供明确的方向指导和深入的设计理念，旨在启发您的洞见，让您的开发之路如马踏平川般顺畅。"
+            "我们全面覆盖了 Camellia 的各个方面，为开发者提供明确的方向指导和深入的设计理念，旨在启发您的洞见，让您的开发之路如马踏平川般顺畅。"
         },
         {
           image: "🛩",

@@ -1,11 +1,15 @@
+<!--
+ * @Date: 2024-08-10 17:50:08
+ * @Description: Modify here please
+-->
 ---
-title: Camllia
+title: Camellia
 order: 1
 ---
 
-# Camllia
+# Camellia
 
-“Camllia” 山茶花， 象征与寓意：
+“Camellia” 山茶花， 象征与寓意：
 
 <p>高贵与优雅: 山茶花的美丽与高雅使其成为高贵与优雅的象征，常被用来装饰宫廷和豪门宅第，展现出其高贵的气质和优雅的风范。</p>
 <p>谦逊与低调: 山茶花不张扬、不高调，默默地绽放着自己的美丽</p>
@@ -16,17 +20,17 @@ order: 1
 
 ## 对比 antd
 
-1. 首先，antd 无疑是非常优秀的，表现极佳。只是因为它要满足诸多个性化的需求，所以它的包实际上是很庞大的。与此相反，Camllia 是很小巧的。
-2. Camllia 致力于以精简的代码实现组件，如果您的项目喜欢体积小的包，或者说觉得 Camllia 适合您的项目，您不妨可以试用下。
-3. 打个比方 我想使用的只是一个简单输入框组件，当你使用 Camllia 你只会得到一个简单的 Input, 而 antd 会有额外的个性化需求代码在里面。
+1. 首先，antd 无疑是非常优秀的，表现极佳。只是因为它要满足诸多个性化的需求，所以它的包实际上是很庞大的。与此相反，Camellia 是很小巧的。
+2. Camellia 致力于以精简的代码实现组件，如果您的项目喜欢体积小的包，或者说觉得 Camellia 适合您的项目，您不妨可以试用下。
+3. 打个比方 我想使用的只是一个简单输入框组件，当你使用 Camellia 你只会得到一个简单的 Input, 而 antd 会有额外的个性化需求代码在里面。
 
 <div>
   <p>这是antd的某个按钮大小</p>
   <img src="/images/ant.png" style="width: 500px; height: 300px"/>
 </div>
 <div>
-  <p>这是Camllia的按钮大小</p>
-  <img src="/images/camllia.png" style="width: 500px; height: 300px"/>
+  <p>这是Camellia的按钮大小</p>
+  <img src="/images/camellia.png" style="width: 500px; height: 300px"/>
 </div>
 
 ## 支持环境
@@ -43,25 +47,25 @@ order: 1
 
 ## 使用包管理器
 
-**我们建议您使用包管理器 (npm, [yarn](https://classic.yarnpkg.com/lang/en/), [pnpm](https://pnpm.io/)) 安装 camllia**,
+**我们建议您使用包管理器 (npm, [yarn](https://classic.yarnpkg.com/lang/en/), [pnpm](https://pnpm.io/)) 安装 camellia**,
 然后您就可以使用打包工具, 例如 [vite](https://vitejs.dev) 或者 [webpack](https://webpack.js.org/).
 
 ```shell
 # NPM
-$ npm camllia --save
+$ npm camellia --save
 
 # Yarn
-$ yarn add camllia
+$ yarn add camellia
 
 # pnpm
-$ pnpm i camllia
+$ pnpm i camellia
 ```
 
 如果您的网络环境不好，建议使用相关镜像服务 [cnpm](https://github.com/cnpm/cnpm) 或 [alibaba](https://registry.npmmirror.com/) 镜像.
 
 ## 使用 CDN
 
-直接通过浏览器的 HTML 标签导入 camllia，然后就可以使用全局变量 camllia。
+直接通过浏览器的 HTML 标签导入 camellia，然后就可以使用全局变量 camellia。
 
 根据不同的 CDN 提供商有不同的引入方式， 我们在这里以 unpkg 举例。 你也可以使用其它的 CDN 供应商
 
@@ -70,9 +74,9 @@ $ pnpm i camllia
 ```html
 <head>
   <!-- Import style -->
-  <link rel="stylesheet" href="//unpkg.com/camllia/dist/index.css" />
+  <link rel="stylesheet" href="//unpkg.com/camellia/dist/index.css" />
   <!-- Import component library -->
-  <script src="//unpkg.com/camllia"></script>
+  <script src="//unpkg.com/camellia"></script>
 </head>
 ```
 

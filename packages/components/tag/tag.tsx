@@ -5,11 +5,11 @@
 import React, { useContext, useMemo } from "react";
 import classNames from "classnames";
 import { ConfigContext } from "../config-provider";
-import { useNamespace } from "@camllia/hooks";
+import { useNamespace } from "@camellia/hooks";
 import { Close } from "fish-icons";
 import Visible from "../_internal/visible";
 
-import type { ComponentSize } from "@camllia/core";
+import type { ComponentSize } from "@camellia/core";
 
 export interface ITagProps {
   /** 按钮类型 */

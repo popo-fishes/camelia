@@ -10,7 +10,7 @@ node_modules
 
 # Bundle
 dist
-./.vitepress/camllia-docs/**
+./.vitepress/camellia-docs/**
 
 ./*.yaml
 

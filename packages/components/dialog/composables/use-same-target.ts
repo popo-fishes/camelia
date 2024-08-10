@@ -2,7 +2,7 @@
  * @Date: 2023-11-27 16:36:09
  * @Description: 相同的目标检测
  */
-import { NOOP } from "@camllia/shared/utils";
+import { NOOP } from "@camellia/shared/utils";
 
 let mousedownTarget = false;
 let mouseupTarget = false;

@@ -3,7 +3,7 @@
  * @Description: Modify here please
  */
 import React, { useCallback, useContext } from "react";
-import { useMemo } from "@camllia/shared";
+import { useMemo } from "@camellia/shared";
 import type { ConfigCustomProps } from "./context";
 import { ConfigContext } from "./context";
 

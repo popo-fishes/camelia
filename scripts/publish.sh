@@ -16,7 +16,7 @@ cd ..
 
 dir
 
-cd ./dist/camllia
+cd ./dist/camellia
 
 npm login
 

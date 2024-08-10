@@ -11,7 +11,7 @@ group:
 需要处理事件的订阅与发布，以实现组件之间的解耦和通信
 
 ```ts
-import { eventEmmiter } from "camllia/shared";
+import { eventEmmiter } from "camellia/shared";
 const eventEmmiter = new eventEmmiter();
 
 eventEmmiter.once("notice", () => {

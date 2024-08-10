@@ -1,10 +1,10 @@
 {
-  "name": "camllia",
+  "name": "camellia",
   "version": "0.0.0-dev.1",
   "description": "A Component Library for React",
   "keywords": [
-    "camllia ui",
-    "camllia-ui",
+    "camellia ui",
+    "camellia-ui",
     "ui framework",
     "ui"
   ],
@@ -40,7 +40,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/u-fish-bubble/camllia"
+    "url": "https://github.com/u-fish-bubble/camellia"
   },
   "peerDependencies": {
     "react": ">=16.9.0",

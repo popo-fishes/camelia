@@ -26,7 +26,7 @@ group:
 
 ```jsx
 import React from "react";
-import { prompt, Button } from "camllia";
+import { prompt, Button } from "camellia";
 
 export default () => {
   const open2 = () => {
@@ -59,7 +59,7 @@ export default () => {
 
 ```jsx
 import React, { useState } from "react";
-import { Prompt, Button } from "camllia";
+import { Prompt, Button } from "camellia";
 
 export default () => {
   const [visible, setVisible] = useState(false);

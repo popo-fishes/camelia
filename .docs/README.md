@@ -3,6 +3,6 @@
  * @Description: Modify here please
 -->
 
-# camllia-docs
+# camellia-docs
 
 [A react library developed with dumi](https://d.umijs.org/guide)

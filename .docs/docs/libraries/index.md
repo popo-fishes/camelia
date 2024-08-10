@@ -21,7 +21,7 @@ group:
 
 ```jsx
 import React from "react";
-import { Button } from "camllia";
+import { Button } from "camellia";
 
 export default () => (
   <>
@@ -67,7 +67,7 @@ export default () => (
 
 ```jsx
 import React from "react";
-import { Button } from "camllia";
+import { Button } from "camellia";
 
 export default () => (
   <>
@@ -93,7 +93,7 @@ export default () => (
 
 ```jsx
 import React from "react";
-import { Button } from "camllia";
+import { Button } from "camellia";
 
 export default () => (
   <>

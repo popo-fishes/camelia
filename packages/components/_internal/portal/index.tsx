@@ -4,9 +4,9 @@
  */
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { canUseDom } from "@camllia/core";
-import { useLockscreen } from "@camllia/shared";
-import { isClient } from "@camllia/shared";
+import { canUseDom } from "@camellia/core";
+import { useLockscreen } from "@camellia/shared";
+import { isClient } from "@camellia/shared";
 
 export type ContainerType = Element | DocumentFragment;
 

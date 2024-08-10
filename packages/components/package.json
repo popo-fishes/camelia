@@ -1,5 +1,5 @@
 {
-  "name": "@camllia/components",
+  "name": "@camellia/components",
   "version": "0.0.5",
   "description": "all components are settled here",
   "main": "index.ts",
