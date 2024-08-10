@@ -6,17 +6,17 @@
   <img width="200px" height="200px" src="http://43.136.119.145:82/logo.png">
 </p>
 
-<h1 align="center">Camellia</h1>
+<h1 align="center">Camelia</h1>
 
 <p align="center">
-  <a href="https://www.npmjs.org/package/camellia">
-    <img src="https://img.shields.io/npm/v/fish-bubble-design.svg" />
+  <a href="https://www.npmjs.org/package/camelia">
+    <img src="https://img.shields.io/npm/v/camelia.svg" />
   </a>
-  <a href="https://github.com/u-fish-bubble/camellia">
+  <a href="https://github.com/u-fish-bubble/camelia">
     <img src="https://img.shields.io/badge/node-%20%3E%3D%2018-47c219" />
   </a>
-  <a href="https://npmcharts.com/compare/camellia?minimal=true">
-    <img src="https://img.shields.io/npm/dm/umy-ui.svg" />
+  <a href="https://npmcharts.com/compare/camelia?minimal=true">
+    <img src="https://img.shields.io/npm/dm/camelia.svg" />
   </a>
   <br>
 </p>
@@ -46,21 +46,21 @@
 ## 📦 安装
 
 ```bash
-npm install camellia
+npm install camelia
 ```
 
 ```bash
-yarn add camellia
+yarn add camelia
 ```
 
 ```bash
-pnpm add camellia
+pnpm add camelia
 ```
 
 ## 🔨 使用
 
 ```tsx
-import { Button } from "camellia";
+import { Button } from "camelia";
 
 export default () => (
   <>

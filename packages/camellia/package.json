@@ -1,13 +1,16 @@
 {
-  "name": "camellia",
+  "name": "camelia",
   "version": "0.0.0-dev.1",
   "description": "A Component Library for React",
   "author": "fish-bubble",
   "keywords": [
-    "camellia ui",
+    "camelia ui",
+    "camelia-ui",
+    "camellia",
     "camellia-ui",
     "ui framework",
-    "ui"
+    "ui",
+    "react ui"
   ],
   "license": "MIT",
   "main": "lib/index.js",
@@ -41,7 +44,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/u-fish-bubble/camellia"
+    "url": "https://github.com/u-fish-bubble/camelia"
   },
   "peerDependencies": {
     "react": ">=16.9.0",

@@ -6,10 +6,10 @@
 import { resolve } from "path";
 
 // UI library name
-export const UINAME = "camellia";
+export const UINAME = "camelia";
 
 // UI BRAND name
-export const PKG_BRAND_NAME = "Camellia";
+export const PKG_BRAND_NAME = "Camelia";
 
 // 工程目录的入口
 export const projRoot = resolve(__dirname, "..", "..");
@@ -24,10 +24,10 @@ export const buildRoot = resolve(projRoot, "build");
 export const buildOutput = resolve(projRoot, "dist");
 
 /** 打包时， 构建ui库输出的目录 */
-export const epOutput = resolve(buildOutput, "camellia");
+export const epOutput = resolve(buildOutput, "camelia");
 
 /** UI库packages 工程目录 */
-export const libraryRoot = resolve(pkgsRoot, "camellia");
+export const libraryRoot = resolve(pkgsRoot, "camelia");
 
 /** UI库packages 工程目录的package.json文件 */
 export const libraryPackage = resolve(libraryRoot, "package.json");

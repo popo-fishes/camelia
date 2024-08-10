@@ -15,9 +15,9 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@camellia/components": "workspace:*",
-    "@camellia/core": "workspace:*",
-    "@camellia/shared": "workspace:*"
+    "@camelia/components": "workspace:*",
+    "@camelia/core": "workspace:*",
+    "@camelia/shared": "workspace:*"
   },
   "devDependencies": {
     "@esbuild-kit/cjs-loader": "^2.2.1",

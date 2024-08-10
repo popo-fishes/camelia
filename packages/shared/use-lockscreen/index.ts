@@ -5,7 +5,7 @@
 import { useEffect } from "react";
 import { useUnmount } from "../use-unmount";
 import { isClient } from "../utils";
-import { addClass, getScrollBarWidth, hasClass, getStyle, removeClass } from "@camellia/core/utils";
+import { addClass, getScrollBarWidth, hasClass, getStyle, removeClass } from "@camelia/core/utils";
 
 let scrollBarWidth = 0;
 let withoutHiddenClass = false;

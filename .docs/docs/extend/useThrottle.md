@@ -14,8 +14,8 @@ group:
 
 ```jsx
 import { useState } from "react";
-import { Button } from "camellia";
-import { useThrottle } from "camellia/shared";
+import { Button } from "camelia";
+import { useThrottle } from "camelia/shared";
 
 export default () => {
   const [updated, setUpdated] = useState(0);

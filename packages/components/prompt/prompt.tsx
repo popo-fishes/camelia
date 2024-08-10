@@ -4,10 +4,10 @@
  */
 import React, { useContext, useEffect, useState, useImperativeHandle } from "react";
 import { ConfigContext } from "../config-provider";
-import { useNamespace } from "@camellia/core/hooks";
-import Dialog from "@camellia/components/dialog";
-import Button from "@camellia/components/button";
-import Visible from "@camellia/components/_internal/visible";
+import { useNamespace } from "@camelia/core/hooks";
+import Dialog from "@camelia/components/dialog";
+import Button from "@camelia/components/button";
+import Visible from "@camelia/components/_internal/visible";
 import { Chat } from "fish-icons";
 
 import type { IPromptProps, PromptRef } from "./type";

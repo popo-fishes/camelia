@@ -7,5 +7,5 @@
 
 ```ts
 // 比如
-import { getTreePaths } from "camellia/shared";
+import { getTreePaths } from "camelia/shared";
 ```

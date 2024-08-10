@@ -3,11 +3,11 @@
  * @Description: Modify here please
  */
 import React, { useContext, useRef, useState, useImperativeHandle, useEffect, useMemo } from "react";
-import { useTimeout } from "@camellia/shared";
+import { useTimeout } from "@camelia/shared";
 import { CircleClose, WarningFilled, CircleCheckFilled, CircleCloseFilled } from "fish-icons";
 import { CSSTransition } from "react-transition-group";
 import { ConfigContext } from "../config-provider";
-import { useNamespace } from "@camellia/core/hooks";
+import { useNamespace } from "@camelia/core/hooks";
 
 import type { MessageRef, IMessageProps } from "./type";
 

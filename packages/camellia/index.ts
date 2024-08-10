@@ -5,6 +5,6 @@
 
 import { version } from "./version";
 
-export * from "@camellia/components";
+export * from "@camelia/components";
 
 export { version };

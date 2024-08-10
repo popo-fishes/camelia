@@ -3,7 +3,7 @@
  * @Description: Modify here please
  */
 import { useState, useRef, useEffect } from "react";
-import { isFunction, useEventListener } from "@camellia/shared";
+import { isFunction, useEventListener } from "@camelia/shared";
 
 interface UseFocusControllerOptions {
   afterFocus?: () => void;

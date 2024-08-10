@@ -16,8 +16,8 @@ group:
 
 ```jsx
 import { useState, useRef } from "react";
-import { Button } from "camellia";
-import { useResizeObserver } from "camellia/shared";
+import { Button } from "camelia";
+import { useResizeObserver } from "camelia/shared";
 
 export default () => {
   const [value, setValue] = useState(0);

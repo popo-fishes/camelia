@@ -3,7 +3,7 @@
  * @Description: Modify here please
  */
 import type { CSSProperties, ReactNode } from "react";
-import type { ComponentSize } from "@camellia/core";
+import type { ComponentSize } from "@camelia/core";
 
 export interface InputProps {
   /** 输入内容 */

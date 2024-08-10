@@ -14,8 +14,8 @@ group:
 
 ```jsx
 import { useState } from "react";
-import { Button } from "camellia";
-import { useSubmit } from "camellia/shared";
+import { Button } from "camelia";
+import { useSubmit } from "camelia/shared";
 
 export default () => {
   /** 提交数据 */

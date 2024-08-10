@@ -5,7 +5,7 @@
 import React, { createElement } from "react";
 import { createRoot } from "react-dom/client";
 import type { MutableRefObject } from "react";
-import { isClient } from "@camellia/shared/utils";
+import { isClient } from "@camelia/shared/utils";
 import type { IPromptProps, PromptRef } from "./type";
 import promptConstructor from "./prompt";
 

@@ -33,7 +33,7 @@ optionKeys:
 #### 例子
 
 ```typescript
-import { getTreePaths } from "camellia/shared";
+import { getTreePaths } from "camelia/shared";
 
 const data = [
   {
@@ -87,7 +87,7 @@ optionKeys:
 #### 例子
 
 ```typescript
-import { getTreeByRow } from "camellia/shared";
+import { getTreeByRow } from "camelia/shared";
 
 const data = [
   {

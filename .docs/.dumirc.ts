@@ -9,12 +9,12 @@ export default defineConfig({
   favicons: ["/logo.ico"],
 
   alias: {
-    "camellia/shared": path.join("../", "packages/shared/index.ts"),
-    camellia: path.join("../", "packages/camellia/index.ts")
+    "camelia/shared": path.join("../", "packages/shared/index.ts"),
+    camelia: path.join("../", "packages/camelia/index.ts")
   },
 
   themeConfig: {
-    name: "Camellia",
+    name: "Camelia",
     logo: "/logo.png",
     socialLinks: {
       github: "https://github.com/u-fish-bubble/camellia"
@@ -29,7 +29,7 @@ export default defineConfig({
           row: 5,
           title: "文档",
           description:
-            "我们全面覆盖了 Camellia 的各个方面，为开发者提供明确的方向指导和深入的设计理念，旨在启发您的洞见，让您的开发之路如马踏平川般顺畅。"
+            "我们全面覆盖了 Camelia 的各个方面，为开发者提供明确的方向指导和深入的设计理念，旨在启发您的洞见，让您的开发之路如马踏平川般顺畅。"
         },
         {
           image: "🛩",

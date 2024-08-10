@@ -16,8 +16,8 @@ group:
 
 ```jsx
 import { useState, useRef } from "react";
-import { Button } from "camellia";
-import { useClickAway } from "camellia/shared";
+import { Button } from "camelia";
+import { useClickAway } from "camelia/shared";
 
 export default () => {
   const [value, setValue] = useState(0);

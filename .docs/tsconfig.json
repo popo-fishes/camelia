@@ -9,8 +9,8 @@
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "@/*": ["src/*", "*"],
-      "camellia": ["../packages/camellia"],
-      "camellia/shared": ["../packages/shared"]
+      "camelia": ["../packages/camelia"],
+      "camelia/shared": ["../packages/shared"]
     }
   },
   "include": [".dumirc.ts", "src/**/*"]

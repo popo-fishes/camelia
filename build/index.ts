@@ -27,7 +27,7 @@ const copyFiles = () =>
   ]);
 
 const modifyInletTypedPath: TaskFunction = (cb) => {
-  // Copy the file of dist/types/camellia to the same level as dist/types
+  // Copy the file of dist/types/camelia to the same level as dist/types
   const folderPath = path.resolve(buildOutput, "types", UINAME);
   moveFilesFromFolderToParent(folderPath, () => {
     try {

@@ -5,7 +5,7 @@
 import React, { useContext, useMemo } from "react";
 import classNames from "classnames";
 import { ConfigContext } from "../config-provider";
-import { useNamespace } from "@camellia/core/hooks";
+import { useNamespace } from "@camelia/core/hooks";
 import Visible from "../_internal/visible";
 
 import { useSameTarget } from "./composables/use-same-target";

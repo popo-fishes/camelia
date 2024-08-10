@@ -6,9 +6,9 @@ import React, { useContext, useRef, useMemo, useState, useEffect, useImperativeH
 import classNames from "classnames";
 import { CircleCloseFilled } from "fish-icons";
 
-import { useNamespace, useFocusController } from "@camellia/core/hooks";
-import { isNil } from "@camellia/shared/utils";
-import { nextTick } from "@camellia/core";
+import { useNamespace, useFocusController } from "@camelia/core/hooks";
+import { isNil } from "@camelia/shared/utils";
+import { nextTick } from "@camelia/core";
 
 import { ConfigContext } from "../config-provider";
 import Visible from "../_internal/visible";

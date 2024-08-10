@@ -16,8 +16,8 @@ group:
 
 ```jsx
 import { useState } from "react";
-import { Button } from "camellia";
-import { useDebounce } from "camellia/shared";
+import { Button } from "camelia";
+import { useDebounce } from "camelia/shared";
 
 export default () => {
   const [value, setValue] = useState(0);

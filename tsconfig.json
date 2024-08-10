@@ -101,7 +101,7 @@
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
-      "@camellia/*": ["packages/*"]
+      "@camelia/*": ["packages/*"]
     }
   },
   "ts-node": {

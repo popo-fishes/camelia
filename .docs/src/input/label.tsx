@@ -2,7 +2,7 @@
  * @Date: 2024-08-03 08:17:36
  * @Description: Modify here please
  */
-import { Input } from "camellia";
+import { Input } from "camelia";
 import React, { useState } from "react";
 // 这是因为dumi文档找不到module
 import { Search } from "fish-icons/dist/index.mjs";

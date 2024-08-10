@@ -2,7 +2,7 @@
  * @Date: 2023-12-28 09:58:58
  * @Description: Modify here please
  */
-import { isClient } from "@camellia/shared/utils";
+import { isClient } from "@camelia/shared/utils";
 
 let scrollBarWidth: number;
 export const getScrollBarWidth = (): number => {

@@ -2,7 +2,7 @@
  * @Date: 2024-08-03 08:17:36
  * @Description: Modify here please
  */
-import { Button } from "camellia";
+import { Button } from "camelia";
 import React from "react";
 
 const App: React.FC = () => {
