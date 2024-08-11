@@ -22,6 +22,12 @@ $docs-coolr-dark: var(--cami-color-primary-dark-2);
   // background-image: radial-gradient(at 80% 20%, $docs-theme 0%, #13c2c2 80%, #722ed1 130) !important;
   background-image: radial-gradient(at 80% 20%, $docs-theme 0%, #13c2c2 80%, #722ed1 130%) !important;
 }
+.site-1ibf0j8 {
+  max-width: 500px;
+  font-size: 16px !important;
+  font-weight: normal !important;
+}
+
 .site-features-cover {
   background: linear-gradient(135deg, $docs-theme, $docs-bg-color) !important;
 }
@@ -70,9 +76,9 @@ $docs-coolr-dark: var(--cami-color-primary-dark-2);
 
 // 修改顶部导航栏 样式
 // 隐藏第一个节点（首页）
-.site-tabs-nav-wrap .site-tabs-nav-list .site-tabs-tab:first-child {
-  display: none !important;
-}
+// .site-tabs-nav-wrap .site-tabs-nav-list .site-tabs-tab:first-child {
+//   display: none !important;
+// }
 .site-tabs-nav::before {
   border-bottom: none !important;
 }
