@@ -11,11 +11,15 @@ order: 2
 
 ## 使用组件
 
-直接用下面的代码替换 index.js 的内容，用 React 的方式直接使用 camelia 组件。
+直接用下面的代码替换 index.js 的内容，使用 camelia 组件。
 
 ```jsx {5} | pure
 // main.ts
+import React, { useState } from "react";
+import { render } from "react-dom";
 import { Button } from "camelia";
+// 这是全量引入样式
+import "camelia/dist/index.css";
 
 export default () => (
   <>
@@ -27,6 +31,10 @@ export default () => (
 ## 按需加载
 
 Camelia 默认支持基于 ES modules 的 tree shaking，直接引入 import { Button } from 'camelia'; 就会有按需加载的效果。
+
+## 样式按需
+
+你可以使用[babel-plugin-import](https://github.com/umijs/babel-plugin-import)实现样式按需引入
 
 ## 自行构建
 

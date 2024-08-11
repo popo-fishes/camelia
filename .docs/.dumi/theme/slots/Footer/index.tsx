@@ -6,22 +6,24 @@ import { Footer } from "dumi-theme-antd-style";
 import React, { useEffect, useRef } from "react";
 import { getColumns } from "./columns";
 import { baseLink } from "../../../../config";
-import { history, useLocation } from "umi";
+import { useLocation } from "umi";
 
+let timer: any = null;
 export default () => {
   const columns = getColumns();
   const location = useLocation();
-  const isReload = useRef(false);
+  const v = window.localStorage.getItem("pageIsReload");
+  const isReload = useRef(v);
 
   useEffect(() => {
-    isReload.current = false;
-    if (location.pathname && !isReload.current) {
-      requestAnimationFrame(() => {
-        history.replace(location.pathname);
-        isReload.current = true;
-      });
+    clearTimeout(timer);
+    window.localStorage.setItem("pageIsReload", "0");
+
+    if (location.pathname && isReload.current !== "1") {
+      window.localStorage.setItem("pageIsReload", "1");
+      window.location?.reload();
     }
-  }, [location.pathname]);
+  }, [location.pathname, isReload.current]);
 
   const bootom = (
     <>

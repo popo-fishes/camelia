@@ -76,9 +76,13 @@ $docs-coolr-dark: var(--cami-color-primary-dark-2);
 
 // 修改顶部导航栏 样式
 // 隐藏第一个节点（首页）
-// .site-tabs-nav-wrap .site-tabs-nav-list .site-tabs-tab:first-child {
-//   display: none !important;
-// }
+.site-tabs-nav-wrap .site-tabs-nav-list .site-tabs-tab:first-child {
+  display: none !important;
+}
+.site-1q53kuy .site-tabs-tab + .site-tabs-tab:nth-child(2) {
+  margin: 16px 4px 16px 0 !important;
+  padding: 6px 12px !important;
+}
 .site-tabs-nav::before {
   border-bottom: none !important;
 }
@@ -187,10 +191,7 @@ $docs-coolr-dark: var(--cami-color-primary-dark-2);
   color: $docs-theme !important;
 }
 
-// 修改头部右边功能样式, 关闭头部 切换主题颜色的功能按钮
-.native-select-button {
-  display: none !important;
-}
+// 修改头部右边功能样式
 .site-btn-icon-only:hover,
 .native-select-button:hover {
   color: $docs-theme !important;
