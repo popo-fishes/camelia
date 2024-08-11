@@ -8,7 +8,7 @@ export interface ConfigCustomProps {
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string;
 }
 
-export const defaultPrefixCls = "fb";
+export const defaultPrefixCls = "cami";
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
   if (customizePrefixCls) {

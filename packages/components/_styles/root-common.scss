@@ -16,11 +16,11 @@
   // 颜色
   @include set-css-var-value("color-white", $color-white);
   @include set-css-var-value("color-black", $color-black);
-  // --fb-border-radius-#{$type}
+  // --cami-border-radius-#{$type}
   @include set-component-css-var("border-radius", $border-radius);
-  // --fb-font-size-#{$type}
+  // --cami-font-size-#{$type}
   @include set-component-css-var("font-size", $font-size);
-  // --fb-text-color-#{$type}
+  // --cami-text-color-#{$type}
   @include set-component-css-var("text-color", $text-color);
 
   // 全局组件的高度，比如input类型的
@@ -29,8 +29,8 @@
 
 // for light
 :root {
-  // --fb-color-#{$type}
-  // --fb-color-#{$type}-light-{$i}
+  // --cami-color-#{$type}
+  // --cami-color-#{$type}-light-{$i}
   // 设置css主题颜色和辅助色
   @each $type in $types {
     @include set-css-color-type($colors, $type);

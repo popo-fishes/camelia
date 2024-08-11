@@ -31,10 +31,10 @@ const Message = React.forwardRef<MessageRef, IMessageProps>((props, ref) => {
 
   const icon: React.ReactNode = useMemo(() => {
     const iconMap = {
-      info: <WarningFilled size="20px" color="#0092ff" />,
-      success: <CircleCheckFilled size="20px" color="#06B578" />,
-      warning: <WarningFilled size="20px" color="#FF8904" />,
-      error: <CircleCloseFilled size="20px" color="#E8362E" />
+      info: <WarningFilled size="20px" color="#22cccc" />,
+      success: <CircleCheckFilled size="20px" color="#00b96b" />,
+      warning: <WarningFilled size="20px" color="#e6a23c" />,
+      error: <CircleCloseFilled size="20px" color="#f56c6c" />
     };
     return props.icon || iconMap[props.type || "info"];
   }, [props.icon, props.type]);

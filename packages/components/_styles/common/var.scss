@@ -18,10 +18,10 @@ $colors: map.deep-merge(
     "white": #ffffff,
     "black": #000000,
     "primary": (
-      "base": #0092ff
+      "base": #22cccc
     ),
     "success": (
-      "base": #06b578
+      "base": #00b96b
     ),
     "warning": (
       "base": #e6a23c
@@ -58,19 +58,19 @@ $color-info: map.get($colors, "info", "base") !default;
 }
 
 // $colors.primary.light-i
-// --fb-color-primary-light-i
-// --fb-color-primary-light-3: #4db3ff;
-// --fb-color-primary-light-5: #80c9ff;
-// --fb-color-primary-light-7: #b3deff;
-// --fb-color-primary-light-8: #cce9ff;
-// --fb-color-primary-light-9: #e6f4ff;
+// --cami-color-primary-light-i
+// --cami-color-primary-light-3: #4db3ff;
+// --cami-color-primary-light-5: #80c9ff;
+// --cami-color-primary-light-7: #b3deff;
+// --cami-color-primary-light-8: #cce9ff;
+// --cami-color-primary-light-9: #e6f4ff;
 @each $type in $types {
   @for $i from 1 through 9 {
     @include set-color-mix-level($type, $i, "light", $color-white);
   }
 }
 
-// --fb-color-primary-dark-2
+// --cami-color-primary-dark-2
 @each $type in $types {
   @include set-color-mix-level($type, 2, "dark", $color-black);
 }
@@ -79,9 +79,9 @@ $color-info: map.get($colors, "info", "base") !default;
 $common-component-size: () !default;
 $common-component-size: map.merge(
   (
-    "large": 48px,
-    "default": 40px,
-    "small": 32px
+    "large": 40px,
+    "default": 32px,
+    "small": 24px
   ),
   $common-component-size
 );
