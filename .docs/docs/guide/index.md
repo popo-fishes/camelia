@@ -30,7 +30,7 @@ order: 1
  }
 </style>
 
-# Camelia
+<div class="guide-index-head-box"><img src="/logo.png"/>Camelia</div>
 
 <p class="intro-decs"><span>Camelia</span> 正确的写法是: <span>Camellia( 发音为 /kəˈmiːliə/ )</span>, 但太长且不好记，改为<span>Camelia</span>，意思和发音都类似。</p>
 
