@@ -198,8 +198,8 @@
 }
 
 // 头部按钮颜色更改
-:where(.css-dev-only-do-not-override-e7e9e7).site-tabs .site-tabs-tab-btn:active,
-:where(.css-dev-only-do-not-override-e7e9e7) a:hover {
+.docs-app .site-tabs .site-tabs-tab-btn:active,
+.docs-app a:hover {
   color: $docs-theme !important;
 }
 
