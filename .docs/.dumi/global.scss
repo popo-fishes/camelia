@@ -2,11 +2,11 @@
 
 // 引入文档项目的样式
 @forward "../style/index.scss";
+@use "./var" as *;
 
-$docs-theme: #22cccc;
-$docs-bg-color: #e9fafa;
-$docs-coolr-dark: var(--cami-color-primary-dark-2);
 /**
+  如何以后要使用dumi搭建文档，直接不需要改动这些
+
   不需要关心下面的样式，它只是一个初始化文档样式
 
  以下是：
@@ -73,6 +73,10 @@ $docs-coolr-dark: var(--cami-color-primary-dark-2);
 .site-1qh9pb2 .site-u4eos9 {
   background-color: #fff !important;
 }
+// 移动头部菜单距离
+.site-tabs-nav {
+  margin-left: 45px !important;
+}
 
 // 修改顶部导航栏 样式
 // 隐藏第一个节点（首页）
@@ -104,18 +108,21 @@ $docs-coolr-dark: var(--cami-color-primary-dark-2);
 .site-ar97vv > dl > dd > a {
   padding: 8px 12px !important;
   font-size: 14px !important;
-  color: #606266 !important;
+  color: $text-color-regular !important;
+  font-weight: 500 !important;
 }
 .site-ar97vv > dl > dd > a.active {
   color: $docs-theme !important;
   background-color: $docs-bg-color !important;
+  font-weight: 500 !important;
 }
 .site-ar97vv > dl > dd > a.active:hover {
   background: $docs-bg-color !important;
 }
 .site-ar97vv > dl > dt {
-  color: #606266 !important;
+  color: #303133 !important;
   margin-bottom: 12px !important;
+  line-height: 18px !important;
   font-weight: 700 !important;
 }
 // 暗夜模式下
@@ -144,6 +151,11 @@ $docs-coolr-dark: var(--cami-color-primary-dark-2);
 // 修改markdown 表格样式
 .site-bgbx00 .markdown td {
   text-align: center !important;
+}
+.site-bgbx00 .markdown h1,
+.site-bgbx00 .markdown h2,
+.site-bgbx00 .markdown h3 {
+  color: $text-color-regular !important;
 }
 .css-131xuf9 {
   align-items: flex-start !important;
@@ -177,7 +189,7 @@ $docs-coolr-dark: var(--cami-color-primary-dark-2);
 }
 
 // 修改md -- info提示时的字体颜色
-:where(.css-dev-only-do-not-override-e7e9e7).site-alert-info .site-alert-icon {
+.site-alert-info .site-alert-icon {
   color: $docs-theme !important;
 }
 // 修改md -- info提示节点的背景色

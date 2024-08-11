@@ -1,3 +1,5 @@
+@use "../.dumi/var.scss" as *;
+
 .site-t2vb78 .icon-item {
   :hover {
     background-color: #2b2b2c;
@@ -7,6 +9,8 @@
   &-item {
     margin-top: 24px;
     &:first-child {
+      width: 48px;
+      height: 48px;
       margin-top: 0;
     }
   }
@@ -80,4 +84,20 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+// 指南页面，标题自定义
+.guide-index-head-box {
+  display: flex;
+  color: $text-color-regular;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.guide-index-head-box img {
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
 }

@@ -1,7 +1,7 @@
 {
   "name": "camelia",
   "version": "0.0.0-dev.1",
-  "description": "A Component Library for React",
+  "description": "React UI library，Implement functionality with the simplest code",
   "author": "fish-bubble",
   "keywords": [
     "camelia ui",

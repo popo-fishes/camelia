@@ -6,7 +6,7 @@ group:
   order: 1
 ---
 
-# Icon 图标 🌈🌈🌈
+# Icon 图标
 
 语义化的矢量图形。
 

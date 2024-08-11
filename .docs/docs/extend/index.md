@@ -1,9 +1,9 @@
 ---
-title: 扩展
+title: 扩展-工具集
 order: 1
 ---
 
-# 扩展 👓👓👓
+# 扩展 - 工具集 🛠
 
 <img src="/images/js.png" style="margin: 0 auto; display: block;" />
 
