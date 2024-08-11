@@ -9,19 +9,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "father build",
-    "build:watch": "father dev",
-    "create-fb-scss": "tsx ./create-fb-scss.ts",
-    "dev": "dumi dev",
+    "start": "dumi dev",
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",
+    "build:watch": "father dev",
+    "build": "father build",
     "doctor": "father doctor",
-    "lint": "npm run lint:es && npm run lint:css",
-    "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
-    "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
-    "prepare": "husky install && dumi setup",
-    "prepublishOnly": "father doctor && npm run build",
-    "start": "npm run dev"
+    "create-fb-scss": "tsx ./create-fb-scss.ts"
   },
   "commitlint": {
     "extends": [
