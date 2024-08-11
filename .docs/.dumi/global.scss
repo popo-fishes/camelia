@@ -6,9 +6,11 @@
 // docs页面 全局变量
 $docs-theme: #22cccc;
 $docs-bg-color: #e9fafa;
-$docs-coolr-dark: var(--cami-color-primary-dark-2);
+$docs-coolr-dark: #1ba3a3;
 $text-color-regular: #606266;
 /**
+  如何以后要使用dumi搭建文档，直接不需要改动这些
+
   不需要关心下面的样式，它只是一个初始化文档样式
 
  以下是：
@@ -76,8 +78,8 @@ $text-color-regular: #606266;
   background-color: #fff !important;
 }
 // 移动头部菜单距离
-.css-o3n4io {
-  margin-left: 92px !important;
+.site-tabs-nav {
+  margin-left: 45px !important;
 }
 
 // 修改顶部导航栏 样式
