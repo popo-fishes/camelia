@@ -34,17 +34,17 @@ export default () => {
   );
 
   return (
-    <>
-      <button ref={ref} type="button" className="mr-4">
+    <div style={{ display: "flex" }}>
+      <Button ref={ref} type="primary" className="mr-4">
         click num {value}
-      </button>
-      <button onClick={() => setEnable(false)} type="button" className="mr-4">
+      </Button>
+      <Button type="primary" onClick={() => setEnable(false)} className="mr-4">
         关闭监听
-      </button>
-      <button onClick={() => setEnable(true)} type="button">
+      </Button>
+      <Button type="primary" onClick={() => setEnable(true)}>
         开启监听
-      </button>
-    </>
+      </Button>
+    </div>
   );
 };
 ```

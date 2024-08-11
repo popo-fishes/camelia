@@ -2,80 +2,71 @@
  * @Date: 2024-07-28 21:01:55
  * @Description: Modify here please
  */
-import { FooterColumn } from 'rc-footer/es/column';
-
-interface GetColumnParams {
-  github?: string;
-}
+import { FooterColumn } from "rc-footer/es/column";
+import { baseLink } from "../../../../config";
 export const getColumns = () => {
   const resources: FooterColumn = {
-    title: '开发组件',
+    title: "相关资源",
     items: [
       {
-        title: 'MyBatis Dynamic SQL',
-        url: 'https://mybatis.org/mybatis-dynamic-sql/docs/introduction.html',
-        openExternal: true,
+        title: "Fish Icons",
+        url: "https://github.com/u-fish-bubble/fish-icons",
+        openExternal: true
       },
       {
-        title: 'MyBatis Generator',
-        url: 'http://mybatis.org/generator/',
-        openExternal: true,
+        title: "Umy Ui",
+        url: "https://github.com/u-fish-bubble/umy-ui",
+        openExternal: true
       },
       {
-        title: 'Spring Boot',
-        url: 'https://spring.io/projects/spring-boot',
-        openExternal: true,
-      },
-      {
-        title: 'junit5',
-        url: 'https://junit.org/junit5/',
-        openExternal: true,
-      },
-    ],
+        title: "Fish Chat Editor",
+        url: "https://github.com/u-fish-bubble/fish-chat-editor",
+        openExternal: true
+      }
+    ]
   };
+
   const community: FooterColumn = {
-    title: '系统组件',
+    title: "Camellia 扩展",
     items: [
       {
-        title: 'IoTDB',
-        url: 'https://iotdb.apache.org/',
-        openExternal: true,
+        title: "String",
+        url: `${baseLink}extend/string-util`,
+        openExternal: true
       },
-
       {
-        title: 'EMQX',
-        url: 'https://www.emqx.com/zh',
-        openExternal: true,
+        title: "Array",
+        url: `${baseLink}extend/array-util`,
+        openExternal: true
       },
-    ],
+      {
+        title: "Is",
+        url: `${baseLink}extend/is`,
+        openExternal: true
+      }
+    ]
   };
 
   const help: FooterColumn = {
-    title: '其他',
+    title: "其他",
 
     items: [
       {
-        title: '源代码',
-        url: `https://gitee.com/fanhualei/wukong-doc`,
-        openExternal: true,
+        title: "源代码",
+        url: `https://github.com/u-fish-bubble/camellia`,
+        openExternal: true
       },
       {
-        title: '前端入门',
-        url: 'https://ant-learning.redhtc.com/',
-        openExternal: true,
+        title: "React",
+        url: "https://react.docschina.org/",
+        openExternal: true
       },
       {
-        title: '前端培训',
-        url: 'https://aifarm.redhtc.com/',
-        openExternal: true,
-      },
-
-      {
-        title: 'Iot框架',
-        url: 'https://aifarm-iot.redhtc.com/',
-        openExternal: true,
-      },
-    ],
+        title: "Next.js",
+        url: "https://nextjs.org/docs",
+        openExternal: true
+      }
+    ]
   };
-  return [];
+  return [resources, community, help];
 };

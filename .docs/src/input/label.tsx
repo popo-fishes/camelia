@@ -44,7 +44,7 @@ export default App;
 //     justify-content: center;
 //     border-top-right-radius: 4px;
 //     border-bottom-right-radius: 4px;
-//     box-shadow: 0 1px 0 0 var(--fb-color-info-light-3) inset, 0 -1px 0 0 var(--fb-color-info-light-3) inset,
-//       -1px 0 0 0 var(--fb-color-info-light-3) inset;
+//     box-shadow: 0 1px 0 0 var(--cami-color-info-light-3) inset, 0 -1px 0 0 var(--cami-color-info-light-3) inset,
+//       -1px 0 0 0 var(--cami-color-info-light-3) inset;
 //   }
 // }

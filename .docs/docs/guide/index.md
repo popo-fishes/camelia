@@ -9,7 +9,7 @@ order: 1
      margin-top: -10px !important;
   }
   .intro-decs span{
-    color: #0092ff;
+    color: #22cccc;
   }
   .intro-text {
    margin: 0 !important;
@@ -32,7 +32,7 @@ order: 1
 
 # Camelia
 
-<p class="intro-decs">Camelia 正确的写法是: <span>Camellia( 发音为 /kəˈmiːliə/ )</span>, 但感觉太长且不好记，改为了Camelia，意思和发音都类似。</p>
+<p class="intro-decs"><span>Camelia</span> 正确的写法是: <span>Camellia( 发音为 /kəˈmiːliə/ )</span>, 但太长且不好记，改为<span>Camelia</span>，意思和发音都类似。</p>
 
 <div class="intro-title">Camelia的意思是山茶花，象征与寓意：</div>
 
@@ -91,7 +91,7 @@ $ pnpm i camelia
 
 ## 使用 CDN
 
-直接通过浏览器的 HTML 标签导入 camelia，然后就可以使用全局变量 camelia。
+直接通过浏览器的 HTML 标签导入 camelia.js，然后就可以使用全局变量 "Camelia"
 
 根据不同的 CDN 提供商有不同的引入方式， 我们在这里以 unpkg 举例。 你也可以使用其它的 CDN 供应商
 

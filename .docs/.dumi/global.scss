@@ -3,7 +3,12 @@
 // 引入文档项目的样式
 @forward "../style/index.scss";
 
+$docs-theme: #22cccc;
+$docs-bg-color: #e9fafa;
+$docs-coolr-dark: var(--cami-color-primary-dark-2);
 /**
+  不需要关心下面的样式，它只是一个初始化文档样式
+
  以下是：
  修改，覆盖样式
 
@@ -11,10 +16,31 @@
  修改，覆盖样式
 
 */
-
-// 首页标题不可以复制
+// 首页title标题不可以复制
 .site-182hoah b {
   user-select: none;
+  // background-image: radial-gradient(at 80% 20%, $docs-theme 0%, #13c2c2 80%, #722ed1 130) !important;
+  background-image: radial-gradient(at 80% 20%, $docs-theme 0%, #13c2c2 80%, #722ed1 130%) !important;
+}
+.site-1ibf0j8 {
+  max-width: 500px;
+  font-size: 16px !important;
+  font-weight: normal !important;
+}
+
+.site-features-cover {
+  background: linear-gradient(135deg, $docs-theme, $docs-bg-color) !important;
+}
+.site-zd47tv {
+  background: linear-gradient(90deg, $docs-theme 0%, #5dbdb5 100%) !important;
+}
+
+// 修改头部标题颜色
+.site-1rpkcxp {
+  color: $docs-theme !important;
+  &:hover {
+    color: inherit;
+  }
 }
 .site-14fkerq {
   backdrop-filter: blur(13px) !important;
@@ -53,6 +79,10 @@
 .site-tabs-nav-wrap .site-tabs-nav-list .site-tabs-tab:first-child {
   display: none !important;
 }
+.site-1q53kuy .site-tabs-tab + .site-tabs-tab:nth-child(2) {
+  margin: 16px 4px 16px 0 !important;
+  padding: 6px 12px !important;
+}
 .site-tabs-nav::before {
   border-bottom: none !important;
 }
@@ -60,11 +90,11 @@
   display: none !important;
 }
 .site-tabs .site-tabs-ink-bar {
-  background: #0092ff !important;
+  background: $docs-theme !important;
 }
 
 .site-tabs .site-tabs-tab.site-tabs-tab-active .site-tabs-tab-btn {
-  color: #0092ff !important;
+  color: $docs-theme !important;
 }
 .site-tabs-tab-btn {
   font-size: 16px !important;
@@ -77,11 +107,11 @@
   color: #606266 !important;
 }
 .site-ar97vv > dl > dd > a.active {
-  color: #0092ff !important;
-  font-weight: 500 !important;
+  color: $docs-theme !important;
+  background-color: $docs-bg-color !important;
 }
 .site-ar97vv > dl > dd > a.active:hover {
-  background: #e1f0ff !important;
+  background: $docs-bg-color !important;
 }
 .site-ar97vv > dl > dt {
   color: #606266 !important;
@@ -102,13 +132,13 @@
 
 // 修改右侧菜单样式
 .site-anchor-wrapper .site-anchor .site-anchor-link-active > .site-anchor-link-title {
-  color: #0092ff !important;
+  color: $docs-theme !important;
 }
 .site-anchor .site-anchor-ink {
-  background-color: #0092ff !important;
+  background-color: $docs-theme !important;
 }
 .site-anchor-link-title:hover {
-  color: #0092ff !important;
+  color: $docs-theme !important;
 }
 
 // 修改markdown 表格样式
@@ -127,9 +157,64 @@
 }
 // 表格的第三列全部改变字体颜色
 .site-bgbx00 .markdown td:nth-child(3) {
-  color: #c41d7f !important;
+  color: $docs-coolr-dark !important;
 }
 
 .markdown > :not([data-code-type="highlighter"]) code {
-  color: #0092ff !important;
+  color: $docs-coolr-dark !important;
+  background: $docs-bg-color !important;
+  display: inline-flex;
+  height: 18px;
+  padding-top: 0 !important;
+  align-items: center;
+}
+
+// 更改文档文本为主题色
+.site-bgbx00 .markdown a,
+.site-u4eos9.rc-footer a:hover,
+.site-17jzn8v .css-7k1dqj {
+  color: $docs-theme !important;
+}
+
+// 修改md -- info提示时的字体颜色
+:where(.css-dev-only-do-not-override-e7e9e7).site-alert-info .site-alert-icon {
+  color: $docs-theme !important;
+}
+// 修改md -- info提示节点的背景色
+.site-r0dnvl .site-alert-info {
+  background: $docs-bg-color !important;
+}
+
+// 头部按钮颜色更改
+:where(.css-dev-only-do-not-override-e7e9e7).site-tabs .site-tabs-tab-btn:active,
+:where(.css-dev-only-do-not-override-e7e9e7) a:hover {
+  color: $docs-theme !important;
+}
+
+// 修改头部右边功能样式
+.site-btn-icon-only:hover,
+.native-select-button:hover {
+  color: $docs-theme !important;
+  border-color: $docs-theme !important;
+}
+.native-select {
+  user-select: none !important;
+}
+.native-select-button:focus-visible {
+  border-color: $docs-theme !important;
+}
+.native-select-item-selected {
+  color: $docs-theme !important;
+  background: $docs-bg-color !important;
+  font-weight: 400 !important;
+}
+.native-select-item {
+  font-size: 14px !important;
+  padding: 8px 10px !important;
+  color: rgba(42, 46, 54, 0.88);
+  background: transparent;
+  margin-bottom: 5px !important;
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
 }

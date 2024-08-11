@@ -16,7 +16,6 @@ group:
 
 ```jsx
 import { useState, useRef } from "react";
-import { Button } from "camelia";
 import { useResizeObserver } from "camelia/shared";
 
 export default () => {

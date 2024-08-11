@@ -4,6 +4,7 @@
  */
 import { defineConfig } from "dumi";
 import path from "path";
+
 export default defineConfig({
   outputPath: "docs-dist",
   favicons: ["/logo.ico"],
@@ -19,6 +20,8 @@ export default defineConfig({
     socialLinks: {
       github: "https://github.com/u-fish-bubble/camellia"
     },
+    rtl: true,
+    prefersColor: { default: "light", switch: false },
     hero: {
       actions: [{ text: "🚀🚀 开始吧 →", link: "/guide" }],
 

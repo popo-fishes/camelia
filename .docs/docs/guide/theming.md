@@ -41,21 +41,21 @@ CSS 变量是一个非常有用的功能, 你可以从[`css自定义变量`](htt
 
 ```css
 :root {
-  --yp-color-primary: red;
+  --cime-color-primary: red;
 }
 ```
 
 如果你只想自定义一个特定的组件，只需为某些组件单独添加内联样式。
 
 ```html
-<button style="--yp-button-bg-color: red">Add</button>
+<button style="--cime-button-bg-color: red">Add</button>
 ```
 
 不过更加推荐你在类名下添加自定义 css 变量，而不是在全局的 `:root` 下
 
 ```css
 .custom-class {
-  --yp-button-bg-color: red;
+  --cime-button-bg-color: red;
 }
 ```
 
@@ -67,8 +67,8 @@ const el = document.documentElement;
 // const el = document.getElementById('xxx')
 
 // 获取 css 变量
-getComputedStyle(el).getPropertyValue(`--yp-color-primary`);
+getComputedStyle(el).getPropertyValue(`--cime-color-primary`);
 
 // 设置 css 变量
-el.style.setProperty("--yp-color-primary", "red");
+el.style.setProperty("--cime-color-primary", "red");
 ```

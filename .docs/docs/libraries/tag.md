@@ -11,9 +11,9 @@ group:
   color: inherit !important;
 }
 .customTagColor {
-  --fb-tag-text-color: #531dab !important;
-  --fb-tag-bg-color: #f9f0ff !important;
-  --fb-tag-border-color: #d3adf7 !important;
+  --cami-tag-text-color: #531dab !important;
+  --cami-tag-bg-color: #f9f0ff !important;
+  --cami-tag-border-color: #d3adf7 !important;
 }
 
 .customTagColor2 {
@@ -218,9 +218,9 @@ export default () => {
 
 /* <style>
   .customTagColor {
-  --fb-tag-text-color: #531dab !important;
-  --fb-tag-bg-color: #f9f0ff !important;
-  --fb-tag-border-color: #d3adf7 !important;
+  --cami-tag-text-color: #531dab !important;
+  --cami-tag-bg-color: #f9f0ff !important;
+  --cami-tag-border-color: #d3adf7 !important;
 }
 
 .customTagColor2 {

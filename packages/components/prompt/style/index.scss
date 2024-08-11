@@ -1,10 +1,11 @@
 @use "../../_styles/core/mixins" as *;
 @use "../../_styles/core/config" as *;
+@use "../../_styles/core/function" as *;
 
 @include b(prompt) {
   .#{$namespace}-dialog__header {
     border-radius: 12px 12px 0px 0px;
-    background: linear-gradient(180deg, #d3eeff 0%, #fff 100%);
+    background: linear-gradient(180deg, getCssVar("color-primary-light-9") 0%, #fff 100%);
   }
   .#{$namespace}-dialog__body {
     padding: 8px 20px;
@@ -19,7 +20,7 @@
       height: 24px;
       margin-top: 3px;
       font-size: 24px;
-      color: #0092ff;
+      color: getCssVar("color-primary");
     }
     .title {
       color: rgba(0, 0, 0, 0.85);
