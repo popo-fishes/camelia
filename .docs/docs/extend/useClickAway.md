@@ -28,9 +28,9 @@ export default () => {
 
   return (
     <>
-      <button ref={ref} type="button" className="mr-4">
+      <Button ref={ref} type="primary" className="mr-4">
         点击按钮外面
-      </button>
+      </Button>
       {value}
     </>
   );

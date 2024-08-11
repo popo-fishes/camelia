@@ -9,7 +9,7 @@ order: 1
      margin-top: -10px !important;
   }
   .intro-decs span{
-    color: #0092ff;
+    color: #22cccc;
   }
   .intro-text {
    margin: 0 !important;

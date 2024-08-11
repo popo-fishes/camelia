@@ -84,7 +84,7 @@ group:
 
 ### Input Methods
 
-| 名称  | 说明              | 类型        |
-| ----- | ----------------- | ----------- |
-| blur  | 使 input 失去焦点 | ^[Function] |
-| focus | 使 input 获取焦点 | ^[Function] |
+| 名称  | 说明              | 类型     |
+| ----- | ----------------- | -------- |
+| blur  | 使 input 失去焦点 | Function |
+| focus | 使 input 获取焦点 | Function |

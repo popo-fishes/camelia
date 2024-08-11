@@ -3,6 +3,8 @@
 // 引入文档项目的样式
 @forward "../style/index.scss";
 
+$docs-theme: #22cccc;
+
 /**
  以下是：
  修改，覆盖样式
@@ -10,14 +12,13 @@
  以下是：
  修改，覆盖样式
 
-*/
-
-// 首页标题不可以复制
+*/ // 首页title标题不可以复制
 .site-182hoah b {
   user-select: none;
 }
+// 修改头部标题颜色
 .site-1rpkcxp {
-  color: #22cccc !important;
+  color: $docs-theme !important;
   &:hover {
     color: inherit;
   }
@@ -66,11 +67,11 @@
   display: none !important;
 }
 .site-tabs .site-tabs-ink-bar {
-  background: #0092ff !important;
+  background: $docs-theme !important;
 }
 
 .site-tabs .site-tabs-tab.site-tabs-tab-active .site-tabs-tab-btn {
-  color: #0092ff !important;
+  color: $docs-theme !important;
 }
 .site-tabs-tab-btn {
   font-size: 16px !important;
@@ -83,11 +84,11 @@
   color: #606266 !important;
 }
 .site-ar97vv > dl > dd > a.active {
-  color: #0092ff !important;
-  font-weight: 500 !important;
+  color: $docs-theme !important;
+  background-color: #e9fafa !important;
 }
 .site-ar97vv > dl > dd > a.active:hover {
-  background: #e1f0ff !important;
+  background: #e9fafa !important;
 }
 .site-ar97vv > dl > dt {
   color: #606266 !important;
@@ -108,13 +109,13 @@
 
 // 修改右侧菜单样式
 .site-anchor-wrapper .site-anchor .site-anchor-link-active > .site-anchor-link-title {
-  color: #0092ff !important;
+  color: $docs-theme !important;
 }
 .site-anchor .site-anchor-ink {
-  background-color: #0092ff !important;
+  background-color: $docs-theme !important;
 }
 .site-anchor-link-title:hover {
-  color: #0092ff !important;
+  color: $docs-theme !important;
 }
 
 // 修改markdown 表格样式
@@ -133,9 +134,30 @@
 }
 // 表格的第三列全部改变字体颜色
 .site-bgbx00 .markdown td:nth-child(3) {
-  color: #c41d7f !important;
+  color: var(--cami-color-primary-dark-2) !important;
 }
 
 .markdown > :not([data-code-type="highlighter"]) code {
-  color: #0092ff !important;
+  color: $docs-theme !important;
+  background: #e9fafa !important;
+  display: inline-flex;
+  height: 18px;
+  padding-top: 0 !important;
+  align-items: center;
+}
+
+// 更改文档文本为主题色
+.site-bgbx00 .markdown a,
+.site-u4eos9.rc-footer a:hover,
+.site-17jzn8v .css-7k1dqj {
+  color: $docs-theme !important;
+}
+
+// 修改md -- info提示时的字体颜色
+:where(.css-dev-only-do-not-override-e7e9e7).site-alert-info .site-alert-icon {
+  color: $docs-theme !important;
+}
+// 修改md -- info提示节点的背景色
+.site-r0dnvl .site-alert-info {
+  background: #e9fafa !important;
 }
