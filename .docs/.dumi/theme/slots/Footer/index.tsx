@@ -9,6 +9,9 @@ import { baseLink } from "../../../../config";
 import { useLocation } from "umi";
 
 let timer: any = null;
+
+// 全局想往页面注入功能的地方
+
 export default () => {
   const columns = getColumns();
   const location = useLocation();
@@ -24,6 +27,12 @@ export default () => {
       window.location?.reload();
     }
   }, [location.pathname, isReload.current]);
+
+  useEffect(() => {
+    if (document?.body) {
+      document.body.classList.add("docs-app");
+    }
+  }, []);
 
   const bootom = (
     <>
