@@ -114,16 +114,16 @@ export default () => (
 
 ### Button props
 
-| 属性名    | 说明                                                                                                                                 | 类型                                   | 默认值   |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- | -------- |
-| type      | 类型                                                                                                                                 | `primary` `success` `warning` `danger` | —        |
-| plain     | 是否为次要按钮                                                                                                                       | boolean                                | false    |
-| ghost     | 幽灵属性，使按钮背景透明                                                                                                             | boolean                                | false    |
-| size      | 按钮大小                                                                                                                             | `large` `default` `small`              | default  |
-| width     | 按钮的宽度                                                                                                                           | string / number                        | —        |
-| disabled  | 按钮失效状态                                                                                                                         | boolean                                | false    |
-| loading   | 设置按钮载入状态                                                                                                                     | boolean                                | false    |
-| isWave    | 是否需要波浪动效                                                                                                                     | boolean                                | true     |
-| icon      | 设置按钮的图标组件                                                                                                                   | ReactNode                              | -        |
-| htmlType  | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标准](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) | string                                 | `button` |
-| className | 自定义样式名                                                                                                                         | string                                 | -        |
+| 属性名    | 说明                                                                                                                                 | 类型                                   | 默认值  |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- | ------- |
+| type      | 类型                                                                                                                                 | `primary` `success` `warning` `danger` | —       |
+| plain     | 是否为次要按钮                                                                                                                       | boolean                                | false   |
+| ghost     | 幽灵属性，使按钮背景透明                                                                                                             | boolean                                | false   |
+| size      | 按钮大小                                                                                                                             | `large` `default` `small`              | default |
+| width     | 按钮的宽度                                                                                                                           | string / number                        | —       |
+| disabled  | 按钮失效状态                                                                                                                         | boolean                                | false   |
+| loading   | 设置按钮载入状态                                                                                                                     | boolean                                | false   |
+| isWave    | 是否需要波浪动效                                                                                                                     | boolean                                | true    |
+| icon      | 设置按钮的图标组件                                                                                                                   | ReactNode                              | -       |
+| htmlType  | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标准](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) | string                                 | button  |
+| className | 自定义样式名                                                                                                                         | string                                 | -       |

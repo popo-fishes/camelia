@@ -1,7 +1,7 @@
 @use "config";
 
 // join var name
-// joinVarName(('button', 'text-color')) => '--cami-button-text-color'
+// joinVarName(('button', 'text-color')) => '{$namespace}-button-text-color'
 @function joinVarName($list) {
   $name: "--" + config.$namespace;
   @each $item in $list {
@@ -12,17 +12,17 @@
   @return $name;
 }
 
-// getCssVarName('button', 'text-color') => '--cami-button-text-color'
+// getCssVarName('button', 'text-color') => '{$namespace}-button-text-color'
 @function getCssVarName($args...) {
   @return joinVarName($args);
 }
 
-// getCssVar('button', 'text-color') => var(--cami-button-text-color)
+// getCssVar('button', 'text-color') => var({$namespace}-button-text-color)
 @function getCssVar($args...) {
   @return var(#{joinVarName($args)});
 }
 
-// getCssVarWithDefault(('button', 'text-color'), red) => var(--cami-button-text-color, red)
+// getCssVarWithDefault(('button', 'text-color'), red) => var({$namespace}-button-text-color, red)
 @function getCssVarWithDefault($args, $default) {
   @return var(#{joinVarName($args)}, #{$default});
 }

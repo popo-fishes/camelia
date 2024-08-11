@@ -4,18 +4,31 @@
 @forward "../style/index.scss";
 
 $docs-theme: #22cccc;
-
+$docs-bg-color: #e9fafa;
+$docs-coolr-dark: var(--cami-color-primary-dark-2);
 /**
- 以下是：
- 修改，覆盖样式
+  不需要关心下面的样式，它只是一个初始化文档样式
 
  以下是：
  修改，覆盖样式
 
-*/ // 首页title标题不可以复制
+ 以下是：
+ 修改，覆盖样式
+
+*/
+// 首页title标题不可以复制
 .site-182hoah b {
   user-select: none;
+  // background-image: radial-gradient(at 80% 20%, $docs-theme 0%, #13c2c2 80%, #722ed1 130) !important;
+  background-image: radial-gradient(at 80% 20%, $docs-theme 0%, #13c2c2 80%, #722ed1 130%) !important;
 }
+.site-features-cover {
+  background: linear-gradient(135deg, $docs-theme, $docs-bg-color) !important;
+}
+.site-zd47tv {
+  background: linear-gradient(90deg, $docs-theme 0%, #5dbdb5 100%) !important;
+}
+
 // 修改头部标题颜色
 .site-1rpkcxp {
   color: $docs-theme !important;
@@ -85,10 +98,10 @@ $docs-theme: #22cccc;
 }
 .site-ar97vv > dl > dd > a.active {
   color: $docs-theme !important;
-  background-color: #e9fafa !important;
+  background-color: $docs-bg-color !important;
 }
 .site-ar97vv > dl > dd > a.active:hover {
-  background: #e9fafa !important;
+  background: $docs-bg-color !important;
 }
 .site-ar97vv > dl > dt {
   color: #606266 !important;
@@ -134,12 +147,12 @@ $docs-theme: #22cccc;
 }
 // 表格的第三列全部改变字体颜色
 .site-bgbx00 .markdown td:nth-child(3) {
-  color: var(--cami-color-primary-dark-2) !important;
+  color: $docs-coolr-dark !important;
 }
 
 .markdown > :not([data-code-type="highlighter"]) code {
-  color: $docs-theme !important;
-  background: #e9fafa !important;
+  color: $docs-coolr-dark !important;
+  background: $docs-bg-color !important;
   display: inline-flex;
   height: 18px;
   padding-top: 0 !important;
@@ -159,5 +172,42 @@ $docs-theme: #22cccc;
 }
 // 修改md -- info提示节点的背景色
 .site-r0dnvl .site-alert-info {
-  background: #e9fafa !important;
+  background: $docs-bg-color !important;
+}
+
+// 头部按钮颜色更改
+:where(.css-dev-only-do-not-override-e7e9e7).site-tabs .site-tabs-tab-btn:active,
+:where(.css-dev-only-do-not-override-e7e9e7) a:hover {
+  color: $docs-theme !important;
+}
+
+// 修改头部右边功能样式, 关闭头部 切换主题颜色的功能按钮
+.native-select-button {
+  display: none !important;
+}
+.site-btn-icon-only:hover,
+.native-select-button:hover {
+  color: $docs-theme !important;
+  border-color: $docs-theme !important;
+}
+.native-select {
+  user-select: none !important;
+}
+.native-select-button:focus-visible {
+  border-color: $docs-theme !important;
+}
+.native-select-item-selected {
+  color: $docs-theme !important;
+  background: $docs-bg-color !important;
+  font-weight: 400 !important;
+}
+.native-select-item {
+  font-size: 14px !important;
+  padding: 8px 10px !important;
+  color: rgba(42, 46, 54, 0.88);
+  background: transparent;
+  margin-bottom: 5px !important;
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
 }

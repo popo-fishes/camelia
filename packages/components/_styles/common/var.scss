@@ -58,19 +58,19 @@ $color-info: map.get($colors, "info", "base") !default;
 }
 
 // $colors.primary.light-i
-// --cami-color-primary-light-i
-// --cami-color-primary-light-3: #4db3ff;
-// --cami-color-primary-light-5: #80c9ff;
-// --cami-color-primary-light-7: #b3deff;
-// --cami-color-primary-light-8: #cce9ff;
-// --cami-color-primary-light-9: #e6f4ff;
+// {$namespace}-color-primary-light-i
+// {$namespace}-color-primary-light-3: #4db3ff;
+// {$namespace}-color-primary-light-5: #80c9ff;
+// {$namespace}-color-primary-light-7: #b3deff;
+// {$namespace}-color-primary-light-8: #cce9ff;
+// {$namespace}-color-primary-light-9: #e6f4ff;
 @each $type in $types {
   @for $i from 1 through 9 {
     @include set-color-mix-level($type, $i, "light", $color-white);
   }
 }
 
-// --cami-color-primary-dark-2
+// {$namespace}-color-primary-dark-2
 @each $type in $types {
   @include set-color-mix-level($type, 2, "dark", $color-black);
 }

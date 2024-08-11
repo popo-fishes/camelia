@@ -32,7 +32,6 @@ export default () => {
   const open2 = () => {
     const { close } = prompt({
       title: "温馨提示",
-      width: "600px",
       content: `Are you sure delete this task?`,
       okText: "确定",
       cancelText: "取消",
@@ -76,10 +75,10 @@ export default () => {
         footer={
           <div className="cc-footer">
             <Button plain onClick={() => setVisible(false)}>
-              取消
+              关闭
             </Button>
             <Button type="primary" onClick={() => setVisible(false)}>
-              确定
+              知道了
             </Button>
           </div>
         }
