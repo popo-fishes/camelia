@@ -20,6 +20,7 @@ export default () => {
 
   useEffect(() => {
     clearTimeout(timer);
+
     window.localStorage.setItem("pageIsReload", "0");
 
     if (location.pathname && isReload.current !== "1") {
