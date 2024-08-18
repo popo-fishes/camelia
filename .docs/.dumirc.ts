@@ -66,5 +66,9 @@ export default defineConfig({
         link: "/extend"
       }
     ]
+  },
+
+  chainWebpack(memo, { env, webpack }) {
+    memo.resolve.byDependency.set('commonjs', {});
   }
 });

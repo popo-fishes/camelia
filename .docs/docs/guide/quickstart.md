@@ -34,7 +34,46 @@ Camelia 默认支持基于 ES modules 的 tree shaking，直接引入 import { B
 
 ## 样式按需
 
-你可以使用[babel-plugin-import](https://github.com/umijs/babel-plugin-import)实现样式按需引入
+你可以使用[vite-plugin-style-import](https://github.com/vbenjs/vite-plugin-style-import)实现样式按需引入
+
+```ts
+// vite.config.ts
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import { createStyleImportPlugin } from "vite-plugin-style-import";
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    react(),
+    createStyleImportPlugin({
+      libs: [
+        // 推荐
+        {
+          libraryName: "camelia",
+          ensureStyleFile: true,
+          esModule: true,
+          resolveStyle: (name) => {
+            // 代表需要使用scss, 需要安装sass
+            return `camelia/es/components/${name}/style/index`;
+          }
+        }
+        // {
+        //   libraryName: "camelia",
+        //   esModule: true,
+        //   resolveStyle: (name) => {
+        //     if (name.indexOf("version") !== -1) {
+        //       return "";
+        //     }
+        //     // 无需安装sass
+        //     return `camelia/es/components/${name}/style/css`;
+        //   },
+        // },
+      ]
+    })
+  ]
+});
+```
 
 ## 自行构建
 
