@@ -1,0 +1,48 @@
+{
+  "cami-rc": {
+    "prefix": "cami-rc",
+    "body": [
+      "import React, { useContext, useMemo, useState, useRef } from 'react';",
+      "import classNames from 'classnames'",
+      "import { ConfigContext } from '../config-provider';",
+      "import { useNamespace } from '@camelia/core/hooks'",
+      "import { IDemoProps } from './type';",
+      "$1",
+      "const Demo: React.FC<IDemoProps> = (props) => {",
+      "$1",
+      "const { getPrefixCls } = useContext(ConfigContext);",
+      "const ns = useNamespace('image', getPrefixCls());",
+      "$1",
+      "return (",
+      "<>demo</>",
+      ")",
+      "}",
+      "$2",
+      "export default Demo;"
+    ],
+    "description": "创建一个react.rc组件基础"
+  },
+  "cami-for": {
+    "prefix": "cami-for",
+    "body": [
+      "import React, { useContext, useMemo, useState, useRef, useImperativeHandle } from 'react';",
+      "import classNames from 'classnames'",
+      "import { ConfigContext } from '../config-provider';",
+      "import { useNamespace } from '@camelia/core/hooks'",
+      "import { IDemoProps } from './type';",
+      "$1",
+      "const Demo = React.forwardRef<any, IDemoProps>((props, ref) => {",
+      "$1",
+      "const { getPrefixCls } = useContext(ConfigContext);",
+      "const ns = useNamespace('image', getPrefixCls());",
+      "$1",
+      "return (",
+      "<>demo</>",
+      ")",
+      "})",
+      "$2",
+      "export default Demo;"
+    ],
+    "description": "创建一个react.forwardRef组件基础"
+  }
+}

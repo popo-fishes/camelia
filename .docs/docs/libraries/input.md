@@ -82,7 +82,7 @@ group:
 
 同 Input 属性, 除了`size` `type` `prefix` `suffix` `onClear` `clearable` 没有之外
 
-### Input Methods
+### Input methods
 
 | 名称  | 说明              | 类型     |
 | ----- | ----------------- | -------- |

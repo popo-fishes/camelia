@@ -3,7 +3,7 @@
  * @Description: 获取元素内容或边框尺寸
  */
 import { isClient } from "../utils/is";
-import { getTargetElement } from "../_internal_utils/domTarget";
+import { getTargetElement } from "../_internal-utils/dom-target";
 import { type MutableRefObject, useEffect } from "react";
 
 type ResizeObserverCallback = (entries: any, observer: ResizeObserver) => void;

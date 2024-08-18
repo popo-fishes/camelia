@@ -121,7 +121,7 @@ export default () => {
 | icon      | 自定义图标组件                               | ReactNode                          | —      |
 | offset    | 距离窗口顶部的偏移量                         | number                             | 20     |
 
-### Message Methods
+### Message methods
 
 | 名称     | 说明         | 类型                      |
 | -------- | ------------ | ------------------------- |

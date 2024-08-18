@@ -4,10 +4,10 @@
  */
 import { defaultWindow } from "../utils";
 import type { AnyFn } from "../utils";
-import { getTargetElement } from "../_internal_utils/domTarget";
-import type { BasicTarget } from "../_internal_utils/domTarget";
+import { getTargetElement } from "../_internal-utils/dom-target";
+import type { BasicTarget } from "../_internal-utils/dom-target";
 
-import { createEffectWithTarget } from "../_internal_utils/createEffectWithTarget";
+import { createEffectWithTarget } from "../_internal-utils/create-effect-with-target";
 import { useEffect, useRef } from "react";
 
 const useEffectWithTarget = createEffectWithTarget(useEffect);
