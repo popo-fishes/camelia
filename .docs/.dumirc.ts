@@ -18,7 +18,7 @@ export default defineConfig({
     name: "Camelia",
     logo: "/logo.png",
     socialLinks: {
-      github: "https://github.com/u-fish-bubble/camellia"
+      github: "https://github.com/fish-popo/camelia"
     },
     rtl: true,
     prefersColor: { default: "light", switch: false },

@@ -12,8 +12,8 @@
   <a href="https://www.npmjs.org/package/camelia">
     <img src="https://img.shields.io/npm/v/camelia.svg" />
   </a>
-  <a href="https://github.com/u-fish-bubble/camelia">
-    <img src="https://img.shields.io/badge/node-%20%3E%3D%2018-47c219" />
+  <a href="https://bundlephobia.com/package/camelia">
+    <img src="https://badgen.net/bundlephobia/minzip/camelia?style=flat-square" />
   </a>
   <a href="https://npmcharts.com/compare/camelia?minimal=true">
     <img src="https://img.shields.io/npm/dm/camelia.svg" />
@@ -21,7 +21,7 @@
   <br>
 </p>
 
-<p align="center">React UI library，Implement functionality with the simplest code</p>
+<p align="center">Lightweight And Concise，A UI Design</p>
 
 ## ✨ 特征
 

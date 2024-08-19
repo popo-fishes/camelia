@@ -1,7 +1,7 @@
 {
   "name": "camelia",
   "version": "0.0.0-dev.1",
-  "description": "React UI library，Implement functionality with the simplest code",
+  "description": "Lightweight And Concise，A UI Design",
   "author": "fish-bubble",
   "keywords": [
     "camelia ui",
@@ -44,7 +44,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/u-fish-bubble/camellia"
+    "url": "https://github.com/fish-popo/camelia"
   },
   "peerDependencies": {
     "react": ">=16.9.0",

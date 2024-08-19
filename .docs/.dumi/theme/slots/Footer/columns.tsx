@@ -10,17 +10,17 @@ export const getColumns = () => {
     items: [
       {
         title: "Fish Icons",
-        url: "https://github.com/u-fish-bubble/fish-icons",
+        url: "https://github.com/fish-popo/fish-icons",
         openExternal: true
       },
       {
         title: "Umy Ui",
-        url: "https://github.com/u-fish-bubble/umy-ui",
+        url: "https://github.com/fish-popo/umy-ui",
         openExternal: true
       },
       {
         title: "Fish Chat Editor",
-        url: "https://github.com/u-fish-bubble/fish-chat-editor",
+        url: "https://github.com/fish-popo/fish-chat-editor",
         openExternal: true
       }
     ]
@@ -53,7 +53,7 @@ export const getColumns = () => {
     items: [
       {
         title: "源代码",
-        url: `https://github.com/u-fish-bubble/camellia`,
+        url: `https://github.com/fish-popo/camelia`,
         openExternal: true
       },
       {
