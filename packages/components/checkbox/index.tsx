@@ -7,11 +7,11 @@ import Group from "./group";
 
 export type { ICheckboxProps, ICheckboxGroupProps, CheckboxOptionType } from "./type";
 
-type CompoundedComponent = typeof InternalCheckbox & {
+type CommixComponent = typeof InternalCheckbox & {
   Group: typeof Group;
 };
 
-const Checkbox = InternalCheckbox as CompoundedComponent;
+const Checkbox = InternalCheckbox as CommixComponent;
 
 Checkbox.Group = Group;
 
