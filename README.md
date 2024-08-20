@@ -7,7 +7,7 @@
     <img width="120px" height="120px" src="http://43.136.119.145:82/logo-max.png">
   </p>
 
-  <h1><img width="150px" height="30px" src="http://43.136.119.145:82/camelia-name2.png"></h1>
+  <h1><img width="140px" height="30px" src="http://43.136.119.145:82/website-name3.png"></h1>
 
 Lightweight And Concise，A UI Design
 
