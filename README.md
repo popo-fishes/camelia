@@ -9,22 +9,23 @@
 <!-- <p align="center" style="margin-top: 1rem;">
   <img width="150px" height="30px" src="http://43.136.119.145:82/camelia-name2.png">
 </p> -->
+
 <h1>Camelia</h1>
+
+<p align="center">Lightweight And Concise，A UI Design</p>
 
 <p align="center">
   <a href="https://www.npmjs.org/package/camelia">
     <img src="https://img.shields.io/npm/v/camelia.svg" />
   </a>
-  <a href="https://bundlephobia.com/package/camelia">
-    <img src="https://badgen.net/bundlephobia/minzip/camelia?style=flat-square" />
-  </a>
+
+[![][https://bundlephobia.com/package/camelia]][https://badgen.net/bundlephobia/minzip/camelia?style=flat-square]
+
   <a href="https://npmcharts.com/compare/camelia?minimal=true">
     <img src="https://img.shields.io/npm/dm/camelia.svg" />
   </a>
   <br>
 </p>
-
-<p align="center">Lightweight And Concise，A UI Design</p>
 
 ## ✨ 特征
 
