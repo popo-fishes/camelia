@@ -19,6 +19,7 @@ export default () => {
     // 获取头部标题节点，然后给里面添加一个title
     const aDom = document.getElementsByClassName("site-1rpkcxp");
     if (aDom?.[0]) {
+      aDom[0].childNodes?.[1]?.remove();
       const img = document.createElement("img");
       img.src = "/website-name2.png";
       img.style.objectFit = "cover";

@@ -15,7 +15,7 @@ export default defineConfig({
   },
 
   themeConfig: {
-    name: "",
+    name: "Camelia",
     logo: "/logo.png",
     socialLinks: {
       github: "https://github.com/fish-popo/camelia"
@@ -69,6 +69,6 @@ export default defineConfig({
   },
 
   chainWebpack(memo, { env, webpack }) {
-    memo.resolve.byDependency.set('commonjs', {});
+    memo.resolve.byDependency.set("commonjs", {});
   }
 });
