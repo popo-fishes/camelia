@@ -11,8 +11,8 @@
 
 Lightweight And Concise，A UI Design
 
-[![CI status]![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
-[![][bundlephobia-image]][bundlephobia-url]
+[![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url] [![][bundlephobia-image]][bundlephobia-url]
+
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 [npm-image]: http://img.shields.io/npm/v/camelia.svg?style=flat-square
