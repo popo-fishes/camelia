@@ -3,10 +3,12 @@
  * @Description: Modify here please
 -->
 <p align="center">
-  <img width="200px" height="200px" src="http://43.136.119.145:82/logo.png">
+  <img width="200px" height="200px" src="http://43.136.119.145:82/logo-max.png">
 </p>
 
-<h1 align="center">Camelia</h1>
+<p align="center">
+  <img width="200px" height="100px" src="http://43.136.119.145:82/camelia-name.png">
+</p>
 
 <p align="center">
   <a href="https://www.npmjs.org/package/camelia">
