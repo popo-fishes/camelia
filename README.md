@@ -6,9 +6,10 @@
   <img width="120px" height="120px" src="http://43.136.119.145:82/logo-max.png">
 </p>
 
-<p align="center" style="margin-top: 1rem;">
+<!-- <p align="center" style="margin-top: 1rem;">
   <img width="150px" height="30px" src="http://43.136.119.145:82/camelia-name2.png">
-</p>
+</p> -->
+<h1>Camelia</h1>
 
 <p align="center">
   <a href="https://www.npmjs.org/package/camelia">
