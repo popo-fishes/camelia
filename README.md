@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img width="150px" height="55px" style="objectFit: cover" src="http://43.136.119.145:82/camelia-name.png">
+  <img width="150px" height="55px" style="max-width: 50%;" src="http://43.136.119.145:82/camelia-name.png">
 </p>
 
 <p align="center">
