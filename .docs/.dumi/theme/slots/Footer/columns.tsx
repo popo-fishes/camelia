@@ -3,24 +3,25 @@
  * @Description: Modify here please
  */
 import { FooterColumn } from "rc-footer/es/column";
-import { baseLink } from "../../../../config";
+import { baseLink, gitHub } from "../../../../config";
+
 export const getColumns = () => {
   const resources: FooterColumn = {
     title: "相关资源",
     items: [
       {
         title: "Fish Icons",
-        url: "https://github.com/fish-popo/fish-icons",
+        url: `${gitHub}fish-icons`,
         openExternal: true
       },
       {
         title: "Umy Ui",
-        url: "https://github.com/fish-popo/umy-ui",
+        url: `${gitHub}umy-ui`,
         openExternal: true
       },
       {
         title: "Fish Chat Editor",
-        url: "https://github.com/fish-popo/fish-chat-editor",
+        url: `${gitHub}fish-chat-editor`,
         openExternal: true
       }
     ]
@@ -53,7 +54,7 @@ export const getColumns = () => {
     items: [
       {
         title: "源代码",
-        url: `https://github.com/fish-popo/camelia`,
+        url: `${gitHub}camelia`,
         openExternal: true
       },
       {
