@@ -2,26 +2,27 @@
  * @Date: 2023-12-30 11:43:31
  * @Description: Modify here please
 -->
-<p align="center">
-  <img width="200px" height="200px" src="http://43.136.119.145:82/logo.png">
-</p>
+<div align="center">
+  <p>
+    <img width="120px" height="120px" src="http://43.136.119.145:82/logo-max.png">
+  </p>
 
-<h1 align="center">Camelia</h1>
+  <h1><img width="140px" height="30px" src="http://43.136.119.145:82/website-name3.png"></h1>
 
-<p align="center">
-  <a href="https://www.npmjs.org/package/camelia">
-    <img src="https://img.shields.io/npm/v/camelia.svg" />
-  </a>
-  <a href="https://bundlephobia.com/package/camelia">
-    <img src="https://badgen.net/bundlephobia/minzip/camelia?style=flat-square" />
-  </a>
-  <a href="https://npmcharts.com/compare/camelia?minimal=true">
-    <img src="https://img.shields.io/npm/dm/camelia.svg" />
-  </a>
-  <br>
-</p>
+Lightweight And Concise，A UI Design
 
-<p align="center">Lightweight And Concise，A UI Design</p>
+[![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url] [![][bundlephobia-image]][bundlephobia-url]
+
+![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+[npm-image]: http://img.shields.io/npm/v/camelia.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/camelia
+[download-image]: https://img.shields.io/npm/dm/camelia.svg?style=flat-square
+[download-url]: https://npmjs.org/package/camelia
+[bundlephobia-image]: https://badgen.net/bundlephobia/minzip/camelia?style=flat-square
+[bundlephobia-url]: https://bundlephobia.com/package/camelia"
+
+</div>
 
 ## ✨ 特征
 
