@@ -3,11 +3,11 @@
  * @Description: Modify here please
 -->
 <p align="center">
-  <img width="150px" height="150px" src="http://43.136.119.145:82/logo-max.png">
+  <img width="120px" height="120px" src="http://43.136.119.145:82/logo-max.png">
 </p>
 
 <p align="center">
-  <img width="200px" height="100px" src="http://43.136.119.145:82/camelia-name.png">
+  <img width="150px" height="80px" src="http://43.136.119.145:82/camelia-name.png">
 </p>
 
 <p align="center">
