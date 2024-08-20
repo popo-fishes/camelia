@@ -3,7 +3,7 @@
  * @Description: Modify here please
 -->
 <p align="center">
-  <img width="200px" height="200px" src="http://43.136.119.145:82/logo-max.png">
+  <img width="150px" height="150px" src="http://43.136.119.145:82/logo-max.png">
 </p>
 
 <p align="center">
