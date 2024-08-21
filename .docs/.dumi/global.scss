@@ -115,14 +115,14 @@
 // 修改左侧菜单栏样式
 .site-ar97vv > dl > dd > a {
   padding: 8px 12px !important;
-  font-size: 14px !important;
   color: $text-color-regular !important;
-  font-weight: 500 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
 }
 .site-ar97vv > dl > dd > a.active {
   color: $docs-theme !important;
   background-color: $docs-bg-color !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
 }
 .site-ar97vv > dl > dd > a.active:hover {
   background: $docs-bg-color !important;
@@ -131,6 +131,7 @@
   color: #303133 !important;
   margin-bottom: 12px !important;
   line-height: 18px !important;
+  font-size: 14px !important;
   font-weight: 700 !important;
 }
 // 暗夜模式下

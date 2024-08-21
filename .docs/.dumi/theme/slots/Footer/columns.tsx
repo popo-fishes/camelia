@@ -28,7 +28,7 @@ export const getColumns = () => {
   };
 
   const community: FooterColumn = {
-    title: "Camellia 扩展",
+    title: "Camelia 扩展",
     items: [
       {
         title: "String",
