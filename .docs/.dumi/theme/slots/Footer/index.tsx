@@ -5,6 +5,7 @@
 import { Footer } from "dumi-theme-antd-style";
 import React, { useEffect } from "react";
 import { baseLink } from "../../../../config";
+import CommonHelmet from "../../common/CommonHelmet";
 import { getColumns } from "./columns";
 
 // 全局想往页面注入功能的地方
@@ -21,9 +22,9 @@ export default () => {
     if (aDom?.[0]) {
       aDom[0].childNodes?.[1]?.remove();
       const img = document.createElement("img");
-      img.src = "/website-name2.png";
-      img.style.objectFit = "cover";
-      img.height = 32;
+      img.src = "/website-name1.png";
+      img.style.objectFit = "contain";
+      img.height = 28;
       img.width = 120;
       aDom[0].appendChild(img);
     }
@@ -31,10 +32,15 @@ export default () => {
 
   const bootom = (
     <>
-      <a href={baseLink}> Open-source Apach2 Licensed | Copyright © 2024 | Fish Popo </a>
+      <a href={baseLink}>Copyright 2020 Camelia | 蜀ICP备2020025971号-1</a>
       <br />
       Fish Popo 开源社区
     </>
   );
-  return <Footer bottom={bootom} columns={columns} />;
+  return (
+    <>
+      <CommonHelmet />
+      <Footer bottom={bootom} columns={columns} />
+    </>
+  );
 };

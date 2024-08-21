@@ -16,7 +16,7 @@ export default defineConfig({
 
   themeConfig: {
     name: "Camelia",
-    logo: "/logo.png",
+    logo: "/logo1.png",
     socialLinks: {
       github: "https://github.com/fish-popo/camelia"
     },
