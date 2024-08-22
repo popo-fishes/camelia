@@ -48,10 +48,7 @@ const App: React.FC = () => (
 
 ```jsx
 import React from "react";
-// 这是因为dumi文档找不到module
-import { Close as CloseIcon, Thumb } from "fish-icons/dist/index.mjs";
-// 你应该这样写
-// import { Close as CloseIcon, Thumb } from "-icons";
+import { Close as CloseIcon, Thumb } from "fish-icons";
 
 export default () => (
   <>

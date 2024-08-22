@@ -3,11 +3,8 @@
  * @Description: Modify here please
  */
 import { Input } from "camelia";
+import { DialOut, Invisible } from "fish-icons";
 import React, { useState } from "react";
-// 这是因为dumi文档找不到module
-import { DialOut, Invisible } from "fish-icons/dist/index.mjs";
-// 你应该这样写
-// import { PaperAirplane } from "fish-icons";
 
 const App: React.FC = () => {
   const [value, setValue] = useState("");
