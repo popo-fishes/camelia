@@ -9,12 +9,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "father build",
-    "build:watch": "father dev",
     "create-fb-scss": "tsx ./create-fb-scss.ts",
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",
-    "doctor": "father doctor",
     "start": "dumi dev"
   },
   "commitlint": {
@@ -45,10 +42,9 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@umijs/lint": "^4.0.0",
-    "dumi": "^2.4.8-beta.3",
+    "dumi": "^2.4.9",
     "dumi-theme-antd-style": "0.31.0",
     "eslint": "^8.23.0",
-    "father": "^4.1.0",
     "fish-icons": "1.0.2",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
