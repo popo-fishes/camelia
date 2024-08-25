@@ -112,7 +112,7 @@ export default () => {
 | type      | 类型             | `blend` `number` `letter` | number |
 | className | 语义化结构 class | string                    | —      |
 
-### methods
+### Methods
 
 | 名称     | 说明         | 类型     |
 | -------- | ------------ | -------- |
