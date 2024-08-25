@@ -218,14 +218,13 @@ $input: map.merge(
   $input
 );
 
-// popper
-// Pay attention to the difference between 'popper' and 'popover'
-$popper: () !default;
-$popper: map.merge(
+// tooltip
+$tooltip: () !default;
+$tooltip: map.merge(
   (
-    "border-radius": var(#{getCssVarName("popover-border-radius")}, 4px)
+    "border-radius": var(#{getCssVarName("tooltip-border-radius")}, 4px)
   ),
-  $popper
+  $tooltip
 );
 
 // select

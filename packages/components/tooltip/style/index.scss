@@ -1,0 +1,13 @@
+@use "../../_styles/core/mixins" as *;
+@use "../../_styles/common/var" as *;
+@use "../../_styles/core/css-var" as *;
+@use "../../_styles/core/function" as *;
+
+@include b(tooltip) {
+  @include set-component-css-var("tooltip", $tooltip);
+}
+
+@include b(tooltip) {
+  position: absolute;
+  border-radius: getCssVar("tooltip", "border-radius");
+}

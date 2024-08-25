@@ -19,7 +19,7 @@ export const addClass = (el: Element, cls: string) => {
 };
 
 export const removeClass = (el: Element, cls: string) => {
-  if (!el || !cls.trim()) return;
+  if (!el || !cls?.trim()) return;
   el.classList.remove(...classNameToArray(cls));
 };
 
