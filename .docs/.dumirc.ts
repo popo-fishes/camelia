@@ -18,7 +18,7 @@ export default defineConfig({
     name: "Camelia",
     logo: "/logo1.png",
     socialLinks: {
-      github: "https://github.com/fish-popo/camelia"
+      github: "https://github.com/popo-fishes/camelia"
     },
     rtl: true,
     prefersColor: { default: "light", switch: false },

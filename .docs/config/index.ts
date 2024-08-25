@@ -4,4 +4,4 @@
  */
 export const baseLink = "http://cameliya.cn/";
 
-export const gitHub = "https://github.com/fish-popo/";
+export const gitHub = "https://github.com/popo-fishes/";
