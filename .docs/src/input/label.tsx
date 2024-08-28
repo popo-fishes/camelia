@@ -3,11 +3,8 @@
  * @Description: Modify here please
  */
 import { Input } from "camelia";
+import { Search } from "fish-icons";
 import React, { useState } from "react";
-// 这是因为dumi文档找不到module
-import { Search } from "fish-icons/dist/index.mjs";
-// 你应该这样写
-// import { Search } from "fish-icons";
 
 const App: React.FC = () => {
   const [value, setValue] = useState("");

@@ -27,6 +27,9 @@ export type { ConfigProviderProps } from "./config-provider";
 export { default as Dialog } from "./dialog";
 export type { IDialogProps } from "./dialog";
 
+export { default as Tooltip } from "./tooltip";
+export type { ITooltipProps } from "./tooltip";
+
 // Plugin
 export { default as message } from "./message";
 export type { IMessageProps } from "./message";

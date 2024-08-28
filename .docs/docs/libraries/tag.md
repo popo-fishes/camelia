@@ -196,10 +196,7 @@ export default () => {
 ```jsx
 import React, { useState } from "react";
 import { Tag } from "camelia";
-// 这是因为dumi文档找不到module
-import { PaperAirplane, CameraFilled } from "fish-icons/dist/index.mjs";
-// 你应该这样写
-// import { PaperAirplane } from "fish-icons";
+import { PaperAirplane, CameraFilled } from "fish-icons";
 
 export default () => {
   return (

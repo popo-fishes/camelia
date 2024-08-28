@@ -34,7 +34,7 @@ export default () => {
     <>
       <a href={baseLink}>Copyright 2020 Camelia | 蜀ICP备2020025971号-1</a>
       <br />
-      Fish Popo 开源社区
+      Popo Fish 开源社区
     </>
   );
   return (

@@ -2,12 +2,15 @@
  * @Date: 2024-08-03 08:17:36
  * @Description: Modify here please
  */
-import { Button } from "camelia";
+import { Button, Tooltip } from "camelia";
 import React from "react";
 
 const App: React.FC = () => {
   return (
     <>
+    <Tooltip>
+       <span>Tooltip will show on mouse enter.</span>
+    </Tooltip>
       <div className="mb-4">
         <Button>default</Button>
         <Button type="primary">Primary</Button>

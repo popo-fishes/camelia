@@ -2,7 +2,7 @@
   "name": "camelia",
   "version": "0.0.0-dev.1",
   "description": "Lightweight And Concise，A UI Design",
-  "author": "fish-popo",
+  "author": "popo-fish",
   "keywords": [
     "camelia ui",
     "camelia-ui",
@@ -46,7 +46,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/fish-popo/camelia"
+    "url": "https://github.com/popo-fishes/camelia"
   },
   "peerDependencies": {
     "react": ">=16.9.0",
