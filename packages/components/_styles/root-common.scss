@@ -36,3 +36,8 @@
     @include set-css-color-type($colors, $type);
   }
 }
+
+// 锁住body样式
+.#{$namespace}-body-hidden {
+  overflow: hidden;
+}

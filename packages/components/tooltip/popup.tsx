@@ -14,11 +14,14 @@ import { ITooltipPopupProps, ITooltipPopupRef } from "./popup-type";
 const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps & { id: string }>((props, ref) => {
   const { children, open, persistent, transitionName, duration = 200, ...restProps } = props;
 
-  const { popupRef, triggerRef, instanceRef, popupStyle, attributes, update, role, forceUpdate } = usePopup(props);
+  const [animatedVisible, setAnimatedVisible] = useState<boolean>(open);
+
+  const { popupRef, triggerRef, instanceRef, popupStyle, attributes, update, role, forceUpdate } = usePopup({
+    ...props,
+    open: animatedVisible
+  });
 
   const { getPrefixCls } = useContext(ConfigContext);
-
-  const [animatedVisible, setAnimatedVisible] = useState<boolean>(open);
 
   useEffect(() => {
     if (open) {
@@ -57,7 +60,7 @@ const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps & { i
   }));
 
   return (
-    <Portal open={open || animatedVisible} autoDestroy={persistent} getContainer={getContainer}>
+    <Portal open={open || animatedVisible} autoDestroy={!persistent} getContainer={getContainer}>
       <CSSTransition
         in={open && animatedVisible}
         nodeRef={popupRef}

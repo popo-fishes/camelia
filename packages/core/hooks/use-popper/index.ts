@@ -36,7 +36,7 @@ export const usePopper = (
     enabled: true,
     phase: "write",
     fn: ({ state }) => {
-      // console.log(state)
+      console.log(state);
       setState({
         styles: state.styles.popper as any,
         attributes: state.attributes.popper as any

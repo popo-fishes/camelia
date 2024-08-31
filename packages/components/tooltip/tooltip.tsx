@@ -19,7 +19,7 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
     role = "tooltip",
     trigger = "hover",
     gpuAcceleration = false,
-    persistent = false,
+    persistent = true,
     offset = 6,
     placement = "bottom",
     strategy = "absolute",

@@ -49,7 +49,7 @@
 /*
 * 淡入按比例放大
 */
-.#{$namespace}-fade-in-scale-up-leave-active {
+.#{$namespace}-fade-in-scale-up-exit-active {
   transform-origin: left top;
   transition:
     opacity 0.2s cubic-bezier(0.4, 0, 1, 1),
@@ -67,19 +67,19 @@
     transform-origin: left bottom;
   }
 }
-.#{$namespace}-fade-in-scale-up-enter-from,
-.#{$namespace}-fade-in-scale-up-leave-to {
+.#{$namespace}-fade-in-scale-up-enter,
+.#{$namespace}-fade-in-scale-up-exit-done {
   opacity: 0;
   transform: scale(0.9);
 }
-.#{$namespace}-fade-in-scale-up-leave-from,
-.#{$namespace}-fade-in-scale-up-enter-to {
+.#{$namespace}-fade-in-scale-up-exit,
+.#{$namespace}-fade-in-scale-up-enter-done {
   opacity: 1;
   transform: scale(1);
 }
 
 //  折叠面板
-.#{$namespace}-collapse-transition-leave-active,
+.#{$namespace}-collapse-transition-exit-active,
 .#{$namespace}-collapse-transition-enter-active {
   transition:
     0.3s max-height ease-in-out,

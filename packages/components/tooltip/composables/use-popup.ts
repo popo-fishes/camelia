@@ -81,7 +81,7 @@ export const usePopup = (props: ITooltipPopupProps) => {
   const { attributes, styles, update, forceUpdate, instanceRef } = usePopper(triggerRef, popupRef, options);
 
   // 内容样式
-  const popupStyle = { ...{ zIndex: contentZIndex }, ...styles, ...overlayStyle };
+  const popupStyle = { ...{ zIndex: contentZIndex }, ...styles, ...overlayStyle, display: !open ? "none" : "" };
 
   // useEffect(() => {
   //   watch(

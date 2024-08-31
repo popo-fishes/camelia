@@ -17,12 +17,6 @@
   @include when(align-center) {
     margin: auto;
   }
-  // 锁屏body滚动
-  @at-root {
-    .#{$namespace}-dialog-parent--hidden {
-      overflow: hidden;
-    }
-  }
 
   .closeIconbtn {
     position: absolute;
