@@ -11,6 +11,9 @@ const App: React.FC = () => {
     <Tooltip>
        <span>Tooltip will show on mouse enter.</span>
     </Tooltip>
+    <Tooltip effect="light">
+       <span>Tooltip will show on mouse enter.</span>
+    </Tooltip>
       <div className="mb-4">
         <Button>default</Button>
         <Button type="primary">Primary</Button>

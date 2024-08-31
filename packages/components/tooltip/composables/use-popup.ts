@@ -2,10 +2,10 @@
  * @Date: 2023-11-23 13:35:43
  * @Description: Modify here please
  */
-import { useContext, useMemo } from "react";
+import { useContext, useMemo, useRef } from "react";
 import type { Modifier } from "@popperjs/core";
 
-import { isNumber } from "@camelia/shared/utils";
+import { isNumber, isUndefined } from "@camelia/shared/utils";
 import { useZIndex, usePopper, IPartialOptions } from "@camelia/core/hooks";
 
 import { TooltipContext } from "../utils";
@@ -49,14 +49,31 @@ function genModifiers(options: Pick<ITooltipPopupProps, "offset" | "gpuAccelerat
   ];
 }
 
+const DEFAULT_ARROW_OFFSET = 0;
+
 export const usePopup = (props: ITooltipPopupProps) => {
-  const { open, zIndex, placement, strategy, offset, gpuAcceleration, fallbackPlacements, overlayStyle } = props;
+  const { open, disabled, zIndex, placement, strategy, offset, gpuAcceleration, fallbackPlacements, overlayStyle } =
+    props;
 
   const { popupRef, triggerRef, role } = useContext(TooltipContext);
 
   const { currentZIndex } = useZIndex();
 
   const contentZIndex = isNumber(zIndex) ? zIndex : currentZIndex;
+
+  const arrowRef = useRef<HTMLDivElement>(null);
+
+  const arrowModifier = useMemo(() => {
+    const offset = DEFAULT_ARROW_OFFSET;
+    return {
+      name: "arrow",
+      enabled: !isUndefined(arrowRef.current),
+      options: {
+        element: arrowRef.current,
+        padding: offset
+      }
+    } as any;
+  }, [arrowRef.current]);
 
   // https://popper.js.org/docs/v2/constructors/#options
   const options = useMemo<IPartialOptions>(() => {
@@ -69,19 +86,31 @@ export const usePopup = (props: ITooltipPopupProps) => {
       strategy,
       modifiers: [
         ...genModifiers({ offset, gpuAcceleration, fallbackPlacements }),
-        {
-          name: "eventListeners",
-          enabled: open
-        } as Modifier<"eventListeners", any>
+        ...[
+          arrowModifier,
+          {
+            name: "eventListeners",
+            enabled: open
+          } as Modifier<"eventListeners", any>
+        ]
       ]
     };
-  }, [placement, strategy, offset, gpuAcceleration, fallbackPlacements, open]);
+  }, [placement, strategy, offset, gpuAcceleration, fallbackPlacements, open, arrowModifier]);
 
   // pop
-  const { attributes, styles, update, forceUpdate, instanceRef } = usePopper(triggerRef, popupRef, options);
+  const { attributes, styles, arrowStyles, update, forceUpdate, instanceRef } = usePopper(
+    triggerRef,
+    popupRef,
+    options
+  );
 
   // 内容样式
-  const popupStyle = { ...{ zIndex: contentZIndex }, ...styles, ...overlayStyle, display: !open ? "none" : "" };
+  const popupStyle = {
+    ...styles,
+    ...overlayStyle,
+    ...{ zIndex: contentZIndex },
+    display: !open || disabled ? "none" : ""
+  };
 
   // useEffect(() => {
   //   watch(
@@ -95,11 +124,13 @@ export const usePopup = (props: ITooltipPopupProps) => {
   return {
     popupRef,
     triggerRef,
+    arrowRef,
     instanceRef,
 
     role,
     attributes,
     popupStyle,
+    arrowStyles,
 
     forceUpdate,
     update

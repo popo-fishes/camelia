@@ -2,7 +2,6 @@ import React, { useContext, useMemo, useState, useRef, useImperativeHandle, useE
 import classNames from "classnames";
 import { ConfigContext } from "../config-provider";
 import { useNamespace } from "@camelia/core/hooks";
-import { useId } from "@camelia/core/hooks";
 import { isBoolean } from "@camelia/shared/utils";
 
 import { useDelayedToggle } from "./composables/use-delayed-toggle";
@@ -18,8 +17,10 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
   const {
     role = "tooltip",
     trigger = "hover",
+    effect = "dark",
     gpuAcceleration = false,
     persistent = true,
+    showArrow = true,
     offset = 6,
     placement = "bottom",
     strategy = "absolute",
@@ -33,7 +34,6 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
   const { getPrefixCls } = useContext(ConfigContext);
   const ns = useNamespace("tooltip", getPrefixCls());
 
-  const id = useId(ns.b());
   // 获取tooltip节点容器
   const tooltipRef = useRef<TooltipWrapInjectionContext>(null);
   // 下拉菜单的内容组件实例ref
@@ -178,12 +178,13 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
         ref={popupRef}
         gpuAcceleration={gpuAcceleration}
         offset={offset}
+        effect={effect}
+        showArrow={showArrow}
         placement={placement}
         persistent={persistent}
         strategy={strategy}
         disabled={disabled}
         open={open}
-        id={id}
         zIndex={restProps.zIndex}
         transitionName={restProps.transitionName}
         duration={restProps.duration}

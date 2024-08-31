@@ -20,6 +20,8 @@ export interface ITooltipPopupProps {
   placement?: Placement;
   /** 描述要使用的定位策略。默认情况下，它是absolute */
   strategy?: "fixed" | "absolute";
+  /** 主题 内置了 dark / light 两种 */
+  effect?: string;
   /** 是否显示 */
   open?: boolean;
   /** 是否禁止  */
@@ -38,6 +40,8 @@ export interface ITooltipPopupProps {
   transitionName?: string;
   /** 执行动画的时长 */
   duration?: number;
+  /** 是否显示监听 */
+  showArrow?: boolean;
   /** 菜单渲染父节点。默认渲染到 body 上 */
   getPopupContainer?: (el: any) => HTMLElement;
   /** 显示时的回调 */

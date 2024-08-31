@@ -4,24 +4,41 @@
  */
 import React, { useContext, useMemo, useState, useEffect, useImperativeHandle } from "react";
 import { CSSTransition } from "react-transition-group";
+import { useNamespace, useId } from "@camelia/core/hooks";
 
 import Portal from "../_internal/portal";
 import { ConfigContext } from "../config-provider";
 import { getParent } from "./utils";
 import { usePopup } from "./composables/use-popup";
 import { ITooltipPopupProps, ITooltipPopupRef } from "./popup-type";
+import classNames from "classnames";
 
-const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps & { id: string }>((props, ref) => {
-  const { children, open, persistent, transitionName, duration = 200, ...restProps } = props;
+const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps>((props, ref) => {
+  const { children, open, effect, showArrow, persistent, transitionName, duration = 200, ...restProps } = props;
 
   const [animatedVisible, setAnimatedVisible] = useState<boolean>(open);
 
-  const { popupRef, triggerRef, instanceRef, popupStyle, attributes, update, role, forceUpdate } = usePopup({
+  const {
+    popupRef,
+    triggerRef,
+    arrowRef,
+    instanceRef,
+    popupStyle,
+    arrowStyles,
+    attributes,
+    update,
+    role,
+    forceUpdate
+  } = usePopup({
     ...props,
     open: animatedVisible
   });
 
   const { getPrefixCls } = useContext(ConfigContext);
+  const ns = useNamespace("popper", getPrefixCls());
+
+  // Unique id value
+  const id = useId(ns.b());
 
   useEffect(() => {
     if (open) {
@@ -54,6 +71,8 @@ const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps & { i
     return getParent(props.getPopupContainer, triggerRef.current);
   };
 
+  const contentClass = [props.overlayClassName, ns.b(), ns.is(effect)];
+
   useImperativeHandle(ref, () => ({
     popperInstanceRef: instanceRef,
     updatePopper
@@ -71,16 +90,16 @@ const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps & { i
       >
         <div
           ref={popupRef}
-          role={role}
-          id={restProps.id}
           style={{ ...popupStyle } as any}
-          className={restProps.overlayClassName}
-          tabIndex={-1}
+          className={classNames(contentClass)}
           onMouseEnter={(e) => restProps.onMouseEnter?.(e)}
           onMouseLeave={(e) => restProps.onMouseLeave?.(e)}
-          {...attributes}
+          {...{ ...attributes, role, id, tabIndex: -1 }}
         >
           {children}
+          {showArrow && (
+            <div className={ns.e("arrow")} data-popper-arrow ref={arrowRef} style={{ ...arrowStyles } as any} />
+          )}
         </div>
       </CSSTransition>
     </Portal>
