@@ -92,10 +92,14 @@
   }
 }
 
+/**
+* Due to animation reasons, the end time needs to be changed to 0.35s,
+* otherwise there may be screen flickering issues
+*/
 .dialog-fade-exit-active {
-  animation: modal-fade-out 0.3s;
+  animation: modal-fade-out 0.35s;
   .#{$namespace}-dialog__overlay-dialog {
-    animation: dialog-fade-out 0.3s;
+    animation: dialog-fade-out 0.35s;
   }
 }
 

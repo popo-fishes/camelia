@@ -13,6 +13,7 @@ import { useSameTarget } from "./composables/use-same-target";
 import type { IOverlayProps, IDialogProps } from "./type";
 
 type RepeatOverlayProps = IOverlayProps & { alignCenter?: IDialogProps["alignCenter"] } & {
+  nodeRef: React.MutableRefObject<HTMLDivElement>;
   style?: React.CSSProperties;
   /** 内容 */
   children?: React.ReactNode;
@@ -21,7 +22,7 @@ type RepeatOverlayProps = IOverlayProps & { alignCenter?: IDialogProps["alignCen
 };
 
 const DialogOverlay: React.FC<RepeatOverlayProps> = (props) => {
-  const { mask, zIndex, overlayClass, children, alignCenter, style } = props;
+  const { mask, zIndex, overlayClass, children, alignCenter, style, nodeRef } = props;
   const { getPrefixCls } = useContext(ConfigContext);
 
   const ns = useNamespace("dialog", getPrefixCls());
@@ -46,7 +47,7 @@ const DialogOverlay: React.FC<RepeatOverlayProps> = (props) => {
   return (
     <>
       <Visible visible={mask}>
-        <div className={classNames(overlayClass, ns.e("overlay"))} style={{ zIndex, ...style }}>
+        <div className={classNames(overlayClass, ns.e("overlay"))} style={{ zIndex, ...style }} ref={nodeRef}>
           <div
             className={classNames(ns.e("overlay-dialog"))}
             onMouseDown={onMousedown}
@@ -61,6 +62,7 @@ const DialogOverlay: React.FC<RepeatOverlayProps> = (props) => {
       <Visible visible={!mask}>
         <div
           className={classNames(overlayClass || "")}
+          ref={nodeRef}
           style={{ zIndex, position: "fixed", top: "0px", right: "0px", bottom: "0px", left: "0px", ...style }}
         >
           <div
