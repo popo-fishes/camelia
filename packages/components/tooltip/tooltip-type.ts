@@ -8,7 +8,10 @@ import type { ITooltipTriggerProps } from "./trigger-type";
 import type { ITooltipPopupProps } from "./popup-type";
 import type { TooltipWrapInjectionContext } from "./utils";
 
-export interface ITooltipProps extends ITooltipWrapProps, ITooltipTriggerProps, ITooltipPopupProps {
+export interface ITooltipProps
+  extends ITooltipWrapProps,
+    Omit<ITooltipTriggerProps, "onMouseEnter" | "onMouseLeave">,
+    Omit<ITooltipPopupProps, "onMouseEnter" | "onMouseLeave"> {
   /** 主动控制，不在受trigger的值影响 */
   visible?: boolean | null;
   /** 消失的延迟，以毫秒为单位 */

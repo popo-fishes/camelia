@@ -9,8 +9,8 @@ import type { MutableRefObject } from "react";
 export type TooltipWrapInjectionContext = {
   /** 触发器 */
   triggerRef: MutableRefObject<HTMLElement | undefined>;
-  /** 内容 */
-  popupRef: MutableRefObject<HTMLElement | undefined>;
+  /** popup */
+  popupRef: MutableRefObject<HTMLDivElement | undefined>;
   role: string;
 };
 

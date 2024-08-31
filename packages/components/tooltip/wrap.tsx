@@ -13,7 +13,7 @@ const TooltipWrap = React.forwardRef<WrapRef, ITooltipWrapProps>((props, ref) =>
   const { children, role } = props;
 
   const triggerRef = useRef<HTMLElement>();
-  const contentRef = useRef<HTMLElement>();
+  const popupRef = useRef<HTMLDivElement>();
 
   const tooltipProvides = {
     /**
@@ -23,7 +23,7 @@ const TooltipWrap = React.forwardRef<WrapRef, ITooltipWrapProps>((props, ref) =>
     /**
      * @description contentRef
      */
-    contentRef,
+    popupRef,
     /** @description role */
     role
   } as TooltipWrapInjectionContext;

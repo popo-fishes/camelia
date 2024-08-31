@@ -3,14 +3,15 @@
  * @Description: Modify here please
  */
 import type { Placement } from "@popperjs/core";
+import type { Instance } from "@popperjs/core";
 
 export interface ITooltipPopupProps {
   children: React.ReactNode;
-  // https://popper.js.org/docs/v2/modifiers/flip/#fallbackplacements
+  /** https://popper.js.org/docs/v2/modifiers/flip/#fallbackplacements */
   fallbackPlacements?: Placement[];
-  // https://popper.js.org/docs/v2/modifiers/compute-styles/#gpuacceleration
+  /** https://popper.js.org/docs/v2/modifiers/compute-styles/#gpuacceleration */
   gpuAcceleration?: boolean;
-  // 偏移像素
+  /** 偏移像素 */
   offset?: number;
   /**
    * https://popper.js.org/docs/v2/constructors/#options
@@ -21,8 +22,6 @@ export interface ITooltipPopupProps {
   strategy?: "fixed" | "absolute";
   /** 是否显示 */
   open?: boolean;
-  /** 执行的动画 */
-  transition?: string;
   /** 是否禁止  */
   disabled?: Boolean;
   /** 内部的类名 */
@@ -35,6 +34,10 @@ export interface ITooltipPopupProps {
   persistent?: boolean;
   /** 弹窗层级 */
   zIndex?: number;
+  /** 执行的动画的类名 */
+  transitionName?: string;
+  /** 执行动画的时长 */
+  duration?: number;
   /** 菜单渲染父节点。默认渲染到 body 上 */
   getPopupContainer?: (el: any) => HTMLElement;
   /** 显示时的回调 */
@@ -43,4 +46,11 @@ export interface ITooltipPopupProps {
   onHide?: () => void;
   onMouseEnter?: (evt: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   onMouseLeave?: (evt: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+}
+
+export interface ITooltipPopupRef {
+  /** popperjs instance */
+  popperInstanceRef: React.MutableRefObject<Instance | undefined>;
+  /** updatePopper */
+  updatePopper: () => void;
 }

@@ -19,7 +19,7 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
     role = "tooltip",
     trigger = "hover",
     gpuAcceleration = false,
-    persistent = true,
+    persistent = false,
     offset = 6,
     placement = "bottom",
     strategy = "absolute",
@@ -185,7 +185,8 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
         open={open}
         id={id}
         zIndex={restProps.zIndex}
-        transition={restProps.transition}
+        transitionName={restProps.transitionName}
+        duration={restProps.duration}
         overlayClassName={classNames(restProps.overlayClassName, restProps.internalClassName || ns.b())}
         overlayStyle={restProps.overlayStyle}
         getPopupContainer={restProps.getPopupContainer}
