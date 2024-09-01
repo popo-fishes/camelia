@@ -11,8 +11,8 @@ type ResizeObserverCallback = (entries: any, observer: ResizeObserver) => void;
 declare class ResizeObserver {
   constructor(callback: ResizeObserverCallback);
   disconnect(): void;
-  observe(target: Element, options?: any): void;
-  unobserve(target: Element): void;
+  observe(target: HTMLElement, options?: any): void;
+  unobserve(target: HTMLElement): void;
 }
 
 /**
@@ -21,7 +21,7 @@ declare class ResizeObserver {
  * @param target
  * @param callback
  */
-export function useResizeObserver(target: MutableRefObject<any>, callback: ResizeObserverCallback) {
+export function useResizeObserver(target: MutableRefObject<HTMLElement>, callback: ResizeObserverCallback) {
   let observer: ResizeObserver | undefined;
 
   const defaultWindow = isClient ? window : undefined;
@@ -54,7 +54,7 @@ export function useResizeObserver(target: MutableRefObject<any>, callback: Resiz
     if (isSupported) {
       observer = new ResizeObserver(callback);
       // 开始观察指定的 Element
-      observer?.observe(el as Element);
+      observer?.observe(el as HTMLElement);
     }
 
     return () => {

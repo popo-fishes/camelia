@@ -27,18 +27,7 @@ const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps>((pro
 
   const [animatedVisible, setAnimatedVisible] = useState<boolean>(open);
 
-  const {
-    popupRef,
-    triggerRef,
-    arrowRef,
-    instanceRef,
-    popupStyle,
-    arrowStyles,
-    attributes,
-    update,
-    role,
-    forceUpdate
-  } = usePopup({
+  const { popupRef, triggerRef, arrowRef, instanceRef, popupStyle, arrowStyles, attributes, update, role } = usePopup({
     ...props,
     open: animatedVisible
   });

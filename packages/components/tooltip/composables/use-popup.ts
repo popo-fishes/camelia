@@ -2,11 +2,12 @@
  * @Date: 2023-11-23 13:35:43
  * @Description: Modify here please
  */
-import { useContext, useMemo, useRef } from "react";
+import { useContext, useEffect, useMemo, useRef } from "react";
 import type { Modifier } from "@popperjs/core";
 
 import { isNumber, isUndefined } from "@camelia/shared/utils";
-import { useZIndex, usePopper, IPartialOptions } from "@camelia/core/hooks";
+import { useZIndex, usePopper, type IPartialOptions } from "@camelia/core/hooks";
+import { useResizeObserver } from "@camelia/shared";
 
 import { TooltipContext } from "../utils";
 import type { ITooltipPopupProps } from "../popup-type";
@@ -112,6 +113,14 @@ export const usePopup = (props: ITooltipPopupProps) => {
     display: !open || disabled ? "none" : ""
   };
 
+  useEffect(() => {
+    if (!disabled && open) {
+      // requestAnimationFrame(() => {
+      //   forceUpdate?.();
+      // });
+    }
+  }, [open, disabled]);
+
   // useEffect(() => {
   //   watch(
   //     () => unref(triggerRef)?.getBoundingClientRect(),
@@ -120,6 +129,9 @@ export const usePopup = (props: ITooltipPopupProps) => {
   //     }
   //   );
   // }, [triggerRef.current]);
+  // useResizeObserver(triggerRef, (info) => {
+  //   console.log(info);
+  // });
 
   return {
     popupRef,

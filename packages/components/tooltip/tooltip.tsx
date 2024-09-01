@@ -20,7 +20,7 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
     /** There is no active control by default, it must be important */
     visible = null,
     role = "tooltip",
-    trigger = "click",
+    trigger = "hover",
     effect = "dark",
     gpuAcceleration = false,
     destroyTooltipOnHide = false,
