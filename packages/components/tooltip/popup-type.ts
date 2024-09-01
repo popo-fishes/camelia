@@ -32,15 +32,15 @@ export interface ITooltipPopupProps {
   overlayClassName?: string;
   /** 卡片样式  */
   overlayStyle?: React.CSSProperties;
-  /** 设置为 false 时, Popper会根据open的值动态添加 删除节点， 否则它只是被隐藏了  */
-  persistent?: boolean;
+  /** 关闭后是否销毁 Tooltip  */
+  destroyTooltipOnHide?: boolean;
   /** 弹窗层级 */
   zIndex?: number;
   /** 执行的动画的类名 */
   transitionName?: string;
-  /** 执行动画的时长 */
+  /** 执行动画的时长，当你需要自定义动画时，这个是很有用的 */
   duration?: number;
-  /** 是否显示监听 */
+  /** 是否显示箭头 */
   showArrow?: boolean;
   /** 菜单渲染父节点。默认渲染到 body 上 */
   getPopupContainer?: (el: any) => HTMLElement;

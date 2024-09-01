@@ -1,21 +1,27 @@
 @use "../core/config" as *;
 
-// https://cn.vuejs.org/guide/built-ins/transition.html#css-based-transitions
+// https://reactcommunity.org/react-transition-group/css-transition
 
 /*
-* 放大顶部
+* 中间放大 -- 用于tooltip
 */
 .#{$namespace}-zoom-in-top-exit-active {
   animation-name: #{$namespace}-zoom-in-top-out;
   animation-duration: 0.2s;
   animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-  transform-origin: center top;
+  transform-origin: center center;
+  &[data-popper-placement^="top"] {
+    transform-origin: center center;
+  }
 }
 .#{$namespace}-zoom-in-top-enter-active {
   animation-name: #{$namespace}-zoom-in-top-in;
   animation-duration: 0.2s;
   animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
-  transform-origin: center top;
+  transform-origin: center center;
+  &[data-popper-placement^="top"] {
+    transform-origin: center center;
+  }
 }
 @keyframes #{$namespace}-zoom-in-top-in {
   0% {
@@ -41,7 +47,7 @@
 }
 
 /*
-* 淡入按比例放大
+* 淡入按比例放大 --- select
 */
 .#{$namespace}-fade-in-scale-up-exit-active {
   transform-origin: left top;
@@ -72,7 +78,7 @@
   transform: scale(1);
 }
 
-//  折叠面板
+/** 折叠面板 */
 .#{$namespace}-collapse-transition-exit-active,
 .#{$namespace}-collapse-transition-enter-active {
   transition:

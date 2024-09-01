@@ -2,7 +2,7 @@
  * @Date: 2024-08-25 15:30:03
  * @Description: Modify here please
  */
-import React, { useContext, useMemo, useState, useEffect, useImperativeHandle } from "react";
+import React, { useContext, useMemo, useState, useEffect, useImperativeHandle, useCallback } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useNamespace, useId } from "@camelia/core/hooks";
 
@@ -14,7 +14,16 @@ import { ITooltipPopupProps, ITooltipPopupRef } from "./popup-type";
 import classNames from "classnames";
 
 const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps>((props, ref) => {
-  const { children, open, effect, showArrow, persistent, transitionName, duration = 200, ...restProps } = props;
+  const {
+    children,
+    open,
+    effect,
+    showArrow,
+    destroyTooltipOnHide,
+    transitionName,
+    duration = 200,
+    ...restProps
+  } = props;
 
   const [animatedVisible, setAnimatedVisible] = useState<boolean>(open);
 
@@ -67,9 +76,9 @@ const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps>((pro
 
   const updatePopper = () => update();
 
-  const getContainer = () => {
+  const getContainer = useCallback(() => {
     return getParent(props.getPopupContainer, triggerRef.current);
-  };
+  }, [props.getPopupContainer, triggerRef.current]);
 
   const contentClass = [props.overlayClassName, ns.b(), ns.is(effect)];
 
@@ -79,7 +88,7 @@ const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps>((pro
   }));
 
   return (
-    <Portal open={open || animatedVisible} autoDestroy={!persistent} getContainer={getContainer}>
+    <Portal open={open || animatedVisible} autoDestroy={destroyTooltipOnHide} getContainer={getContainer}>
       <CSSTransition
         in={open && animatedVisible}
         nodeRef={popupRef}

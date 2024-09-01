@@ -62,6 +62,8 @@ const Portal: React.FC<PortalProps> = (props) => {
   const hiddenClass = `${getPrefixCls()}-body-hidden`;
 
   useEffect(() => {
+    // 如果autoDestroy为true，那么在open关闭时，shouldRender为被设置为false。从而会卸载组件
+    // 如果autoDestroy为false，那么在open关闭时，shouldRender还会是之前的值（true）。从而不会卸载组件
     if (autoDestroy || open) {
       setShouldRender(open);
     }

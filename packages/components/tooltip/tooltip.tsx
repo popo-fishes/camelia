@@ -5,6 +5,7 @@ import { useNamespace } from "@camelia/core/hooks";
 import { isBoolean } from "@camelia/shared/utils";
 
 import { useDelayedToggle } from "./composables/use-delayed-toggle";
+import { useClickUtside } from "./composables/use-click-utside";
 import { composeEventHandlers, TooltipWrapInjectionContext } from "./utils";
 
 import TooltipWrap from "./wrap";
@@ -12,22 +13,25 @@ import TooltipTrigger from "./trigger";
 import TooltipPopup from "./popup";
 
 import type { ITooltipProps, ITooltipRef } from "./tooltip-type";
+import type { ITooltipPopupRef } from "./popup-type";
 
 const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
   const {
+    /** There is no active control by default, it must be important */
+    visible = null,
     role = "tooltip",
-    trigger = "hover",
+    trigger = "click",
     effect = "dark",
     gpuAcceleration = false,
-    persistent = true,
+    destroyTooltipOnHide = false,
     showArrow = true,
-    offset = 6,
-    placement = "bottom",
+    placement = "top",
     strategy = "absolute",
     disabled,
     children,
-    /** There is no active control by default, it must be important */
-    visible = null,
+    title,
+    offset,
+    overlay,
     ...restProps
   } = props;
 
@@ -37,10 +41,7 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
   // 获取tooltip节点容器
   const tooltipRef = useRef<TooltipWrapInjectionContext>(null);
   // 下拉菜单的内容组件实例ref
-  const popupRef = useRef<any>();
-
-  // 停止手柄
-  // let stopHandle: ReturnType<typeof onClickOutside>;
+  const popupComponentRef = useRef<ITooltipPopupRef>(null);
 
   // Pop up controller
   const [open, setOpen] = useState(false);
@@ -66,6 +67,15 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
       setOpen(false);
     }
   });
+
+  const { start, stop } = useClickUtside(() => {
+    //如果是外部控制则不执行
+    if (controlled) return;
+    // 如果不是hoover，则点击非弹窗区域就关闭弹窗
+    if (trigger !== "hover") {
+      onClose();
+    }
+  }, tooltipRef.current?.popupRef?.current);
 
   // Get Focus
   const onMouseenter = composeEventHandlers(stopWhenControlledOrDisabled, () => {
@@ -93,21 +103,8 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
   // pop show
   const onContentShow = () => {
     restProps.onShow?.();
-    // // 绑定单击外部
-    // stopHandle = onClickOutside(
-    //   computed(() => {
-    //     return popupRef.value?.contentRef;
-    //   }),
-    //   // 点击的回调
-    //   () => {
-    //     //如果是外部控制则不执行
-    //     if (unref(controlled)) return;
-    //     // 如果不是hoover，则点击非弹窗区域就关闭弹窗
-    //     if (unref(trigger) !== "hover") {
-    //       onClose();
-    //     }
-    //   }
-    // );
+    // Start monitoring external clicks
+    start();
   };
 
   // pop hide
@@ -116,9 +113,9 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
   };
 
   const updatePopup = () => {
-    const popupComponent = popupRef.current;
+    const popupComponent = popupComponentRef.current;
     if (popupComponent) {
-      popupComponent?.updatePopup();
+      popupComponent?.updatePopper();
     }
   };
 
@@ -130,16 +127,15 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
     return popupContent && popupContent.contains(activeElement);
   };
 
-  // watch(
-  //   () => unref(open),
-  //   (val) => {
-  //     if (!val) {
-  //       stopHandle?.();
-  //     }
-  //   },
-  //   // 设置 flush: 'post' 将会使侦听器延迟到组件渲染之后再执行
-  //   { flush: "post" }
-  // );
+  /**
+   *  When open is closed: stops listening for external clicks,
+   * it actively uninstalls events
+   */
+  useEffect(() => {
+    if (!open) {
+      stop?.();
+    }
+  }, [open]);
 
   useEffect(() => {
     if (disabled && open) {
@@ -167,7 +163,17 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
     isFocusInsideContent
   }));
 
-  const popupNode = "prompt text";
+  const memoedOffset = useMemo(() => {
+    if (showArrow) {
+      return offset ?? 12;
+    } else {
+      return offset ?? 6;
+    }
+  }, [showArrow, offset]);
+
+  const popupNode = useMemo<ITooltipProps["overlay"]>(() => {
+    return overlay || title || null;
+  }, [overlay, title]);
 
   return (
     <TooltipWrap ref={tooltipRef} role={role}>
@@ -175,13 +181,13 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
         {children}
       </TooltipTrigger>
       <TooltipPopup
-        ref={popupRef}
+        ref={popupComponentRef}
         gpuAcceleration={gpuAcceleration}
-        offset={offset}
+        offset={memoedOffset}
         effect={effect}
         showArrow={showArrow}
         placement={placement}
-        persistent={persistent}
+        destroyTooltipOnHide={destroyTooltipOnHide}
         strategy={strategy}
         disabled={disabled}
         open={open}
@@ -197,7 +203,7 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
         onShow={onContentShow}
         onHide={onContentHide}
       >
-        {popupNode}
+        {typeof popupNode === "function" ? popupNode() : popupNode}
       </TooltipPopup>
     </TooltipWrap>
   );

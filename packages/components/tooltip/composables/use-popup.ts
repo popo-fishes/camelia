@@ -64,13 +64,13 @@ export const usePopup = (props: ITooltipPopupProps) => {
   const arrowRef = useRef<HTMLDivElement>(null);
 
   const arrowModifier = useMemo(() => {
-    const offset = DEFAULT_ARROW_OFFSET;
+    const defaultOffset = DEFAULT_ARROW_OFFSET;
     return {
       name: "arrow",
       enabled: !isUndefined(arrowRef.current),
       options: {
         element: arrowRef.current,
-        padding: offset
+        padding: defaultOffset
       }
     } as any;
   }, [arrowRef.current]);

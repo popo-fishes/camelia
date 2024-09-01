@@ -45,5 +45,11 @@ export default () => {
 | --------- | ---------------------------------------------- | ---------------------- | ------ |
 | fn        | 触发函数                                       | (event: T) => void     | —      |
 | target    | ref                                            | React.MutableRefObject | —      |
+| options   | 配置     | Options                 | —      |
+
+### Options
+
+| 参数    | 说明                                                                    | 类型                   | 默认值 |
+| ------- | ----------------------------------------------------------------------- | ---------------------- | ------ |
 | eventName | 需要监听的事件                                 | DocumentEventKey       | click  |
-| capture   | 指定事件是否在捕获或冒泡阶段执行。默认为 false | boolean                | true   |
+| enable  | 是否开启监听。                                                          | boolean                | true   |

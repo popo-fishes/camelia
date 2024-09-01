@@ -2,11 +2,6 @@
 @use "../../_styles/common/var" as *;
 @use "../../_styles/core/css-var" as *;
 @use "../../_styles/core/function" as *;
-@use "../../_styles/core/config" as *;
-
-@include b(tooltip) {
-  @include set-component-css-var("tooltip", $tooltip);
-}
 
 @include b(tooltip) {
 }
@@ -55,7 +50,7 @@
     background: #303133;
     border: 1px solid #303133;
     > #{$arrow-selector}::before {
-      border: 1px solid #303133;
+      border: 1px solid rgba(0, 0, 0, 0.85);
       background: #303133;
       right: 0;
     }
