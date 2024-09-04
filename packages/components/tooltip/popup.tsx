@@ -101,10 +101,8 @@ const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps>((pro
             onMouseLeave={(e) => restProps.onMouseLeave?.(e)}
             {...{ ...attributes, role, id, tabIndex: -1 }}
           >
-            {children}
-            {showArrow && (
-              <div className={ns.e("arrow")} data-popper-arrow ref={arrowRef} style={{ ...arrowStyles } as any} />
-            )}
+            <div className={ns.e("content")}>{children}</div>
+            {showArrow && <div className={ns.e("arrow")} data-popper-arrow ref={arrowRef} style={{ ...arrowStyles }} />}
           </div>
         </ResizeObserver>
       </CSSTransition>

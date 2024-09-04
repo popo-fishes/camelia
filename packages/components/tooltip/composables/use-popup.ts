@@ -2,8 +2,9 @@
  * @Date: 2023-11-23 13:35:43
  * @Description: Modify here please
  */
-import { useContext, useEffect, useMemo, useRef } from "react";
+import { useContext, useEffect, useState, useMemo, useRef } from "react";
 import type { Modifier } from "@popperjs/core";
+import { useFloating, offset as offsetFn, shift, flip, arrow } from "@floating-ui/react-dom";
 
 import { isNumber, isUndefined } from "@camelia/shared/utils";
 import { useZIndex, usePopper, type IPartialOptions } from "@camelia/core/hooks";
@@ -63,6 +64,9 @@ export const usePopup = (props: ITooltipPopupProps) => {
 
   const arrowRef = useRef<HTMLDivElement>(null);
 
+  const [reference, setReference] = useState(null);
+  const [floating, setFloating] = useState(null);
+
   const arrowModifier = useMemo(() => {
     const defaultOffset = DEFAULT_ARROW_OFFSET;
     return {
@@ -98,25 +102,60 @@ export const usePopup = (props: ITooltipPopupProps) => {
   }, [placement, strategy, offset, gpuAcceleration, fallbackPlacements, open, arrowModifier]);
 
   // pop
-  const { attributes, styles, arrowStyles, update, forceUpdate, instanceRef } = usePopper(
-    triggerRef,
-    popupRef,
-    options
-  );
+  const { attributes, styles, update, forceUpdate, instanceRef } = usePopper(triggerRef, popupRef, options);
 
-  // 内容样式
+  // 监听节点更新
+  useEffect(() => {
+    if (triggerRef.current) {
+      setReference(triggerRef.current);
+    }
+    if (popupRef.current) {
+      setFloating(popupRef.current);
+    }
+  }, [triggerRef.current, popupRef.current]);
+
+  const { floatingStyles, middlewareData } = useFloating({
+    transform: false,
+    placement: placement,
+    strategy,
+    middleware: [
+      // Translate floating elements along the specified axis.
+      offsetFn(offset ?? 6),
+      // Move floating elements to keep them in the view.
+      shift(),
+      // Change the position of floating elements to keep them in the view.
+      flip(),
+      arrow({
+        element: arrowRef
+      })
+    ],
+    elements: {
+      reference,
+      floating
+    }
+  });
+
+  // arrow Style
+  const arrowStyles = useMemo(() => {
+    return {
+      left: middlewareData.arrow?.x,
+      top: middlewareData.arrow?.y
+    };
+  }, [middlewareData.arrow]);
+
+  // popup Style
   const popupStyle = {
-    ...styles,
+    ...floatingStyles,
     ...overlayStyle,
     ...{ zIndex: contentZIndex },
     display: !open || disabled ? "none" : ""
   };
 
-  useEffect(() => {
-    if (!disabled && open) {
-      update?.();
-    }
-  }, [open, disabled]);
+  // useEffect(() => {
+  //   if (!disabled && open) {
+  //     update?.();
+  //   }
+  // }, [open, disabled]);
 
   // useResizeObserver(triggerRef, (info) => {
   //   update?.();

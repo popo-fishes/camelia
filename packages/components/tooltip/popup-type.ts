@@ -2,7 +2,7 @@
  * @Date: 2023-12-18 11:54:14
  * @Description: Modify here please
  */
-import type { Placement } from "@popperjs/core";
+import type { Placement } from "@floating-ui/react-dom";
 import type { Instance } from "@popperjs/core";
 
 export interface ITooltipPopupProps {
