@@ -3,6 +3,7 @@
  * @Description: Modify here please
  */
 import React, { useContext, cloneElement } from "react";
+import ResizeObserver from "rc-resize-observer";
 import { TooltipContext } from "./utils";
 import type { ITooltipTriggerProps } from "./trigger-type";
 
@@ -11,8 +12,8 @@ function isFragment(child: any): boolean {
   return child && React.isValidElement(child) && child.type === React.Fragment;
 }
 
-const TooltipRigger: React.FC<ITooltipTriggerProps> = (props) => {
-  const { children, ...restProps } = props;
+const TooltipRigger: React.FC<ITooltipTriggerProps & { onTargetResize: () => void; open: boolean }> = (props) => {
+  const { children, open, onTargetResize, ...restProps } = props;
   const { triggerRef } = useContext(TooltipContext);
 
   const child = React.isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>;
@@ -35,7 +36,11 @@ const TooltipRigger: React.FC<ITooltipTriggerProps> = (props) => {
     ref: triggerRef
   });
 
-  return <>{triggerNode}</>;
+  return (
+    <ResizeObserver disabled={!open} onResize={onTargetResize}>
+      {triggerNode}
+    </ResizeObserver>
+  );
 };
 
 export default TooltipRigger;

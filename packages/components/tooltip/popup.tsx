@@ -4,6 +4,7 @@
  */
 import React, { useContext, useMemo, useState, useEffect, useImperativeHandle, useCallback } from "react";
 import { CSSTransition } from "react-transition-group";
+import ResizeObserver from "rc-resize-observer";
 import { useNamespace, useId } from "@camelia/core/hooks";
 
 import Portal from "../_internal/portal";
@@ -86,19 +87,26 @@ const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps>((pro
         onEnter={onAfterShow}
         onExited={onAfterLeave}
       >
-        <div
-          ref={popupRef}
-          style={{ ...popupStyle } as any}
-          className={classNames(contentClass)}
-          onMouseEnter={(e) => restProps.onMouseEnter?.(e)}
-          onMouseLeave={(e) => restProps.onMouseLeave?.(e)}
-          {...{ ...attributes, role, id, tabIndex: -1 }}
+        <ResizeObserver
+          onResize={() => {
+            updatePopper?.();
+          }}
+          disabled={!animatedVisible}
         >
-          {children}
-          {showArrow && (
-            <div className={ns.e("arrow")} data-popper-arrow ref={arrowRef} style={{ ...arrowStyles } as any} />
-          )}
-        </div>
+          <div
+            ref={popupRef}
+            style={{ ...popupStyle } as any}
+            className={classNames(contentClass)}
+            onMouseEnter={(e) => restProps.onMouseEnter?.(e)}
+            onMouseLeave={(e) => restProps.onMouseLeave?.(e)}
+            {...{ ...attributes, role, id, tabIndex: -1 }}
+          >
+            {children}
+            {showArrow && (
+              <div className={ns.e("arrow")} data-popper-arrow ref={arrowRef} style={{ ...arrowStyles } as any} />
+            )}
+          </div>
+        </ResizeObserver>
       </CSSTransition>
     </Portal>
   );

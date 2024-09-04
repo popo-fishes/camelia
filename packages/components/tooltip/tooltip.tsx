@@ -177,7 +177,15 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
 
   return (
     <TooltipWrap ref={tooltipRef} role={role}>
-      <TooltipTrigger onMouseEnter={onMouseenter} onMouseLeave={onMouseleave} onClick={onClick}>
+      <TooltipTrigger
+        open={open}
+        onTargetResize={() => {
+          updatePopup();
+        }}
+        onMouseEnter={onMouseenter}
+        onMouseLeave={onMouseleave}
+        onClick={onClick}
+      >
         {children}
       </TooltipTrigger>
       <TooltipPopup

@@ -7,7 +7,6 @@ import type { Modifier } from "@popperjs/core";
 
 import { isNumber, isUndefined } from "@camelia/shared/utils";
 import { useZIndex, usePopper, type IPartialOptions } from "@camelia/core/hooks";
-import { useResizeObserver } from "@camelia/shared";
 
 import { TooltipContext } from "../utils";
 import type { ITooltipPopupProps } from "../popup-type";
@@ -50,7 +49,7 @@ function genModifiers(options: Pick<ITooltipPopupProps, "offset" | "gpuAccelerat
   ];
 }
 
-const DEFAULT_ARROW_OFFSET = 0;
+const DEFAULT_ARROW_OFFSET = 5;
 
 export const usePopup = (props: ITooltipPopupProps) => {
   const { open, disabled, zIndex, placement, strategy, offset, gpuAcceleration, fallbackPlacements, overlayStyle } =
@@ -115,22 +114,12 @@ export const usePopup = (props: ITooltipPopupProps) => {
 
   useEffect(() => {
     if (!disabled && open) {
-      // requestAnimationFrame(() => {
-      //   forceUpdate?.();
-      // });
+      update?.();
     }
   }, [open, disabled]);
 
-  // useEffect(() => {
-  //   watch(
-  //     () => unref(triggerRef)?.getBoundingClientRect(),
-  //     () => {
-  //       update();
-  //     }
-  //   );
-  // }, [triggerRef.current]);
   // useResizeObserver(triggerRef, (info) => {
-  //   console.log(info);
+  //   update?.();
   // });
 
   return {

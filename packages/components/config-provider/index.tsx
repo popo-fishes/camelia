@@ -39,7 +39,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
     getPrefixCls
   };
 
-  // 可以导致所有组件重新渲染，即使它的 props 没有改变
+  // 可能导致所有组件重新渲染，即使它的 props 没有改变
   const memoedConfig = useMemo(
     () => config,
     // eslint-disable-next-line react-hooks/exhaustive-deps

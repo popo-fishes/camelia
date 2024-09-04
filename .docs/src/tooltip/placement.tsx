@@ -5,12 +5,12 @@
 import React from 'react';
 import { Tooltip, Button } from 'camelia';
 
-const text = <span>prompt text</span>;
+const text = <span>prompt text prompt text </span>;
 
 const App: React.FC = () => (
   <div className="wrap-base-box">
     <div className="row center">
-      <Tooltip placement="top-start" title={text} overlayStyle={{pointerEvents: "none"}}>
+      <Tooltip placement="top-start" title={text}>
         <Button plain className="box-item">top-start</Button>
       </Tooltip>
       <Tooltip placement="top" title={text}>
