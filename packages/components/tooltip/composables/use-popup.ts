@@ -3,58 +3,24 @@
  * @Description: Modify here please
  */
 import { useContext, useEffect, useState, useMemo, useRef } from "react";
-import type { Modifier } from "@popperjs/core";
-import { useFloating, offset as offsetFn, shift, flip, arrow } from "@floating-ui/react-dom";
+import {
+  useFloating,
+  offset as offsetFn,
+  shift,
+  flip,
+  arrow,
+  detectOverflow,
+  autoUpdate
+} from "@floating-ui/react-dom";
 
-import { isNumber, isUndefined } from "@camelia/shared/utils";
-import { useZIndex, usePopper, type IPartialOptions } from "@camelia/core/hooks";
+import { isNumber } from "@camelia/shared/utils";
+import { useZIndex } from "@camelia/core/hooks";
 
 import { TooltipContext } from "../utils";
 import type { ITooltipPopupProps } from "../popup-type";
 
-// 默认配置
-function genModifiers(options: Pick<ITooltipPopupProps, "offset" | "gpuAcceleration" | "fallbackPlacements">) {
-  const { offset, gpuAcceleration, fallbackPlacements } = options;
-  return [
-    {
-      name: "offset",
-      options: {
-        offset: [0, offset ?? 6]
-      }
-    },
-    // 防止溢出
-    {
-      name: "preventOverflow",
-      options: {
-        padding: {
-          top: 2,
-          bottom: 2,
-          left: 5,
-          right: 5
-        }
-      }
-    },
-    {
-      name: "flip",
-      options: {
-        padding: 5,
-        fallbackPlacements
-      }
-    },
-    {
-      name: "computeStyles",
-      options: {
-        gpuAcceleration
-      }
-    }
-  ];
-}
-
-const DEFAULT_ARROW_OFFSET = 5;
-
 export const usePopup = (props: ITooltipPopupProps) => {
-  const { open, disabled, zIndex, placement, strategy, offset, gpuAcceleration, fallbackPlacements, overlayStyle } =
-    props;
+  const { open, disabled, zIndex, placement, strategy, offset, overlayStyle, showArrow } = props;
 
   const { popupRef, triggerRef, role } = useContext(TooltipContext);
 
@@ -67,44 +33,7 @@ export const usePopup = (props: ITooltipPopupProps) => {
   const [reference, setReference] = useState(null);
   const [floating, setFloating] = useState(null);
 
-  const arrowModifier = useMemo(() => {
-    const defaultOffset = DEFAULT_ARROW_OFFSET;
-    return {
-      name: "arrow",
-      enabled: !isUndefined(arrowRef.current),
-      options: {
-        element: arrowRef.current,
-        padding: defaultOffset
-      }
-    } as any;
-  }, [arrowRef.current]);
-
-  // https://popper.js.org/docs/v2/constructors/#options
-  const options = useMemo<IPartialOptions>(() => {
-    return {
-      //  第一次更新后调用的函数
-      onFirstUpdate: () => {
-        update?.();
-      },
-      placement,
-      strategy,
-      modifiers: [
-        ...genModifiers({ offset, gpuAcceleration, fallbackPlacements }),
-        ...[
-          arrowModifier,
-          {
-            name: "eventListeners",
-            enabled: open
-          } as Modifier<"eventListeners", any>
-        ]
-      ]
-    };
-  }, [placement, strategy, offset, gpuAcceleration, fallbackPlacements, open, arrowModifier]);
-
-  // pop
-  const { attributes, styles, update, forceUpdate, instanceRef } = usePopper(triggerRef, popupRef, options);
-
-  // 监听节点更新
+  // Monitor node updates
   useEffect(() => {
     if (triggerRef.current) {
       setReference(triggerRef.current);
@@ -114,7 +43,29 @@ export const usePopup = (props: ITooltipPopupProps) => {
     }
   }, [triggerRef.current, popupRef.current]);
 
-  const { floatingStyles, middlewareData } = useFloating({
+  /** detect Overflow */
+  const middleware = {
+    name: "middleware",
+    async fn(state) {
+      const overflow = await detectOverflow(state, {
+        padding: {
+          top: 2,
+          bottom: 2,
+          left: 5,
+          right: 5
+        }
+      });
+      return {};
+    }
+  };
+
+  const {
+    placement: popperPlacement,
+    floatingStyles,
+    middlewareData,
+    elements,
+    update
+  } = useFloating({
     transform: false,
     placement: placement,
     strategy,
@@ -125,15 +76,28 @@ export const usePopup = (props: ITooltipPopupProps) => {
       shift(),
       // Change the position of floating elements to keep them in the view.
       flip(),
-      arrow({
-        element: arrowRef
-      })
+      middleware,
+      showArrow &&
+        arrow({
+          element: arrowRef
+        })
     ],
     elements: {
       reference,
       floating
     }
   });
+
+  /**
+   * auto update
+   * automatically updates the position of the floating element when necessary to ensure it stays anchored.
+   */
+  useEffect(() => {
+    if (open && elements.reference && elements.floating) {
+      const cleanup = autoUpdate(elements.reference, elements.floating, update);
+      return cleanup;
+    }
+  }, [open, elements, update]);
 
   // arrow Style
   const arrowStyles = useMemo(() => {
@@ -151,28 +115,19 @@ export const usePopup = (props: ITooltipPopupProps) => {
     display: !open || disabled ? "none" : ""
   };
 
-  // useEffect(() => {
-  //   if (!disabled && open) {
-  //     update?.();
-  //   }
-  // }, [open, disabled]);
-
-  // useResizeObserver(triggerRef, (info) => {
-  //   update?.();
-  // });
-
   return {
     popupRef,
     triggerRef,
     arrowRef,
-    instanceRef,
 
-    role,
-    attributes,
+    attributes: {
+      role,
+      tabIndex: -1,
+      "data-popper-placement": popperPlacement
+    },
     popupStyle,
     arrowStyles,
 
-    forceUpdate,
     update
   };
 };

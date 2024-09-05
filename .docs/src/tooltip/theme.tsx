@@ -26,13 +26,11 @@ const App: React.FC = () => (
  * styles----
  *
  * .custom-popper.is-custom-87d068 {
-  padding: 6px 12px;
   color: #fff;
   background: #87d068;
 }
 
 .custom-popper.is-custom-2db7f5 {
-  padding: 6px 12px;
   color: #fff;
   background: #2db7f5;
 }

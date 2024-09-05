@@ -6,4 +6,3 @@ export * from "./use-namespace";
 export * from "./use-z-index";
 export * from "./use-focus-controller";
 export * from "./use-id";
-export * from "./use-popper";

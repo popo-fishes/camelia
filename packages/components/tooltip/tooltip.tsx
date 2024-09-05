@@ -22,7 +22,6 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
     role = "tooltip",
     trigger = "hover",
     effect = "dark",
-    gpuAcceleration = false,
     destroyTooltipOnHide = false,
     showArrow = true,
     placement = "top",
@@ -190,7 +189,6 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
       </TooltipTrigger>
       <TooltipPopup
         ref={popupComponentRef}
-        gpuAcceleration={gpuAcceleration}
         offset={memoedOffset}
         effect={effect}
         showArrow={showArrow}
@@ -205,7 +203,6 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
         overlayClassName={classNames(restProps.overlayClassName, restProps.internalClassName || ns.b())}
         overlayStyle={restProps.overlayStyle}
         getPopupContainer={restProps.getPopupContainer}
-        fallbackPlacements={restProps.fallbackPlacements}
         onMouseEnter={onMouseenter}
         onMouseLeave={onMouseleave}
         onShow={onContentShow}

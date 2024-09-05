@@ -4,7 +4,6 @@
  */
 import React, { useContext, useMemo, useState, useEffect, useImperativeHandle, useCallback } from "react";
 import { CSSTransition } from "react-transition-group";
-import ResizeObserver from "rc-resize-observer";
 import { useNamespace, useId } from "@camelia/core/hooks";
 
 import Portal from "../_internal/portal";
@@ -28,7 +27,7 @@ const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps>((pro
 
   const [animatedVisible, setAnimatedVisible] = useState<boolean>(open);
 
-  const { popupRef, triggerRef, arrowRef, instanceRef, popupStyle, arrowStyles, attributes, update, role } = usePopup({
+  const { popupRef, triggerRef, arrowRef, popupStyle, arrowStyles, attributes, update } = usePopup({
     ...props,
     open: animatedVisible
   });
@@ -73,7 +72,6 @@ const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps>((pro
   const contentClass = [props.overlayClassName, ns.b(), ns.is(effect)];
 
   useImperativeHandle(ref, () => ({
-    popperInstanceRef: instanceRef,
     updatePopper
   }));
 
@@ -87,24 +85,17 @@ const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps>((pro
         onEnter={onAfterShow}
         onExited={onAfterLeave}
       >
-        <ResizeObserver
-          onResize={() => {
-            updatePopper?.();
-          }}
-          disabled={!animatedVisible}
+        <div
+          ref={popupRef}
+          style={{ ...popupStyle } as any}
+          className={classNames(contentClass)}
+          onMouseEnter={(e) => restProps.onMouseEnter?.(e)}
+          onMouseLeave={(e) => restProps.onMouseLeave?.(e)}
+          {...{ ...attributes, id }}
         >
-          <div
-            ref={popupRef}
-            style={{ ...popupStyle } as any}
-            className={classNames(contentClass)}
-            onMouseEnter={(e) => restProps.onMouseEnter?.(e)}
-            onMouseLeave={(e) => restProps.onMouseLeave?.(e)}
-            {...{ ...attributes, role, id, tabIndex: -1 }}
-          >
-            <div className={ns.e("content")}>{children}</div>
-            {showArrow && <div className={ns.e("arrow")} data-popper-arrow ref={arrowRef} style={{ ...arrowStyles }} />}
-          </div>
-        </ResizeObserver>
+          <div className={ns.e("content")}>{children}</div>
+          {showArrow && <div className={ns.e("arrow")} data-popper-arrow ref={arrowRef} style={{ ...arrowStyles }} />}
+        </div>
       </CSSTransition>
     </Portal>
   );

@@ -3,14 +3,9 @@
  * @Description: Modify here please
  */
 import type { Placement } from "@floating-ui/react-dom";
-import type { Instance } from "@popperjs/core";
 
 export interface ITooltipPopupProps {
   children: React.ReactNode;
-  /** https://popper.js.org/docs/v2/modifiers/flip/#fallbackplacements */
-  fallbackPlacements?: Placement[];
-  /** https://popper.js.org/docs/v2/modifiers/compute-styles/#gpuacceleration */
-  gpuAcceleration?: boolean;
   /** 偏移像素 */
   offset?: number;
   /**
@@ -53,8 +48,6 @@ export interface ITooltipPopupProps {
 }
 
 export interface ITooltipPopupRef {
-  /** popperjs instance */
-  popperInstanceRef: React.MutableRefObject<Instance | undefined>;
   /** updatePopper */
   updatePopper: () => void;
 }
