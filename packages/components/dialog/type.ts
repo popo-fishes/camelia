@@ -27,6 +27,8 @@ export interface IDialogProps extends IOverlayProps, IDialogContentProps {
   alignCenter?: boolean;
   /** 是否在 Dialog 出现时将 body 滚动锁定 */
   lockScroll?: boolean;
+  /** 是否支持键盘 esc 关闭 */
+  keyboard?: boolean;
   /** 动画持续时间，当你想修改自带的动画效果时，这个很有用 */
   duration?: number;
   /** 弹窗body内容部分，语义化结构className */

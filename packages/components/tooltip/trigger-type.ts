@@ -4,7 +4,7 @@
  */
 export interface ITooltipTriggerProps {
   children: React.ReactNode;
-  /** 触发方式 */
+  /** trigger */
   trigger?: "hover" | "click";
   onMouseEnter?: (e: any) => void;
   onMouseLeave?: (e: any) => void;

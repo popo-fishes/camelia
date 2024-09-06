@@ -6,8 +6,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { createPortal } from "react-dom";
 import { ConfigContext } from "../../config-provider";
 import { canUseDom } from "@camelia/core";
-import { useLockscreen } from "@camelia/shared";
-import { isClient } from "@camelia/shared";
+import { useLockscreen, isClient } from "@camelia/shared";
 
 export type ContainerType = Element | DocumentFragment;
 

@@ -137,6 +137,7 @@ export default () => {
 | width            | 对话框的宽度                                                                                   | string / number   | 50%           |
 | top              | Dialog CSS 中的 margin-top 值，默认为 15vh                                                     | string            | —             |
 | alignCenter      | 是否水平垂直对齐对话框                                                                         | boolean           | false         |
+| keyboard         | 是否支持键盘 esc 关闭                                 | boolean           | true          |
 | mask             | 是否需要遮罩层                                                                                 | boolean           | true          |
 | closeOnClickMask | 点击蒙层是否可以关闭                                                                           | boolean           | false         |
 | showClose        | 是否显示关闭按钮                                                                               | boolean           | true          |

@@ -18,6 +18,7 @@ const Dialog: React.FC<IDialogProps> = (props) => {
     width,
     open,
     mask = true,
+    keyboard = true,
     alignCenter = false,
     closeOnClickMask = true,
     showClose = true,
@@ -110,9 +111,11 @@ const Dialog: React.FC<IDialogProps> = (props) => {
         nodeRef={nodeRef}
         overlayClass={overlayClass}
         zIndex={zIndex || currentZIndex}
+        keyboard={keyboard}
         style={{ display: animatedVisible ? "block" : "none" }}
         alignCenter={alignCenter}
         onClick={onMaskClick}
+        onInternalClose={(e) => onHandleClose(e)}
       >
         <div
           style={dialogStyle}
