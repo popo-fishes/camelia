@@ -2,15 +2,11 @@
  * @Date: 2023-12-18 11:54:14
  * @Description: Modify here please
  */
-import type { Placement } from "@popperjs/core";
+import type { Placement } from "@floating-ui/react-dom";
 
 export interface ITooltipPopupProps {
   children: React.ReactNode;
-  // https://popper.js.org/docs/v2/modifiers/flip/#fallbackplacements
-  fallbackPlacements?: Placement[];
-  // https://popper.js.org/docs/v2/modifiers/compute-styles/#gpuacceleration
-  gpuAcceleration?: boolean;
-  // 偏移像素
+  /** 偏移像素 */
   offset?: number;
   /**
    * https://popper.js.org/docs/v2/constructors/#options
@@ -19,10 +15,10 @@ export interface ITooltipPopupProps {
   placement?: Placement;
   /** 描述要使用的定位策略。默认情况下，它是absolute */
   strategy?: "fixed" | "absolute";
+  /** 主题 内置了 dark / light 两种 */
+  effect?: string;
   /** 是否显示 */
   open?: boolean;
-  /** 执行的动画 */
-  transition?: string;
   /** 是否禁止  */
   disabled?: Boolean;
   /** 内部的类名 */
@@ -31,10 +27,16 @@ export interface ITooltipPopupProps {
   overlayClassName?: string;
   /** 卡片样式  */
   overlayStyle?: React.CSSProperties;
-  /** 设置为 false 时, Popper会根据open的值动态添加 删除节点， 否则它只是被隐藏了  */
-  persistent?: boolean;
+  /** 关闭后是否销毁 Tooltip  */
+  destroyTooltipOnHide?: boolean;
   /** 弹窗层级 */
   zIndex?: number;
+  /** 执行的动画的类名 */
+  transitionName?: string;
+  /** 执行动画的时长，当你需要自定义动画时，这个是很有用的 */
+  duration?: number;
+  /** 是否显示箭头 */
+  showArrow?: boolean;
   /** 菜单渲染父节点。默认渲染到 body 上 */
   getPopupContainer?: (el: any) => HTMLElement;
   /** 显示时的回调 */
@@ -43,4 +45,9 @@ export interface ITooltipPopupProps {
   onHide?: () => void;
   onMouseEnter?: (evt: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   onMouseLeave?: (evt: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+}
+
+export interface ITooltipPopupRef {
+  /** updatePopper */
+  updatePopper: () => void;
 }

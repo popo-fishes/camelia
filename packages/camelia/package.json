@@ -53,15 +53,16 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.8",
     "@types/lodash": "^4.14.182",
     "@types/lodash-es": "^4.17.6",
+    "@floating-ui/react-dom": "^2.1.1",
     "fish-icons": "1.0.2",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "lodash-unified": "^1.0.2",
     "classnames": "^2.5.1",
-    "react-transition-group": "^4.4.5"
+    "react-transition-group": "^4.4.5",
+    "rc-resize-observer": "^1.4.0"
   },
   "devDependencies": {
     "@types/react-transition-group": "^4.4.4",

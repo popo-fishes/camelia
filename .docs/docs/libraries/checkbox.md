@@ -135,14 +135,14 @@ const App = () => {
         </Checkbox>
       </div>
       <div>
-        <Button type="primary" size="small" onClick={toggleChecked}>
+        <Button plain size="small" onClick={toggleChecked}>
           {!checked ? "Check" : "Uncheck"}
         </Button>
         <Button
+          plain
           style={{
             margin: "0 10px"
           }}
-          type="primary"
           size="small"
           onClick={toggleDisable}
         >

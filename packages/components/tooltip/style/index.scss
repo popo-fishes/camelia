@@ -4,10 +4,104 @@
 @use "../../_styles/core/function" as *;
 
 @include b(tooltip) {
-  @include set-component-css-var("tooltip", $tooltip);
 }
 
-@include b(tooltip) {
+@include b(popper) {
+  /* Float on top of the UI */
   position: absolute;
-  border-radius: getCssVar("tooltip", "border-radius");
+  /* Avoid layout interference */
+  width: max-content;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+
+  @include e(content) {
+    padding: 5px 11px;
+    font-size: 14px;
+    line-height: 20px;
+    min-width: 10px;
+    overflow-wrap: break-word;
+    visibility: visible;
+  }
+
+  @include e(arrow) {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    z-index: -1;
+    &:before {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      z-index: -1;
+      content: " ";
+      transform: rotate(45deg);
+      background: #303133;
+      box-sizing: border-box;
+    }
+  }
+
+  $arrow-selector: #{& + "__arrow"};
+
+  @include when(light) {
+    background: #fff;
+    border: 1px solid #e4e7ed;
+    > #{$arrow-selector}::before {
+      border: 1px solid #e4e7ed;
+      background: #fff;
+      right: 0;
+    }
+  }
+
+  @include when(dark) {
+    color: #ffffff;
+    background: #303133;
+    border: 1px solid #303133;
+    > #{$arrow-selector}::before {
+      border: 1px solid rgba(0, 0, 0, 0.85);
+      background: #303133;
+      right: 0;
+    }
+  }
+
+  $placements: (
+    "top": "bottom",
+    "bottom": "top",
+    "left": "right",
+    "right": "left"
+  );
+
+  @each $placement, $opposite in $placements {
+    &[data-popper-placement^="#{$placement}"] > #{$arrow-selector} {
+      #{$opposite}: -5px;
+
+      &::before {
+        @if $placement == top {
+          border-bottom-right-radius: 2px;
+        }
+        @if $placement == bottom {
+          border-top-left-radius: 2px;
+        }
+        @if $placement == left {
+          border-top-right-radius: 2px;
+        }
+        @if $placement == right {
+          border-bottom-left-radius: 2px;
+        }
+      }
+    }
+  }
+
+  /**
+   * @each 循环来遍历一个键值对列表。
+   * $placement 和 $adjacency 是两个变量，分别代表键和值
+  */
+  @each $placement, $adjacency in ("top": "left", "bottom": "right", "left": "bottom", "right": "top") {
+    &[data-popper-placement^="#{$placement}"] {
+      #{$arrow-selector}::before {
+        border-#{$placement}-color: transparent !important;
+        border-#{$adjacency}-color: transparent !important;
+      }
+    }
+  }
 }

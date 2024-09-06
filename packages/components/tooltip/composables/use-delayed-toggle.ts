@@ -33,7 +33,7 @@ const usePopupTimeout = () => {
 export const useDelayedToggle = ({ open, close, hideAfterTime, showAfterTime }: UseDelayedToggleProps) => {
   const { registerTimeout } = usePopupTimeout();
 
-  const options = { showAfterTime: showAfterTime || 0, hideAfterTime: hideAfterTime ?? 200 };
+  const options = { showAfterTime: showAfterTime ?? 100, hideAfterTime: hideAfterTime ?? 100 };
   // 主动打开
   const onOpen = (time?: number) => {
     if (time == 0) {

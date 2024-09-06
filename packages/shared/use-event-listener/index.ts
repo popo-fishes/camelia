@@ -1,5 +1,5 @@
 /*
- * @Date: 2023-12-02 15:16:40
+ * @Date: 2024-09-01 15:16:40
  * @Description: 轻松使用事件监听器
  */
 import { defaultWindow } from "../utils";
@@ -16,8 +16,11 @@ export type Target = BasicTarget<HTMLElement | Element | Window | Document>;
 
 type Options<T extends Target = Target> = {
   target?: T;
+  /** capture：布尔值，指定事件是否在捕获或冒泡阶段执行。默认为 */
   capture?: boolean;
+  /** once：布尔值，指定监听器是否在触发一次后被自动移除。默认为 false。 */
   once?: boolean;
+  /** passive：布尔值，当为 true 时，表示 listener 将不会调用 preventDefault()。默认为 false。 */
   passive?: boolean;
   /** 是否开启监听 */
   enable?: boolean;
@@ -53,6 +56,10 @@ export function useEventListener(eventName: string, handler: AnyFn, options: Opt
       });
 
       return () => {
+        /**
+         * Uninstalling must also be done during the capture phase
+         * capture is required
+         */
         targetElement.removeEventListener(eventName, eventListener, {
           capture: options.capture
         });

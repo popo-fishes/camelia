@@ -218,15 +218,6 @@ $input: map.merge(
   $input
 );
 
-// tooltip
-$tooltip: () !default;
-$tooltip: map.merge(
-  (
-    "border-radius": var(#{getCssVarName("tooltip-border-radius")}, 4px)
-  ),
-  $tooltip
-);
-
 // select
 $select: () !default;
 $select: map.merge(

@@ -6,22 +6,29 @@ import React, { useContext, useMemo } from "react";
 import classNames from "classnames";
 import { ConfigContext } from "../config-provider";
 import { useNamespace } from "@camelia/core/hooks";
+import { KeyCode } from "@camelia/core";
 import Visible from "../_internal/visible";
 
 import { useSameTarget } from "./composables/use-same-target";
 
 import type { IOverlayProps, IDialogProps } from "./type";
 
-type RepeatOverlayProps = IOverlayProps & { alignCenter?: IDialogProps["alignCenter"] } & {
-  style?: React.CSSProperties;
-  /** 内容 */
-  children?: React.ReactNode;
+type RepeatOverlayProps = IOverlayProps & {
+  alignCenter: IDialogProps["alignCenter"];
+  keyboard: IDialogProps["keyboard"];
+} & {
+  nodeRef: React.MutableRefObject<HTMLDivElement>;
   /** 蒙层点击 */
-  onClick?: (e: React.SyntheticEvent) => void;
+  onClick: (e: React.MouseEventHandler<HTMLDivElement>) => void;
+  /** esc按键关闭时 */
+  onInternalClose: (e: React.KeyboardEvent<HTMLDivElement>) => void;
+  /** 内容 */
+  children: React.ReactNode;
+  style?: React.CSSProperties;
 };
 
 const DialogOverlay: React.FC<RepeatOverlayProps> = (props) => {
-  const { mask, zIndex, overlayClass, children, alignCenter, style } = props;
+  const { mask, zIndex, overlayClass, children, alignCenter, style, nodeRef, keyboard } = props;
   const { getPrefixCls } = useContext(ConfigContext);
 
   const ns = useNamespace("dialog", getPrefixCls());
@@ -43,15 +50,25 @@ const DialogOverlay: React.FC<RepeatOverlayProps> = (props) => {
     return {};
   }, [alignCenter]);
 
+  function onWrapperKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
+    if (keyboard && e.keyCode === KeyCode.ESC) {
+      e.stopPropagation();
+      props.onInternalClose?.(e);
+      return;
+    }
+  }
+
   return (
     <>
       <Visible visible={mask}>
-        <div className={classNames(overlayClass, ns.e("overlay"))} style={{ zIndex, ...style }}>
+        <div className={classNames(overlayClass, ns.e("overlay"))} style={{ zIndex, ...style }} ref={nodeRef}>
           <div
             className={classNames(ns.e("overlay-dialog"))}
             onMouseDown={onMousedown}
             onMouseUp={onMouseup}
             onClick={onClick}
+            tabIndex={-1}
+            onKeyDown={onWrapperKeyDown}
             style={overlayDialogStyle}
           >
             {children}
@@ -61,6 +78,7 @@ const DialogOverlay: React.FC<RepeatOverlayProps> = (props) => {
       <Visible visible={!mask}>
         <div
           className={classNames(overlayClass || "")}
+          ref={nodeRef}
           style={{ zIndex, position: "fixed", top: "0px", right: "0px", bottom: "0px", left: "0px", ...style }}
         >
           <div
@@ -68,6 +86,8 @@ const DialogOverlay: React.FC<RepeatOverlayProps> = (props) => {
             onMouseDown={onMousedown}
             onMouseUp={onMouseup}
             onClick={onClick}
+            tabIndex={-1}
+            onKeyDown={onWrapperKeyDown}
             style={overlayDialogStyle}
           >
             {children}

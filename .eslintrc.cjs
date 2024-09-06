@@ -40,7 +40,7 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": "warn", // 不允许存在未使用的 TypeScript 变量
     "@typescript-eslint/explicit-module-boundary-types": "off", // 允许不显式指定导出函数的返回类型
     "@typescript-eslint/no-explicit-any": "off", // 允许使用 any 类型
-    "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+    "react-refresh/only-export-components": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "off",
     "no-unused-vars": "off",

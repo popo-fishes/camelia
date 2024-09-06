@@ -2,11 +2,11 @@
  * @Date: 2024-08-04 10:45:27
  * @Description: Modify here please
  */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { createPortal } from "react-dom";
+import { ConfigContext } from "../../config-provider";
 import { canUseDom } from "@camelia/core";
-import { useLockscreen } from "@camelia/shared";
-import { isClient } from "@camelia/shared";
+import { useLockscreen, isClient } from "@camelia/shared";
 
 export type ContainerType = Element | DocumentFragment;
 
@@ -21,8 +21,6 @@ export interface PortalProps {
   autoDestroy?: boolean;
   /** 打开时锁屏滚动 */
   autoLock?: boolean;
-  /** 需要锁屏时的body class样式名 */
-  bodyHiddenClass?: string;
   children?: React.ReactNode;
 }
 
@@ -52,13 +50,19 @@ const getdefaultContainer = () => {
 };
 
 const Portal: React.FC<PortalProps> = (props) => {
-  const { open, autoLock, getContainer, autoDestroy = true, children, bodyHiddenClass } = props;
+  const { open, autoLock, getContainer, autoDestroy = true, children } = props;
+
+  const { getPrefixCls } = useContext(ConfigContext);
 
   const [shouldRender, setShouldRender] = useState<boolean>(open);
 
   const mergedRender = shouldRender || open;
 
+  const hiddenClass = `${getPrefixCls()}-body-hidden`;
+
   useEffect(() => {
+    // 如果autoDestroy为true，那么在open关闭时，shouldRender为被设置为false。从而会卸载组件
+    // 如果autoDestroy为false，那么在open关闭时，shouldRender还会是之前的值（true）。从而不会卸载组件
     if (autoDestroy || open) {
       setShouldRender(open);
     }
@@ -75,7 +79,7 @@ const Portal: React.FC<PortalProps> = (props) => {
   const mergedContainer = innerContainer ?? getdefaultContainer();
 
   /** 锁屏 */
-  useLockscreen(autoLock && open && canUseDom() && mergedContainer === document.body, bodyHiddenClass);
+  useLockscreen(autoLock && open && canUseDom() && mergedContainer === document.body, hiddenClass);
 
   /**
    * 无需渲染时不渲染

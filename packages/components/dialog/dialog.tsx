@@ -2,7 +2,7 @@
  * @Date: 2024-08-03 22:09:25
  * @Description: Modify here please
  */
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState, useRef } from "react";
 import classNames from "classnames";
 import { CSSTransition } from "react-transition-group";
 import { ConfigContext } from "../config-provider";
@@ -18,9 +18,11 @@ const Dialog: React.FC<IDialogProps> = (props) => {
     width,
     open,
     mask = true,
+    keyboard = true,
     alignCenter = false,
     closeOnClickMask = true,
     showClose = true,
+    duration = 300,
     zIndex,
     overlayClass,
     title,
@@ -42,6 +44,8 @@ const Dialog: React.FC<IDialogProps> = (props) => {
   const [animatedVisible, setAnimatedVisible] = useState<boolean>(false);
 
   const { currentZIndex } = useZIndex();
+
+  const nodeRef = useRef<HTMLDivElement>(null);
 
   // dialog Style
   const dialogStyle = useMemo<React.CSSProperties>(() => {
@@ -95,14 +99,23 @@ const Dialog: React.FC<IDialogProps> = (props) => {
   }, [open]);
 
   return (
-    <CSSTransition in={open && animatedVisible} timeout={260} classNames="dialog-fade" onExited={onExited}>
+    <CSSTransition
+      nodeRef={nodeRef}
+      in={open && animatedVisible}
+      timeout={duration}
+      classNames="dialog-fade"
+      onExited={onExited}
+    >
       <DialogOverlay
         mask={mask}
+        nodeRef={nodeRef}
         overlayClass={overlayClass}
         zIndex={zIndex || currentZIndex}
+        keyboard={keyboard}
         style={{ display: animatedVisible ? "block" : "none" }}
         alignCenter={alignCenter}
         onClick={onMaskClick}
+        onInternalClose={(e) => onHandleClose(e)}
       >
         <div
           style={dialogStyle}

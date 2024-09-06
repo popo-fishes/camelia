@@ -100,3 +100,39 @@
     margin-right: 10px;
   }
 }
+
+// tooltip组件页面的样式
+.wrap-base-box {
+  width: 600px;
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .center {
+    justify-content: center;
+  }
+  .box-item {
+    margin-top: 10px;
+    max-width: 120px;
+  }
+}
+.custom-popper.is-custom-87d068 {
+  color: #fff;
+  background: #87d068;
+}
+
+.custom-popper.is-custom-2db7f5 {
+  color: #fff;
+  background: #2db7f5;
+}
+
+.custom-popper.is-custom-87d068 .cami-popper__arrow::before {
+  background: #87d068;
+  right: 0;
+}
+
+.custom-popper.is-custom-2db7f5 .cami-popper__arrow::before {
+  background: #2db7f5;
+  right: 0;
+}
