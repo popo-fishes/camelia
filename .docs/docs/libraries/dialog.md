@@ -150,6 +150,12 @@ export default () => {
 | header           | 头部内容                                                                                       | ReactNode         | —             |
 | footer           | 底部内容                                                                                       | ReactNode         | —             |
 | getContainer     | 指定 Dialog 挂载的节点, 需要始终返回唯一 dom 节点                                              | () => HTMLElement | document.body |
+| transitionName        | [动画名称, 请查看描述](https://reactcommunity.org/react-transition-group/css-transition)                                                                                                 | string                               | —        |
+| duration        | 执行动画的时长(以毫秒为单位)的                                                                                                 | number                               | 300       |
 | beforeClose      | 关闭前的回调，会暂停 Dialog 的关闭. 回调函数内执行 done 参数方法的时候才是真正关闭对话框的时候 | Function          | —             |
 | onClose          | 点击遮罩层或右上角叉或取消按钮的回调                                                           | function(e)       | —             |
 | afterClose       | Dialog 完全关闭后的回调                                                                        | Function          | —             |
+
+#### 注意
+
+- `<Dialog />` 默认关闭后状态不会自动清空，如果希望每次打开都是新内容，请设置 `destroyOnClose`。

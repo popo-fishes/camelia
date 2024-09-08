@@ -1,47 +1,79 @@
 @use "../core/config" as *;
+@use "../core/function" as *;
 
 // https://reactcommunity.org/react-transition-group/css-transition
+@mixin zoomBigOutFn($duration) {
+  transform: scale(0);
+  opacity: 0;
+  animation-duration: $duration;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+  animation-timing-function: getCssVar("motion-ease-out-circ");
+  transform-origin: 50% 50%;
+}
+@mixin zoomBigInOutFn($duration) {
+  animation-duration: $duration;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+  animation-timing-function: getCssVar("motion-ease-in-out-circ");
+  transform-origin: 50% 50%;
+}
 
 /*
-* 中间放大 -- 用于tooltip
+* 中间快速放大 -- 用于tooltip
 */
-.#{$namespace}-zoom-in-top-exit-active {
-  animation-name: #{$namespace}-zoom-in-top-out;
-  animation-duration: 0.2s;
-  animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-  transform-origin: center center;
-  &[data-popper-placement^="top"] {
-    transform-origin: center center;
-  }
+.#{$namespace}-zoom-big-fast-enter {
+  @include zoomBigOutFn(0.1s);
 }
-.#{$namespace}-zoom-in-top-enter-active {
-  animation-name: #{$namespace}-zoom-in-top-in;
-  animation-duration: 0.2s;
-  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
-  transform-origin: center center;
-  &[data-popper-placement^="top"] {
-    transform-origin: center center;
-  }
+.#{$namespace}-zoom-big-fast-exit {
+  @include zoomBigInOutFn(0.1s);
 }
-@keyframes #{$namespace}-zoom-in-top-in {
+.#{$namespace}-zoom-big-fast-enter-active {
+  animation-name: #{$namespace}-zoom-big-in;
+  animation-play-state: running;
+}
+.#{$namespace}-zoom-big-fast-exit-active {
+  animation-name: #{$namespace}-zoom-big-out;
+  animation-play-state: running;
+}
+
+/*
+* 中间放大 -- 用于Popover
+*/
+.#{$namespace}-zoom-big-enter {
+  @include zoomBigOutFn(0.2s);
+}
+.#{$namespace}-zoom-big-exit {
+  @include zoomBigInOutFn(0.21s);
+}
+.#{$namespace}-zoom-big-enter-active {
+  animation-name: #{$namespace}-zoom-big-in;
+  animation-play-state: running;
+}
+.#{$namespace}-zoom-big-exit-active {
+  animation-name: #{$namespace}-zoom-big-out;
+  animation-play-state: running;
+}
+
+@keyframes #{$namespace}-zoom-big-in {
   0% {
-    transform: scaleY(0.8);
+    transform: scale(0.8);
     opacity: 0;
   }
 
   100% {
-    transform: scaleY(1);
+    transform: scale(1);
     opacity: 1;
   }
 }
-@keyframes #{$namespace}-zoom-in-top-out {
+@keyframes #{$namespace}-zoom-big-out {
   0% {
-    transform: scaleY(1);
+    transform: scale(1);
     opacity: 1;
   }
 
   100% {
-    transform: scaleY(0.8);
+    transform: scale(0.8);
     opacity: 0;
   }
 }
@@ -78,7 +110,9 @@
   transform: scale(1);
 }
 
-/** 折叠面板 */
+/*
+ * 折叠面板
+ */
 .#{$namespace}-collapse-transition-exit-active,
 .#{$namespace}-collapse-transition-enter-active {
   transition:

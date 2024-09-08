@@ -98,7 +98,7 @@ export default App;
 | strategy          | 描述要使用的定位策略。默认情况下，它是absolute                                                           | string                             | absolute |
 | hideAfterTime     | 消失的延迟，以毫秒为单位           | number                                | 100      |
 | showAfterTime     | 出现延迟，以毫秒为单位                                                                                   | number                               | 100        |
-| transitionName        | 动画名称                                                                                                 | string                               | —        |
+| transitionName        | [动画名称, 请查看描述](https://reactcommunity.org/react-transition-group/css-transition)                                                                                                 | string                               | —        |
 | duration        | 执行动画的时长(以毫秒为单位)的                                                                                                 | number                               | 200       |
 | disabled          | 是否禁止                                                                                                 | boolean                              | false    |
 | destroyTooltipOnHide        | 关闭后是否销毁 Tooltip                             | boolean                             | false     |

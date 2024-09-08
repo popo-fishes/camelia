@@ -46,7 +46,7 @@ const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps>((pro
 
   // 动画类名
   const motionName = useMemo(() => {
-    return transitionName || `${getPrefixCls()}-zoom-in-top`;
+    return transitionName || `${getPrefixCls()}-zoom-big-fast`;
   }, [transitionName]);
 
   // When the element has been removed from the DOM

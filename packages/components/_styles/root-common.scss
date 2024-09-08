@@ -25,6 +25,10 @@
 
   // 全局组件的高度，比如input类型的
   @include set-component-css-var("component-size", $common-component-size);
+
+  // Animation (cubic Bezier curve)--缓和
+  --#{$namespace}-motion-ease-out-circ: cubic-bezier(0.08, 0.82, 0.17, 1);
+  --#{$namespace}-motion-ease-in-out-circ: cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
 
 // for light

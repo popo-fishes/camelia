@@ -8,6 +8,8 @@ import { CSSTransition } from "react-transition-group";
 import { ConfigContext } from "../config-provider";
 import { useNamespace, useZIndex } from "@camelia/core/hooks";
 import { Close as CloseIcon } from "fish-icons";
+import { contains } from "@camelia/core";
+
 import Visible from "../_internal/visible";
 import type { IDialogProps } from "./type";
 import DialogOverlay from "./dialog-overlay";
@@ -17,6 +19,7 @@ const Dialog: React.FC<IDialogProps> = (props) => {
     top,
     width,
     open,
+    transitionName,
     mask = true,
     keyboard = true,
     alignCenter = false,
@@ -45,7 +48,9 @@ const Dialog: React.FC<IDialogProps> = (props) => {
 
   const { currentZIndex } = useZIndex();
 
-  const nodeRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>();
+  const contentRef = useRef<HTMLDivElement>();
 
   // dialog Style
   const dialogStyle = useMemo<React.CSSProperties>(() => {
@@ -56,9 +61,16 @@ const Dialog: React.FC<IDialogProps> = (props) => {
     if (width) {
       style[`width`] = typeof width == "string" ? width : `${width}px`;
     }
+    style[`outline`] = "none";
+    // show?
     style[`display`] = animatedVisible ? "block" : "none";
     return style;
   }, [top, width, animatedVisible]);
+
+  // 动画类名
+  const motionName = useMemo(() => {
+    return transitionName || `dialog-fade`;
+  }, [transitionName]);
 
   // 点击蒙层时
   const onMaskClick = (e: any) => {
@@ -81,6 +93,23 @@ const Dialog: React.FC<IDialogProps> = (props) => {
     }
   };
 
+  useEffect(() => {
+    if (open) {
+      setAnimatedVisible(true);
+    }
+  }, [open]);
+
+  function focusDialogContent() {
+    if (!contains(wrapperRef.current, document.activeElement)) {
+      contentRef.current?.focus({ preventScroll: true });
+    }
+  }
+
+  const onEnter = () => {
+    // Try to focus
+    focusDialogContent();
+  };
+
   // 弹窗元素已从 DOM 中移除时调用
   const onExited = () => {
     // 等待动画结束才才改变状态
@@ -92,24 +121,21 @@ const Dialog: React.FC<IDialogProps> = (props) => {
     }
   };
 
-  useEffect(() => {
-    if (open) {
-      setAnimatedVisible(true);
-    }
-  }, [open]);
-
   return (
     <CSSTransition
-      nodeRef={nodeRef}
+      nodeRef={rootRef}
       in={open && animatedVisible}
       timeout={duration}
-      classNames="dialog-fade"
+      classNames={motionName}
+      onEnter={onEnter}
       onExited={onExited}
     >
       <DialogOverlay
         mask={mask}
-        nodeRef={nodeRef}
+        rootRef={rootRef}
+        wrapperRef={wrapperRef}
         overlayClass={overlayClass}
+        visible={animatedVisible}
         zIndex={zIndex || currentZIndex}
         keyboard={keyboard}
         style={{ display: animatedVisible ? "block" : "none" }}
@@ -119,6 +145,8 @@ const Dialog: React.FC<IDialogProps> = (props) => {
       >
         <div
           style={dialogStyle}
+          ref={contentRef}
+          tabIndex={-1}
           role="dialog"
           className={classNames([ns.b(), ns.is("align-center", alignCenter), className])}
         >
