@@ -19,7 +19,7 @@ import { useZIndex } from "@camelia/core/hooks";
 import { TooltipContext } from "../utils";
 import type { ITooltipPopupProps } from "../popup-type";
 
-export const usePopup = (props: ITooltipPopupProps) => {
+export const usePopup = (props: ITooltipPopupProps): any => {
   const { open, disabled, zIndex, placement, strategy, offset, overlayStyle, showArrow } = props;
 
   const { popupRef, triggerRef, role } = useContext(TooltipContext);
