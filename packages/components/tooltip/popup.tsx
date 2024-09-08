@@ -69,7 +69,7 @@ const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps>((pro
     return getParent(props.getPopupContainer, triggerRef.current);
   }, [props.getPopupContainer, triggerRef.current]);
 
-  const contentClass = [props.overlayClassName, ns.b(), ns.is(effect)];
+  const contentClass = [ns.b(), ns.is(effect), props.overlayClassName];
 
   useImperativeHandle(ref, () => ({
     updatePopper

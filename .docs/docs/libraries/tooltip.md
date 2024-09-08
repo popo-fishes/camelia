@@ -101,21 +101,23 @@ export default App;
 | transitionName        | [动画名称, 请查看描述](https://reactcommunity.org/react-transition-group/css-transition)                                                                                                 | string                               | —        |
 | duration        | 执行动画的时长(以毫秒为单位)的                                                                                                 | number                               | 200       |
 | disabled          | 是否禁止                                                                                                 | boolean                              | false    |
-| destroyTooltipOnHide        | 关闭后是否销毁 Tooltip                             | boolean                             | false     |
+| destroyTooltipOnHide        | 关闭后是否销毁 Tooltip                             | boolean                             | true     |
 | overlayClassName       | 卡片类名                                                                                         | string                               | —        |
 | overlayStyle       | 卡片style                                                                                          | CSSProperties                       | —        |
 | zIndex            | 设置 Tooltip 的 z-index                                                                                               | number                              | —        |
 | visible           | 受控模式，来控制它的显示与关闭                                                                           | boolean                             | —        |
 | getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | (triggerNode:HTMLElement) => void | —        |
 | showArrow | tooltip 的内容是否有箭头 | boolean | true        |
-| onShow | 显示时的回调 | () => void | —        |
-| onHide | 隐藏时的回调 | () => void | —        |
+| virtualTriggering | 用来标识虚拟触发是否被启用 | boolean | false        |
+| virtualRef | 标识虚拟触发时的触发元素 | MutableRefObject< HTMLElement > | —        |
+| onOpenChange | 显示隐藏的回调 | (open: boolean) => void | —        |
 
 ### Methods
 
 | 名称         | 说明                                                                             | 类型                         |
 | ------------ | -------------------------------------------------------------------------------- | ---------------------------- |
 | tooltipRef    | tooltip Component                                                           | object                 |
+| popupRef | 获取popup的ref, 可能有些业务场景是想要获取popup节点的               | object |
 | onOpen       | 控制显示状态                                                          | Function                 |
 | onClose      | 控制隐藏状态, 可以传递一个time来覆盖hideAfterTime，为0时立马关闭弹窗 | Function `(time) => void` |
-| updatePopup | 使用更新位置                                  | Function
+| updatePopup | 使用更新位置                                  | Function |

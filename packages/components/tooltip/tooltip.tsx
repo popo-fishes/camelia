@@ -22,12 +22,12 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
     role = "tooltip",
     trigger = "hover",
     effect = "dark",
-    destroyTooltipOnHide = false,
+    destroyTooltipOnHide = true,
     showArrow = true,
     placement = "top",
     strategy = "absolute",
     disabled,
-    children,
+    children: TriggerNode,
     title,
     offset,
     overlay,
@@ -101,14 +101,19 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
 
   // pop show
   const onContentShow = () => {
-    restProps.onShow?.();
-    // Start monitoring external clicks
-    start();
+    restProps.onOpenChange?.(true);
+    /**
+     * Start monitoring external clicks
+     * !! if： When actively controlling pop outside, do not turn on monitoring
+     */
+    if (!stopWhenControlledOrDisabled()) {
+      start();
+    }
   };
 
   // pop hide
   const onContentHide = () => {
-    restProps.onHide?.();
+    restProps.onOpenChange?.(false);
   };
 
   const updatePopup = () => {
@@ -131,7 +136,7 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
    * it actively uninstalls events
    */
   useEffect(() => {
-    if (!open) {
+    if (!open && !stopWhenControlledOrDisabled()) {
       stop?.();
     }
   }, [open]);
@@ -152,6 +157,8 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
   useImperativeHandle(ref, () => ({
     /** tooltip component */
     tooltipRef,
+    /** 获取popup的ref */
+    popupRef: tooltipRef.current?.popupRef,
     /** open Popup */
     onOpen,
     /** close Popup */
@@ -178,6 +185,8 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
     <TooltipWrap ref={tooltipRef} role={role}>
       <TooltipTrigger
         open={open}
+        virtualTriggering={restProps.virtualTriggering}
+        virtualRef={restProps.virtualRef}
         onTargetResize={() => {
           updatePopup();
         }}
@@ -185,7 +194,7 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
         onMouseLeave={onMouseleave}
         onClick={onClick}
       >
-        {children}
+        {TriggerNode}
       </TooltipTrigger>
       <TooltipPopup
         ref={popupComponentRef}
@@ -200,7 +209,7 @@ const Tooltip = React.forwardRef<ITooltipRef, ITooltipProps>((props, ref) => {
         zIndex={restProps.zIndex}
         transitionName={restProps.transitionName}
         duration={restProps.duration}
-        overlayClassName={classNames(restProps.overlayClassName, restProps.internalClassName || ns.b())}
+        overlayClassName={classNames(restProps.internalClassName || ns.b(), restProps.overlayClassName)}
         overlayStyle={restProps.overlayStyle}
         getPopupContainer={restProps.getPopupContainer}
         onMouseEnter={onMouseenter}

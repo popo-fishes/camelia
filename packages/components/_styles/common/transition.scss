@@ -79,6 +79,50 @@
 }
 
 /*
+* 放大顶部
+*/
+.#{$namespace}-zoom-in-top-enter-active {
+  animation-name: #{$namespace}-zoom-in-top-in;
+  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  transform-origin: center top;
+  &[data-popper-placement^="top"] {
+    transform-origin: center bottom;
+  }
+}
+.#{$namespace}-zoom-in-top-exit-active {
+  animation-name: #{$namespace}-zoom-in-top-out;
+  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  transform-origin: center top;
+  &[data-popper-placement^="top"] {
+    transform-origin: center bottom;
+  }
+}
+@keyframes #{$namespace}-zoom-in-top-in {
+  0% {
+    transform: scaleY(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes #{$namespace}-zoom-in-top-out {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleY(0.8);
+    opacity: 0;
+  }
+}
+
+/*
 * 淡入按比例放大 --- select
 */
 .#{$namespace}-fade-in-scale-up-exit-active {
