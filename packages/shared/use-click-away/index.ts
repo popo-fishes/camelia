@@ -40,7 +40,6 @@ export function useClickAway<T extends Event = Event>(
       if (!enable) {
         return;
       }
-
       const handler = (event: any) => {
         const targets = Array.isArray(target) ? target : [target];
         if (

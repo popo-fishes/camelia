@@ -8,7 +8,7 @@ import Portal from "../_internal/portal";
 import Dialog from "./dialog";
 
 const DialogWrap: React.FC<IDialogProps> = (props) => {
-  const { open, getContainer, destroyOnClose = true, afterClose, lockScroll = true } = props;
+  const { open, getContainer, destroyOnClose = false, afterClose, lockScroll = true } = props;
 
   const [animatedVisible, setAnimatedVisible] = useState<boolean>(open);
 

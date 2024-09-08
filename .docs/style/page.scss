@@ -1,5 +1,12 @@
 @use "../.dumi/var.scss" as *;
 
+.layout-init-box {
+  p {
+    margin: 0;
+  }
+}
+
+
 .site-t2vb78 .icon-item {
   :hover {
     background-color: #2b2b2c;

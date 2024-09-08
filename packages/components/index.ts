@@ -28,7 +28,10 @@ export { default as Dialog } from "./dialog";
 export type { IDialogProps } from "./dialog";
 
 export { default as Tooltip } from "./tooltip";
-export type { ITooltipProps } from "./tooltip";
+export type { ITooltipProps, ITooltipRef } from "./tooltip";
+
+export { default as Popover } from "./popover";
+export type { IPopoverProps } from "./popover";
 
 // Plugin
 export { default as message } from "./message";

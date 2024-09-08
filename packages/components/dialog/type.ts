@@ -29,7 +29,9 @@ export interface IDialogProps extends IOverlayProps, IDialogContentProps {
   lockScroll?: boolean;
   /** 是否支持键盘 esc 关闭 */
   keyboard?: boolean;
-  /** 动画持续时间，当你想修改自带的动画效果时，这个很有用 */
+  /** 执行的动画的类名 */
+  transitionName?: string;
+  /** 执行动画的时长，当你需要自定义动画时，这个是很有用的 */
   duration?: number;
   /** 弹窗body内容部分，语义化结构className */
   className?: string;

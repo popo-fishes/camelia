@@ -48,6 +48,6 @@ export interface ITooltipPopupProps {
 }
 
 export interface ITooltipPopupRef {
-  /** updatePopper */
+  /** update Popper */
   updatePopper: () => void;
 }

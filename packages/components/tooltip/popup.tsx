@@ -46,7 +46,7 @@ const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps>((pro
 
   // 动画类名
   const motionName = useMemo(() => {
-    return transitionName || `${getPrefixCls()}-zoom-in-top`;
+    return transitionName || `${getPrefixCls()}-zoom-big-fast`;
   }, [transitionName]);
 
   // When the element has been removed from the DOM
@@ -69,7 +69,7 @@ const TooltipPopup = React.forwardRef<ITooltipPopupRef, ITooltipPopupProps>((pro
     return getParent(props.getPopupContainer, triggerRef.current);
   }, [props.getPopupContainer, triggerRef.current]);
 
-  const contentClass = [props.overlayClassName, ns.b(), ns.is(effect)];
+  const contentClass = [ns.b(), ns.is(effect), props.overlayClassName];
 
   useImperativeHandle(ref, () => ({
     updatePopper
