@@ -56,9 +56,20 @@ const copyTypesDefinitions: TaskFunction = (cb) => {
     withTaskName(`copyTypes:${module}`, () => {
       const targetPath = buildConfig[module].output.path;
       // 递归复制
-      return copy(typesPath, targetPath, { recursive: true });
+      return copy(typesPath, targetPath);
     });
-  return parallel(copyTypes("esm"), copyTypes("cjs"))(cb);
+  /**
+   * 在复制下 types下面的shared声明文件到dist/camelia下。主要解决--找不到模块“camelia/shared”或其相应的类型声明
+   */
+  const copySharedTypes = () =>
+    withTaskName(`copySharedTypes`, () => {
+      const sharedTypesPath = path.resolve(buildOutput, "types", "shared");
+      const targetPath = path.resolve(epOutput, "shared");
+      // 递归复制
+      return copy(sharedTypesPath, targetPath);
+    });
+
+  return parallel(copyTypes("esm"), copyTypes("cjs"), copySharedTypes())(cb);
 };
 
 // Create component css.js style entry file
