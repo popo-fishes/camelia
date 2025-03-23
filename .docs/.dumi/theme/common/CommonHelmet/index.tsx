@@ -5,7 +5,7 @@
 import { Helmet, useRouteMeta } from "dumi";
 import React, { useMemo } from "react";
 
-/** 动态配置 head 中的标签 */
+/** @name 动态配置head中的标签 */
 const CommonHelmet: React.FC = () => {
   const meta = useRouteMeta();
 

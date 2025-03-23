@@ -4,11 +4,14 @@
  */
 import React, { useEffect } from "react";
 import { createRoot } from 'react-dom/client';
+import { useLocation } from "umi";
 import "./index.scss"
 /**
  * 广告组件
  */
 const Ad: React.FC = () => {
+  const location = useLocation();
+
   const LinksData = [
     {
       url: "https://www.crmeb.com/?from=camelia",
@@ -36,18 +39,22 @@ const Ad: React.FC = () => {
      )
   }
 
+  /** @name 动态添加ad广告 */
   useEffect(() => {
-    if (document?.body) {
-      // 获取头部标题节点，然后给里面添加一个title
-      const SideMenuDom = document.getElementsByClassName("site-ar97vv")?.[0] || null;
-      if (SideMenuDom) {
-        const container = document.createElement('div')
-        const root = createRoot(container);
-        root.render(<><AdListCom /></>);
-        SideMenuDom.insertBefore(container, SideMenuDom.firstChild);
+    requestAnimationFrame(() => {
+      if (document?.body) {
+        // 获取头部标题节点，然后给里面添加一个title
+        const SideMenuDom = document.getElementsByClassName("site-ar97vv")?.[0] || null;
+        const adDom = document.getElementsByClassName("ad-link-box")?.[0] || null;
+        if (SideMenuDom && !adDom) {
+          const container = document.createElement('div')
+          const root = createRoot(container);
+          root.render(<><AdListCom /></>);
+          SideMenuDom.insertBefore(container, SideMenuDom.firstChild);
+        }
       }
-    }
-  }, [])
+    })
+  }, [location.pathname])
 
   return <></>
 }
