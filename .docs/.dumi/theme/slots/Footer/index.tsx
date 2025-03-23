@@ -7,6 +7,7 @@ import React, { useEffect } from "react";
 import { baseLink } from "../../../../config";
 import CommonHelmet from "../../common/CommonHelmet";
 import { getColumns } from "./columns";
+import Ad from "../../common/Ad"
 
 // 全局想往页面注入功能的地方
 
@@ -32,7 +33,7 @@ export default () => {
 
   const bootom = (
     <>
-      <a href={baseLink}>Copyright 2020 Camelia | 蜀ICP备2020025971号-1</a>
+      <a href={baseLink}>Copyright 2024 Camelia | 蜀ICP备2020025971号-1</a>
       <br />
       Popo Fish 开源社区
     </>
@@ -40,6 +41,7 @@ export default () => {
   return (
     <>
       <CommonHelmet />
+      <Ad/>
       <Footer bottom={bootom} columns={columns} />
     </>
   );
