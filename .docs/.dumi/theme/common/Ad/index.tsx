@@ -2,7 +2,7 @@
  * @Date: 2025-03-23 17:14:33
  * @Description: Modify here please
  */
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { createRoot } from 'react-dom/client';
 import { useLocation } from "umi";
 import "./index.scss"
@@ -11,6 +11,7 @@ import "./index.scss"
  */
 const Ad: React.FC = () => {
   const location = useLocation();
+  const isfirst = useRef(false)
 
   const LinksData = [
     {
@@ -46,6 +47,7 @@ const Ad: React.FC = () => {
         // 获取头部标题节点，然后给里面添加一个title
         const SideMenuDom = document.getElementsByClassName("site-ar97vv")?.[0] || null;
         const adDom = document.getElementsByClassName("ad-link-box")?.[0] || null;
+        // console.log(adDom, SideMenuDom)
         if (SideMenuDom && !adDom) {
           const container = document.createElement('div')
           const root = createRoot(container);
@@ -54,6 +56,13 @@ const Ad: React.FC = () => {
         }
       }
     })
+    setTimeout(() => {
+      const adDoms = document.getElementsByClassName("ad-link-box");
+      console.log(adDoms.length)
+      if (adDoms.length > 1) {
+        adDoms[1].remove()
+      }
+    }, 20)
   }, [location.pathname])
 
   return <></>
