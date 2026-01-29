@@ -6,4 +6,4 @@
  * "当你在使用 pnpm 处理多包依赖时，如果本地包的版本与远程版本完全匹配，
  * 则 pnpm 会默认使用本地包覆盖远程包，无论远程包的版本是更新的还是旧的。"
  */
-export const version = "1.1.4";
+export const version = "1.1.5";

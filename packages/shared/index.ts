@@ -16,6 +16,7 @@ export * from "./use-memo";
 export * from "./use-mount";
 export * from "./use-unmount";
 export * from "./use-lockscreen";
+export * from "./use-drag-resize";
 
 /** @name 工具 */
 export * from "./utils";
