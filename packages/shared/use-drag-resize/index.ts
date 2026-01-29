@@ -1,8 +1,9 @@
 /*
  * @Date: 2026-01-29 16:05:39
- * @Description: 拖动某个元素，改变指定节点的高度。拖动变化高度，类似<textarea> 元素
+ * @Description: Modify here please
  */
-import { useEffect, useCallback, useRef } from "react";
+import { useEffect } from "react";
+import { useCallback, useRef } from "react";
 
 interface UseDragResizeProps {
   // 最小高度
@@ -11,12 +12,14 @@ interface UseDragResizeProps {
   maxHeight?: number;
   // 初始化高度
   initialHeight?: number;
+  // 是否反转拖拽方向（默认 false）
+  reverseDirection?: boolean;
   // 高度变化回调
   onChange?: (height: number) => void;
 }
 
-const useDragResize = (props: UseDragResizeProps) => {
-  const { minHeight, maxHeight, initialHeight, onChange } = props;
+export const useDragResize = (props: UseDragResizeProps) => {
+  const { minHeight, maxHeight, initialHeight, onChange, reverseDirection = false } = props;
   // 初始鼠标Y坐标
   const startYRef = useRef<number>(0);
   // 初始容器高度
@@ -56,9 +59,16 @@ const useDragResize = (props: UseDragResizeProps) => {
       const handleMouseMove = (moveEvent: MouseEvent) => {
         moveEvent.stopPropagation();
         const deltaY = moveEvent.clientY - startYRef.current;
-        const newHeight = Math.min(Math.max(startHeightRef.current + deltaY, minHeight || 0), maxHeight ?? Infinity);
+        // 根据 reverseDirection 调整 deltaY 方向
+        // 如果 reverseDirection 为 true，则对 deltaY 取反，实现方向反转。
+        const adjustedDeltaY = reverseDirection ? -deltaY : deltaY;
 
-        // console.log(newHeight, maxHeight, minHeight)
+        const newHeight = Math.min(
+          Math.max(startHeightRef.current + adjustedDeltaY, minHeight || 0),
+          maxHeight ?? Infinity
+        );
+
+        // console.log(newHeight, maxHeight, minHeight);
 
         if (containerRef.current) {
           containerRef.current.style.height = `${newHeight}px`;
@@ -94,5 +104,3 @@ const useDragResize = (props: UseDragResizeProps) => {
 
   return { containerRef, setContainerHeight, handleMouseDown };
 };
-
-export default useDragResize;
