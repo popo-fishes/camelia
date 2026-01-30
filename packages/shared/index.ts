@@ -3,20 +3,20 @@
  * @Description: Modify here please
  */
 /** @name hooks */
-export * from "./use-click-away";
-export * from "./use-event-listener";
-export * from "./use-resize-observer";
-export * from "./use-debounce";
-export * from "./use-throttle";
-export * from "./use-submit";
+export * from "./useClickAway";
+export * from "./useEventListener";
+export * from "./useResizeObserver";
+export * from "./useDebounce";
+export * from "./useThrottle";
+export * from "./useSubmit";
 
 // 没有文档的
-export * from "./use-timeout";
-export * from "./use-memo";
-export * from "./use-mount";
-export * from "./use-unmount";
-export * from "./use-lockscreen";
-export * from "./use-drag-resize";
+export * from "./useTimeout";
+export * from "./useMemo";
+export * from "./useMount";
+export * from "./useUnmount";
+export * from "./useLockscreen";
+export * from "./useDragResize";
 
 /** @name 工具 */
 export * from "./utils";

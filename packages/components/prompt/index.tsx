@@ -4,7 +4,7 @@
  */
 import prompt from "./method";
 
-import Prompt from "./prompt";
+import Prompt from "./Prompt";
 
 export * from "./type";
 

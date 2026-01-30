@@ -6,4 +6,4 @@ export * from "./ref";
 export * from "./dom";
 export * from "./style";
 export * from "./util";
-export { default as KeyCode } from "./key-code";
+export { default as KeyCode } from "./keyCode";

@@ -12,7 +12,7 @@ import { contains } from "@camelia/core";
 
 import Visible from "../_internal/visible";
 import type { IDialogProps } from "./type";
-import DialogOverlay from "./dialog-overlay";
+import DialogOverlay from "./DialogOverlay";
 
 const Dialog: React.FC<IDialogProps> = (props) => {
   const {

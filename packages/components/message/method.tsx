@@ -7,7 +7,7 @@ import { createRoot } from "react-dom/client";
 import { ConfigContext } from "../config-provider";
 import { useNamespace, useZIndex } from "@camelia/core/hooks";
 import { isClient } from "@camelia/shared";
-import MessageConstructor from "./message";
+import MessageConstructor from "./Message";
 import type { MessageContext, MessageHandler, MessageOptions, Message } from "./type";
 import { instances } from "./instance";
 

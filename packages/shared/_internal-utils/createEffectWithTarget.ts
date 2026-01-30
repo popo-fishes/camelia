@@ -4,9 +4,9 @@
  */
 import type { DependencyList, EffectCallback, useEffect, useLayoutEffect } from "react";
 import { useRef } from "react";
-import { useUnmount } from "../use-unmount";
-import type { BasicTarget } from "./dom-target";
-import { getTargetElement } from "./dom-target";
+import { useUnmount } from "../useUnmount";
+import type { BasicTarget } from "./getTargetElement";
+import { getTargetElement } from "./getTargetElement";
 
 function depsAreSame(oldDeps: DependencyList, deps: DependencyList): boolean {
   if (oldDeps === deps) return true;

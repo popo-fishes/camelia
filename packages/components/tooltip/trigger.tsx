@@ -12,7 +12,7 @@ function isFragment(child: React.ReactNode): boolean {
   return child && React.isValidElement(child) && child.type === React.Fragment;
 }
 
-const TooltipRigger: React.FC<ITooltipTriggerProps & { onTargetResize: () => void; open: boolean }> = (props) => {
+const TooltipTrigger: React.FC<ITooltipTriggerProps & { onTargetResize: () => void; open: boolean }> = (props) => {
   const { children, open, onTargetResize, virtualRef, virtualTriggering, ...restProps } = props;
   const { triggerRef } = useContext(TooltipContext);
 
@@ -62,4 +62,4 @@ const TooltipRigger: React.FC<ITooltipTriggerProps & { onTargetResize: () => voi
   );
 };
 
-export default TooltipRigger;
+export default TooltipTrigger;

@@ -6,7 +6,7 @@ import React, { useContext } from "react";
 import { ConfigContext } from "../config-provider";
 import { useNamespace } from "@camelia/core/hooks";
 
-import Checkbox from "./checkbox";
+import Checkbox from "./Checkbox";
 import { ICheckboxGroupProps, CheckboxOptionType, IcheckboxValueType } from "./type";
 
 const Group: React.FC<ICheckboxGroupProps<IcheckboxValueType>> = (props) => {

@@ -4,7 +4,7 @@
  */
 import { useState } from "react";
 import type { AnyFn } from "../utils";
-import { useUnmount } from "../use-unmount";
+import { useUnmount } from "../useUnmount";
 
 let timer: ReturnType<typeof setTimeout> | undefined;
 

@@ -9,9 +9,9 @@ import { useNamespace } from "@camelia/core/hooks";
 import { KeyCode } from "@camelia/core";
 import Visible from "../_internal/visible";
 
-import MemoChildren from "./memo-children";
+import MemoChildren from "./MemoChildren";
 
-import { useSameTarget } from "./composables/use-same-target";
+import { useSameTarget } from "./composables/useSameTarget";
 
 import type { IOverlayProps, IDialogProps } from "./type";
 

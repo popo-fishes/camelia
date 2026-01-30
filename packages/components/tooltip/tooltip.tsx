@@ -4,13 +4,13 @@ import { ConfigContext } from "../config-provider";
 import { useNamespace } from "@camelia/core/hooks";
 import { isBoolean } from "@camelia/shared/utils";
 
-import { useDelayedToggle } from "./composables/use-delayed-toggle";
-import { useClickUtside } from "./composables/use-click-utside";
+import { useDelayedToggle } from "./composables/useDelayedToggle";
+import { useClickUtside } from "./composables/useClickUtside";
 import { composeEventHandlers, TooltipWrapInjectionContext } from "./utils";
 
-import TooltipWrap from "./wrap";
-import TooltipTrigger from "./trigger";
-import TooltipPopup from "./popup";
+import TooltipWrap from "./Wrap";
+import TooltipTrigger from "./Trigger";
+import TooltipPopup from "./Popup";
 
 import type { ITooltipProps, ITooltipRef } from "./tooltip-type";
 import type { ITooltipPopupRef } from "./popup-type";

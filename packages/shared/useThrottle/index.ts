@@ -4,7 +4,7 @@
  */
 import throttle from "lodash/throttle";
 import { useMemo, useRef } from "react";
-import { useUnmount } from "../use-unmount";
+import { useUnmount } from "../useUnmount";
 import { isFunction } from "../utils";
 
 type noop = (...args: any[]) => any;

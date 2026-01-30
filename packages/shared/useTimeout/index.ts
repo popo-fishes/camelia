@@ -4,7 +4,7 @@
  */
 import { useState } from "react";
 import type { AnyFn, Fn } from "../utils";
-import { useUnmount } from "../use-unmount";
+import { useUnmount } from "../useUnmount";
 import { isClient } from "../utils";
 
 interface UseTimeoutFnOptions {

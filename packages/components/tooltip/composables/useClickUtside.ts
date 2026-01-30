@@ -3,7 +3,7 @@
  * @Description: Modify here please
  */
 import { useState } from "react";
-import { useClickAway, type BasicTarget } from "@camelia/shared/use-click-away";
+import { useClickAway, type BasicTarget } from "@camelia/shared/useClickAway";
 
 export function useClickUtside<T extends Event = Event>(
   /** 操作者 */

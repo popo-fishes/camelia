@@ -9,7 +9,7 @@ import { useNamespace } from "@camelia/core/hooks";
 import { useMount, isClient } from "@camelia/shared";
 
 import { ImgCaptchaProps } from "./type";
-import { useCaptcha, generateRandomId } from "./use-captcha";
+import { useCaptcha, generateRandomId } from "./useCaptcha";
 
 const ImgCaptcha = React.forwardRef<{ validate: (v: string) => boolean }, ImgCaptchaProps>((props, ref) => {
   const { width = 95, height = 38, size = 4, type = "number", className } = props;

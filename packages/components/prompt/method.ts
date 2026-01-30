@@ -7,7 +7,7 @@ import { createRoot } from "react-dom/client";
 import type { MutableRefObject } from "react";
 import { isClient } from "@camelia/shared/utils";
 import type { IPromptProps, PromptRef } from "./type";
-import promptConstructor from "./prompt";
+import promptConstructor from "./Prompt";
 
 export type PromptContext = {
   handler: {

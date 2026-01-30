@@ -3,7 +3,7 @@
  * @Description: 勾选监控参考值以锁定或解锁屏幕
  */
 import { useEffect } from "react";
-import { useUnmount } from "../use-unmount";
+import { useUnmount } from "../useUnmount";
 import { isClient } from "../utils";
 import { addClass, getScrollBarWidth, hasClass, getStyle, removeClass } from "@camelia/core/utils";
 

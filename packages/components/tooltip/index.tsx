@@ -2,7 +2,7 @@
  * @Date: 2024-08-25 14:59:41
  * @Description: Modify here please
  */
-import Tooltip from "./tooltip";
+import Tooltip from "./Tooltip";
 
 export type * from "./popup-type";
 export type * from ".//tooltip-type";

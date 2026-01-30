@@ -9,7 +9,7 @@ import { useNamespace, useId } from "@camelia/core/hooks";
 import Portal from "../_internal/portal";
 import { ConfigContext } from "../config-provider";
 import { getParent } from "./utils";
-import { usePopup } from "./composables/use-popup";
+import { usePopup } from "./composables/usePopup";
 import { ITooltipPopupProps, ITooltipPopupRef } from "./popup-type";
 import classNames from "classnames";
 

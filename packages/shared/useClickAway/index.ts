@@ -3,9 +3,9 @@
  * @Description: Modify here please
  */
 import { useEffect, useRef } from "react";
-import { getTargetElement, type BasicTarget } from "../_internal-utils/dom-target";
+import { getTargetElement, type BasicTarget } from "../_internal-utils/getTargetElement";
 
-import { createEffectWithTarget } from "../_internal-utils/create-effect-with-target";
+import { createEffectWithTarget } from "../_internal-utils/createEffectWithTarget";
 
 type DocumentEventKey = keyof DocumentEventMap;
 

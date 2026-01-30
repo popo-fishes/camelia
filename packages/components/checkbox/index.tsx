@@ -2,8 +2,8 @@
  * @Date: 2024-08-18 10:30:50
  * @Description: Modify here please
  */
-import InternalCheckbox from "./checkbox";
-import Group from "./group";
+import InternalCheckbox from "./Checkbox";
+import Group from "./Group";
 
 export type { ICheckboxProps, ICheckboxGroupProps, CheckboxOptionType } from "./type";
 

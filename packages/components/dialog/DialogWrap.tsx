@@ -5,7 +5,7 @@
 import React, { useEffect, useState } from "react";
 import type { IDialogProps } from "./type";
 import Portal from "../_internal/portal";
-import Dialog from "./dialog";
+import Dialog from "./Dialog";
 
 const DialogWrap: React.FC<IDialogProps> = (props) => {
   const { open, getContainer, destroyOnClose = false, afterClose, lockScroll = true } = props;

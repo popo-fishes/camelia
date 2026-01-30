@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-11-28 16:01:05
  */
-import DialogWrap from "./dialog-wrap";
+import DialogWrap from "./DialogWrap";
 
 export * from "./type";
 
