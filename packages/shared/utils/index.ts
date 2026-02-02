@@ -16,3 +16,5 @@ export * from "./tree";
 export * from "./string";
 
 export * from "./eventEmmiter";
+
+export * from "./typewriter";
