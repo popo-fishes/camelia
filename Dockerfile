@@ -19,7 +19,7 @@ RUN pnpm i --frozen-lockfile
 COPY . .
 
 # 调试：查看 /app 和 /app/packages 目录，确认 camelia 存在（可选，排查用）
-RUN ls -la /app/ && ls -la /app/packages/
+RUN ls -la /app/ && ls -la /app/packages/ && ls -la /app/packages/components
 
 RUN cd ./.docs && npm run docs:build
 
