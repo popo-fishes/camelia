@@ -72,5 +72,6 @@ export default defineConfig({
 
   chainWebpack(memo, { env, webpack }) {
     memo.resolve.byDependency.set("commonjs", {});
+    memo.resolve.extensions.add(".tsx").add(".ts");
   }
 });
