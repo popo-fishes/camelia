@@ -6,7 +6,6 @@ import { defineConfig } from "dumi";
 import path from "path";
 
 const rootPath = path.resolve(__dirname, "../"); // 获取项目根目录
-console.log(rootPath)
 export default defineConfig({
   outputPath: "docs-dist",
   favicons: ["/logo.ico"],
@@ -72,6 +71,5 @@ export default defineConfig({
 
   chainWebpack(memo, { env, webpack }) {
     memo.resolve.byDependency.set("commonjs", {});
-    memo.resolve.extensions.add(".tsx").add(".ts");
   }
 });

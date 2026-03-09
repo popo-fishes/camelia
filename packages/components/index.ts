@@ -3,8 +3,8 @@
  * @Description: Modify here please
  */
 // components
-export { default as Button } from "./button";
-export type { IButtonProps } from "./button";
+export { default as Button } from "./Button";
+export type { IButtonProps } from "./Button";
 
 export { default as Input } from "./input";
 export type { InputProps, InputRef } from "./input";
