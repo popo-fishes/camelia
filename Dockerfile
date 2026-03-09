@@ -1,5 +1,5 @@
 # 构建依赖
-FROM node:18-alpine AS builder
+FROM registry.cn-hangzhou.aliyuncs.com/sync_f/node:18-alpine AS builder
 
 RUN npm config set registry https://registry.npmmirror.com && \
     npm i -g pnpm@8.15.7
@@ -19,7 +19,7 @@ COPY . .
 RUN cd .docs && npm run docs:build
 
 
-FROM nginx:1.27-alpine AS runner
+FROM registry.cn-hangzhou.aliyuncs.com/sync_f/nginx:1.27-alpine AS runner
 
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/.docs/docs-dist ./docs-dist
