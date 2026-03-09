@@ -5,13 +5,15 @@
 import { defineConfig } from "dumi";
 import path from "path";
 
+const rootPath = path.resolve(__dirname, "../"); // 获取项目根目录
+console.log(rootPath)
 export default defineConfig({
   outputPath: "docs-dist",
   favicons: ["/logo.ico"],
 
   alias: {
-    "camelia/shared": path.join("../", "packages/shared/index.ts"),
-    camelia: path.join("../", "packages/camelia/index.ts")
+    "camelia/shared": path.join(rootPath, "packages/shared/index.ts"),
+    camelia: path.join(rootPath, "packages/camelia/index.ts")
   },
 
   themeConfig: {
