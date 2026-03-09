@@ -16,7 +16,7 @@ RUN pnpm i --frozen-lockfile
 
 COPY . .
 
-RUN cd .docs && npm run docs:build
+RUN cd ./.docs && npm run docs:build
 
 
 FROM registry.cn-hangzhou.aliyuncs.com/sync_f/nginx:1.27-alpine AS runner
