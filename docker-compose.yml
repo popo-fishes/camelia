@@ -1,0 +1,9 @@
+services:
+  camelia-docs:
+    container_name: camelia-docs
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - '80:80'
+    restart: unless-stopped

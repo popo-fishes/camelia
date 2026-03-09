@@ -1,0 +1,16 @@
+.git
+.gitignore
+.husky
+.vscode
+
+node_modules
+**/node_modules
+
+dist
+
+.docs/docs-dist
+
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
