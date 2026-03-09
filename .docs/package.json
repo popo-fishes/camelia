@@ -9,8 +9,8 @@
     "dist"
   ],
   "scripts": {
-    "create-fb-scss": "tsx --import ./create-fb-scss.ts",
-    "docs:build": "npm run create-fb-scss && dumi build",
+    "create-fb-scss": "tsx ./create-fb-scss.ts",
+    "docs:build": "dumi build",
     "docs:preview": "dumi preview",
     "start": "dumi dev"
   },
