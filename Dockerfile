@@ -12,6 +12,8 @@ COPY ./build/package.json ./build/
 COPY ./build-theme/package.json ./build-theme/
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 
+RUN cd ./.docs && npm i
+
 RUN pnpm i --frozen-lockfile
 
 COPY . .
