@@ -31,6 +31,6 @@ WORKDIR /app
 COPY --from=builder /app/nginx.conf /etc/nginx/nginx.conf
 COPY --from=builder /app/.docs/docs-dist ./docs-dist
 
-EXPOSE 82
+EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
