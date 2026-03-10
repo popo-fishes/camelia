@@ -6,6 +6,8 @@ RUN npm config set registry https://registry.npmmirror.com && \
 
 WORKDIR /app
 
+ARG camelia_key
+
 COPY ./packages/camelia/package.json ./packages/camelia/
 COPY ./.docs/package.json ./.docs/
 COPY ./build/package.json ./build/
