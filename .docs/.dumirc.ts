@@ -62,10 +62,6 @@ export default defineConfig({
         title: "组件",
         link: "/libraries"
       },
-      {
-        title: "扩展",
-        link: "/extend"
-      }
     ]
   },
 

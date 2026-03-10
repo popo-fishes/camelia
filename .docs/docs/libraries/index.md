@@ -14,7 +14,7 @@ group:
 
 使用 `type`、`plain`、 和 `ghost` 来定义按钮的样式。
 
-<code src="@/button/basic.tsx"></code>
+<!-- <code src="@/button/basic.tsx"></code> -->
 
 ## 禁用状态
 
