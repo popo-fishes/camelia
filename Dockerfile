@@ -29,6 +29,6 @@ FROM registry.cn-hangzhou.aliyuncs.com/sync_f/nginx:1.27-alpine AS runner
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/.docs/docs-dist ./docs-dist
 
-EXPOSE 80
+EXPOSE 82
 
 CMD ["nginx", "-g", "daemon off;"]
