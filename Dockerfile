@@ -26,7 +26,7 @@ RUN cd ./.docs && npm run docs:build
 
 FROM registry.cn-hangzhou.aliyuncs.com/sync_f/nginx:1.27-alpine AS runner
 
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf /etc/nginx/nginx.conf
 COPY --from=builder /app/.docs/docs-dist ./docs-dist
 
 EXPOSE 82
