@@ -1,4 +1,8 @@
 /*
+ * @Date: 2026-03-10 19:30:30
+ * @Description: Modify here please
+ */
+/*
  * @Date: 2024-07-28 21:01:55
  * @Description: Modify here please
  */
@@ -10,12 +14,10 @@ import { getColumns } from "./columns";
 import Ad from "../../common/Ad"
 
 // 全局想往页面注入功能的地方
-
 export default () => {
   const columns = getColumns();
 
   useEffect(() => {
-    console.log(CAMELIA_KEY)
     if (document?.body) {
       document.body.classList.add("docs-app");
     }

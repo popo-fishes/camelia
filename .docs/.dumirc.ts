@@ -5,11 +5,8 @@
 import { defineConfig } from "dumi";
 import path from "path";
 
-const rootPath = path.resolve(__dirname, "../"); // 获取项目根目录
-const camelia_key = process.env.camelia_key
-console.log("111111111111111---------")
-console.log("camelia_key-------", camelia_key)
-console.log("111111111111111---------")
+const rootPath = path.resolve(__dirname, "../");
+
 export default defineConfig({
   outputPath: "docs-dist",
   favicons: ["/logo.ico"],
@@ -20,7 +17,7 @@ export default defineConfig({
   },
 
   define: {
-    CAMELIA_KEY: camelia_key,
+    CAMELIA_KEY: process.env.camelia_key,
   },
 
   themeConfig: {
