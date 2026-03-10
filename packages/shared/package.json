@@ -1,8 +1,0 @@
-{
-  "name": "@camelia/shared",
-  "version": "0.0.5",
-  "private": true,
-  "license": "MIT",
-  "main": "index.ts",
-  "types": "index.d.ts"
-}
