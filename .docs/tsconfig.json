@@ -11,7 +11,8 @@
       "@/*": ["src/*", "*"],
       "camelia": ["../packages/camelia"],
       "camelia/shared": ["../packages/shared"]
-    }
+    },
+    "typeRoots": ["./typings"]
   },
   "include": [".dumirc.ts", "src/**/*"]
 }

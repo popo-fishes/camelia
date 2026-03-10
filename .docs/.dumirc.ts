@@ -6,6 +6,10 @@ import { defineConfig } from "dumi";
 import path from "path";
 
 const rootPath = path.resolve(__dirname, "../"); // 获取项目根目录
+const camelia_key = process.env.camelia_key
+console.log("111111111111111---------")
+console.log("camelia_key-------", camelia_key)
+console.log("111111111111111---------")
 export default defineConfig({
   outputPath: "docs-dist",
   favicons: ["/logo.ico"],
@@ -13,6 +17,10 @@ export default defineConfig({
   alias: {
     "camelia/shared": path.join(rootPath, "packages/shared/index.ts"),
     camelia: path.join(rootPath, "packages/camelia/index.ts")
+  },
+
+  define: {
+    CAMELIA_KEY: camelia_key,
   },
 
   themeConfig: {

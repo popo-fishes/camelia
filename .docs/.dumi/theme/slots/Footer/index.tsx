@@ -15,6 +15,7 @@ export default () => {
   const columns = getColumns();
 
   useEffect(() => {
+    console.log(CAMELIA_KEY)
     if (document?.body) {
       document.body.classList.add("docs-app");
     }
@@ -33,6 +34,7 @@ export default () => {
 
   const bootom = (
     <>
+     <p>{CAMELIA_KEY}</p>
       <a href={baseLink}>Copyright 2024 Camelia | 蜀ICP备2020025971号-1</a>
       <br />
       Popo Fish 开源社区

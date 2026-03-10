@@ -2,7 +2,7 @@
 FROM registry.cn-hangzhou.aliyuncs.com/sync_f/node:18-alpine AS builder
 
 RUN npm config set registry https://registry.npmmirror.com && \
-    npm i -g pnpm@10.13.1
+    npm i -g pnpm@10.13.0
 
 WORKDIR /app
 
