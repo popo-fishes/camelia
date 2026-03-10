@@ -1,0 +1,26 @@
+/** 禁止选择 */
+@mixin noSelect() {
+  user-select: none; /* 标准的语法 */
+  -webkit-user-select: none; /* Chrome 和 Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+/** 滚动条样式 */
+@mixin scrollbarStyle() {
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+@mixin utils-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

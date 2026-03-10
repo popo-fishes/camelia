@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "baseUrl": "./",
+    "paths": {
+      "@@/*": [".dumi/tmp/*"],
+      "@/*": ["src/*", "*"],
+      "camelia": ["../packages/camelia"],
+      "camelia/shared": ["../packages/shared"]
+    }
+  },
+  "include": [".dumirc.ts", "src/**/*"]
+}
