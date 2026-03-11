@@ -2,10 +2,6 @@
  * @Date: 2026-03-10 19:30:30
  * @Description: Modify here please
  */
-/*
- * @Date: 2024-07-28 21:01:55
- * @Description: Modify here please
- */
 import { Footer } from "dumi-theme-antd-style";
 import React, { useEffect } from "react";
 import { baseLink } from "../../../../config";
@@ -13,7 +9,7 @@ import CommonHelmet from "../../common/CommonHelmet";
 import { getColumns } from "./columns";
 import Ad from "../../common/Ad"
 
-// 全局想往页面注入功能的地方
+// 全局想往页面注入功能的地方-
 export default () => {
   const columns = getColumns();
 
