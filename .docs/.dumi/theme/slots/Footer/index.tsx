@@ -9,7 +9,7 @@ import CommonHelmet from "../../common/CommonHelmet";
 import { getColumns } from "./columns";
 import Ad from "../../common/Ad"
 
-// 全局想往页面注入功能的地方
+// 全局想往页面注入功能的地方2
 export default () => {
   const columns = getColumns();
 
